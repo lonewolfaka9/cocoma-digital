@@ -594,75 +594,100 @@ textarea {
   font-size: 18px;
 }
 
-.works-block .portfoliolist>div {
-  padding: 15px;
-  overflow: hidden;
-}
+.works-block{
+  background: #fff;
 
-.works-block .portfoliolist>div img {
-  position: relative;
-  top: 0;
-  -webkit-transition: all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
-  transition: all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
-}
+  .portfoliolist{
 
-.works-block .portfoliolist>div .label {
-  position: absolute;
-  height: 60px;
-  bottom: -60px;
-  left: 0;
-  right: 0;
-  -webkit-transition: all 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
-  transition: all 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
-  background: rgba(0, 0, 0, 0.8);
-  padding: 10px;
-  color: #fff;
-}
-
-.works-block .portfoliolist>div h3 {
-  margin: 0 0 5px;
-  color: #f64b4b;
-  font-size: 16px;
-}
-
-.works-block .portfoliolist>div p {
-  margin: 0;
-  font-size: 12px;
-}
-
-.works-block .portfoliolist>div:hover .label {
-  bottom: 0;
-}
-
-.works-block .portfoliolist>div:hover img {
-  transform: scale(1.08);
-}
-
-.works-block .portfoliolist .portfolio-wrapper {
-  overflow: hidden;
-  position: relative !important;
-  background: #666;
-  cursor: pointer;
-  height: auto;
-  width: 100%;
-}
-
-.works-block .portfoliolist .label {
-  font-size: 100%;
-}
-
-.works-block .pagination {
-  justify-content: center;
-  margin: 25px 0 0;
-}
-
-.works-block .pagination .page-item.active .page-link {
-  background: #f64b4b;
-  border-color: #f64b4b;
-}
-
-.works-block .pagination .page-item .page-link {
-  padding: 8px 15px 10px;
+    >div {
+      padding: 15px;
+      overflow: hidden;
+      background: #fff;
+    }
+    >div img {
+      position: relative;
+      top: 0;
+      -webkit-transition: all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+      transition: all 600ms cubic-bezier(0.645, 0.045, 0.355, 1); 
+    }
+    >div .label {
+      position: absolute;
+      height: 60px;
+      bottom: -60px;
+      left: 0;
+      right: 0;
+      -webkit-transition: all 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
+      transition: all 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
+      background: rgba(0, 0, 0, 0.8);
+      padding: 10px;
+      color: #fff;
+    }
+  }
+  .portfoliolist-button{
+    background: #fff;
+    justify-content: center;
+    margin: 0 auto;
+    border: 1px solid red;
+    width: 80%;
+    button {
+      background: $exploreServiceButtonBackground;
+      margin-bottom: 30px;
+      font-size: 24px;
+      font-weight: 600;
+      border: 1px solid yellow;
+    }
+    .active-btn {
+      background: $appBackground;
+      color: #fff;
+     
+    }
+  }
+  .portfoliolist{
+    >div h3 {
+      margin: 0 0 5px;
+      color: $primaryContentColor;
+      font-size: 16px;
+    }
+    >div p {
+      margin: 0;
+      font-size: 12px;
+    }
+    >div:hover .label {
+      bottom: 0;
+    }
+    >div:hover img {
+      transform: scale(1.08);
+   
+    }
+    .portfolio-wrapper {
+      overflow: hidden;
+      position: relative !important;
+      background: $exploreServiceBackground;
+      cursor: pointer;
+      height: auto;
+      width: 100%;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      .image-panel {
+        background: $exploreServiceBackground;
+        width: 200px;
+        margin: 0 auto;
+        padding-top: 10px;
+      }
+      .portfolio-span {
+        background: $exploreServiceBackground;
+      }
+      h4{
+        text-align: center;
+        padding-top: 10px;
+        font-size: 32px;
+        color: $exploreServiceTextColor;
+        font-weight: normal;
+      }
+    }
+    .label {
+      font-size: 100%;
+    }
+  }
 }
 
 .teams-block div[class*="col"] {

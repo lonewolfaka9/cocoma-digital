@@ -4,6 +4,7 @@ import Container from "react-bootstrap/Container";
 import AppHeader from "./components/header/header";
 import HomeContainer from "./components/home/home";
 import TrustedBrand from "./components/trustedBrand/trustedBrand";
+import ExploreServices from "./components/exploreOurServices/exploreServices";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <main>
         <HomeContainer />
         <TrustedBrand />
+        <ExploreServices />
       </main>
     </Container>
   );

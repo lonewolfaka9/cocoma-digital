@@ -9,6 +9,10 @@ import tataev from "../../assets/images/tataev.svg";
 import imdb from "../../assets/images/imdb.svg";
 import langistan from "../../assets/images/langistan.svg";
 import primevideo from "../../assets/images/primevideo.svg";
+import videoproduction from "../../assets/images/videoproduction.svg";
+import designservices from "../../assets/images/designservices.svg";
+import postproduction from "../../assets/images/postproduction.svg";
+import videoediting from "../../assets/images/videoediting.svg";
 
 const AppImages = {
   app_name,
@@ -22,6 +26,10 @@ const AppImages = {
   imdb,
   langistan,
   primevideo,
+  videoproduction,
+  designservices,
+  postproduction,
+  videoediting,
 };
 
 export default AppImages;
