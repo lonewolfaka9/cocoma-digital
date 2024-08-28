@@ -3,6 +3,7 @@ import "./App.scss";
 import Container from "react-bootstrap/Container";
 import AppHeader from "./components/header/header";
 import HomeContainer from "./components/home/home";
+import TrustedBrand from "./components/trustedBrand/trustedBrand";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       </header>
       <main>
         <HomeContainer />
+        <TrustedBrand />
       </main>
     </Container>
   );
