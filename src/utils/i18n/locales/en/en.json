@@ -1,0 +1,28 @@
+{
+    "menu": {
+      "home":"Home",
+      "our_services":"Our Services",
+      "our_expertise":"Our Expertise",
+      "creative_services":"Creative services",
+      "video_editing":"Video Editing",
+      "design_services":"Design Services",
+      "view_all_events":"View All Events",
+      "solution":"Solution",
+      "for_brands":"For Brands",
+      "for_agencies":"For Agencies",
+      "for_creators":"For Creators",
+      "for_entrepreneurs":"For Entrepreneurs",
+      "for_studios":"For Students"
+    },
+      "english":"English",
+      "french":"French",
+      "german":"German",
+      "italian":"Italian",
+      "spanish":"Spanish",
+      "dutch":"Dutch",
+    "get_started_today":"Get Started Today",
+    "claim_free_consultation":"Claim free consultation",
+    "dominate_heading":"Dominate YouTube & social Media with proven strategies",
+    "cocoma_partner_data":"Partner with cocoma digital to create, optimize, and amplify your content on the world’s leading social platforms .let’s make your brand the next big things.",
+    "schedule_a_free_consultation":"Schedule a Free Consultation"
+  }
