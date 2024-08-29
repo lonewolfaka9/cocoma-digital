@@ -24,8 +24,17 @@ import viewerbcg from "../../assets/images/viewerbcg.svg";
 import viewer from "../../assets/images/viewer.svg";
 import subscribercount from "../../assets/images/subscribercount.svg";
 import videoproduced from "../../assets/images/videoproduced.svg";
+import storyimage from "../../assets/images/storyimage.svg";
+import primevideoicon from "../../assets/images/primeviewicon.svg";
+import minitvicon from "../../assets/images/minitvicon.svg";
+import tataevicon from "../../assets/images/tataevicon.svg";
+import commenticon from "../../assets/images/commenticon.svg";
 
 const AppImages = {
+  commenticon,
+  primevideoicon,
+  minitvicon,
+  tataevicon,
   viewer,
   subscribercount,
   videoproduced,
@@ -52,6 +61,7 @@ const AppImages = {
   videoediting,
   servicesplatformbcg,
   viewerbcg,
+  storyimage,
 };
 
 export default AppImages;

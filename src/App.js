@@ -7,6 +7,7 @@ import TrustedBrand from "./components/trustedBrand/trustedBrand";
 import ExploreServices from "./components/exploreOurServices/exploreServices";
 import ServicesByPlatform from "./components/servicesByPlatform/servicesByPlatform";
 import Viewer from "./components/viewer/viewer";
+import LatestStories from "./components/latestStories/latestStories";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <ExploreServices />
         <ServicesByPlatform />
         <Viewer />
+        <LatestStories />
       </main>
     </Container>
   );
