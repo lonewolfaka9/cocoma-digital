@@ -6,6 +6,7 @@ import HomeContainer from "./components/home/home";
 import TrustedBrand from "./components/trustedBrand/trustedBrand";
 import ExploreServices from "./components/exploreOurServices/exploreServices";
 import ServicesByPlatform from "./components/servicesByPlatform/servicesByPlatform";
+import Viewer from "./components/viewer/viewer";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <TrustedBrand />
         <ExploreServices />
         <ServicesByPlatform />
+        <Viewer />
       </main>
     </Container>
   );

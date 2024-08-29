@@ -21,8 +21,14 @@ import xIcon from "../../assets/images/x.svg";
 import youtube from "../../assets/images/youtube.svg";
 import servicesplatformbcg from "../../assets/images/services_platform_bcg.svg";
 import viewerbcg from "../../assets/images/viewerbcg.svg";
+import viewer from "../../assets/images/viewer.svg";
+import subscribercount from "../../assets/images/subscribercount.svg";
+import videoproduced from "../../assets/images/videoproduced.svg";
 
 const AppImages = {
+  viewer,
+  subscribercount,
+  videoproduced,
   facebook,
   instagram,
   linkedin,

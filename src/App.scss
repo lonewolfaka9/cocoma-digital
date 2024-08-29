@@ -750,7 +750,14 @@ textarea {
   position: relative;
   overflow: hidden;
 }
-
+.viewerContainer {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  .viewer-icon {
+    padding: 8%;
+  }
+}
 .teams-block .image img {
   width: 100%;
   height: auto;
