@@ -17,7 +17,7 @@ const TrustedBrand = () => {
       <p>{t("trusted_brand_heading")}</p>
       <Marquee>
         {brandData.map((card) => (
-          <Brand cardsrc={card}></Brand>
+          <Brand cardsrc={card} key={`brand-${card}`}></Brand>
         ))}
       </Marquee>
     </Container>

@@ -6,6 +6,7 @@ import AppImages from "../../utils/images";
 import { useTranslation } from "react-i18next";
 import { Button } from "react-bootstrap";
 import { useState } from "react";
+import { ArrowDown } from "react-bootstrap-icons";
 
 const worksData = [
   {
@@ -64,6 +65,9 @@ function ExploreServices() {
   const onClickService = (service) => {
     setActiveService(service);
   };
+  const onShowMore = () => {
+    console.log("onShowMore");
+  };
   return (
     <section id="works" className="block works-block">
       <Container fluid>
@@ -73,7 +77,7 @@ function ExploreServices() {
         </div>
         <Row className="portfoliolist-button align-items-center">
           {buttonData.map((data, idx) => (
-            <Col xs="auto">
+            <Col xs="auto" key={`ex-ser-${idx}`}>
               <Button
                 variant="none"
                 className={data === activeService ? "active-btn" : "none"}
@@ -110,6 +114,9 @@ function ExploreServices() {
               </Col>
             );
           })}
+          <Button variant="link" className="show-more-btn" onClick={onShowMore}>
+            {t("show_more")} <ArrowDown color="#080808"></ArrowDown>
+          </Button>
         </Row>
       </Container>
     </section>
