@@ -595,10 +595,12 @@ textarea {
 }
 
 .works-block{
-  background: #fff;
+  background: #fff; 
 
   .portfoliolist{
-
+    background: #fff;
+    margin-left: 0px;
+    margin-right: 0px;
     >div {
       padding: 15px;
       overflow: hidden;
@@ -627,14 +629,12 @@ textarea {
     background: #fff;
     justify-content: center;
     margin: 0 auto;
-    border: 1px solid red;
     width: 80%;
     button {
       background: $exploreServiceButtonBackground;
       margin-bottom: 30px;
       font-size: 24px;
       font-weight: 600;
-      border: 1px solid yellow;
     }
     .active-btn {
       background: $appBackground;

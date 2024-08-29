@@ -5,6 +5,7 @@ import Image from "react-bootstrap/Image";
 import AppImages from "../../utils/images";
 import { useTranslation } from "react-i18next";
 import { Button } from "react-bootstrap";
+import { useState } from "react";
 
 const worksData = [
   {
@@ -59,6 +60,10 @@ const buttonData = [
 
 function ExploreServices() {
   const { t } = useTranslation();
+  const [activeService, setActiveService] = useState("content_service");
+  const onClickService = (service) => {
+    setActiveService(service);
+  };
   return (
     <section id="works" className="block works-block">
       <Container fluid>
@@ -66,22 +71,29 @@ function ExploreServices() {
           <h2>{t("explore_our_services")}</h2>
           <div className="subtitle">{t("explore_our_awesome_works")}</div>
         </div>
-        <Row className="portfoliolist-button" fluid={"sm"}>
+        <Row className="portfoliolist-button align-items-center">
           {buttonData.map((data, idx) => (
-            <Col>
+            <Col xs="auto">
               <Button
                 variant="none"
-                className={idx === 0 ? "active-btn" : "none"}
+                className={data === activeService ? "active-btn" : "none"}
+                onClick={() => onClickService(data)}
               >
                 {t(data)}
               </Button>
             </Col>
           ))}
         </Row>
-        <Row className="portfoliolist">
+        <Row className="portfoliolist align-items-center">
           {worksData.map((works) => {
             return (
-              <Col sm={4} key={works.id}>
+              <Col
+                sm={4}
+                key={works.id}
+                style={{
+                  border: "none",
+                }}
+              >
                 <Container className="portfolio-wrapper">
                   <Row className="image-panel">
                     <Image src={works.image} />
@@ -90,10 +102,10 @@ function ExploreServices() {
                     <h4>{t(`${works.title}`)}</h4>
                   </Row>
 
-                  <div className="label text-center">
+                  <Container className="label text-center">
                     <h3>{t(`${works.title}`)}</h3>
                     <p>{t(`${works.subtitle}`)}</p>
-                  </div>
+                  </Container>
                 </Container>
               </Col>
             );
