@@ -13,8 +13,22 @@ import videoproduction from "../../assets/images/videoproduction.svg";
 import designservices from "../../assets/images/designservices.svg";
 import postproduction from "../../assets/images/postproduction.svg";
 import videoediting from "../../assets/images/videoediting.svg";
+import facebook from "../../assets/images/facebook.svg";
+import instagram from "../../assets/images/instagram.svg";
+import linkedin from "../../assets/images/linkedin.svg";
+import tiktok from "../../assets/images/tiktok.svg";
+import xIcon from "../../assets/images/x.svg";
+import youtube from "../../assets/images/youtube.svg";
+import servicesplatformbcg from "../../assets/images/services_platform_bcg.svg";
+import viewerbcg from "../../assets/images/viewerbcg.svg";
 
 const AppImages = {
+  facebook,
+  instagram,
+  linkedin,
+  tiktok,
+  xIcon,
+  youtube,
   app_name,
   app_logo,
   lang_icon,
@@ -30,6 +44,8 @@ const AppImages = {
   designservices,
   postproduction,
   videoediting,
+  servicesplatformbcg,
+  viewerbcg,
 };
 
 export default AppImages;

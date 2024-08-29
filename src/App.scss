@@ -696,7 +696,42 @@ textarea {
     }
   }
 }
-
+.works-block .portfoliolist .portfolio-wrapper {
+  .servicesByPlatform{
+  box-shadow: none;
+  background-color: #fff;
+  }
+  .portfolio-span {
+    background: transparent;
+    padding-top: 30px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+  }
+}
+.servicesByPlatform {
+  .portfolio-wrapper { 
+    >div img {
+      width: 100px;
+    }
+    .portfolio-span {
+     height: 100px;
+     background: transparent;
+    }
+    .title {
+      font-size: 24px;
+      font-weight: 600;
+      color: #000000;
+      margin-top: 20px;
+    }
+    .subtitle {
+      color: #3D3D3D;
+      font-size: 14px;
+      font-weight: 400;
+      margin-top: 10px;
+    }
+  }
+}
 .teams-block div[class*="col"] {
   margin: 0 0 50px;
 }

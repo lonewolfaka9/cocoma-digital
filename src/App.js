@@ -5,6 +5,7 @@ import AppHeader from "./components/header/header";
 import HomeContainer from "./components/home/home";
 import TrustedBrand from "./components/trustedBrand/trustedBrand";
 import ExploreServices from "./components/exploreOurServices/exploreServices";
+import ServicesByPlatform from "./components/servicesByPlatform/servicesByPlatform";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <HomeContainer />
         <TrustedBrand />
         <ExploreServices />
+        <ServicesByPlatform />
       </main>
     </Container>
   );
