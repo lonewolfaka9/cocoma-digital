@@ -8,6 +8,8 @@ import ExploreServices from "./components/exploreOurServices/exploreServices";
 import ServicesByPlatform from "./components/servicesByPlatform/servicesByPlatform";
 import Viewer from "./components/viewer/viewer";
 import LatestStories from "./components/latestStories/latestStories";
+import WorkFrom from "./components/latest/workFrom";
+import AppFooter from "./components/footer/footer";
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
         <ServicesByPlatform />
         <Viewer />
         <LatestStories />
+        <WorkFrom />
+        <AppFooter />
       </main>
     </Container>
   );

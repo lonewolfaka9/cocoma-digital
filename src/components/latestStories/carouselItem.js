@@ -6,8 +6,8 @@ const CarouselItem = ({ item }) => {
   const { t } = useTranslation();
   return (
     <Row>
-      {item.map((data) => (
-        <Col>
+      {item.map((data, idx) => (
+        <Col key={`carousel-items-data-${idx}`}>
           <Col
             style={{
               display: "flex",

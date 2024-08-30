@@ -29,8 +29,10 @@ import primevideoicon from "../../assets/images/primeviewicon.svg";
 import minitvicon from "../../assets/images/minitvicon.svg";
 import tataevicon from "../../assets/images/tataevicon.svg";
 import commenticon from "../../assets/images/commenticon.svg";
+import tvshow from "../../assets/images/tvshow.svg";
 
 const AppImages = {
+  tvshow,
   commenticon,
   primevideoicon,
   minitvicon,

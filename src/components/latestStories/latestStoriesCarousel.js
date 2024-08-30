@@ -1,13 +1,11 @@
 import Carousel from "react-bootstrap/Carousel";
-import AppImages from "../../utils/images";
-import { Col, Row } from "react-bootstrap";
 import CarouselItem from "./carouselItem";
 
 function LatestStoriesCarousel({ data }) {
   return (
     <Carousel>
-      {data.map((item) => (
-        <Carousel.Item>
+      {data.map((item, idx) => (
+        <Carousel.Item key={`latest-stories-item-${idx}`}>
           <CarouselItem item={item}></CarouselItem>
         </Carousel.Item>
       ))}

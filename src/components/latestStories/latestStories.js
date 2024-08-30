@@ -102,7 +102,7 @@ const LatestStories = () => {
   const { t } = useTranslation();
   return (
     <section id="stories" className="block works-block latest-stories">
-      <Row fluid>
+      <Row>
         <p>{t("our_clients")}</p>
         <h2>{t("latest_success_stories")}</h2>
       </Row>

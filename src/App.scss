@@ -325,10 +325,12 @@ textarea {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background: #f64b4b;
+  background: $primaryContentColor;
   border-radius: 3px;
   color: #fff;
   border: 0;
+  border-radius: 50%;
+  z-index: 1000;
 }
 
 .go-top:before {
@@ -347,7 +349,8 @@ textarea {
 }
 
 .go-top:hover {
-  background: #f41a1a;
+  background: $buttonHoverColor;
+  color: #3D3D3D;
 }
 
 .pagination>li.active a {
@@ -832,7 +835,12 @@ textarea {
   }
 
 }
-
+.latest-work-from {
+  .container, .container-fluid, .container-sm, .container-md, .container-lg, .container-xl, .container-xxl {
+    margin:0px ;
+    padding: 0px;
+  }
+}
 .testimonials-block {
   padding: 90px 0 70px;
   background-position: 50% 0;
