@@ -64,7 +64,9 @@
     "amazon_minitv_videos":"Amazon MiniTV videos",
     "tata_ev_videos":"Tata EV Videos",
     "dummy_text":"Lorem ipsum dolor sit amet consectetur. Nulla adipiscing mattis ullamcorper",
-    "our_latest_work_from":"our LATEST WORK FROM",
+    "our_latest_work_from":"our latest work from",
     "film_web_series_tv_shows":"FILMs, WEB-SERIES & TV shows",
-    "view_all":"View All"
+    "view_all":"View All",
+    "latest_videos_from":"Latest videos from",
+    "our_creative_house":"Our creative house"
   }

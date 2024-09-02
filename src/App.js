@@ -10,6 +10,7 @@ import Viewer from "./components/viewer/viewer";
 import LatestStories from "./components/latestStories/latestStories";
 import WorkFrom from "./components/latest/workFrom";
 import AppFooter from "./components/footer/footer";
+import CreativeHouse from "./components/latest/creativeHouse";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Viewer />
         <LatestStories />
         <WorkFrom />
+        <CreativeHouse />
         <AppFooter />
       </main>
     </Container>

@@ -30,8 +30,12 @@ import minitvicon from "../../assets/images/minitvicon.svg";
 import tataevicon from "../../assets/images/tataevicon.svg";
 import commenticon from "../../assets/images/commenticon.svg";
 import tvshow from "../../assets/images/tvshow.svg";
+import creativehouse from "../../assets/images/creativehouse.svg";
+import creativehousedesign from "../../assets/images/creativehousedesign.svg";
 
 const AppImages = {
+  creativehouse,
+  creativehousedesign,
   tvshow,
   commenticon,
   primevideoicon,
