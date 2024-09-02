@@ -66,13 +66,13 @@ function WorkFrom() {
       className="block works-block latest-stories latest-work-from"
     >
       <Row>
-        <p>{t("our_clients")}</p>
+        <p>{t("our_latest_work_from")}</p>
         <h2
           style={{
             paddingBottom: 30,
           }}
         >
-          {t("latest_success_stories")}
+          {t("film_web_series_tv_shows")}
 
           <Button
             variant="link"

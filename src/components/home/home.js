@@ -23,7 +23,7 @@ function HomeContainer() {
             }}
           >
             <Image src={AppImages.home_global} />
-
+            {/* 
             <Button
               variant="secondary"
               className="p-2 schedule-btn"
@@ -33,7 +33,7 @@ function HomeContainer() {
             >
               {t("schedule_a_free_consultation")}
               <ArrowUpRight size={20}></ArrowUpRight>
-            </Button>
+            </Button> */}
             <p style={Typography.mainHeadingH1}>{t("dominate_heading")}</p>
             <p style={Typography.mainHeadingH2}>{t("cocoma_partner_data")}</p>
             <Button
