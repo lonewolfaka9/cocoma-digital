@@ -11,6 +11,7 @@ import LatestStories from "./components/latestStories/latestStories";
 import WorkFrom from "./components/latest/workFrom";
 import AppFooter from "./components/footer/footer";
 import CreativeHouse from "./components/latest/creativeHouse";
+import ShortReels from "./components/latest/shortReels";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <LatestStories />
         <WorkFrom />
         <CreativeHouse />
+        <ShortReels />
         <AppFooter />
       </main>
     </Container>

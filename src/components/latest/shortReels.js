@@ -7,72 +7,72 @@ const carouselData = [
   [
     {
       id: 11,
-      image: AppImages.sho,
+      image: AppImages.latestshort,
     },
     {
       id: 12,
-      image: AppImages.creativehousedesign,
+      image: AppImages.lastestshortcat,
     },
     {
       id: 13,
-      image: AppImages.creativehouse,
+      image: AppImages.latestshort,
     },
     {
       id: 14,
-      image: AppImages.tvshow,
+      image: AppImages.lastestshortcat,
     },
     {
       id: 15,
-      image: AppImages.creativehouse,
+      image: AppImages.latestshort,
     },
     {
       id: 16,
-      image: AppImages.creativehouse,
+      image: AppImages.latestshort,
     },
   ],
   [
     {
       id: 21,
-      image: AppImages.creativehouse,
+      image: AppImages.latestshort,
     },
     {
       id: 22,
-      image: AppImages.creativehousedesign,
+      image: AppImages.lastestshortcat,
     },
     {
       id: 23,
-      image: AppImages.creativehouse,
+      image: AppImages.latestshort,
     },
     {
       id: 24,
-      image: AppImages.tvshow,
+      image: AppImages.lastestshortcat,
     },
     {
       id: 25,
-      image: AppImages.creativehouse,
+      image: AppImages.latestshort,
     },
     {
       id: 26,
-      image: AppImages.tvshow,
+      image: AppImages.lastestshortcat,
     },
   ],
 ];
 
-function CreativeHouse() {
+function ShortReels() {
   const { t } = useTranslation();
   return (
     <section
-      id="stories_our_creative_house"
+      id="stories_shorts_reels"
       className="block works-block latest-stories latest-work-from"
     >
       <Row>
-        <p>{t("latest_videos_from")}</p>
+        <p>{t("our_latest")}</p>
         <h2
           style={{
             paddingBottom: 30,
           }}
         >
-          {t("our_creative_house")}
+          {t("shorts_reels")}
 
           <Button
             variant="link"
@@ -87,4 +87,4 @@ function CreativeHouse() {
   );
 }
 
-export default CreativeHouse;
+export default ShortReels;

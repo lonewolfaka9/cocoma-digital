@@ -32,8 +32,12 @@ import commenticon from "../../assets/images/commenticon.svg";
 import tvshow from "../../assets/images/tvshow.svg";
 import creativehouse from "../../assets/images/creativehouse.svg";
 import creativehousedesign from "../../assets/images/creativehousedesign.svg";
+import latestshort from "../../assets/images/latestshort.svg";
+import lastestshortcat from "../../assets/images/lastestshortcat.svg";
 
 const AppImages = {
+  lastestshortcat,
+  latestshort,
   creativehouse,
   creativehousedesign,
   tvshow,
