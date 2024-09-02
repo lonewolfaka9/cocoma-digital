@@ -34,8 +34,12 @@ import creativehouse from "../../assets/images/creativehouse.svg";
 import creativehousedesign from "../../assets/images/creativehousedesign.svg";
 import latestshort from "../../assets/images/latestshort.svg";
 import lastestshortcat from "../../assets/images/lastestshortcat.svg";
+import designwork from "../../assets/images/designwork.svg";
+import designworkgraphics from "../../assets/images/designworkgraphics.svg";
 
 const AppImages = {
+  designwork,
+  designworkgraphics,
   lastestshortcat,
   latestshort,
   creativehouse,

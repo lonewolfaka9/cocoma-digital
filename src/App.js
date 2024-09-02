@@ -12,6 +12,7 @@ import WorkFrom from "./components/latest/workFrom";
 import AppFooter from "./components/footer/footer";
 import CreativeHouse from "./components/latest/creativeHouse";
 import ShortReels from "./components/latest/shortReels";
+import DesignWorks from "./components/latest/designWorks";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         <WorkFrom />
         <CreativeHouse />
         <ShortReels />
+        <DesignWorks />
         <AppFooter />
       </main>
     </Container>
