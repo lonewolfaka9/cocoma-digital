@@ -71,5 +71,14 @@
     "our_creative_house":"Our creative house",
     "our_latest":"our latest",
     "shorts_reels":"shorts/ reels",
-    "designs_work":"Designs work"
+    "designs_work":"Designs work",
+    "monthly_performance_showcase":"Monthly Performance Showcase",
+    "monthly_performance":"{month} {year} highlights",
+    "history":"History",
+    "our_youtube_gathered_user":"Our YouTube channels channels collectively gathered {count}+ {type}",
+    "organic_views_month":"organic views in the month of {month} {year}",
+    "our_creative _team_produced_videos":"Our creative team produced over {count} videos & shorts in {month} {year}",
+    "with_an_average_click_artist":"With an average click through rate of {artist}%, our thumbnail artist",
+    "collectively_designed_youtube_thumbnails. ":"collectively designed {count}+ YouTube thumbnails. ",
+    "our_client_progetto_happiness_details":"Our client Progetto Happiness, hits {count}+ subscribers in {date}"
   }

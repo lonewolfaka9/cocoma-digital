@@ -7,7 +7,7 @@ const carouselData = [
   [
     {
       id: 11,
-      image: AppImages.sho,
+      image: AppImages.creativehouse,
     },
     {
       id: 12,
