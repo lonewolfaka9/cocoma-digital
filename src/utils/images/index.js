@@ -36,8 +36,16 @@ import latestshort from "../../assets/images/latestshort.svg";
 import lastestshortcat from "../../assets/images/lastestshortcat.svg";
 import designwork from "../../assets/images/designwork.svg";
 import designworkgraphics from "../../assets/images/designworkgraphics.svg";
+import performancectr from "../../assets/images/performancectr.svg";
+import performancesubscriber from "../../assets/images/performancesubscriber.svg";
+import performancevideoes from "../../assets/images/performancevideoes.svg";
+import performanceviewes from "../../assets/images/performanceviewes.svg";
 
 const AppImages = {
+  performancectr,
+  performancesubscriber,
+  performancevideoes,
+  performanceviewes,
   designwork,
   designworkgraphics,
   lastestshortcat,

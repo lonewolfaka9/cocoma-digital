@@ -390,7 +390,29 @@ textarea {
 .pagetitle .subtitle {
   color: #e6e6e6;
 }
-
+.monthly-performance {
+  .history-btn{
+    color: #373737;
+    text-decoration: none;
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  li {
+    padding-left: 1em; 
+    text-indent: -.7em;
+    font-size: 24px;
+    color: #373737;
+  }
+  
+  li::before {
+    content: "• ";
+    color: #080808; 
+  }
+}
 #header {
   padding: 15px 0;
   position: fixed;
