@@ -32,9 +32,8 @@ const RenderPerformance = ({ data, trans }) => {
   const listItem = [];
 
   for (let value in data) {
-    console.log(performanceHighlights[value]);
     listItem.push(
-      <li>
+      <li key={`performance-${value}`}>
         {trans(value, {
           count: performanceHighlights[value]["count"],
           nextData: performanceHighlights[value]["nextData"],

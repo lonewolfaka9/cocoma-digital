@@ -496,18 +496,53 @@ textarea {
 }
 
 #footer {
-  background: #f64b4b;
+  background: #080808;
   padding: 50px 0;
   color: #fff;
-  text-align: center;
-}
 
-#footer .copyright {
-  margin: 0 0 15px;
-}
-
-#footer .socials a:hover {
-  background: #f53333;
+  .copyright-text {
+    color: #fff;
+    font-size: 22px;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 10px;
+  }
+  .item-list {
+    padding: 30px;
+    h2 {
+      text-transform: uppercase;
+      font-size: 22px;
+      font-weight: bold;
+      padding-bottom: 15px;
+    }
+    span {
+      font-size: 15px;
+      padding-bottom: 10px;
+      cursor: pointer;
+    }
+  }
+  .social-img-logo {
+   img {
+    width: 60%;
+    cursor: pointer;
+   }
+  }
+  .social-img {
+    display: flex;
+    justify-content: flex-end;
+    align-self: center;
+  img{
+    padding-left: 10px;
+    width: 40px;
+    cursor: pointer;
+  }
+  }
+  .copyright {
+    margin: 0 0 15px;
+  }
+  .socials a:hover {
+    background: $primaryContentColor;
+  }
 }
 
 .block {
@@ -1221,6 +1256,17 @@ textarea {
 @media only screen and (max-width: 767px) {
   h2 {
     font-size: 20px;
+  }
+  #footer {
+    background: #080808;
+    padding: 50px 0;
+    color: #fff;
+ 
+    .social-img-logo {
+     img {
+      width: 100%;
+     }
+    }
   }
 
   h3 {

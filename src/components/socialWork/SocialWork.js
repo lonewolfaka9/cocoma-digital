@@ -86,7 +86,7 @@ function SocialTabs() {
     >
       {tabsData.map((tab) => {
         return (
-          <Tab eventKey={tab.name} title={tab.title}>
+          <Tab eventKey={tab.name} title={tab.title} key={`tab-${tab.name}`}>
             <StoriesCarousel data={carouselData} />
           </Tab>
         );

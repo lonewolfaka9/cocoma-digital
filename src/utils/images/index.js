@@ -42,7 +42,18 @@ import performancevideoes from "../../assets/images/performancevideoes.svg";
 import performanceviewes from "../../assets/images/performanceviewes.svg";
 import socialwork from "../../assets/images/socialwork.svg";
 
+import facebookwhite from "../../assets/images/facebookwhite.svg";
+import instagramwhite from "../../assets/images/instagramwhite.svg";
+import whatsapp from "../../assets/images/whatsapp.svg";
+import youtubewhite from "../../assets/images/youtubewhite.svg";
+import appwhitelogo from "../../assets/images/appwhitelogo.svg";
+
 const AppImages = {
+  appwhitelogo,
+  youtubewhite,
+  facebookwhite,
+  instagramwhite,
+  whatsapp,
   socialwork,
   performancectr,
   performancesubscriber,
