@@ -424,7 +424,14 @@ textarea {
   box-shadow: 0 0 8px 0px rgba(0, 0, 0, 0.1);
   transition: all 0.5s linear;
 }
-
+#stories_shorts_reels {
+  .nav-tabs {
+    border-bottom: 1px solid $primaryContentColor;
+  }
+  .nav-tabs .nav-link.active {
+    border: 1px solid $primaryContentColor ; 
+  }
+}
 #header .navbar {
   padding: 0;
   justify-content: space-between;

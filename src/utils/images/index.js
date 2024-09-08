@@ -40,8 +40,10 @@ import performancectr from "../../assets/images/performancectr.svg";
 import performancesubscriber from "../../assets/images/performancesubscriber.svg";
 import performancevideoes from "../../assets/images/performancevideoes.svg";
 import performanceviewes from "../../assets/images/performanceviewes.svg";
+import socialwork from "../../assets/images/socialwork.svg";
 
 const AppImages = {
+  socialwork,
   performancectr,
   performancesubscriber,
   performancevideoes,

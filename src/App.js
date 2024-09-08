@@ -14,6 +14,7 @@ import CreativeHouse from "./components/latest/creativeHouse";
 import ShortReels from "./components/latest/shortReels";
 import DesignWorks from "./components/latest/designWorks";
 import MonthlyPerformance from "./components/monthlyPerformance/monthlyPerformance";
+import SocialWork from "./components/socialWork/SocialWork";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
         <ShortReels />
         <DesignWorks />
         <MonthlyPerformance />
+        <SocialWork />
         <AppFooter />
       </main>
     </Container>
