@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Col, Image, Row, Stack } from "react-bootstrap";
+import { Col, Image, Row } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import AppImages from "../../utils/images";
 import { useTranslation } from "react-i18next";

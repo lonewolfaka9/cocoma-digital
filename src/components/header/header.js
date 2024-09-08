@@ -3,7 +3,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import AppImages from "../../utils/images";
 import { useTranslation } from "react-i18next";
-import { Button, Col, Image, NavDropdown, Row, Stack } from "react-bootstrap";
+import { Button, NavDropdown } from "react-bootstrap";
 import { MenuUp, ArrowUpRight } from "react-bootstrap-icons";
 import { useState } from "react";
 import LangOverlay from "../langOverlay/langOverlay";

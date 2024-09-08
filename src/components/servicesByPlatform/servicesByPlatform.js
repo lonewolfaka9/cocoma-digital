@@ -5,8 +5,7 @@ import Image from "react-bootstrap/Image";
 import AppImages from "../../utils/images";
 import { useTranslation } from "react-i18next";
 import { Button } from "react-bootstrap";
-import { useState } from "react";
-import { Arrow90degLeft, ArrowDown, ArrowUpRight } from "react-bootstrap-icons";
+import { ArrowDown, ArrowUpRight } from "react-bootstrap-icons";
 import Typography from "../../theme/cocoma/typography";
 
 const worksData = [

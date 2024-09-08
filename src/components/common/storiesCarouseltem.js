@@ -1,5 +1,4 @@
-import { Col, Container, Image, Row } from "react-bootstrap";
-import AppImages from "../../utils/images";
+import { Col, Image, Row } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 
 const StoriesCarouselItem = ({ item }) => {
