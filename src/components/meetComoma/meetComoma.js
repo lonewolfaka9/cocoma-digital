@@ -51,9 +51,13 @@ const fightSectionData = [
 const FightSection = ({ t }) => {
   return (
     <Row className="portfoliolist">
-      {fightSectionData.map((item) => {
+      {fightSectionData.map((item, idx) => {
         return (
-          <Col sm={6} className="portfoliolist align-items-center">
+          <Col
+            sm={6}
+            className="portfoliolist align-items-center"
+            key={`fight-${idx}`}
+          >
             <Container className="fight-section">
               <Card>
                 <Card.Body>
@@ -65,7 +69,7 @@ const FightSection = ({ t }) => {
                     </Row>
                   </Card.Title>
                   <Card.Text>
-                    <h4> {t(item.title)}</h4>
+                    <span> {t(item.title)}</span>
                     <Button variant="warning" className="fight-btn">
                       {t(item.buttonTitle)}
                       <ArrowUpRight size={20}></ArrowUpRight>

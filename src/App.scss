@@ -515,10 +515,15 @@ textarea {
       font-weight: bold;
       padding-bottom: 15px;
     }
-    span {
-      font-size: 15px;
+    a {
+      font-size: 20px;
+      text-align: left;
+      text-decoration: none; 
       padding-bottom: 10px;
-      cursor: pointer;
+      color: #fff;
+      &:hover {
+        color: $primaryContentColor;
+      }
     }
   }
   .social-img-logo {
@@ -555,6 +560,8 @@ textarea {
     border-radius: 15px;
     .fight-btn {
       width: 300px;
+      margin-top: 20px;
+      margin-bottom: 10px;
     }
     img {
       width: 90%;
@@ -567,7 +574,7 @@ textarea {
       .row {
         background: #F1F1F1;
       }
-      h4 {
+      span {
         padding: 20px 0px;
         font-size: 36px;
         font-weight: 600;

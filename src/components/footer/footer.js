@@ -1,60 +1,166 @@
 import React, { useState, useEffect } from "react";
-import { Col, Image, Row } from "react-bootstrap";
+import { Button, Col, Image, Row } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import AppImages from "../../utils/images";
 import { useTranslation } from "react-i18next";
+import {
+  Link,
+  ScrollRestoration,
+  unstable_HistoryRouter,
+  useNavigate,
+} from "react-router-dom";
 
 const services = [
-  "youtube_services",
-  "instagram_services",
-  "video_editing_services",
-  "motion_graphics",
-  "graphic_designs",
-  "influencer_marketing",
-  "digital_marketing",
+  {
+    title: "youtube_services",
+    url: "/services/youtube/services",
+  },
+  {
+    title: "instagram_services",
+    url: "/services/instagram/services",
+  },
+  {
+    title: "video_editing_services",
+    url: "/services/video/editing/services",
+  },
+  {
+    title: "motion_graphics",
+    url: "/services/motion/graphics",
+  },
+  {
+    title: "graphic_designs",
+    url: "/services/graphic/design",
+  },
+  {
+    title: "influencer_marketing",
+    url: "/services/influencer/marketing",
+  },
+  {
+    title: "digital_marketing",
+    url: "/services/digital/marketing",
+  },
 ];
 const solutions = [
-  "for_brand",
-  "for_agencies",
-  "for_creators",
-  "for_entrepreneurs",
-  "for_studios",
+  {
+    title: "for_brand",
+    url: "/solutions/for_brand",
+  },
+  {
+    title: "for_agencies",
+    url: "/solutions/for_agencies",
+  },
+  {
+    title: "for_creators",
+    url: "/solutions/for_creators",
+  },
+  {
+    title: "for_entrepreneurs",
+    url: "/solutions/for_entrepreneurs",
+  },
+  {
+    title: "for_studios",
+    url: "/solutions/for_studios",
+  },
 ];
 const digitalData = [
   {
     key: "cocoma_digital",
-    value: ["about_us", "how_it_works", "blog"],
+    value: [
+      {
+        title: "about_us",
+        url: "/digital/about_us",
+      },
+      {
+        title: "how_it_works",
+        url: "/digital/how_it_works",
+      },
+      {
+        title: "blog",
+        url: "/digital/blog",
+      },
+    ],
   },
   {
     key: "help",
     value: [
-      "contact_us",
-      "faqs",
-      "help_centre",
-      "terms_conditions",
-      "cookie_setting",
+      {
+        title: "contact_us",
+        url: "/digital/help/contact_us",
+      },
+      {
+        title: "faqs",
+        url: "/digital/help/faqs",
+      },
+      {
+        title: "help_centre",
+        url: "/digital/help/help_centre",
+      },
+      {
+        title: "terms_conditions",
+        url: "/digital/help/terms_conditions",
+      },
+      {
+        title: "cookie_setting",
+        url: "/digital/help/cookie_setting",
+      },
     ],
   },
 ];
 const companyData = [
   {
     key: "company",
-    value: ["media_kit", "cocoma_for_good", "press", "customer_stories"],
+    value: [
+      {
+        title: "media_kit",
+        url: "/company/media_kit",
+      },
+      {
+        title: "cocoma_for_good",
+        url: "/company/cocoma_for_good",
+      },
+
+      {
+        title: "press",
+        url: "/company/press",
+      },
+      {
+        title: "customer_stories",
+        url: "/company/customer_stories",
+      },
+    ],
   },
   {
     key: "resources",
-    value: ["affiliates", "partners", "learning_centre"],
+    value: [
+      {
+        title: "affiliates",
+        url: "/company/resources/affiliates",
+      },
+      {
+        title: "partners",
+        url: "/company/resources/partners",
+      },
+      {
+        title: "learning_centre",
+        url: "/company/resources/learning_centre",
+      },
+    ],
   },
 ];
+const getLink = {};
+const onItemClick = (data, navigate) => {
+  console.log(getLink[data]);
+  navigate(getLink[data]);
+};
 
-const ListData = ({ title, data, t }) => {
+const ListData = ({ title, data, t, navigate }) => {
   return (
     <Col>
       <h2>{t(title)}</h2>
       {data.map((data, idx) => {
         return (
           <Row key={`${title}-${idx}`}>
-            <span>{t(data)}</span>
+            <Link to={data.url}>{t(data.title)}</Link>
           </Row>
         );
       })}
@@ -77,7 +183,7 @@ const ListLoopData = ({ data, t }) => {
               </h2>
               {subData.value?.map((item, idx) => (
                 <Row key={`list-subData-loop-${idx}`}>
-                  <span>{t(item)}</span>
+                  <Link to={item.url}>{t(item.title)}</Link>
                 </Row>
               ))}
             </Col>
@@ -90,6 +196,7 @@ const ListLoopData = ({ data, t }) => {
 function AppFooter() {
   const [showTopBtn, setShowTopBtn] = useState(false);
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -123,7 +230,12 @@ function AppFooter() {
           </Col>
         </Row>
         <Row className="item-list">
-          <ListData data={services} t={t} title={"services"} />
+          <ListData
+            data={services}
+            t={t}
+            title={"services"}
+            navigate={navigate}
+          />
           <ListData data={solutions} t={t} title={"solutions"} />
           <ListLoopData data={digitalData} t={t} />
           <ListLoopData data={companyData} t={t} />
@@ -133,6 +245,7 @@ function AppFooter() {
         <div>{t("copyright")}</div>
       </Row>
       {showTopBtn && <div className="go-top" onClick={goTop}></div>}
+      <ScrollRestoration />
     </Container>
   );
 }

@@ -1,5 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.scss";
+
 import Container from "react-bootstrap/Container";
 import AppHeader from "./components/header/header";
 import HomeContainer from "./components/home/home";
@@ -16,7 +17,51 @@ import DesignWorks from "./components/latest/designWorks";
 import MonthlyPerformance from "./components/monthlyPerformance/monthlyPerformance";
 import SocialWork from "./components/socialWork/SocialWork";
 import MeetComoma from "./components/meetComoma/meetComoma";
-
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+const HomeComponent = () => {
+  return (
+    <>
+      <HomeContainer />
+      <TrustedBrand />
+      <ExploreServices />
+      <ServicesByPlatform />
+      <Viewer />
+      <LatestStories />
+      <WorkFrom />
+      <CreativeHouse />
+      <ShortReels />
+      <DesignWorks />
+      <MonthlyPerformance />
+      <SocialWork />
+      <MeetComoma />
+      <AppFooter />
+    </>
+  );
+};
+const YouTubeService = () => {
+  return (
+    <>
+      <HomeContainer />
+      <TrustedBrand />
+      <ExploreServices />
+      <AppFooter />
+    </>
+  );
+};
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <HomeComponent />,
+  },
+  {
+    path: "services/youtube/services",
+    element: <YouTubeService />,
+  },
+  {
+    path: "*",
+    element: <HomeComponent />,
+  },
+]);
 function App() {
   return (
     <Container fluid>
@@ -24,20 +69,7 @@ function App() {
         <AppHeader />
       </header>
       <main>
-        <HomeContainer />
-        <TrustedBrand />
-        <ExploreServices />
-        <ServicesByPlatform />
-        <Viewer />
-        <LatestStories />
-        <WorkFrom />
-        <CreativeHouse />
-        <ShortReels />
-        <DesignWorks />
-        <MonthlyPerformance />
-        <SocialWork />
-        <MeetComoma />
-        <AppFooter />
+        <RouterProvider router={router}></RouterProvider>
       </main>
     </Container>
   );
