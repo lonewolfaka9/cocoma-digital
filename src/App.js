@@ -15,6 +15,7 @@ import ShortReels from "./components/latest/shortReels";
 import DesignWorks from "./components/latest/designWorks";
 import MonthlyPerformance from "./components/monthlyPerformance/monthlyPerformance";
 import SocialWork from "./components/socialWork/SocialWork";
+import MeetComoma from "./components/meetComoma/meetComoma";
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
         <DesignWorks />
         <MonthlyPerformance />
         <SocialWork />
+        <MeetComoma />
         <AppFooter />
       </main>
     </Container>

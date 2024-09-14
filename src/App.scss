@@ -545,6 +545,52 @@ textarea {
   }
 }
 
+.meetComoma {
+  h2{
+    font-size: 40px;
+    font-weight: 400;
+  }
+  .fight-section {
+    text-align: center;
+    border-radius: 15px;
+    .card {
+      background: #F1F1F1;
+      border-radius: 20px;
+      .row {
+        background: #F1F1F1;
+      }
+      h4 {
+        padding: 20px 0px;
+        font-size: 36px;
+        font-weight: 600;
+      }
+    }
+   
+  }
+  img {
+    width: 60%;
+  }
+  .card {
+    background: #fff;
+    border: none;
+    .row {
+      background: #fff;
+      align-items: center;
+    justify-content: flex-start;
+    }
+    .count {
+    color: #F5C518;
+    font-size: 90px;
+    font-weight: 900;
+    }
+    .details {
+      margin-left: 10px;
+    }
+    span {
+      font-size: 18px;
+    }
+  }
+}
 .block {
   padding: 75px 0px 10px;
   .row{
@@ -663,6 +709,10 @@ textarea {
 
 .works-block{
   background: #fff; 
+  h2 {
+    font-size: 40px;
+    font-weight: 600;
+  }
 
   .portfoliolist{
     background: #fff;
@@ -777,6 +827,10 @@ textarea {
   }
 }
 .servicesByPlatform {
+  h2 {
+    font-size: 40px;
+    font-weight: 600;
+  }
   .portfolio-wrapper { 
     >div img {
       width: 100px;
