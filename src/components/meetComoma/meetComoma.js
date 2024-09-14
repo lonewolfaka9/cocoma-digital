@@ -66,13 +66,7 @@ const FightSection = ({ t }) => {
                   </Card.Title>
                   <Card.Text>
                     <h4> {t(item.title)}</h4>
-                    <Button
-                      variant="warning"
-                      style={{
-                        marginBottom: 20,
-                        width: "30%",
-                      }}
-                    >
+                    <Button variant="warning" className="fight-btn">
                       {t(item.buttonTitle)}
                       <ArrowUpRight size={20}></ArrowUpRight>
                     </Button>
