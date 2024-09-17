@@ -19,6 +19,7 @@ import SocialWork from "./components/socialWork/SocialWork";
 import MeetComoma from "./components/meetComoma/meetComoma";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import YouTubeServices from "./components/youtubeServices/youtubeServices";
+import HowItWork from "./components/youtubeServices/howItwork";
 const HomeComponent = () => {
   return (
     <>
@@ -43,6 +44,14 @@ const YouTubeServiceContainer = () => {
   return (
     <>
       <YouTubeServices />
+      <TrustedBrand />
+      <div
+        style={{
+          backgroundColor: "#fff",
+        }}
+      >
+        <HowItWork />
+      </div>
       <AppFooter />
     </>
   );

@@ -1086,7 +1086,49 @@ textarea {
   background: #f64b4b;
   color: #fff;
 }
-
+.how-it-works {
+  padding: 20px;
+  h1 {
+    font-size: 28px;
+    font-weight: 600;
+  }
+  .container {
+    background-color: $primaryContentColor;
+    .row {
+      padding: 20px;
+      justify-content: space-between; 
+      .count {
+        padding: 0px;
+        flex: 0;
+      }
+      .detail {
+        padding-top: 40px;
+        padding-left: 10px;
+      }
+      .move-icon {
+        padding-top: 50px;
+        img {
+          width: 20%;
+          margin-bottom: 10px;
+        }
+        
+      }
+    }
+    h1 {
+      color: #fff;
+      font-size: 30px;
+      font-weight: 600;
+    }
+    p {
+      color: #080808;
+      font-size: 16px;
+    }
+    img {
+      width: 30%;
+      margin-bottom: 10px;
+    }
+  }
+}
 .youtube-services {
   background: #080808;
   .carousel {

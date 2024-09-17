@@ -63,8 +63,10 @@ import tailoriedservice from "../../assets/images/tailoriedservice.svg";
 import videoeditingservice from "../../assets/images/videoeditingservice.svg";
 import youtubegraphicservice from "../../assets/images/youtubegraphicservice.svg";
 import youtubeservicepage from "../../assets/images/youtubeservicepage.svg";
+import arrowright from "../../assets/images/arrowright.svg";
 
 const AppImages = {
+  arrowright,
   youtubeservicepage,
   youtubegraphicservice,
   videoeditingservice,
