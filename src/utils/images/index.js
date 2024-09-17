@@ -50,8 +50,34 @@ import expert from "../../assets/images/expert.svg";
 import owner from "../../assets/images/owner.svg";
 import wehiring from "../../assets/images/wehiring.svg";
 import yourbusiness from "../../assets/images/yourbusiness.svg";
+import addsubtitle from "../../assets/images/addsubtitle.svg";
+import emilybrown from "../../assets/images/emilybrown.svg";
+import emilybrown2 from "../../assets/images/emilybrown2.svg";
+import emilybrown3 from "../../assets/images/emilybrown3.svg";
+import exploreservice from "../../assets/images/exploreservice.svg";
+import growthhacking from "../../assets/images/growthhacking.svg";
+import schedulemeeting from "../../assets/images/schedulemeeting.svg";
+import seo from "../../assets/images/seo.svg";
+import startproject from "../../assets/images/startproject.svg";
+import tailoriedservice from "../../assets/images/tailoriedservice.svg";
+import videoeditingservice from "../../assets/images/videoeditingservice.svg";
+import youtubegraphicservice from "../../assets/images/youtubegraphicservice.svg";
+import youtubeservicepage from "../../assets/images/youtubeservicepage.svg";
 
 const AppImages = {
+  youtubeservicepage,
+  youtubegraphicservice,
+  videoeditingservice,
+  seo,
+  tailoriedservice,
+  startproject,
+  schedulemeeting,
+  addsubtitle,
+  growthhacking,
+  emilybrown,
+  emilybrown2,
+  emilybrown3,
+  exploreservice,
   expert,
   owner,
   wehiring,

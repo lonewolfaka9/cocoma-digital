@@ -18,6 +18,7 @@ import MonthlyPerformance from "./components/monthlyPerformance/monthlyPerforman
 import SocialWork from "./components/socialWork/SocialWork";
 import MeetComoma from "./components/meetComoma/meetComoma";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import YouTubeServices from "./components/youtubeServices/youtubeServices";
 const HomeComponent = () => {
   return (
     <>
@@ -38,12 +39,10 @@ const HomeComponent = () => {
     </>
   );
 };
-const YouTubeService = () => {
+const YouTubeServiceContainer = () => {
   return (
     <>
-      <HomeContainer />
-      <TrustedBrand />
-      <ExploreServices />
+      <YouTubeServices />
       <AppFooter />
     </>
   );
@@ -55,7 +54,7 @@ const router = createBrowserRouter([
   },
   {
     path: "services/youtube/services",
-    element: <YouTubeService />,
+    element: <YouTubeServiceContainer />,
   },
   {
     path: "*",

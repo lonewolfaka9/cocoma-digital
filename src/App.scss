@@ -974,6 +974,7 @@ textarea {
     padding: 0px;
   }
 }
+
 .testimonials-block {
   padding: 90px 0 70px;
   background-position: 50% 0;
@@ -1086,6 +1087,58 @@ textarea {
   color: #fff;
 }
 
+.youtube-services {
+  background: #080808;
+  .carousel {
+    background: #fff;
+  }
+  .carousel .carousel-indicators button {
+    background-color:$primaryContentColor;
+    border: 2px solid #080808;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    position: relative;
+  }
+    p{
+     
+      font-size: 16px;
+      color: #3D3D3D;
+    }
+    h2{
+      color: $appBackground;
+      font-size: 38px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+   .carousel-indicators {
+   // bottom: unset;
+    justify-content: flex-end;
+   // margin-bottom: 10px;
+    //position: relative;
+  }
+  .row {
+    background: transparent;
+  }
+  .store-carousel-item {
+    padding: 20px;
+    background: #F1F1F1;
+    border-radius: 10px;
+    .carousel-subtitle {
+      font-size: 24px;
+      text-transform: capitalize;
+      color:#000000;
+      padding-bottom: 10px;
+    }
+    .carousel-details {
+      font-size: 14px;
+      text-transform: capitalize;
+      color:#000000;
+      padding-top: 15px;
+    }
+  }
+
+}
 .pricing-block div[class*="col"]:nth-child(2):before {
   content: 'Popular';
   text-transform: uppercase;
