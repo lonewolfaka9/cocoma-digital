@@ -1129,10 +1129,35 @@ textarea {
     }
   }
 }
+.youtube-services-list {
+  h2 {
+    text-transform: none;
+  }
+  .item-list {
+    text-align: center;
+   
+    .container {
+      padding: 20px;
+      background: #F1F1F1;
+      border-radius: 10px;
+      margin: 10px;
+    }
+  }
+  p {
+    padding-top: 20px;
+    color: #000000;
+    font-size: 13px;
+    font-weight: 400;
+    text-transform: none;
+  }
+}
 .youtube-services {
   background: #080808;
   .carousel {
     background: #fff;
+  }
+  .youtube-carousel-list {
+    text-align: center;
   }
   .carousel .carousel-indicators button {
     background-color:$primaryContentColor;

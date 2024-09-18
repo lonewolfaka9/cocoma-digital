@@ -20,6 +20,7 @@ import MeetComoma from "./components/meetComoma/meetComoma";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import YouTubeServices from "./components/youtubeServices/youtubeServices";
 import HowItWork from "./components/youtubeServices/howItwork";
+import ServicesList from "./components/youtubeServices/servicesList";
 const HomeComponent = () => {
   return (
     <>
@@ -51,6 +52,7 @@ const YouTubeServiceContainer = () => {
         }}
       >
         <HowItWork />
+        <ServicesList />
       </div>
       <AppFooter />
     </>
