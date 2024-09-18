@@ -1129,18 +1129,75 @@ textarea {
     }
   }
 }
+.carousel-control-prev, .carousel-control-next {
+  width: 10% !important;
+}
+
+.cart-services {
+  padding: 30px;
+  margin-top: 70px;
+  .btn {
+    border: none;
+    padding: 10px;
+    &:hover{
+      color: #080808;
+      background: $buttonHoverColor;
+    }
+  }
+  .heading-container {
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+  }
+  .row {
+    padding-top: 10px;
+    padding-left: 10px;
+    h2 {
+      padding-top: 10px;
+    }
+    .col {
+      background: #F1F1F1;
+      padding: 20px;
+    }
+  }
+  .delete-btn {
+    text-align: right;
+    cursor: pointer;
+   
+  }
+  .list-view{
+    background: #F1F1F1;
+    margin-bottom: 15px;
+    border-radius: 10px;
+  }
+}
 .youtube-services-list {
   h2 {
     text-transform: none;
   }
+
   .item-list {
     text-align: center;
+    .link-btn {
+      margin-bottom: 20;
+      background: #080808;
+      padding: 10px 15px;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      &:hover{
+        color: #080808;
+        background: $buttonHoverColor;
+      }
+    }
+   
    
     .container {
       padding: 20px;
       background: #F1F1F1;
       border-radius: 10px;
       margin: 10px;
+  
     }
   }
   p {

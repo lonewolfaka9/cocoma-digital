@@ -2,6 +2,7 @@ import { Button, Col, Container, Image, Row } from "react-bootstrap";
 import Carousel from "react-bootstrap/Carousel";
 import { useTranslation } from "react-i18next";
 import AppImages from "../../utils/images";
+import { Link } from "react-router-dom";
 
 const ListCarouselItem = ({ list }) => {
   const { t } = useTranslation();
@@ -19,15 +20,16 @@ const ListCarouselItem = ({ list }) => {
               alt={item.title}
             />
             <p>{t(item.title)}</p>
-            <Button
+            <Link
               variant="dark"
-              style={{
-                marginBottom: 20,
-                backgroundColor: "#080808",
+              className="link-btn"
+              state={item}
+              to={{
+                pathname: "/services/youtube/cart",
               }}
             >
               {t("add")}
-            </Button>
+            </Link>
           </Container>
         </Col>
       ))}

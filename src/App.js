@@ -22,6 +22,7 @@ import YouTubeServices from "./components/youtubeServices/youtubeServices";
 import HowItWork from "./components/youtubeServices/howItwork";
 import ServicesList from "./components/youtubeServices/servicesList";
 import YoutubeSuccessStories from "./components/youtubeServices/youtubeSuccessStories";
+import CartServices from "./components/youtubeServices/cartServices";
 const HomeComponent = () => {
   return (
     <>
@@ -60,6 +61,20 @@ const YouTubeServiceContainer = () => {
     </>
   );
 };
+const YouTubeCartServiceContainer = () => {
+  return (
+    <>
+      <div
+        style={{
+          backgroundColor: "#fff",
+        }}
+      >
+        <CartServices />
+      </div>
+      <AppFooter />
+    </>
+  );
+};
 const router = createBrowserRouter([
   {
     path: "/",
@@ -68,6 +83,10 @@ const router = createBrowserRouter([
   {
     path: "services/youtube/services",
     element: <YouTubeServiceContainer />,
+  },
+  {
+    path: "services/youtube/cart",
+    element: <YouTubeCartServiceContainer />,
   },
   {
     path: "*",
