@@ -1148,6 +1148,9 @@ textarea {
     display: flex;
     align-items: center;
     justify-content:space-between;
+   .container {
+  
+   }
   }
   .row {
     padding-top: 10px;
@@ -1158,6 +1161,18 @@ textarea {
     .col {
       background: #F1F1F1;
       padding: 20px;
+    }
+  }
+  .link-btn {
+    margin-bottom: 20;
+    background: #080808;
+    padding: 10px 15px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    &:hover{
+      color: #080808;
+      background: $buttonHoverColor;
     }
   }
   .delete-btn-container {

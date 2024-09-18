@@ -55,15 +55,18 @@ function CartServices() {
             })}
           </Row>
           <Row className="justify-content-md-center">
-            <Button
+            <Link
               variant="dark"
+              className="link-btn"
               style={{
-                marginBottom: 20,
+                textAlign: "center",
                 width: 200,
               }}
+              state={state}
+              to="/services/youtube/schedules"
             >
               {t("schedule_meeting")}
-            </Button>
+            </Link>
           </Row>
         </Container>
       </Row>

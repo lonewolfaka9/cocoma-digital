@@ -23,6 +23,7 @@ import HowItWork from "./components/youtubeServices/howItwork";
 import ServicesList from "./components/youtubeServices/servicesList";
 import YoutubeSuccessStories from "./components/youtubeServices/youtubeSuccessStories";
 import CartServices from "./components/youtubeServices/cartServices";
+import ScheduleMeeting from "./components/youtubeServices/scheduleMeeting";
 const HomeComponent = () => {
   return (
     <>
@@ -75,6 +76,20 @@ const YouTubeCartServiceContainer = () => {
     </>
   );
 };
+const YouTubeScheduleMeetingContainer = () => {
+  return (
+    <>
+      <div
+        style={{
+          backgroundColor: "#fff",
+        }}
+      >
+        <ScheduleMeeting />
+      </div>
+      <AppFooter />
+    </>
+  );
+};
 const router = createBrowserRouter([
   {
     path: "/",
@@ -87,6 +102,10 @@ const router = createBrowserRouter([
   {
     path: "services/youtube/cart",
     element: <YouTubeCartServiceContainer />,
+  },
+  {
+    path: "services/youtube/schedules",
+    element: <YouTubeScheduleMeetingContainer />,
   },
   {
     path: "*",
