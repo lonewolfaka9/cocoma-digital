@@ -1,7 +1,5 @@
-import { Button, Row } from "react-bootstrap";
+import { Row } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
-import AppImages from "../../utils/images";
-import Typography from "../../theme/cocoma/typography";
 import ListCarousel from "./listCarousel";
 import data from "./youtuberSevices.json";
 

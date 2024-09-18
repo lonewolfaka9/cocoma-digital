@@ -1,4 +1,4 @@
-import { Button, Col, Container, Image, Row, Stack } from "react-bootstrap";
+import { Button, Col, Image, Row } from "react-bootstrap";
 import AppImages from "../../utils/images";
 import { useTranslation } from "react-i18next";
 import { ArrowUpRight } from "react-bootstrap-icons";

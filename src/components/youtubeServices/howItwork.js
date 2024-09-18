@@ -1,9 +1,6 @@
-import { Button, Col, Container, Image, Row } from "react-bootstrap";
-import StoriesCarousel from "../common/storiesCarousel";
+import { Col, Container, Image, Row } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import AppImages from "../../utils/images";
-import Typography from "../../theme/cocoma/typography";
-import { ArrowRightCircle } from "react-bootstrap-icons";
 const how_works = [
   {
     title: "explore_our_services",

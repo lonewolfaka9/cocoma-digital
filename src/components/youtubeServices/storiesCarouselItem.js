@@ -1,7 +1,6 @@
 import { Button, Col, Container, Image, Row } from "react-bootstrap";
 import AppImages from "../../utils/images";
 import { useTranslation } from "react-i18next";
-import { ArrowDown } from "react-bootstrap-icons";
 
 const StoriesCarouselItem = ({ item }) => {
   const { t } = useTranslation();

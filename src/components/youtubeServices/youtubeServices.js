@@ -1,6 +1,4 @@
-import { useTranslation } from "react-i18next";
 import YouTubeServicesCarousel from "./youTubeServicesCarousel";
-import { Row } from "react-bootstrap";
 import AppImages from "../../utils/images";
 
 const carouselData = [
