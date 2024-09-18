@@ -1160,11 +1160,18 @@ textarea {
       padding: 20px;
     }
   }
-  .delete-btn {
+  .delete-btn-container {
     text-align: right;
+  .delete-btn {
     cursor: pointer;
+    &:hover{
+      color: #080808;
+      background: $buttonHoverColor;
+      border-radius: 40%;
+    }
    
   }
+}
   .list-view{
     background: #F1F1F1;
     margin-bottom: 15px;

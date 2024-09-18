@@ -2,6 +2,7 @@ import { Button, Col, Container, Image, Row } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import AppImages from "../../utils/images";
 import { Link, useLocation } from "react-router-dom";
+import { ArrowLeftCircle } from "react-bootstrap-icons";
 
 const ListItem = ({ idx, value, t }) => {
   return (
@@ -16,8 +17,8 @@ const ListItem = ({ idx, value, t }) => {
           <Col>{t(value.subTitle)}</Col>
         </Row>
       </Col>
-      <Col sm={2} className="delete-btn">
-        <Image src={AppImages.deleteBtn} />
+      <Col sm={2} className="delete-btn-container">
+        <Image src={AppImages.deleteBtn} className="delete-btn" />
       </Col>
     </Row>
   );
@@ -30,7 +31,15 @@ function CartServices() {
       <Row>
         <Container className="heading-container">
           <h2>{t("your_cart_of_services")}</h2>
-          <Link to={"/services/youtube/services"}>{t("cancel")}</Link>
+          <Link to={"/services/youtube/services"}>
+            <ArrowLeftCircle
+              size={30}
+              style={{
+                color: "#080808",
+                marginRight: 10,
+              }}
+            />
+          </Link>
         </Container>
         <Container>
           <Row>
