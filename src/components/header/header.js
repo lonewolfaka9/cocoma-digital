@@ -37,25 +37,25 @@ function AppHeader() {
         </Navbar.Toggle>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home">{t("menu.home")}</Nav.Link>
+            <Nav.Link href="/home">{t("menu.home")}</Nav.Link>
             <NavDropdown
               title={t("menu.our_services")}
               id="basic-nav-dropdown"
             ></NavDropdown>
             <NavDropdown title={t("menu.our_expertise")} id="our_expertise">
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/creative_services">
+              <NavDropdown.Item href="creative_services">
                 {t("menu.creative_services")}
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/video_editing">
+              <NavDropdown.Item href="/video_editing">
                 {t("menu.video_editing")}
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/design_services">
+              <NavDropdown.Item href="/design_services">
                 {t("menu.design_services")}
               </NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item
-                href="#action/our_expertise/view_all_events"
+                href="/our_expertise/view_all_events"
                 style={bottomPanelCss}
               >
                 {t("menu.view_all_events")}
@@ -63,24 +63,24 @@ function AppHeader() {
             </NavDropdown>
             <NavDropdown title={t("menu.solution")} id="basic-nav-dropdown">
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/for_brands">
+              <NavDropdown.Item href="/for_brands">
                 {t("menu.for_brands")}
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/for_agencies">
+              <NavDropdown.Item href="/for_agencies">
                 {t("menu.for_agencies")}
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/for_creators">
+              <NavDropdown.Item href="/for_creators">
                 {t("menu.for_creators")}
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/for_entrepreneurs">
+              <NavDropdown.Item href="/for_entrepreneurs">
                 {t("menu.for_entrepreneurs")}
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/for_studios">
+              <NavDropdown.Item href="/for_studios">
                 {t("menu.for_studios")}
               </NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item
-                href="#action/solution/view_all_events"
+                href="/solution/view_all_events"
                 style={bottomPanelCss}
               >
                 {t("menu.view_all_events")}

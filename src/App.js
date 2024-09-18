@@ -21,6 +21,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import YouTubeServices from "./components/youtubeServices/youtubeServices";
 import HowItWork from "./components/youtubeServices/howItwork";
 import ServicesList from "./components/youtubeServices/servicesList";
+import YoutubeSuccessStories from "./components/youtubeServices/youtubeSuccessStories";
 const HomeComponent = () => {
   return (
     <>
@@ -53,6 +54,7 @@ const YouTubeServiceContainer = () => {
       >
         <HowItWork />
         <ServicesList />
+        <YoutubeSuccessStories />
       </div>
       <AppFooter />
     </>
