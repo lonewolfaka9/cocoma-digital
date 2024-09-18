@@ -64,8 +64,12 @@ import videoeditingservice from "../../assets/images/videoeditingservice.svg";
 import youtubegraphicservice from "../../assets/images/youtubegraphicservice.svg";
 import youtubeservicepage from "../../assets/images/youtubeservicepage.svg";
 import arrowright from "../../assets/images/arrowright.svg";
+import youtubehosting from "../../assets/images/youtubehosting.svg";
+import youtubesubscriber from "../../assets/images/youtubesubscriber.svg";
 
 const AppImages = {
+  youtubesubscriber,
+  youtubehosting,
   arrowright,
   youtubeservicepage,
   youtubegraphicservice,
