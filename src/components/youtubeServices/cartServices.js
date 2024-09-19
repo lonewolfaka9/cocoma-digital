@@ -55,13 +55,7 @@ function CartServices() {
         <Container className="heading-container">
           <h2>{t("your_cart_of_services")}</h2>
           <Link to={"/services/youtube/services"}>
-            <Image
-              src={AppImages.backBtn}
-              style={{
-                color: "#080808",
-                marginRight: 10,
-              }}
-            />
+            <Image src={AppImages.backBtn} />
           </Link>
         </Container>
         {cartData?.filter((t) => t.isActive).length !== 0 && (

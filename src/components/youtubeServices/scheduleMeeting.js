@@ -83,7 +83,7 @@ function ScheduleMeeting() {
   const { t } = useTranslation();
   const { state } = useLocation();
   const [startDate, setStartDate] = useState(new Date());
-  console.log("sdsdsdsdsd", state);
+  console.log("Added Services", state);
   return (
     <section id="cart-services" className="cart-services">
       <Row>
@@ -94,13 +94,7 @@ function ScheduleMeeting() {
           </div>
 
           <Link to={"/services/youtube/services"}>
-            <Image
-              src={AppImages.backBtn}
-              style={{
-                color: "#080808",
-                marginRight: 10,
-              }}
-            />
+            <Image src={AppImages.backBtn} />
           </Link>
         </Container>
         <Container>

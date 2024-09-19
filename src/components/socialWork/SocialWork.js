@@ -61,22 +61,19 @@ const carouselData = [
 const tabsData = [
   {
     name: "home",
-    title: "Home",
   },
   {
     name: "profile",
-    title: "Profile",
   },
   {
     name: "contact",
-    title: "Contact",
   },
   {
-    name: "mediaWork",
-    title: "Media Work",
+    name: "media_work",
   },
 ];
 function SocialTabs() {
+  const { t } = useTranslation();
   return (
     <Tabs
       defaultActiveKey="home"
@@ -86,7 +83,7 @@ function SocialTabs() {
     >
       {tabsData.map((tab) => {
         return (
-          <Tab eventKey={tab.name} title={tab.title} key={`tab-${tab.name}`}>
+          <Tab eventKey={tab.name} title={t(tab.name)} key={`tab-${tab.name}`}>
             <StoriesCarousel data={carouselData} />
           </Tab>
         );
