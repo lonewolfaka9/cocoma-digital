@@ -1136,6 +1136,35 @@ textarea {
 .cart-services {
   padding: 30px;
   margin-top: 70px;
+  .calendar-row {
+    text-align: center;
+    .col {
+      background: #fff !important;
+    }
+    .react-datepicker {
+      border: none;
+      box-shadow: 0 0 5px 0 #ebebeb;
+      font-family: inherit;
+    }
+
+    .react-datepicker__header  {
+      background: #fff !important;
+    }
+    .react-datepicker__day--selected {
+      background: $buttonHoverColor;
+      border-radius: 50%;
+    }
+    .react-datepicker__day-name, .react-datepicker__day, .react-datepicker__time-name {
+      margin: 1.19rem;
+      font-size: 19px;
+     font-weight: normal;
+    }
+    .react-datepicker__day-names  {
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+  }
   .btn {
     border: none;
     padding: 10px;
@@ -1155,6 +1184,7 @@ textarea {
   .row {
     padding-top: 10px;
     padding-left: 10px;
+    justify-content: center;
     h2 {
       padding-top: 10px;
     }
@@ -1524,6 +1554,11 @@ textarea {
 @media only screen and (max-width: 767px) {
   h2 {
     font-size: 20px;
+  }
+  .react-datepicker__day-name, .react-datepicker__day, .react-datepicker__time-name {
+    margin: 0.19rem !important;
+    font-size: 19px;
+   font-weight: normal;
   }
   .meetComoma {
     .card {
