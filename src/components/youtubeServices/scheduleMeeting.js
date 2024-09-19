@@ -1,4 +1,4 @@
-import { Button, Col, Container, Row } from "react-bootstrap";
+import { Button, Col, Container, Image, Row } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import { Link, useLocation } from "react-router-dom";
 import { ArrowLeftCircle } from "react-bootstrap-icons";
@@ -6,6 +6,78 @@ import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
 import { useState } from "react";
+import AppImages from "../../utils/images";
+const availableHrs = [
+  {
+    start: "08:00 AM",
+    end: "09:00 AM",
+  },
+  {
+    start: "09:00 AM",
+    end: "10:00 AM",
+  },
+  {
+    start: "10:00 AM",
+    end: "11:00 AM",
+  },
+  {
+    start: "11:00 AM",
+    end: "12:00 AM",
+  },
+  {
+    start: "12:00 PM",
+    end: "01:00 PM",
+  },
+  {
+    start: "01:00 PM",
+    end: "02:00 PM",
+  },
+  {
+    start: "02:00 PM",
+    end: "03:00 PM",
+  },
+  {
+    start: "03:00 PM",
+    end: "04:00 PM",
+  },
+  {
+    start: "04:00 PM",
+    end: "05:00 PM",
+  },
+  {
+    start: "05:00 PM",
+    end: "06:00 PM",
+  },
+  {
+    start: "06:00 PM",
+    end: "07:00 PM",
+  },
+  {
+    start: "07:00 PM",
+    end: "08:00 PM",
+  },
+  {
+    start: "08:00 PM",
+    end: "09:00 PM",
+  },
+];
+const AvailableHrs = () => {
+  return (
+    <Row className="timer-row">
+      {availableHrs.map((item) => {
+        return (
+          <Col sm={2} className="timer-section">
+            <Row>
+              <Image src={AppImages.timer} />
+              <p>{item.start}</p>
+              <p>{item.end}</p>
+            </Row>
+          </Col>
+        );
+      })}
+    </Row>
+  );
+};
 
 function ScheduleMeeting() {
   const { t } = useTranslation();
@@ -36,22 +108,17 @@ function ScheduleMeeting() {
               <Col>
                 {/* https://reactdatepicker.com/ */}
                 <DatePicker
-                  wrapperClassName="w-full"
-                  popperClassName="w-full"
-                  className="w-full bg-gray-800 text-white border-none p-2 rounded"
+                  // formatWeekDay={(nameOfDay) => nameOfDay.substr(0, 3)}
                   minDate={new Date()}
-                  // monthsShown={2}
+                  monthsShown={2}
                   // maxDate={addMonths(new Date(), 5)}
                   selected={startDate}
                   onChange={(date) => setStartDate(date)}
                   inline
-                  calendarClassName="bg-gray-800"
-                  dayClassName={() => "text-gray-400"}
-                  monthClassName={() => "text-white"}
-                  timeClassName={() => "text-gray-400"}
                 />
               </Col>
             </Row>
+            <AvailableHrs />
             <Button
               variant="dark"
               style={{

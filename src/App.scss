@@ -1136,6 +1136,28 @@ textarea {
 .cart-services {
   padding: 30px;
   margin-top: 70px;
+  .timer-row {
+    background: #E9E9E9; 
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  .timer-section {
+    text-align: center;
+    img {
+      width: 40%;
+    }
+    .row {
+      background: #D5D5D5;
+      margin: 5px;
+      border-radius: 5px;
+      padding-bottom: 5px;
+      cursor: pointer;
+      &:hover {
+        background: $buttonHoverColor;
+      }
+    }
+  }
   .calendar-row {
     text-align: center;
     .col {

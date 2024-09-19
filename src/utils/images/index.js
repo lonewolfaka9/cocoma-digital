@@ -68,8 +68,10 @@ import youtubehosting from "../../assets/images/youtubehosting.svg";
 import youtubesubscriber from "../../assets/images/youtubesubscriber.svg";
 import cartservices from "../../assets/images/cartservices.svg";
 import deleteBtn from "../../assets/images/delete.svg";
+import timer from "../../assets/images/timer.svg";
 
 const AppImages = {
+  timer,
   deleteBtn,
   cartservices,
   youtubesubscriber,
