@@ -1,4 +1,4 @@
-import { Button, Col, Container, Image, Row } from "react-bootstrap";
+import { Col, Container, Image, Row } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import AppImages from "../../utils/images";
 import { Link, useLocation } from "react-router-dom";

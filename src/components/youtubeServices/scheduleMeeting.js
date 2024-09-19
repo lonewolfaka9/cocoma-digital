@@ -64,12 +64,12 @@ const availableHrs = [
 const AvailableHrs = () => {
   return (
     <Row className="timer-row">
-      {availableHrs.map((item) => {
+      {availableHrs.map((item, idx) => {
         return (
-          <Col sm={2} className="timer-section">
+          <Col sm={2} className="timer-section" key={`timer-section-${idx}`}>
             <Row>
               <Image src={AppImages.timer} />
-              <p>{item.start}</p>
+              <span>{item.start}</span>
               <p>{item.end}</p>
             </Row>
           </Col>
