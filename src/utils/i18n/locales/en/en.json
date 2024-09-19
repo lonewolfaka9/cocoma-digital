@@ -112,7 +112,7 @@
     "partners":"Partners",
     "help_centre":"Help Centre",
     "learning_centre":"Learning Centre",
-    "terms_conditions":"terms & conditions",
+    "terms_conditions":"Terms & Conditions",
     "cookie_setting":"Cookie Setting",
     "copyright":"Copyright @ All rights reserved to Cocoma Digital Private Limited",
     "meet_cocoma":"MEET COCOMA",
@@ -161,5 +161,8 @@
     "your_cart_of_services":"Your cart of services",
     "cancel":"Cancel",
     "schedule_a_meeting":"Schedule a Meeting",
-    "choose_convenient_time_to_connect_with_us":"Choose a convenient time to connect with us."
+    "choose_convenient_time_to_connect_with_us":"Choose a convenient time to connect with us.",
+    "please_add_services_to_schedule_a_meeting":"Please add services to schedule a meeting",
+    "your_cart_is":"Your cart is",
+    "empty":"Empty"
   }

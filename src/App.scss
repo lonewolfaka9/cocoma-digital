@@ -1136,6 +1136,21 @@ textarea {
 .cart-services {
   padding: 30px;
   margin-top: 70px;
+  .empty-cart {
+    text-align: center;
+  }
+  .empty-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h2 {
+      font-weight: 600;
+    }
+    .empty-val {
+      color: $primaryContentColor;
+      padding-left: 5px;
+    }
+  }
   .timer-row {
     background: #E9E9E9; 
     padding: 10px;
@@ -1643,13 +1658,6 @@ textarea {
   }
   .block {
     padding: 110px 0px 10px;
-    .schedule-btn  {
-      margin-top: -80px;
-    }
-    .about-image {
-      margin-left: -1px;
-      margin-top: -10px;
-    }
   }
 
   .hero-block .carousel-caption {

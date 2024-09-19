@@ -15,7 +15,7 @@ function HomeContainer() {
       <Container fluid>
         <Row>
           <Col
-            sm={6}
+            sm={7}
             className="about-back"
             style={{
               marginBottom: 8,
@@ -46,8 +46,8 @@ function HomeContainer() {
               <ArrowUpRight size={20}></ArrowUpRight>
             </Button>
           </Col>
-          <Col sm={6} className="about-image">
-            <Image src={AppImages.home_image} alt="home image" fluid />
+          <Col sm={5} className="about-image">
+            <Image src={AppImages.home_image} alt="home image" />
           </Col>
         </Row>
       </Container>

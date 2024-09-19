@@ -69,8 +69,12 @@ import youtubesubscriber from "../../assets/images/youtubesubscriber.svg";
 import cartservices from "../../assets/images/cartservices.svg";
 import deleteBtn from "../../assets/images/delete.svg";
 import timer from "../../assets/images/timer.svg";
+import emptycart from "../../assets/images/emptycart.svg";
+import backBtn from "../../assets/images/backBtn.svg";
 
 const AppImages = {
+  backBtn,
+  emptycart,
   timer,
   deleteBtn,
   cartservices,

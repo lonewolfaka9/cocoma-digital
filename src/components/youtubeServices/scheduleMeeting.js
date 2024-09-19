@@ -94,8 +94,8 @@ function ScheduleMeeting() {
           </div>
 
           <Link to={"/services/youtube/services"}>
-            <ArrowLeftCircle
-              size={30}
+            <Image
+              src={AppImages.backBtn}
               style={{
                 color: "#080808",
                 marginRight: 10,

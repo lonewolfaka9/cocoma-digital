@@ -2,7 +2,6 @@ import { Col, Container, Image, Row } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import AppImages from "../../utils/images";
 import { Link, useLocation } from "react-router-dom";
-import { ArrowLeftCircle } from "react-bootstrap-icons";
 import { useEffect, useState } from "react";
 
 const ListItem = ({ value, t, onDelete }) => {
@@ -34,7 +33,13 @@ function CartServices() {
   const [cartData, setCartData] = useState([]);
 
   useEffect(() => {
-    setCartData(state.subServices);
+    const data = state.subServices.map((service) => {
+      return {
+        ...service,
+        isActive: true,
+      };
+    });
+    setCartData(data);
   }, [state?.subServices]);
 
   const onDelete = (item, idx) => {
@@ -50,8 +55,8 @@ function CartServices() {
         <Container className="heading-container">
           <h2>{t("your_cart_of_services")}</h2>
           <Link to={"/services/youtube/services"}>
-            <ArrowLeftCircle
-              size={30}
+            <Image
+              src={AppImages.backBtn}
               style={{
                 color: "#080808",
                 marginRight: 10,
@@ -59,44 +64,63 @@ function CartServices() {
             />
           </Link>
         </Container>
-        <Container>
-          <Row>
-            {cartData?.map((item, idx) => {
-              return (
-                item.isActive && (
-                  <ListItem
-                    idx={idx}
-                    value={item}
-                    t={t}
-                    key={`cart-services-${idx}`}
-                    onDelete={() => onDelete(item, idx)}
-                  />
-                )
-              );
-            })}
-            {cartData?.filter((t) => t.isActive).length === 0 && (
-              <Col sm={2}>
-                <Image src={AppImages.cartservices} />
+        {cartData?.filter((t) => t.isActive).length !== 0 && (
+          <Container>
+            <Row>
+              {cartData?.map((item, idx) => {
+                return (
+                  item.isActive && (
+                    <ListItem
+                      idx={idx}
+                      value={item}
+                      t={t}
+                      key={`cart-services-${idx}`}
+                      onDelete={() => onDelete(item, idx)}
+                    />
+                  )
+                );
+              })}
+            </Row>
+            <Row className="justify-content-md-center">
+              <Link
+                variant="dark"
+                className="link-btn"
+                style={{
+                  textAlign: "center",
+                  width: 200,
+                }}
+                state={{
+                  selectedSubServices: cartData.filter((t) => t.isActive),
+                }}
+                to="/services/youtube/schedules"
+              >
+                {t("schedule_meeting")}
+              </Link>
+            </Row>
+          </Container>
+        )}
+        {cartData?.filter((t) => t.isActive).length === 0 && (
+          <Container className="empty-cart">
+            <Row>
+              <Col sm={3}>
+                <Image src={AppImages.emptycart} />
               </Col>
-            )}
-          </Row>
-          <Row className="justify-content-md-center">
-            <Link
-              variant="dark"
-              className="link-btn"
-              style={{
-                textAlign: "center",
-                width: 200,
-              }}
-              state={{
-                selectedSubServices: cartData.filter((t) => t.isActive),
-              }}
-              to="/services/youtube/schedules"
-            >
-              {t("schedule_meeting")}
-            </Link>
-          </Row>
-        </Container>
+            </Row>
+            <Row>
+              <Col
+                style={{
+                  background: "transparent",
+                }}
+              >
+                <div className="empty-text">
+                  <h2>{t("your_cart_is")}</h2>
+                  <h2 className="empty-val">{t("empty")}</h2>
+                </div>
+                <span>{t("please_add_services_to_schedule_a_meeting")}</span>
+              </Col>
+            </Row>
+          </Container>
+        )}
       </Row>
     </section>
   );
