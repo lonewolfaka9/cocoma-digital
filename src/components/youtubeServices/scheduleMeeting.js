@@ -83,6 +83,7 @@ function ScheduleMeeting() {
   const { t } = useTranslation();
   const { state } = useLocation();
   const [startDate, setStartDate] = useState(new Date());
+  console.log("sdsdsdsdsd", state);
   return (
     <section id="cart-services" className="cart-services">
       <Row>
@@ -92,7 +93,7 @@ function ScheduleMeeting() {
             <p>{t("choose_convenient_time_to_connect_with_us")}</p>
           </div>
 
-          <Link to={"/services/youtube/cart"} state={state}>
+          <Link to={"/services/youtube/services"}>
             <ArrowLeftCircle
               size={30}
               style={{

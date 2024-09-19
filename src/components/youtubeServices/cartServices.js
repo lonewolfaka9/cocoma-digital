@@ -3,8 +3,9 @@ import { useTranslation } from "react-i18next";
 import AppImages from "../../utils/images";
 import { Link, useLocation } from "react-router-dom";
 import { ArrowLeftCircle } from "react-bootstrap-icons";
+import { useEffect, useState } from "react";
 
-const ListItem = ({ idx, value, t }) => {
+const ListItem = ({ value, t, onDelete }) => {
   return (
     <Row className="list-view">
       <Col sm={2}>
@@ -18,7 +19,11 @@ const ListItem = ({ idx, value, t }) => {
         </Row>
       </Col>
       <Col sm={2} className="delete-btn-container">
-        <Image src={AppImages.deleteBtn} className="delete-btn" />
+        <Image
+          src={AppImages.deleteBtn}
+          className="delete-btn"
+          onClick={onDelete}
+        />
       </Col>
     </Row>
   );
@@ -26,6 +31,19 @@ const ListItem = ({ idx, value, t }) => {
 function CartServices() {
   const { t } = useTranslation();
   const { state } = useLocation();
+  const [cartData, setCartData] = useState([]);
+
+  useEffect(() => {
+    setCartData(state.subServices);
+  }, [state?.subServices]);
+
+  const onDelete = (item, idx) => {
+    setCartData(() => {
+      const cData = cartData[idx];
+      cData.isActive = false;
+      return [...cartData, cData];
+    });
+  };
   return (
     <section id="cart-services" className="cart-services">
       <Row>
@@ -43,16 +61,24 @@ function CartServices() {
         </Container>
         <Container>
           <Row>
-            {state?.subServices?.map((item, idx) => {
+            {cartData?.map((item, idx) => {
               return (
-                <ListItem
-                  idx={idx}
-                  value={item}
-                  t={t}
-                  key={`cart-services-${idx}`}
-                />
+                item.isActive && (
+                  <ListItem
+                    idx={idx}
+                    value={item}
+                    t={t}
+                    key={`cart-services-${idx}`}
+                    onDelete={() => onDelete(item, idx)}
+                  />
+                )
               );
             })}
+            {cartData?.filter((t) => t.isActive).length === 0 && (
+              <Col sm={2}>
+                <Image src={AppImages.cartservices} />
+              </Col>
+            )}
           </Row>
           <Row className="justify-content-md-center">
             <Link
@@ -62,7 +88,9 @@ function CartServices() {
                 textAlign: "center",
                 width: 200,
               }}
-              state={state}
+              state={{
+                selectedSubServices: cartData.filter((t) => t.isActive),
+              }}
               to="/services/youtube/schedules"
             >
               {t("schedule_meeting")}
