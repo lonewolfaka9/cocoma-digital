@@ -1192,11 +1192,21 @@ textarea {
     padding: 10px;
     border-radius: 5px;
     margin-bottom: 20px;
+    overflow: scroll;
+  }
+  .active-timer {
+  .row {
+    background: $buttonHoverColor !important;
+  }
   }
   .timer-section {
     text-align: center;
+    padding: 0px !important;
+    background: #E9E9E9 !important; 
+
     img {
-      width: 40%;
+      width: 80px;
+      margin-bottom:10px;
     }
     .row {
       background: #D5D5D5;
@@ -1204,6 +1214,10 @@ textarea {
       border-radius: 5px;
       padding-bottom: 5px;
       cursor: pointer;
+     text-align: center;
+     .container {
+      width: 100px;
+     }
       &:hover {
         background: $buttonHoverColor;
       }
