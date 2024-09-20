@@ -53,10 +53,13 @@ const MonthlyPerformance = () => {
     >
       <Row>
         <p>{t("monthly_performance_showcase")}</p>
-        <Col>
+
+        <Col
+          style={{
+            display: "flex",
+          }}
+        >
           <h2>{t("monthly_performance", { month: "JUN", year: "2024" })} </h2>
-        </Col>
-        <Col>
           <Button
             variant="link"
             className="history-btn"

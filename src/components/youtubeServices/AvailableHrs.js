@@ -42,7 +42,6 @@ const AvailableHrs = () => {
   useEffect(() => {
     setHrsArray(availableHrs);
   }, []);
-
   const selectedItem = (id) => {
     const currentHrs = [...hrsArray];
     const updateHrs = currentHrs.map((h) => {
