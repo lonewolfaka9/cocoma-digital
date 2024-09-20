@@ -1,30 +1,70 @@
-import { Col, Container, Image, Row } from "react-bootstrap";
+import { Button, Col, Container, Image, Row } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import AppImages from "../../utils/images";
 import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { ArrowRight } from "react-bootstrap-icons";
 
-const ListItem = ({ value, t, onDelete }) => {
+const ListItem = ({ idx, value, t, onDelete }) => {
   return (
-    <Row className="list-view">
-      <Col sm={2}>
-        <Image src={AppImages[value.image]} />
-      </Col>
-      <Col sm={8}>
-        <h2> {t(value.heading)}</h2>
-        <Row>
-          <Col>{t(value.title)}</Col>
-          <Col>{t(value.subTitle)}</Col>
-        </Row>
-      </Col>
-      <Col sm={2} className="delete-btn-container">
-        <Image
-          src={AppImages.deleteBtn}
-          className="delete-btn"
-          onClick={onDelete}
-        />
-      </Col>
-    </Row>
+    <Container className="list-view-item-container">
+      <h2>
+        {idx + 1}
+        {` ${t(value.title)}`}
+      </h2>
+      <Row>
+        {value?.catagories?.map((item, ix) => {
+          console.log(ix, item);
+          return (
+            <Col className="list-view-col" key={`list-item-cat-${ix}`}>
+              <Row>
+                <Col className="delete-btn-container">
+                  <h2>{`${idx + 1}.${ix + 1}`}</h2>
+                  <Image
+                    src={AppImages.deleteBtn}
+                    className="delete-btn"
+                    onClick={onDelete}
+                  />
+                </Col>
+              </Row>
+              <Row>
+                <Image
+                  src={AppImages[item.image]}
+                  style={{
+                    width: 300,
+                  }}
+                />
+              </Row>
+              <Row>
+                <Col>
+                  <h2> {t(item.heading)}</h2>
+                  <Col>{t(item.title)}</Col>
+                  <Col>{t(item.subTitle)}</Col>
+                </Col>
+              </Row>
+              <Row>
+                <Col className="activity_btn">
+                  <Button
+                    variant={
+                      item.occurrence === "recurring" ? "warning" : "secondary"
+                    }
+                  >
+                    {t("recurring")}
+                  </Button>
+                  <Button
+                    variant={
+                      item.occurrence === "recurring" ? "secondary" : "warning"
+                    }
+                  >
+                    {t("one_time_only")}
+                  </Button>
+                </Col>
+              </Row>
+            </Col>
+          );
+        })}
+      </Row>
+    </Container>
   );
 };
 function CartServices() {
@@ -88,7 +128,13 @@ function CartServices() {
                 }}
                 to="/services/youtube/schedules"
               >
-                {t("schedule_meeting")}
+                {t("schedule_meeting")}{" "}
+                <ArrowRight
+                  size={25}
+                  style={{
+                    marginLeft: 10,
+                  }}
+                ></ArrowRight>
               </Link>
             </Row>
           </Container>

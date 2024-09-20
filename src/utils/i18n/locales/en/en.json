@@ -168,5 +168,9 @@
     "home":"Home",
     "profile":"Profile",
     "contact":"Contact",
-    "media_work":"Media Work"
+    "media_work":"Media Work",
+    "web_app_software_services":"Web App & Software Services",
+    "content_services":"Content Services",
+    "recurring":"Recurring",
+    "one_time_only":"One Time Only"
   }

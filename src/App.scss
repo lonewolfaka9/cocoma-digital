@@ -1139,6 +1139,40 @@ textarea {
   .empty-cart {
     text-align: center;
   }
+  .list-view-item-container {
+    .btn-secondary {
+      &:hover {
+        background: $primaryContentColor;
+      }
+    }
+    background: #F1F1F1;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    .activity_btn {
+      justify-content: space-between;
+      display: flex;
+      .button {
+       color: #080808;
+      }
+    }
+    .row {
+     .row {
+      background: #fff;
+     }
+    }
+  .list-view-col {
+    background: #fff;
+    margin: 5px;
+    border-radius: 10px;
+    h2 {
+      background: #fff;
+    }
+    .col {
+      background: #fff;
+    }
+  }
+  }
   .empty-text {
     display: flex;
     justify-content: center;
@@ -1243,7 +1277,8 @@ textarea {
     }
   }
   .delete-btn-container {
-    text-align: right;
+   display: flex;
+   justify-content: space-between;
   .delete-btn {
     cursor: pointer;
     &:hover{

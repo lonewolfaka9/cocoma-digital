@@ -83,7 +83,10 @@ function ScheduleMeeting() {
   const { t } = useTranslation();
   const { state } = useLocation();
   const [startDate, setStartDate] = useState(new Date());
-  console.log("Added Services", state);
+  console.log("Added Services", state, startDate);
+  let handleColor = (time) => {
+    return time.getHours() > 12 ? "text-success" : "text-error";
+  };
   return (
     <section id="cart-services" className="cart-services">
       <Row>
@@ -103,6 +106,9 @@ function ScheduleMeeting() {
               <Col>
                 {/* https://reactdatepicker.com/ */}
                 <DatePicker
+                  showTimeSelect
+                  timeIntervals={15}
+                  //timeClassName={handleColor}
                   // formatWeekDay={(nameOfDay) => nameOfDay.substr(0, 3)}
                   minDate={new Date()}
                   monthsShown={2}

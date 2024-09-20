@@ -6,33 +6,83 @@
                 "title":"growth_hacking_services",
                 "image":"youtubehosting",
                 "subServices":[
+                  {
+                "title":"content_services",
+                "catagories":[
                     {
                         "heading":"2d_video_editing",
                         "title":"characters_includedVoice_over_recording_storyboard",
                         "subTitle":"script_writing_illustrated_background_subtitles_included",
                          "image":"cartservices",
-                         "isActive":true
+                         "isActive":true,
+                         "occurrence":"recurring"
                          
                     },
                     {
                         "heading":"2d_video_editing",
                         "title":"characters_includedVoice_over_recording_storyboard",
                         "subTitle":"script_writing_illustrated_background_subtitles_included",
-                         "image":"cartservices","isActive":true
-                    },
-                    {
-                        "heading":"2d_video_editing",
-                        "title":"characters_includedVoice_over_recording_storyboard",
-                        "subTitle":"script_writing_illustrated_background_subtitles_included",
-                         "image":"cartservices","isActive":true
+                         "image":"cartservices",
+                         "isActive":true,
+                          "occurrence":"oneTime"
                     },
                     {
                         "heading":"2d_video_editing",
                         "title":"characters_includedVoice_over_recording_storyboard",
                         "subTitle":"script_writing_illustrated_background_subtitles_included",
                          "image":"cartservices",
-                         "isActive":true
+                         "isActive":true,
+                          "occurrence":"recurring"
+                    },
+                    {
+                        "heading":"2d_video_editing",
+                        "title":"characters_includedVoice_over_recording_storyboard",
+                        "subTitle":"script_writing_illustrated_background_subtitles_included",
+                         "image":"cartservices",
+                         "isActive":true,
+                          "occurrence":"oneTime"
                     }
+                ]
+                  },
+                  {
+                    "title":"web_app_software_services",
+                    "catagories":[
+                        {
+                            "heading":"2d_video_editing",
+                            "title":"characters_includedVoice_over_recording_storyboard",
+                            "subTitle":"script_writing_illustrated_background_subtitles_included",
+                             "image":"cartservices",
+                             "isActive":true,
+                             "occurrence":"recurring"
+                             
+                        },
+                        {
+                            "heading":"2d_video_editing",
+                            "title":"characters_includedVoice_over_recording_storyboard",
+                            "subTitle":"script_writing_illustrated_background_subtitles_included",
+                             "image":"cartservices",
+                             "isActive":true,
+                              "occurrence":"recurring"
+                        },
+                        {
+                            "heading":"2d_video_editing",
+                            "title":"characters_includedVoice_over_recording_storyboard",
+                            "subTitle":"script_writing_illustrated_background_subtitles_included",
+                             "image":"cartservices",
+                             "isActive":true,
+                              "occurrence":"recurring"
+                        },
+                        {
+                            "heading":"2d_video_editing",
+                            "title":"characters_includedVoice_over_recording_storyboard",
+                            "subTitle":"script_writing_illustrated_background_subtitles_included",
+                             "image":"cartservices",
+                             "isActive":true,
+                              "occurrence":"recurring"
+                        }
+                    ]
+                      }
+              
                 ]
             },
             {
@@ -40,90 +90,287 @@
                 "image":"youtubehosting",
                 "subServices":[
                     {
-                        "heading":"2d_video_editing",
-                        "title":"characters_includedVoice_over_recording_storyboard",
-                        "subTitle":"script_writing_illustrated_background_subtitles_included",
-                         "image":"cartservices","isActive":true
+                  "title":"content_services",
+                  "catagories":[
+                      {
+                          "heading":"2d_video_editing",
+                          "title":"characters_includedVoice_over_recording_storyboard",
+                          "subTitle":"script_writing_illustrated_background_subtitles_included",
+                           "image":"cartservices",
+                           "isActive":true,
+                           "occurrence":"recurring"
+                           
+                      },
+                      {
+                          "heading":"2d_video_editing",
+                          "title":"characters_includedVoice_over_recording_storyboard",
+                          "subTitle":"script_writing_illustrated_background_subtitles_included",
+                           "image":"cartservices",
+                           "isActive":true,
+                            "occurrence":"recurring"
+                      },
+                      {
+                          "heading":"2d_video_editing",
+                          "title":"characters_includedVoice_over_recording_storyboard",
+                          "subTitle":"script_writing_illustrated_background_subtitles_included",
+                           "image":"cartservices",
+                           "isActive":true,
+                            "occurrence":"recurring"
+                      },
+                      {
+                          "heading":"2d_video_editing",
+                          "title":"characters_includedVoice_over_recording_storyboard",
+                          "subTitle":"script_writing_illustrated_background_subtitles_included",
+                           "image":"cartservices",
+                           "isActive":true,
+                            "occurrence":"recurring"
+                      }
+                  ]
                     },
                     {
-                        "heading":"2d_video_editing",
-                        "title":"characters_includedVoice_over_recording_storyboard",
-                        "subTitle":"script_writing_illustrated_background_subtitles_included",
-                         "image":"cartservices","isActive":true
-                    },
-                    {
-                        "heading":"2d_video_editing",
-                        "title":"characters_includedVoice_over_recording_storyboard",
-                        "subTitle":"script_writing_illustrated_background_subtitles_included",
-                         "image":"cartservices","isActive":true
-                    },
-                    {
-                        "heading":"2d_video_editing",
-                        "title":"characters_includedVoice_over_recording_storyboard",
-                        "subTitle":"script_writing_illustrated_background_subtitles_included",
-                         "image":"cartservices","isActive":true
-                    }
-                ]
+                      "title":"web_app_software_services",
+                      "catagories":[
+                          {
+                              "heading":"2d_video_editing",
+                              "title":"characters_includedVoice_over_recording_storyboard",
+                              "subTitle":"script_writing_illustrated_background_subtitles_included",
+                               "image":"cartservices",
+                               "isActive":true,
+                               "occurrence":"recurring"
+                               
+                          },
+                          {
+                              "heading":"2d_video_editing",
+                              "title":"characters_includedVoice_over_recording_storyboard",
+                              "subTitle":"script_writing_illustrated_background_subtitles_included",
+                               "image":"cartservices",
+                               "isActive":true,
+                                "occurrence":"recurring"
+                          },
+                          {
+                              "heading":"2d_video_editing",
+                              "title":"characters_includedVoice_over_recording_storyboard",
+                              "subTitle":"script_writing_illustrated_background_subtitles_included",
+                               "image":"cartservices",
+                               "isActive":true,
+                                "occurrence":"recurring"
+                          },
+                          {
+                              "heading":"2d_video_editing",
+                              "title":"characters_includedVoice_over_recording_storyboard",
+                              "subTitle":"script_writing_illustrated_background_subtitles_included",
+                               "image":"cartservices",
+                               "isActive":true,
+                                "occurrence":"recurring"
+                          }
+                      ]
+                        },
+                        {
+                            "title":"content_services",
+                            "catagories":[
+                                {
+                                    "heading":"2d_video_editing",
+                                    "title":"characters_includedVoice_over_recording_storyboard",
+                                    "subTitle":"script_writing_illustrated_background_subtitles_included",
+                                     "image":"cartservices",
+                                     "isActive":true,
+                                     "occurrence":"recurring"
+                                     
+                                },
+                                {
+                                    "heading":"2d_video_editing",
+                                    "title":"characters_includedVoice_over_recording_storyboard",
+                                    "subTitle":"script_writing_illustrated_background_subtitles_included",
+                                     "image":"cartservices",
+                                     "isActive":true,
+                                      "occurrence":"recurring"
+                                },
+                                {
+                                    "heading":"2d_video_editing",
+                                    "title":"characters_includedVoice_over_recording_storyboard",
+                                    "subTitle":"script_writing_illustrated_background_subtitles_included",
+                                     "image":"cartservices",
+                                     "isActive":true,
+                                      "occurrence":"recurring"
+                                },
+                                {
+                                    "heading":"2d_video_editing",
+                                    "title":"characters_includedVoice_over_recording_storyboard",
+                                    "subTitle":"script_writing_illustrated_background_subtitles_included",
+                                     "image":"cartservices",
+                                     "isActive":true,
+                                      "occurrence":"recurring"
+                                }
+                            ]
+                              }
+                
+                  ]
             },
             {
                 "title":"website_design_and_development",
                 "image":"youtubehosting",
                 "subServices":[
                     {
-                        "heading":"2d_video_editing",
-                        "title":"characters_includedVoice_over_recording_storyboard",
-                        "subTitle":"script_writing_illustrated_background_subtitles_included",
-                         "image":"cartservices","isActive":true
+                  "title":"content_services",
+                  "catagories":[
+                      {
+                          "heading":"2d_video_editing",
+                          "title":"characters_includedVoice_over_recording_storyboard",
+                          "subTitle":"script_writing_illustrated_background_subtitles_included",
+                           "image":"cartservices",
+                           "isActive":true,
+                           "occurrence":"recurring"
+                           
+                      },
+                      {
+                          "heading":"2d_video_editing",
+                          "title":"characters_includedVoice_over_recording_storyboard",
+                          "subTitle":"script_writing_illustrated_background_subtitles_included",
+                           "image":"cartservices",
+                           "isActive":true,
+                            "occurrence":"recurring"
+                      },
+                      {
+                          "heading":"2d_video_editing",
+                          "title":"characters_includedVoice_over_recording_storyboard",
+                          "subTitle":"script_writing_illustrated_background_subtitles_included",
+                           "image":"cartservices",
+                           "isActive":true,
+                            "occurrence":"recurring"
+                      },
+                      {
+                          "heading":"2d_video_editing",
+                          "title":"characters_includedVoice_over_recording_storyboard",
+                          "subTitle":"script_writing_illustrated_background_subtitles_included",
+                           "image":"cartservices",
+                           "isActive":true,
+                            "occurrence":"recurring"
+                      }
+                  ]
                     },
                     {
-                        "heading":"2d_video_editing",
-                        "title":"characters_includedVoice_over_recording_storyboard",
-                        "subTitle":"script_writing_illustrated_background_subtitles_included",
-                         "image":"cartservices","isActive":true
-                    },
-                    {
-                        "heading":"2d_video_editing",
-                        "title":"characters_includedVoice_over_recording_storyboard",
-                        "subTitle":"script_writing_illustrated_background_subtitles_included",
-                         "image":"cartservices","isActive":true
-                    },
-                    {
-                        "heading":"2d_video_editing",
-                        "title":"characters_includedVoice_over_recording_storyboard",
-                        "subTitle":"script_writing_illustrated_background_subtitles_included",
-                         "image":"cartservices","isActive":true
-                    }
-                ]
+                      "title":"web_app_software_services",
+                      "catagories":[
+                          {
+                              "heading":"2d_video_editing",
+                              "title":"characters_includedVoice_over_recording_storyboard",
+                              "subTitle":"script_writing_illustrated_background_subtitles_included",
+                               "image":"cartservices",
+                               "isActive":true,
+                               "occurrence":"recurring"
+                               
+                          },
+                          {
+                              "heading":"2d_video_editing",
+                              "title":"characters_includedVoice_over_recording_storyboard",
+                              "subTitle":"script_writing_illustrated_background_subtitles_included",
+                               "image":"cartservices",
+                               "isActive":true,
+                                "occurrence":"recurring"
+                          },
+                          {
+                              "heading":"2d_video_editing",
+                              "title":"characters_includedVoice_over_recording_storyboard",
+                              "subTitle":"script_writing_illustrated_background_subtitles_included",
+                               "image":"cartservices",
+                               "isActive":true,
+                                "occurrence":"recurring"
+                          },
+                          {
+                              "heading":"2d_video_editing",
+                              "title":"characters_includedVoice_over_recording_storyboard",
+                              "subTitle":"script_writing_illustrated_background_subtitles_included",
+                               "image":"cartservices",
+                               "isActive":true,
+                                "occurrence":"recurring"
+                          }
+                      ]
+                        }
+                
+                  ]
             },
             {
                 "title":"landing_page_design",
                 "image":"youtubehosting",
                 "subServices":[
                     {
-                        "heading":"2d_video_editing",
-                        "title":"characters_includedVoice_over_recording_storyboard",
-                        "subTitle":"script_writing_illustrated_background_subtitles_included",
-                         "image":"cartservices","isActive":true
+                  "title":"content_services",
+                  "catagories":[
+                      {
+                          "heading":"2d_video_editing",
+                          "title":"characters_includedVoice_over_recording_storyboard",
+                          "subTitle":"script_writing_illustrated_background_subtitles_included",
+                           "image":"cartservices",
+                           "isActive":true,
+                           "occurrence":"recurring"
+                           
+                      },
+                      {
+                          "heading":"2d_video_editing",
+                          "title":"characters_includedVoice_over_recording_storyboard",
+                          "subTitle":"script_writing_illustrated_background_subtitles_included",
+                           "image":"cartservices",
+                           "isActive":true,
+                            "occurrence":"recurring"
+                      },
+                      {
+                          "heading":"2d_video_editing",
+                          "title":"characters_includedVoice_over_recording_storyboard",
+                          "subTitle":"script_writing_illustrated_background_subtitles_included",
+                           "image":"cartservices",
+                           "isActive":true,
+                            "occurrence":"recurring"
+                      },
+                      {
+                          "heading":"2d_video_editing",
+                          "title":"characters_includedVoice_over_recording_storyboard",
+                          "subTitle":"script_writing_illustrated_background_subtitles_included",
+                           "image":"cartservices",
+                           "isActive":true,
+                            "occurrence":"recurring"
+                      }
+                  ]
                     },
                     {
-                        "heading":"2d_video_editing",
-                        "title":"characters_includedVoice_over_recording_storyboard",
-                        "subTitle":"script_writing_illustrated_background_subtitles_included",
-                         "image":"cartservices","isActive":true
-                    },
-                    {
-                        "heading":"2d_video_editing",
-                        "title":"characters_includedVoice_over_recording_storyboard",
-                        "subTitle":"script_writing_illustrated_background_subtitles_included",
-                         "image":"cartservices","isActive":true
-                    },
-                    {
-                        "heading":"2d_video_editing",
-                        "title":"characters_includedVoice_over_recording_storyboard",
-                        "subTitle":"script_writing_illustrated_background_subtitles_included",
-                         "image":"cartservices","isActive":true
-                    }
-                ]
+                      "title":"web_app_software_services",
+                      "catagories":[
+                          {
+                              "heading":"2d_video_editing",
+                              "title":"characters_includedVoice_over_recording_storyboard",
+                              "subTitle":"script_writing_illustrated_background_subtitles_included",
+                               "image":"cartservices",
+                               "isActive":true,
+                               "occurrence":"recurring"
+                               
+                          },
+                          {
+                              "heading":"2d_video_editing",
+                              "title":"characters_includedVoice_over_recording_storyboard",
+                              "subTitle":"script_writing_illustrated_background_subtitles_included",
+                               "image":"cartservices",
+                               "isActive":true,
+                                "occurrence":"recurring"
+                          },
+                          {
+                              "heading":"2d_video_editing",
+                              "title":"characters_includedVoice_over_recording_storyboard",
+                              "subTitle":"script_writing_illustrated_background_subtitles_included",
+                               "image":"cartservices",
+                               "isActive":true,
+                                "occurrence":"recurring"
+                          },
+                          {
+                              "heading":"2d_video_editing",
+                              "title":"characters_includedVoice_over_recording_storyboard",
+                              "subTitle":"script_writing_illustrated_background_subtitles_included",
+                               "image":"cartservices",
+                               "isActive":true,
+                                "occurrence":"recurring"
+                          }
+                      ]
+                        }
+                
+                  ]
             }
         ]
     },
@@ -135,120 +382,332 @@
                 "image":"seo",
                 "subServices":[
                     {
-                        "heading":"2d_video_editing",
-                        "title":"characters_includedVoice_over_recording_storyboard",
-                        "subTitle":"script_writing_illustrated_background_subtitles_included",
-                         "image":"cartservices","isActive":true
+                  "title":"content_services",
+                  "catagories":[
+                      {
+                          "heading":"2d_video_editing",
+                          "title":"characters_includedVoice_over_recording_storyboard",
+                          "subTitle":"script_writing_illustrated_background_subtitles_included",
+                           "image":"cartservices",
+                           "isActive":true,
+                           "occurrence":"recurring"
+                           
+                      },
+                      {
+                          "heading":"2d_video_editing",
+                          "title":"characters_includedVoice_over_recording_storyboard",
+                          "subTitle":"script_writing_illustrated_background_subtitles_included",
+                           "image":"cartservices",
+                           "isActive":true,
+                            "occurrence":"recurring"
+                      },
+                      {
+                          "heading":"2d_video_editing",
+                          "title":"characters_includedVoice_over_recording_storyboard",
+                          "subTitle":"script_writing_illustrated_background_subtitles_included",
+                           "image":"cartservices",
+                           "isActive":true,
+                            "occurrence":"recurring"
+                      },
+                      {
+                          "heading":"2d_video_editing",
+                          "title":"characters_includedVoice_over_recording_storyboard",
+                          "subTitle":"script_writing_illustrated_background_subtitles_included",
+                           "image":"cartservices",
+                           "isActive":true,
+                            "occurrence":"recurring"
+                      }
+                  ]
                     },
                     {
-                        "heading":"2d_video_editing",
-                        "title":"characters_includedVoice_over_recording_storyboard",
-                        "subTitle":"script_writing_illustrated_background_subtitles_included",
-                         "image":"cartservices","isActive":true
-                    },
-                    {
-                        "heading":"2d_video_editing",
-                        "title":"characters_includedVoice_over_recording_storyboard",
-                        "subTitle":"script_writing_illustrated_background_subtitles_included",
-                         "image":"cartservices","isActive":true
-                    },
-                    {
-                        "heading":"2d_video_editing",
-                        "title":"characters_includedVoice_over_recording_storyboard",
-                        "subTitle":"script_writing_illustrated_background_subtitles_included",
-                         "image":"cartservices","isActive":true
-                    }
-                ]
+                      "title":"web_app_software_services",
+                      "catagories":[
+                          {
+                              "heading":"2d_video_editing",
+                              "title":"characters_includedVoice_over_recording_storyboard",
+                              "subTitle":"script_writing_illustrated_background_subtitles_included",
+                               "image":"cartservices",
+                               "isActive":true,
+                               "occurrence":"recurring"
+                               
+                          },
+                          {
+                              "heading":"2d_video_editing",
+                              "title":"characters_includedVoice_over_recording_storyboard",
+                              "subTitle":"script_writing_illustrated_background_subtitles_included",
+                               "image":"cartservices",
+                               "isActive":true,
+                                "occurrence":"recurring"
+                          },
+                          {
+                              "heading":"2d_video_editing",
+                              "title":"characters_includedVoice_over_recording_storyboard",
+                              "subTitle":"script_writing_illustrated_background_subtitles_included",
+                               "image":"cartservices",
+                               "isActive":true,
+                                "occurrence":"recurring"
+                          },
+                          {
+                              "heading":"2d_video_editing",
+                              "title":"characters_includedVoice_over_recording_storyboard",
+                              "subTitle":"script_writing_illustrated_background_subtitles_included",
+                               "image":"cartservices",
+                               "isActive":true,
+                                "occurrence":"recurring"
+                          }
+                      ]
+                        }
+                
+                  ]
             },
             {
                 "title":"wireframing_and_prototyping",
                 "image":"seo",
                 "subServices":[
                     {
-                        "heading":"2d_video_editing",
-                        "title":"characters_includedVoice_over_recording_storyboard",
-                        "subTitle":"script_writing_illustrated_background_subtitles_included",
-                         "image":"cartservices","isActive":true
+                  "title":"content_services",
+                  "catagories":[
+                      {
+                          "heading":"2d_video_editing",
+                          "title":"characters_includedVoice_over_recording_storyboard",
+                          "subTitle":"script_writing_illustrated_background_subtitles_included",
+                           "image":"cartservices",
+                           "isActive":true,
+                           "occurrence":"recurring"
+                           
+                      },
+                      {
+                          "heading":"2d_video_editing",
+                          "title":"characters_includedVoice_over_recording_storyboard",
+                          "subTitle":"script_writing_illustrated_background_subtitles_included",
+                           "image":"cartservices",
+                           "isActive":true,
+                            "occurrence":"recurring"
+                      },
+                      {
+                          "heading":"2d_video_editing",
+                          "title":"characters_includedVoice_over_recording_storyboard",
+                          "subTitle":"script_writing_illustrated_background_subtitles_included",
+                           "image":"cartservices",
+                           "isActive":true,
+                            "occurrence":"recurring"
+                      },
+                      {
+                          "heading":"2d_video_editing",
+                          "title":"characters_includedVoice_over_recording_storyboard",
+                          "subTitle":"script_writing_illustrated_background_subtitles_included",
+                           "image":"cartservices",
+                           "isActive":true,
+                            "occurrence":"recurring"
+                      }
+                  ]
                     },
                     {
-                        "heading":"2d_video_editing",
-                        "title":"characters_includedVoice_over_recording_storyboard",
-                        "subTitle":"script_writing_illustrated_background_subtitles_included",
-                         "image":"cartservices","isActive":true
-                    },
-                    {
-                        "heading":"2d_video_editing",
-                        "title":"characters_includedVoice_over_recording_storyboard",
-                        "subTitle":"script_writing_illustrated_background_subtitles_included",
-                         "image":"cartservices","isActive":true
-                    },
-                    {
-                        "heading":"2d_video_editing",
-                        "title":"characters_includedVoice_over_recording_storyboard",
-                        "subTitle":"script_writing_illustrated_background_subtitles_included",
-                         "image":"cartservices","isActive":true
-                    }
-                ]
+                      "title":"web_app_software_services",
+                      "catagories":[
+                          {
+                              "heading":"2d_video_editing",
+                              "title":"characters_includedVoice_over_recording_storyboard",
+                              "subTitle":"script_writing_illustrated_background_subtitles_included",
+                               "image":"cartservices",
+                               "isActive":true,
+                               "occurrence":"recurring"
+                               
+                          },
+                          {
+                              "heading":"2d_video_editing",
+                              "title":"characters_includedVoice_over_recording_storyboard",
+                              "subTitle":"script_writing_illustrated_background_subtitles_included",
+                               "image":"cartservices",
+                               "isActive":true,
+                                "occurrence":"recurring"
+                          },
+                          {
+                              "heading":"2d_video_editing",
+                              "title":"characters_includedVoice_over_recording_storyboard",
+                              "subTitle":"script_writing_illustrated_background_subtitles_included",
+                               "image":"cartservices",
+                               "isActive":true,
+                                "occurrence":"recurring"
+                          },
+                          {
+                              "heading":"2d_video_editing",
+                              "title":"characters_includedVoice_over_recording_storyboard",
+                              "subTitle":"script_writing_illustrated_background_subtitles_included",
+                               "image":"cartservices",
+                               "isActive":true,
+                                "occurrence":"recurring"
+                          }
+                      ]
+                        }
+                
+                  ]
             },
             {
                 "title":"ecommerce_website_design",
                 "image":"seo",
                 "subServices":[
                     {
-                        "heading":"2d_video_editing",
-                        "title":"characters_includedVoice_over_recording_storyboard",
-                        "subTitle":"script_writing_illustrated_background_subtitles_included",
-                         "image":"cartservices","isActive":true
+                  "title":"content_services",
+                  "catagories":[
+                      {
+                          "heading":"2d_video_editing",
+                          "title":"characters_includedVoice_over_recording_storyboard",
+                          "subTitle":"script_writing_illustrated_background_subtitles_included",
+                           "image":"cartservices",
+                           "isActive":true,
+                           "occurrence":"recurring"
+                           
+                      },
+                      {
+                          "heading":"2d_video_editing",
+                          "title":"characters_includedVoice_over_recording_storyboard",
+                          "subTitle":"script_writing_illustrated_background_subtitles_included",
+                           "image":"cartservices",
+                           "isActive":true,
+                            "occurrence":"recurring"
+                      },
+                      {
+                          "heading":"2d_video_editing",
+                          "title":"characters_includedVoice_over_recording_storyboard",
+                          "subTitle":"script_writing_illustrated_background_subtitles_included",
+                           "image":"cartservices",
+                           "isActive":true,
+                            "occurrence":"recurring"
+                      },
+                      {
+                          "heading":"2d_video_editing",
+                          "title":"characters_includedVoice_over_recording_storyboard",
+                          "subTitle":"script_writing_illustrated_background_subtitles_included",
+                           "image":"cartservices",
+                           "isActive":true,
+                            "occurrence":"recurring"
+                      }
+                  ]
                     },
                     {
-                        "heading":"2d_video_editing",
-                        "title":"characters_includedVoice_over_recording_storyboard",
-                        "subTitle":"script_writing_illustrated_background_subtitles_included",
-                         "image":"cartservices","isActive":true
-                    },
-                    {
-                        "heading":"2d_video_editing",
-                        "title":"characters_includedVoice_over_recording_storyboard",
-                        "subTitle":"script_writing_illustrated_background_subtitles_included",
-                         "image":"cartservices","isActive":true
-                    },
-                    {
-                        "heading":"2d_video_editing",
-                        "title":"characters_includedVoice_over_recording_storyboard",
-                        "subTitle":"script_writing_illustrated_background_subtitles_included",
-                         "image":"cartservices","isActive":true
-                    }
-                ]
+                      "title":"web_app_software_services",
+                      "catagories":[
+                          {
+                              "heading":"2d_video_editing",
+                              "title":"characters_includedVoice_over_recording_storyboard",
+                              "subTitle":"script_writing_illustrated_background_subtitles_included",
+                               "image":"cartservices",
+                               "isActive":true,
+                               "occurrence":"recurring"
+                               
+                          },
+                          {
+                              "heading":"2d_video_editing",
+                              "title":"characters_includedVoice_over_recording_storyboard",
+                              "subTitle":"script_writing_illustrated_background_subtitles_included",
+                               "image":"cartservices",
+                               "isActive":true,
+                                "occurrence":"recurring"
+                          },
+                          {
+                              "heading":"2d_video_editing",
+                              "title":"characters_includedVoice_over_recording_storyboard",
+                              "subTitle":"script_writing_illustrated_background_subtitles_included",
+                               "image":"cartservices",
+                               "isActive":true,
+                                "occurrence":"recurring"
+                          },
+                          {
+                              "heading":"2d_video_editing",
+                              "title":"characters_includedVoice_over_recording_storyboard",
+                              "subTitle":"script_writing_illustrated_background_subtitles_included",
+                               "image":"cartservices",
+                               "isActive":true,
+                                "occurrence":"recurring"
+                          }
+                      ]
+                        }
+                
+                  ]
             },
             {
                 "title":"branding_and_logo_design",
                 "image":"youtubehosting",
                 "subServices":[
                     {
-                        "heading":"2d_video_editing",
-                        "title":"characters_includedVoice_over_recording_storyboard",
-                        "subTitle":"script_writing_illustrated_background_subtitles_included",
-                         "image":"cartservices","isActive":true
+                  "title":"content_services",
+                  "catagories":[
+                      {
+                          "heading":"2d_video_editing",
+                          "title":"characters_includedVoice_over_recording_storyboard",
+                          "subTitle":"script_writing_illustrated_background_subtitles_included",
+                           "image":"cartservices",
+                           "isActive":true,
+                           "occurrence":"recurring"
+                           
+                      },
+                      {
+                          "heading":"2d_video_editing",
+                          "title":"characters_includedVoice_over_recording_storyboard",
+                          "subTitle":"script_writing_illustrated_background_subtitles_included",
+                           "image":"cartservices",
+                           "isActive":true,
+                            "occurrence":"recurring"
+                      },
+                      {
+                          "heading":"2d_video_editing",
+                          "title":"characters_includedVoice_over_recording_storyboard",
+                          "subTitle":"script_writing_illustrated_background_subtitles_included",
+                           "image":"cartservices",
+                           "isActive":true,
+                            "occurrence":"recurring"
+                      },
+                      {
+                          "heading":"2d_video_editing",
+                          "title":"characters_includedVoice_over_recording_storyboard",
+                          "subTitle":"script_writing_illustrated_background_subtitles_included",
+                           "image":"cartservices",
+                           "isActive":true,
+                            "occurrence":"recurring"
+                      }
+                  ]
                     },
                     {
-                        "heading":"2d_video_editing",
-                        "title":"characters_includedVoice_over_recording_storyboard",
-                        "subTitle":"script_writing_illustrated_background_subtitles_included",
-                         "image":"cartservices","isActive":true
-                    },
-                    {
-                        "heading":"2d_video_editing",
-                        "title":"characters_includedVoice_over_recording_storyboard",
-                        "subTitle":"script_writing_illustrated_background_subtitles_included",
-                         "image":"cartservices","isActive":true
-                    },
-                    {
-                        "heading":"2d_video_editing",
-                        "title":"characters_includedVoice_over_recording_storyboard",
-                        "subTitle":"script_writing_illustrated_background_subtitles_included",
-                         "image":"cartservices","isActive":true
-                    }
-                ]
+                      "title":"web_app_software_services",
+                      "catagories":[
+                          {
+                              "heading":"2d_video_editing",
+                              "title":"characters_includedVoice_over_recording_storyboard",
+                              "subTitle":"script_writing_illustrated_background_subtitles_included",
+                               "image":"cartservices",
+                               "isActive":true,
+                               "occurrence":"recurring"
+                               
+                          },
+                          {
+                              "heading":"2d_video_editing",
+                              "title":"characters_includedVoice_over_recording_storyboard",
+                              "subTitle":"script_writing_illustrated_background_subtitles_included",
+                               "image":"cartservices",
+                               "isActive":true,
+                                "occurrence":"recurring"
+                          },
+                          {
+                              "heading":"2d_video_editing",
+                              "title":"characters_includedVoice_over_recording_storyboard",
+                              "subTitle":"script_writing_illustrated_background_subtitles_included",
+                               "image":"cartservices",
+                               "isActive":true,
+                                "occurrence":"recurring"
+                          },
+                          {
+                              "heading":"2d_video_editing",
+                              "title":"characters_includedVoice_over_recording_storyboard",
+                              "subTitle":"script_writing_illustrated_background_subtitles_included",
+                               "image":"cartservices",
+                               "isActive":true,
+                                "occurrence":"recurring"
+                          }
+                      ]
+                        }
+                
+                  ]
             }
         ]
     },  {
@@ -259,120 +718,332 @@
                 "image":"youtubegraphicservice",
                 "subServices":[
                     {
-                        "heading":"2d_video_editing",
-                        "title":"characters_includedVoice_over_recording_storyboard",
-                        "subTitle":"script_writing_illustrated_background_subtitles_included",
-                        "image":"cartservices","isActive":true
+                  "title":"content_services",
+                  "catagories":[
+                      {
+                          "heading":"2d_video_editing",
+                          "title":"characters_includedVoice_over_recording_storyboard",
+                          "subTitle":"script_writing_illustrated_background_subtitles_included",
+                           "image":"cartservices",
+                           "isActive":true,
+                           "occurrence":"recurring"
+                           
+                      },
+                      {
+                          "heading":"2d_video_editing",
+                          "title":"characters_includedVoice_over_recording_storyboard",
+                          "subTitle":"script_writing_illustrated_background_subtitles_included",
+                           "image":"cartservices",
+                           "isActive":true,
+                            "occurrence":"recurring"
+                      },
+                      {
+                          "heading":"2d_video_editing",
+                          "title":"characters_includedVoice_over_recording_storyboard",
+                          "subTitle":"script_writing_illustrated_background_subtitles_included",
+                           "image":"cartservices",
+                           "isActive":true,
+                            "occurrence":"recurring"
+                      },
+                      {
+                          "heading":"2d_video_editing",
+                          "title":"characters_includedVoice_over_recording_storyboard",
+                          "subTitle":"script_writing_illustrated_background_subtitles_included",
+                           "image":"cartservices",
+                           "isActive":true,
+                            "occurrence":"recurring"
+                      }
+                  ]
                     },
                     {
-                        "heading":"2d_video_editing",
-                        "title":"characters_includedVoice_over_recording_storyboard",
-                        "subTitle":"script_writing_illustrated_background_subtitles_included",
-                          "image":"cartservices","isActive":true
-                    },
-                    {
-                        "heading":"2d_video_editing",
-                        "title":"characters_includedVoice_over_recording_storyboard",
-                        "subTitle":"script_writing_illustrated_background_subtitles_included",
-                          "image":"cartservices","isActive":true
-                    },
-                    {
-                        "heading":"2d_video_editing",
-                        "title":"characters_includedVoice_over_recording_storyboard",
-                        "subTitle":"script_writing_illustrated_background_subtitles_included",
-                          "image":"cartservices","isActive":true
-                    }
-                ]
+                      "title":"web_app_software_services",
+                      "catagories":[
+                          {
+                              "heading":"2d_video_editing",
+                              "title":"characters_includedVoice_over_recording_storyboard",
+                              "subTitle":"script_writing_illustrated_background_subtitles_included",
+                               "image":"cartservices",
+                               "isActive":true,
+                               "occurrence":"recurring"
+                               
+                          },
+                          {
+                              "heading":"2d_video_editing",
+                              "title":"characters_includedVoice_over_recording_storyboard",
+                              "subTitle":"script_writing_illustrated_background_subtitles_included",
+                               "image":"cartservices",
+                               "isActive":true,
+                                "occurrence":"recurring"
+                          },
+                          {
+                              "heading":"2d_video_editing",
+                              "title":"characters_includedVoice_over_recording_storyboard",
+                              "subTitle":"script_writing_illustrated_background_subtitles_included",
+                               "image":"cartservices",
+                               "isActive":true,
+                                "occurrence":"recurring"
+                          },
+                          {
+                              "heading":"2d_video_editing",
+                              "title":"characters_includedVoice_over_recording_storyboard",
+                              "subTitle":"script_writing_illustrated_background_subtitles_included",
+                               "image":"cartservices",
+                               "isActive":true,
+                                "occurrence":"recurring"
+                          }
+                      ]
+                        }
+                
+                  ]
             },
             {
                 "title":"animation_services",
                 "image":"youtubegraphicservice",
                 "subServices":[
                     {
-                        "heading":"2d_video_editing",
-                        "title":"characters_includedVoice_over_recording_storyboard",
-                        "subTitle":"script_writing_illustrated_background_subtitles_included",
-                          "image":"cartservices","isActive":true
+                  "title":"content_services",
+                  "catagories":[
+                      {
+                          "heading":"2d_video_editing",
+                          "title":"characters_includedVoice_over_recording_storyboard",
+                          "subTitle":"script_writing_illustrated_background_subtitles_included",
+                           "image":"cartservices",
+                           "isActive":true,
+                           "occurrence":"recurring"
+                           
+                      },
+                      {
+                          "heading":"2d_video_editing",
+                          "title":"characters_includedVoice_over_recording_storyboard",
+                          "subTitle":"script_writing_illustrated_background_subtitles_included",
+                           "image":"cartservices",
+                           "isActive":true,
+                            "occurrence":"recurring"
+                      },
+                      {
+                          "heading":"2d_video_editing",
+                          "title":"characters_includedVoice_over_recording_storyboard",
+                          "subTitle":"script_writing_illustrated_background_subtitles_included",
+                           "image":"cartservices",
+                           "isActive":true,
+                            "occurrence":"recurring"
+                      },
+                      {
+                          "heading":"2d_video_editing",
+                          "title":"characters_includedVoice_over_recording_storyboard",
+                          "subTitle":"script_writing_illustrated_background_subtitles_included",
+                           "image":"cartservices",
+                           "isActive":true,
+                            "occurrence":"recurring"
+                      }
+                  ]
                     },
                     {
-                        "heading":"2d_video_editing",
-                        "title":"characters_includedVoice_over_recording_storyboard",
-                        "subTitle":"script_writing_illustrated_background_subtitles_included",
-                          "image":"cartservices","isActive":true
-                    },
-                    {
-                        "heading":"2d_video_editing",
-                        "title":"characters_includedVoice_over_recording_storyboard",
-                        "subTitle":"script_writing_illustrated_background_subtitles_included",
-                          "image":"cartservices","isActive":true
-                    },
-                    {
-                        "heading":"2d_video_editing",
-                        "title":"characters_includedVoice_over_recording_storyboard",
-                        "subTitle":"script_writing_illustrated_background_subtitles_included",
-                          "image":"cartservices","isActive":true
-                    }
-                ]
+                      "title":"web_app_software_services",
+                      "catagories":[
+                          {
+                              "heading":"2d_video_editing",
+                              "title":"characters_includedVoice_over_recording_storyboard",
+                              "subTitle":"script_writing_illustrated_background_subtitles_included",
+                               "image":"cartservices",
+                               "isActive":true,
+                               "occurrence":"recurring"
+                               
+                          },
+                          {
+                              "heading":"2d_video_editing",
+                              "title":"characters_includedVoice_over_recording_storyboard",
+                              "subTitle":"script_writing_illustrated_background_subtitles_included",
+                               "image":"cartservices",
+                               "isActive":true,
+                                "occurrence":"recurring"
+                          },
+                          {
+                              "heading":"2d_video_editing",
+                              "title":"characters_includedVoice_over_recording_storyboard",
+                              "subTitle":"script_writing_illustrated_background_subtitles_included",
+                               "image":"cartservices",
+                               "isActive":true,
+                                "occurrence":"recurring"
+                          },
+                          {
+                              "heading":"2d_video_editing",
+                              "title":"characters_includedVoice_over_recording_storyboard",
+                              "subTitle":"script_writing_illustrated_background_subtitles_included",
+                               "image":"cartservices",
+                               "isActive":true,
+                                "occurrence":"recurring"
+                          }
+                      ]
+                        }
+                
+                  ]
             },
             {
                 "title":"seo_for_amazon",
                 "image":"youtubegraphicservice",
                 "subServices":[
                     {
-                        "heading":"2d_video_editing",
-                        "title":"characters_includedVoice_over_recording_storyboard",
-                        "subTitle":"script_writing_illustrated_background_subtitles_included",
-                          "image":"cartservices","isActive":true
+                  "title":"content_services",
+                  "catagories":[
+                      {
+                          "heading":"2d_video_editing",
+                          "title":"characters_includedVoice_over_recording_storyboard",
+                          "subTitle":"script_writing_illustrated_background_subtitles_included",
+                           "image":"cartservices",
+                           "isActive":true,
+                           "occurrence":"recurring"
+                           
+                      },
+                      {
+                          "heading":"2d_video_editing",
+                          "title":"characters_includedVoice_over_recording_storyboard",
+                          "subTitle":"script_writing_illustrated_background_subtitles_included",
+                           "image":"cartservices",
+                           "isActive":true,
+                            "occurrence":"recurring"
+                      },
+                      {
+                          "heading":"2d_video_editing",
+                          "title":"characters_includedVoice_over_recording_storyboard",
+                          "subTitle":"script_writing_illustrated_background_subtitles_included",
+                           "image":"cartservices",
+                           "isActive":true,
+                            "occurrence":"recurring"
+                      },
+                      {
+                          "heading":"2d_video_editing",
+                          "title":"characters_includedVoice_over_recording_storyboard",
+                          "subTitle":"script_writing_illustrated_background_subtitles_included",
+                           "image":"cartservices",
+                           "isActive":true,
+                            "occurrence":"recurring"
+                      }
+                  ]
                     },
                     {
-                        "heading":"2d_video_editing",
-                        "title":"characters_includedVoice_over_recording_storyboard",
-                        "subTitle":"script_writing_illustrated_background_subtitles_included",
-                          "image":"cartservices","isActive":true
-                    },
-                    {
-                        "heading":"2d_video_editing",
-                        "title":"characters_includedVoice_over_recording_storyboard",
-                        "subTitle":"script_writing_illustrated_background_subtitles_included",
-                          "image":"cartservices","isActive":true
-                    },
-                    {
-                        "heading":"2d_video_editing",
-                        "title":"characters_includedVoice_over_recording_storyboard",
-                        "subTitle":"script_writing_illustrated_background_subtitles_included",
-                          "image":"cartservices","isActive":true
-                    }
-                ]
+                      "title":"web_app_software_services",
+                      "catagories":[
+                          {
+                              "heading":"2d_video_editing",
+                              "title":"characters_includedVoice_over_recording_storyboard",
+                              "subTitle":"script_writing_illustrated_background_subtitles_included",
+                               "image":"cartservices",
+                               "isActive":true,
+                               "occurrence":"recurring"
+                               
+                          },
+                          {
+                              "heading":"2d_video_editing",
+                              "title":"characters_includedVoice_over_recording_storyboard",
+                              "subTitle":"script_writing_illustrated_background_subtitles_included",
+                               "image":"cartservices",
+                               "isActive":true,
+                                "occurrence":"recurring"
+                          },
+                          {
+                              "heading":"2d_video_editing",
+                              "title":"characters_includedVoice_over_recording_storyboard",
+                              "subTitle":"script_writing_illustrated_background_subtitles_included",
+                               "image":"cartservices",
+                               "isActive":true,
+                                "occurrence":"recurring"
+                          },
+                          {
+                              "heading":"2d_video_editing",
+                              "title":"characters_includedVoice_over_recording_storyboard",
+                              "subTitle":"script_writing_illustrated_background_subtitles_included",
+                               "image":"cartservices",
+                               "isActive":true,
+                                "occurrence":"recurring"
+                          }
+                      ]
+                        }
+                
+                  ]
             },
             {
                 "title":"website_development",
                 "image":"youtubegraphicservice",
                 "subServices":[
                     {
-                        "heading":"2d_video_editing",
-                        "title":"characters_includedVoice_over_recording_storyboard",
-                        "subTitle":"script_writing_illustrated_background_subtitles_included",
-                          "image":"cartservices","isActive":true
+                  "title":"content_services",
+                  "catagories":[
+                      {
+                          "heading":"2d_video_editing",
+                          "title":"characters_includedVoice_over_recording_storyboard",
+                          "subTitle":"script_writing_illustrated_background_subtitles_included",
+                           "image":"cartservices",
+                           "isActive":true,
+                           "occurrence":"recurring"
+                           
+                      },
+                      {
+                          "heading":"2d_video_editing",
+                          "title":"characters_includedVoice_over_recording_storyboard",
+                          "subTitle":"script_writing_illustrated_background_subtitles_included",
+                           "image":"cartservices",
+                           "isActive":true,
+                            "occurrence":"recurring"
+                      },
+                      {
+                          "heading":"2d_video_editing",
+                          "title":"characters_includedVoice_over_recording_storyboard",
+                          "subTitle":"script_writing_illustrated_background_subtitles_included",
+                           "image":"cartservices",
+                           "isActive":true,
+                            "occurrence":"recurring"
+                      },
+                      {
+                          "heading":"2d_video_editing",
+                          "title":"characters_includedVoice_over_recording_storyboard",
+                          "subTitle":"script_writing_illustrated_background_subtitles_included",
+                           "image":"cartservices",
+                           "isActive":true,
+                            "occurrence":"recurring"
+                      }
+                  ]
                     },
                     {
-                        "heading":"2d_video_editing",
-                        "title":"characters_includedVoice_over_recording_storyboard",
-                        "subTitle":"script_writing_illustrated_background_subtitles_included",
-                          "image":"cartservices","isActive":true
-                    },
-                    {
-                        "heading":"2d_video_editing",
-                        "title":"characters_includedVoice_over_recording_storyboard",
-                        "subTitle":"script_writing_illustrated_background_subtitles_included",
-                          "image":"cartservices","isActive":true
-                    },
-                    {
-                        "heading":"2d_video_editing",
-                        "title":"characters_includedVoice_over_recording_storyboard",
-                        "subTitle":"script_writing_illustrated_background_subtitles_included",
-                          "image":"cartservices","isActive":true
-                    }
-                ]
+                      "title":"web_app_software_services",
+                      "catagories":[
+                          {
+                              "heading":"2d_video_editing",
+                              "title":"characters_includedVoice_over_recording_storyboard",
+                              "subTitle":"script_writing_illustrated_background_subtitles_included",
+                               "image":"cartservices",
+                               "isActive":true,
+                               "occurrence":"recurring"
+                               
+                          },
+                          {
+                              "heading":"2d_video_editing",
+                              "title":"characters_includedVoice_over_recording_storyboard",
+                              "subTitle":"script_writing_illustrated_background_subtitles_included",
+                               "image":"cartservices",
+                               "isActive":true,
+                                "occurrence":"recurring"
+                          },
+                          {
+                              "heading":"2d_video_editing",
+                              "title":"characters_includedVoice_over_recording_storyboard",
+                              "subTitle":"script_writing_illustrated_background_subtitles_included",
+                               "image":"cartservices",
+                               "isActive":true,
+                                "occurrence":"recurring"
+                          },
+                          {
+                              "heading":"2d_video_editing",
+                              "title":"characters_includedVoice_over_recording_storyboard",
+                              "subTitle":"script_writing_illustrated_background_subtitles_included",
+                               "image":"cartservices",
+                               "isActive":true,
+                                "occurrence":"recurring"
+                          }
+                      ]
+                        }
+                
+                  ]
             }
         ]
     },  {
@@ -383,120 +1054,332 @@
                 "image":"youtubesubscriber",
                 "subServices":[
                     {
-                        "heading":"2d_video_editing",
-                        "title":"characters_includedVoice_over_recording_storyboard",
-                        "subTitle":"script_writing_illustrated_background_subtitles_included",
-                          "image":"cartservices","isActive":true
+                  "title":"content_services",
+                  "catagories":[
+                      {
+                          "heading":"2d_video_editing",
+                          "title":"characters_includedVoice_over_recording_storyboard",
+                          "subTitle":"script_writing_illustrated_background_subtitles_included",
+                           "image":"cartservices",
+                           "isActive":true,
+                           "occurrence":"recurring"
+                           
+                      },
+                      {
+                          "heading":"2d_video_editing",
+                          "title":"characters_includedVoice_over_recording_storyboard",
+                          "subTitle":"script_writing_illustrated_background_subtitles_included",
+                           "image":"cartservices",
+                           "isActive":true,
+                            "occurrence":"recurring"
+                      },
+                      {
+                          "heading":"2d_video_editing",
+                          "title":"characters_includedVoice_over_recording_storyboard",
+                          "subTitle":"script_writing_illustrated_background_subtitles_included",
+                           "image":"cartservices",
+                           "isActive":true,
+                            "occurrence":"recurring"
+                      },
+                      {
+                          "heading":"2d_video_editing",
+                          "title":"characters_includedVoice_over_recording_storyboard",
+                          "subTitle":"script_writing_illustrated_background_subtitles_included",
+                           "image":"cartservices",
+                           "isActive":true,
+                            "occurrence":"recurring"
+                      }
+                  ]
                     },
                     {
-                        "heading":"2d_video_editing",
-                        "title":"characters_includedVoice_over_recording_storyboard",
-                        "subTitle":"script_writing_illustrated_background_subtitles_included",
-                          "image":"cartservices","isActive":true
-                    },
-                    {
-                        "heading":"2d_video_editing",
-                        "title":"characters_includedVoice_over_recording_storyboard",
-                        "subTitle":"script_writing_illustrated_background_subtitles_included",
-                          "image":"cartservices","isActive":true
-                    },
-                    {
-                        "heading":"2d_video_editing",
-                        "title":"characters_includedVoice_over_recording_storyboard",
-                        "subTitle":"script_writing_illustrated_background_subtitles_included",
-                          "image":"cartservices","isActive":true
-                    }
-                ]
+                      "title":"web_app_software_services",
+                      "catagories":[
+                          {
+                              "heading":"2d_video_editing",
+                              "title":"characters_includedVoice_over_recording_storyboard",
+                              "subTitle":"script_writing_illustrated_background_subtitles_included",
+                               "image":"cartservices",
+                               "isActive":true,
+                               "occurrence":"recurring"
+                               
+                          },
+                          {
+                              "heading":"2d_video_editing",
+                              "title":"characters_includedVoice_over_recording_storyboard",
+                              "subTitle":"script_writing_illustrated_background_subtitles_included",
+                               "image":"cartservices",
+                               "isActive":true,
+                                "occurrence":"recurring"
+                          },
+                          {
+                              "heading":"2d_video_editing",
+                              "title":"characters_includedVoice_over_recording_storyboard",
+                              "subTitle":"script_writing_illustrated_background_subtitles_included",
+                               "image":"cartservices",
+                               "isActive":true,
+                                "occurrence":"recurring"
+                          },
+                          {
+                              "heading":"2d_video_editing",
+                              "title":"characters_includedVoice_over_recording_storyboard",
+                              "subTitle":"script_writing_illustrated_background_subtitles_included",
+                               "image":"cartservices",
+                               "isActive":true,
+                                "occurrence":"recurring"
+                          }
+                      ]
+                        }
+                
+                  ]
             },
             {
                 "title":"channel_branding_design",
                 "image":"youtubesubscriber",
                 "subServices":[
                     {
-                        "heading":"2d_video_editing",
-                        "title":"characters_includedVoice_over_recording_storyboard",
-                        "subTitle":"script_writing_illustrated_background_subtitles_included",
-                          "image":"cartservices","isActive":true
+                  "title":"content_services",
+                  "catagories":[
+                      {
+                          "heading":"2d_video_editing",
+                          "title":"characters_includedVoice_over_recording_storyboard",
+                          "subTitle":"script_writing_illustrated_background_subtitles_included",
+                           "image":"cartservices",
+                           "isActive":true,
+                           "occurrence":"recurring"
+                           
+                      },
+                      {
+                          "heading":"2d_video_editing",
+                          "title":"characters_includedVoice_over_recording_storyboard",
+                          "subTitle":"script_writing_illustrated_background_subtitles_included",
+                           "image":"cartservices",
+                           "isActive":true,
+                            "occurrence":"recurring"
+                      },
+                      {
+                          "heading":"2d_video_editing",
+                          "title":"characters_includedVoice_over_recording_storyboard",
+                          "subTitle":"script_writing_illustrated_background_subtitles_included",
+                           "image":"cartservices",
+                           "isActive":true,
+                            "occurrence":"recurring"
+                      },
+                      {
+                          "heading":"2d_video_editing",
+                          "title":"characters_includedVoice_over_recording_storyboard",
+                          "subTitle":"script_writing_illustrated_background_subtitles_included",
+                           "image":"cartservices",
+                           "isActive":true,
+                            "occurrence":"recurring"
+                      }
+                  ]
                     },
                     {
-                        "heading":"2d_video_editing",
-                        "title":"characters_includedVoice_over_recording_storyboard",
-                        "subTitle":"script_writing_illustrated_background_subtitles_included",
-                          "image":"cartservices","isActive":true
-                    },
-                    {
-                        "heading":"2d_video_editing",
-                        "title":"characters_includedVoice_over_recording_storyboard",
-                        "subTitle":"script_writing_illustrated_background_subtitles_included",
-                          "image":"cartservices","isActive":true
-                    },
-                    {
-                        "heading":"2d_video_editing",
-                        "title":"characters_includedVoice_over_recording_storyboard",
-                        "subTitle":"script_writing_illustrated_background_subtitles_included",
-                          "image":"cartservices","isActive":true
-                    }
-                ]
+                      "title":"web_app_software_services",
+                      "catagories":[
+                          {
+                              "heading":"2d_video_editing",
+                              "title":"characters_includedVoice_over_recording_storyboard",
+                              "subTitle":"script_writing_illustrated_background_subtitles_included",
+                               "image":"cartservices",
+                               "isActive":true,
+                               "occurrence":"recurring"
+                               
+                          },
+                          {
+                              "heading":"2d_video_editing",
+                              "title":"characters_includedVoice_over_recording_storyboard",
+                              "subTitle":"script_writing_illustrated_background_subtitles_included",
+                               "image":"cartservices",
+                               "isActive":true,
+                                "occurrence":"recurring"
+                          },
+                          {
+                              "heading":"2d_video_editing",
+                              "title":"characters_includedVoice_over_recording_storyboard",
+                              "subTitle":"script_writing_illustrated_background_subtitles_included",
+                               "image":"cartservices",
+                               "isActive":true,
+                                "occurrence":"recurring"
+                          },
+                          {
+                              "heading":"2d_video_editing",
+                              "title":"characters_includedVoice_over_recording_storyboard",
+                              "subTitle":"script_writing_illustrated_background_subtitles_included",
+                               "image":"cartservices",
+                               "isActive":true,
+                                "occurrence":"recurring"
+                          }
+                      ]
+                        }
+                
+                  ]
             },
             {
                 "title":"metadata_optimization",
                 "image":"youtubesubscriber",
                 "subServices":[
                     {
-                        "heading":"2d_video_editing",
-                        "title":"characters_includedVoice_over_recording_storyboard",
-                        "subTitle":"script_writing_illustrated_background_subtitles_included",
-                          "image":"cartservices","isActive":true
+                  "title":"content_services",
+                  "catagories":[
+                      {
+                          "heading":"2d_video_editing",
+                          "title":"characters_includedVoice_over_recording_storyboard",
+                          "subTitle":"script_writing_illustrated_background_subtitles_included",
+                           "image":"cartservices",
+                           "isActive":true,
+                           "occurrence":"recurring"
+                           
+                      },
+                      {
+                          "heading":"2d_video_editing",
+                          "title":"characters_includedVoice_over_recording_storyboard",
+                          "subTitle":"script_writing_illustrated_background_subtitles_included",
+                           "image":"cartservices",
+                           "isActive":true,
+                            "occurrence":"recurring"
+                      },
+                      {
+                          "heading":"2d_video_editing",
+                          "title":"characters_includedVoice_over_recording_storyboard",
+                          "subTitle":"script_writing_illustrated_background_subtitles_included",
+                           "image":"cartservices",
+                           "isActive":true,
+                            "occurrence":"recurring"
+                      },
+                      {
+                          "heading":"2d_video_editing",
+                          "title":"characters_includedVoice_over_recording_storyboard",
+                          "subTitle":"script_writing_illustrated_background_subtitles_included",
+                           "image":"cartservices",
+                           "isActive":true,
+                            "occurrence":"recurring"
+                      }
+                  ]
                     },
                     {
-                        "heading":"2d_video_editing",
-                        "title":"characters_includedVoice_over_recording_storyboard",
-                        "subTitle":"script_writing_illustrated_background_subtitles_included",
-                          "image":"cartservices","isActive":true
-                    },
-                    {
-                        "heading":"2d_video_editing",
-                        "title":"characters_includedVoice_over_recording_storyboard",
-                        "subTitle":"script_writing_illustrated_background_subtitles_included",
-                          "image":"cartservices","isActive":true
-                    },
-                    {
-                        "heading":"2d_video_editing",
-                        "title":"characters_includedVoice_over_recording_storyboard",
-                        "subTitle":"script_writing_illustrated_background_subtitles_included",
-                          "image":"cartservices","isActive":true
-                    }
-                ]
+                      "title":"web_app_software_services",
+                      "catagories":[
+                          {
+                              "heading":"2d_video_editing",
+                              "title":"characters_includedVoice_over_recording_storyboard",
+                              "subTitle":"script_writing_illustrated_background_subtitles_included",
+                               "image":"cartservices",
+                               "isActive":true,
+                               "occurrence":"recurring"
+                               
+                          },
+                          {
+                              "heading":"2d_video_editing",
+                              "title":"characters_includedVoice_over_recording_storyboard",
+                              "subTitle":"script_writing_illustrated_background_subtitles_included",
+                               "image":"cartservices",
+                               "isActive":true,
+                                "occurrence":"recurring"
+                          },
+                          {
+                              "heading":"2d_video_editing",
+                              "title":"characters_includedVoice_over_recording_storyboard",
+                              "subTitle":"script_writing_illustrated_background_subtitles_included",
+                               "image":"cartservices",
+                               "isActive":true,
+                                "occurrence":"recurring"
+                          },
+                          {
+                              "heading":"2d_video_editing",
+                              "title":"characters_includedVoice_over_recording_storyboard",
+                              "subTitle":"script_writing_illustrated_background_subtitles_included",
+                               "image":"cartservices",
+                               "isActive":true,
+                                "occurrence":"recurring"
+                          }
+                      ]
+                        }
+                
+                  ]
             },
             {
                 "title":"seo_keyword_research",
                 "image":"youtubesubscriber",
                 "subServices":[
                     {
-                        "heading":"2d_video_editing",
-                        "title":"characters_includedVoice_over_recording_storyboard",
-                        "subTitle":"script_writing_illustrated_background_subtitles_included",
-                        "image":"cartservices","isActive":true
+                  "title":"content_services",
+                  "catagories":[
+                      {
+                          "heading":"2d_video_editing",
+                          "title":"characters_includedVoice_over_recording_storyboard",
+                          "subTitle":"script_writing_illustrated_background_subtitles_included",
+                           "image":"cartservices",
+                           "isActive":true,
+                           "occurrence":"recurring"
+                           
+                      },
+                      {
+                          "heading":"2d_video_editing",
+                          "title":"characters_includedVoice_over_recording_storyboard",
+                          "subTitle":"script_writing_illustrated_background_subtitles_included",
+                           "image":"cartservices",
+                           "isActive":true,
+                            "occurrence":"recurring"
+                      },
+                      {
+                          "heading":"2d_video_editing",
+                          "title":"characters_includedVoice_over_recording_storyboard",
+                          "subTitle":"script_writing_illustrated_background_subtitles_included",
+                           "image":"cartservices",
+                           "isActive":true,
+                            "occurrence":"recurring"
+                      },
+                      {
+                          "heading":"2d_video_editing",
+                          "title":"characters_includedVoice_over_recording_storyboard",
+                          "subTitle":"script_writing_illustrated_background_subtitles_included",
+                           "image":"cartservices",
+                           "isActive":true,
+                            "occurrence":"recurring"
+                      }
+                  ]
                     },
                     {
-                        "heading":"2d_video_editing",
-                        "title":"characters_includedVoice_over_recording_storyboard",
-                        "subTitle":"script_writing_illustrated_background_subtitles_included",
-                          "image":"cartservices","isActive":true
-                    },
-                    {
-                        "heading":"2d_video_editing",
-                        "title":"characters_includedVoice_over_recording_storyboard",
-                        "subTitle":"script_writing_illustrated_background_subtitles_included",
-                          "image":"cartservices","isActive":true
-                    },
-                    {
-                        "heading":"2d_video_editing",
-                        "title":"characters_includedVoice_over_recording_storyboard",
-                        "subTitle":"script_writing_illustrated_background_subtitles_included",
-                          "image":"cartservices","isActive":true
-                    }
-                ]
+                      "title":"web_app_software_services",
+                      "catagories":[
+                          {
+                              "heading":"2d_video_editing",
+                              "title":"characters_includedVoice_over_recording_storyboard",
+                              "subTitle":"script_writing_illustrated_background_subtitles_included",
+                               "image":"cartservices",
+                               "isActive":true,
+                               "occurrence":"recurring"
+                               
+                          },
+                          {
+                              "heading":"2d_video_editing",
+                              "title":"characters_includedVoice_over_recording_storyboard",
+                              "subTitle":"script_writing_illustrated_background_subtitles_included",
+                               "image":"cartservices",
+                               "isActive":true,
+                                "occurrence":"recurring"
+                          },
+                          {
+                              "heading":"2d_video_editing",
+                              "title":"characters_includedVoice_over_recording_storyboard",
+                              "subTitle":"script_writing_illustrated_background_subtitles_included",
+                               "image":"cartservices",
+                               "isActive":true,
+                                "occurrence":"recurring"
+                          },
+                          {
+                              "heading":"2d_video_editing",
+                              "title":"characters_includedVoice_over_recording_storyboard",
+                              "subTitle":"script_writing_illustrated_background_subtitles_included",
+                               "image":"cartservices",
+                               "isActive":true,
+                                "occurrence":"recurring"
+                          }
+                      ]
+                        }
+                
+                  ]
             }
         ]
     }
