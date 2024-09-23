@@ -71,9 +71,11 @@ import deleteBtn from "../../assets/images/delete.svg";
 import timer from "../../assets/images/timer.svg";
 import emptycart from "../../assets/images/emptycart.svg";
 import backBtn from "../../assets/images/backBtn.svg";
+import addBtn from "../../assets/images/add.svg";
 
 const AppImages = {
   backBtn,
+  addBtn,
   emptycart,
   timer,
   deleteBtn,

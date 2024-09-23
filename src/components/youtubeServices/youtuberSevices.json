@@ -15,7 +15,8 @@
                         "subTitle":"script_writing_illustrated_background_subtitles_included",
                          "image":"cartservices",
                          "isActive":true,
-                         "occurrence":"recurring"
+                         "occurrence":"recurring",
+                         "sku":"1"
                          
                     },
                     {
@@ -24,7 +25,8 @@
                         "subTitle":"script_writing_illustrated_background_subtitles_included",
                          "image":"cartservices",
                          "isActive":true,
-                          "occurrence":"oneTime"
+                          "occurrence":"oneTime",
+                          "sku":"2"
                     },
                     {
                         "heading":"2d_video_editing",
@@ -32,7 +34,8 @@
                         "subTitle":"script_writing_illustrated_background_subtitles_included",
                          "image":"cartservices",
                          "isActive":true,
-                          "occurrence":"recurring"
+                          "occurrence":"recurring",
+                          "sku":"3"
                     },
                     {
                         "heading":"2d_video_editing",
@@ -40,7 +43,8 @@
                         "subTitle":"script_writing_illustrated_background_subtitles_included",
                          "image":"cartservices",
                          "isActive":true,
-                          "occurrence":"oneTime"
+                          "occurrence":"oneTime",
+                          "sku":"4"
                     }
                 ]
                   },
@@ -53,7 +57,8 @@
                             "subTitle":"script_writing_illustrated_background_subtitles_included",
                              "image":"cartservices",
                              "isActive":true,
-                             "occurrence":"recurring"
+                             "occurrence":"recurring",
+                             "sku":"5"
                              
                         },
                         {
@@ -62,7 +67,8 @@
                             "subTitle":"script_writing_illustrated_background_subtitles_included",
                              "image":"cartservices",
                              "isActive":true,
-                              "occurrence":"recurring"
+                              "occurrence":"recurring",
+                              "sku":"6"
                         },
                         {
                             "heading":"2d_video_editing",
@@ -70,7 +76,8 @@
                             "subTitle":"script_writing_illustrated_background_subtitles_included",
                              "image":"cartservices",
                              "isActive":true,
-                              "occurrence":"recurring"
+                              "occurrence":"recurring",
+                              "sku":"7"
                         },
                         {
                             "heading":"2d_video_editing",
@@ -78,7 +85,8 @@
                             "subTitle":"script_writing_illustrated_background_subtitles_included",
                              "image":"cartservices",
                              "isActive":true,
-                              "occurrence":"recurring"
+                              "occurrence":"recurring",
+                              "sku":"8"
                         }
                     ]
                       }
@@ -98,7 +106,8 @@
                           "subTitle":"script_writing_illustrated_background_subtitles_included",
                            "image":"cartservices",
                            "isActive":true,
-                           "occurrence":"recurring"
+                           "occurrence":"recurring",
+                           "sku":"1"
                            
                       },
                       {
@@ -107,7 +116,8 @@
                           "subTitle":"script_writing_illustrated_background_subtitles_included",
                            "image":"cartservices",
                            "isActive":true,
-                            "occurrence":"recurring"
+                            "occurrence":"oneTime",
+                            "sku":"2"
                       },
                       {
                           "heading":"2d_video_editing",
@@ -115,7 +125,8 @@
                           "subTitle":"script_writing_illustrated_background_subtitles_included",
                            "image":"cartservices",
                            "isActive":true,
-                            "occurrence":"recurring"
+                            "occurrence":"recurring",
+                            "sku":"3"
                       },
                       {
                           "heading":"2d_video_editing",
@@ -123,7 +134,8 @@
                           "subTitle":"script_writing_illustrated_background_subtitles_included",
                            "image":"cartservices",
                            "isActive":true,
-                            "occurrence":"recurring"
+                            "occurrence":"oneTime",
+                            "sku":"4"
                       }
                   ]
                     },
@@ -136,7 +148,8 @@
                               "subTitle":"script_writing_illustrated_background_subtitles_included",
                                "image":"cartservices",
                                "isActive":true,
-                               "occurrence":"recurring"
+                               "occurrence":"recurring",
+                               "sku":"5"
                                
                           },
                           {
@@ -145,7 +158,8 @@
                               "subTitle":"script_writing_illustrated_background_subtitles_included",
                                "image":"cartservices",
                                "isActive":true,
-                                "occurrence":"recurring"
+                                "occurrence":"recurring",
+                                "sku":"6"
                           },
                           {
                               "heading":"2d_video_editing",
@@ -153,7 +167,8 @@
                               "subTitle":"script_writing_illustrated_background_subtitles_included",
                                "image":"cartservices",
                                "isActive":true,
-                                "occurrence":"recurring"
+                                "occurrence":"recurring",
+                                "sku":"7"
                           },
                           {
                               "heading":"2d_video_editing",
@@ -161,48 +176,11 @@
                               "subTitle":"script_writing_illustrated_background_subtitles_included",
                                "image":"cartservices",
                                "isActive":true,
-                                "occurrence":"recurring"
+                                "occurrence":"recurring",
+                                "sku":"8"
                           }
                       ]
-                        },
-                        {
-                            "title":"content_services",
-                            "catagories":[
-                                {
-                                    "heading":"2d_video_editing",
-                                    "title":"characters_includedVoice_over_recording_storyboard",
-                                    "subTitle":"script_writing_illustrated_background_subtitles_included",
-                                     "image":"cartservices",
-                                     "isActive":true,
-                                     "occurrence":"recurring"
-                                     
-                                },
-                                {
-                                    "heading":"2d_video_editing",
-                                    "title":"characters_includedVoice_over_recording_storyboard",
-                                    "subTitle":"script_writing_illustrated_background_subtitles_included",
-                                     "image":"cartservices",
-                                     "isActive":true,
-                                      "occurrence":"recurring"
-                                },
-                                {
-                                    "heading":"2d_video_editing",
-                                    "title":"characters_includedVoice_over_recording_storyboard",
-                                    "subTitle":"script_writing_illustrated_background_subtitles_included",
-                                     "image":"cartservices",
-                                     "isActive":true,
-                                      "occurrence":"recurring"
-                                },
-                                {
-                                    "heading":"2d_video_editing",
-                                    "title":"characters_includedVoice_over_recording_storyboard",
-                                    "subTitle":"script_writing_illustrated_background_subtitles_included",
-                                     "image":"cartservices",
-                                     "isActive":true,
-                                      "occurrence":"recurring"
-                                }
-                            ]
-                              }
+                        }
                 
                   ]
             },
@@ -219,7 +197,8 @@
                           "subTitle":"script_writing_illustrated_background_subtitles_included",
                            "image":"cartservices",
                            "isActive":true,
-                           "occurrence":"recurring"
+                           "occurrence":"recurring",
+                           "sku":"1"
                            
                       },
                       {
@@ -228,7 +207,8 @@
                           "subTitle":"script_writing_illustrated_background_subtitles_included",
                            "image":"cartservices",
                            "isActive":true,
-                            "occurrence":"recurring"
+                            "occurrence":"oneTime",
+                            "sku":"2"
                       },
                       {
                           "heading":"2d_video_editing",
@@ -236,7 +216,8 @@
                           "subTitle":"script_writing_illustrated_background_subtitles_included",
                            "image":"cartservices",
                            "isActive":true,
-                            "occurrence":"recurring"
+                            "occurrence":"recurring",
+                            "sku":"3"
                       },
                       {
                           "heading":"2d_video_editing",
@@ -244,7 +225,8 @@
                           "subTitle":"script_writing_illustrated_background_subtitles_included",
                            "image":"cartservices",
                            "isActive":true,
-                            "occurrence":"recurring"
+                            "occurrence":"oneTime",
+                            "sku":"4"
                       }
                   ]
                     },
@@ -257,7 +239,8 @@
                               "subTitle":"script_writing_illustrated_background_subtitles_included",
                                "image":"cartservices",
                                "isActive":true,
-                               "occurrence":"recurring"
+                               "occurrence":"recurring",
+                               "sku":"5"
                                
                           },
                           {
@@ -266,7 +249,8 @@
                               "subTitle":"script_writing_illustrated_background_subtitles_included",
                                "image":"cartservices",
                                "isActive":true,
-                                "occurrence":"recurring"
+                                "occurrence":"recurring",
+                                "sku":"6"
                           },
                           {
                               "heading":"2d_video_editing",
@@ -274,7 +258,8 @@
                               "subTitle":"script_writing_illustrated_background_subtitles_included",
                                "image":"cartservices",
                                "isActive":true,
-                                "occurrence":"recurring"
+                                "occurrence":"recurring",
+                                "sku":"7"
                           },
                           {
                               "heading":"2d_video_editing",
@@ -282,7 +267,8 @@
                               "subTitle":"script_writing_illustrated_background_subtitles_included",
                                "image":"cartservices",
                                "isActive":true,
-                                "occurrence":"recurring"
+                                "occurrence":"recurring",
+                                "sku":"8"
                           }
                       ]
                         }
@@ -302,7 +288,8 @@
                           "subTitle":"script_writing_illustrated_background_subtitles_included",
                            "image":"cartservices",
                            "isActive":true,
-                           "occurrence":"recurring"
+                           "occurrence":"recurring",
+                           "sku":"1"
                            
                       },
                       {
@@ -311,7 +298,8 @@
                           "subTitle":"script_writing_illustrated_background_subtitles_included",
                            "image":"cartservices",
                            "isActive":true,
-                            "occurrence":"recurring"
+                            "occurrence":"oneTime",
+                            "sku":"2"
                       },
                       {
                           "heading":"2d_video_editing",
@@ -319,7 +307,8 @@
                           "subTitle":"script_writing_illustrated_background_subtitles_included",
                            "image":"cartservices",
                            "isActive":true,
-                            "occurrence":"recurring"
+                            "occurrence":"recurring",
+                            "sku":"3"
                       },
                       {
                           "heading":"2d_video_editing",
@@ -327,7 +316,8 @@
                           "subTitle":"script_writing_illustrated_background_subtitles_included",
                            "image":"cartservices",
                            "isActive":true,
-                            "occurrence":"recurring"
+                            "occurrence":"oneTime",
+                            "sku":"4"
                       }
                   ]
                     },
@@ -340,7 +330,8 @@
                               "subTitle":"script_writing_illustrated_background_subtitles_included",
                                "image":"cartservices",
                                "isActive":true,
-                               "occurrence":"recurring"
+                               "occurrence":"recurring",
+                               "sku":"5"
                                
                           },
                           {
@@ -349,7 +340,8 @@
                               "subTitle":"script_writing_illustrated_background_subtitles_included",
                                "image":"cartservices",
                                "isActive":true,
-                                "occurrence":"recurring"
+                                "occurrence":"recurring",
+                                "sku":"6"
                           },
                           {
                               "heading":"2d_video_editing",
@@ -357,7 +349,8 @@
                               "subTitle":"script_writing_illustrated_background_subtitles_included",
                                "image":"cartservices",
                                "isActive":true,
-                                "occurrence":"recurring"
+                                "occurrence":"recurring",
+                                "sku":"7"
                           },
                           {
                               "heading":"2d_video_editing",
@@ -365,7 +358,8 @@
                               "subTitle":"script_writing_illustrated_background_subtitles_included",
                                "image":"cartservices",
                                "isActive":true,
-                                "occurrence":"recurring"
+                                "occurrence":"recurring",
+                                "sku":"8"
                           }
                       ]
                         }

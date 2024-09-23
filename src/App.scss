@@ -1297,6 +1297,8 @@ textarea {
    justify-content: space-between;
   .delete-btn {
     cursor: pointer;
+    padding: 5px;
+    width: 50px;
     &:hover{
       color: #080808;
       background: $buttonHoverColor;

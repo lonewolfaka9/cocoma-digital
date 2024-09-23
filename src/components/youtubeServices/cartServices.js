@@ -5,6 +5,32 @@ import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { ArrowRight } from "react-bootstrap-icons";
 
+const SKU_ARRAY = [];
+const EmptyContainer = ({ t }) => {
+  return (
+    <Container className="empty-cart">
+      <Row>
+        <Col sm={3}>
+          <Image src={AppImages.emptycart} />
+        </Col>
+      </Row>
+      <Row>
+        <Col
+          style={{
+            background: "transparent",
+          }}
+        >
+          <div className="empty-text">
+            <h2>{t("your_cart_is")}</h2>
+            <h2 className="empty-val">{t("empty")}</h2>
+          </div>
+          <span>{t("please_add_services_to_schedule_a_meeting")}</span>
+        </Col>
+      </Row>
+    </Container>
+  );
+};
+
 const ListItem = ({ idx, value, t, onDelete }) => {
   return (
     <Container className="list-view-item-container">
@@ -14,20 +40,25 @@ const ListItem = ({ idx, value, t, onDelete }) => {
       </h2>
       <Row>
         {value?.catagories?.map((item, ix) => {
-          console.log(ix, item);
           return (
             <Col className="list-view-col" key={`list-item-cat-${ix}`}>
               <Row>
                 <Col className="delete-btn-container">
                   <h2>{`${idx + 1}.${ix + 1}`}</h2>
                   <Image
-                    src={AppImages.deleteBtn}
+                    src={
+                      item.isDeleted ? AppImages.addBtn : AppImages.deleteBtn
+                    }
                     className="delete-btn"
-                    onClick={onDelete}
+                    onClick={() => onDelete(idx, ix)}
                   />
                 </Col>
               </Row>
-              <Row>
+              <Row
+                style={{
+                  opacity: item.isDeleted ? 0.3 : 1,
+                }}
+              >
                 <Image
                   src={AppImages[item.image]}
                   style={{
@@ -35,14 +66,22 @@ const ListItem = ({ idx, value, t, onDelete }) => {
                   }}
                 />
               </Row>
-              <Row>
+              <Row
+                style={{
+                  opacity: item.isDeleted ? 0.5 : 1,
+                }}
+              >
                 <Col>
                   <h2> {t(item.heading)}</h2>
                   <Col>{t(item.title)}</Col>
                   <Col>{t(item.subTitle)}</Col>
                 </Col>
               </Row>
-              <Row>
+              <Row
+                style={{
+                  opacity: item.isDeleted ? 0.5 : 1,
+                }}
+              >
                 <Col className="activity_btn">
                   <Button
                     variant={
@@ -67,28 +106,58 @@ const ListItem = ({ idx, value, t, onDelete }) => {
     </Container>
   );
 };
+
 function CartServices() {
   const { t } = useTranslation();
   const { state } = useLocation();
   const [cartData, setCartData] = useState([]);
+  const [isEmptyCart, setIsEmptyCard] = useState(false);
+  const [skuArrays, setSkuArrays] = useState([]);
 
   useEffect(() => {
-    const data = state.subServices.map((service) => {
+    const data = state.subServices.map((service, idx) => {
+      console.log("service", idx);
+      service.catagories?.map((item) => {
+        if (!skuArrays.includes(item.sku)) {
+          // setSkuArrays(item.sku);
+          setSkuArrays((countryList) => {
+            const arr = [...countryList, item.sku].filter(
+              (value, index, array) => array.indexOf(value) === index
+            );
+            return arr;
+          });
+        }
+      });
       return {
         ...service,
         isActive: true,
+        isDeleted: false,
       };
     });
     setCartData(data);
   }, [state?.subServices]);
 
-  const onDelete = (item, idx) => {
+  useEffect(() => {
+    setIsEmptyCard(
+      cartData?.some((t) => t.catagories.some((k) => t.isDeleted))
+    );
+  }, [cartData]);
+
+  const onDelete = (idx, index) => {
+    const actualCart = [...cartData];
+    const cData = actualCart[idx];
     setCartData(() => {
-      const cData = cartData[idx];
-      cData.isActive = false;
-      return [...cartData, cData];
+      cData.catagories[index].isDeleted = !cData.catagories[index].isDeleted;
+      return actualCart;
+    });
+    setSkuArrays((countryList) => {
+      const cIndex = cData.catagories[index]["sku"];
+      return countryList.filter((k) => k !== cIndex);
     });
   };
+
+  console.log("SKU", SKU_ARRAY);
+  console.log("cartData-skuArrays", skuArrays);
   return (
     <section id="cart-services" className="cart-services">
       <Row>
@@ -98,7 +167,9 @@ function CartServices() {
             <Image src={AppImages.backBtn} />
           </Link>
         </Container>
-        {cartData?.filter((t) => t.isActive).length !== 0 && (
+        {!skuArrays.length ? (
+          <EmptyContainer t={t} />
+        ) : (
           <Container>
             <Row>
               {cartData?.map((item, idx) => {
@@ -109,7 +180,7 @@ function CartServices() {
                       value={item}
                       t={t}
                       key={`cart-services-${idx}`}
-                      onDelete={() => onDelete(item, idx)}
+                      onDelete={onDelete}
                     />
                   )
                 );
@@ -136,28 +207,6 @@ function CartServices() {
                   }}
                 ></ArrowRight>
               </Link>
-            </Row>
-          </Container>
-        )}
-        {cartData?.filter((t) => t.isActive).length === 0 && (
-          <Container className="empty-cart">
-            <Row>
-              <Col sm={3}>
-                <Image src={AppImages.emptycart} />
-              </Col>
-            </Row>
-            <Row>
-              <Col
-                style={{
-                  background: "transparent",
-                }}
-              >
-                <div className="empty-text">
-                  <h2>{t("your_cart_is")}</h2>
-                  <h2 className="empty-val">{t("empty")}</h2>
-                </div>
-                <span>{t("please_add_services_to_schedule_a_meeting")}</span>
-              </Col>
             </Row>
           </Container>
         )}
