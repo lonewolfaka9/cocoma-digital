@@ -15,7 +15,7 @@ function ServicesList() {
         <Row>
           <h2 style={{ paddingBottom: 30 }}>{t(item.title)}</h2>
         </Row>
-        <ListCarousel data={item.services} />
+        <ListCarousel data={item.services} title={t(item.title)} />
       </section>
     );
   });

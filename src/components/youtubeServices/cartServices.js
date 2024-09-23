@@ -115,7 +115,7 @@ function CartServices() {
   const [skuArrays, setSkuArrays] = useState([]);
 
   useEffect(() => {
-    const data = state.subServices.map((service, idx) => {
+    const data = state.item.subServices.map((service, idx) => {
       const catagories = service.catagories?.map((item) => {
         if (!skuArrays.includes(item.sku)) {
           setSkuArrays((countryList) => {
@@ -157,9 +157,6 @@ function CartServices() {
       return countryList.filter((k) => k !== cIndex);
     });
   };
-
-  console.log("SKU", SKU_ARRAY);
-  console.log("cartData-skuArrays", skuArrays);
   return (
     <section id="cart-services" className="cart-services">
       <Row>

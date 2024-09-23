@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import AppImages from "../../utils/images";
 import { Link } from "react-router-dom";
 
-const ListCarouselItem = ({ list }) => {
+const ListCarouselItem = ({ list, title }) => {
   const { t } = useTranslation();
   return (
     <Row>
@@ -23,7 +23,10 @@ const ListCarouselItem = ({ list }) => {
             <Link
               variant="dark"
               className="link-btn"
-              state={item}
+              state={{
+                item,
+                title,
+              }}
               to={{
                 pathname: "/services/youtube/cart",
               }}
@@ -36,12 +39,12 @@ const ListCarouselItem = ({ list }) => {
     </Row>
   );
 };
-function ListCarousel({ data }) {
+function ListCarousel({ data, title }) {
   return (
     <>
       <Carousel indicators={false}>
         <Carousel.Item>
-          <ListCarouselItem list={data}></ListCarouselItem>
+          <ListCarouselItem list={data} title={title}></ListCarouselItem>
         </Carousel.Item>
       </Carousel>
     </>
