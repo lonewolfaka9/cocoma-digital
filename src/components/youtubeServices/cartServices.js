@@ -116,10 +116,8 @@ function CartServices() {
 
   useEffect(() => {
     const data = state.subServices.map((service, idx) => {
-      console.log("service", idx);
-      service.catagories?.map((item) => {
+      const catagories = service.catagories?.map((item) => {
         if (!skuArrays.includes(item.sku)) {
-          // setSkuArrays(item.sku);
           setSkuArrays((countryList) => {
             const arr = [...countryList, item.sku].filter(
               (value, index, array) => array.indexOf(value) === index
@@ -127,11 +125,15 @@ function CartServices() {
             return arr;
           });
         }
+        return {
+          ...item,
+          isDeleted: false,
+        };
       });
       return {
         ...service,
+        catagories,
         isActive: true,
-        isDeleted: false,
       };
     });
     setCartData(data);
@@ -196,6 +198,7 @@ function CartServices() {
                 }}
                 state={{
                   selectedSubServices: cartData.filter((t) => t.isActive),
+                  skuArrays,
                 }}
                 to="/services/youtube/schedules"
               >
