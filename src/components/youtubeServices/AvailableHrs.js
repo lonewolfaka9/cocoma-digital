@@ -35,14 +35,14 @@ const prepareAvailableHrs = () => {
   return objArray;
 };
 
-const AvailableHrs = () => {
+const AvailableHrs = ({ selectedItem }) => {
   const availableHrs = prepareAvailableHrs();
   const [hrsArray, setHrsArray] = useState([]);
 
   useEffect(() => {
     setHrsArray(availableHrs);
   }, []);
-  const selectedItem = (id) => {
+  const selectedTime = (id) => {
     const currentHrs = [...hrsArray];
     const updateHrs = currentHrs.map((h) => {
       return {
@@ -53,6 +53,7 @@ const AvailableHrs = () => {
 
     const selected = updateHrs[id];
     selected.isActive = true;
+    selectedItem(selected);
     setHrsArray([...updateHrs]);
   };
   return (
@@ -63,7 +64,7 @@ const AvailableHrs = () => {
             className={` timer-section ${item.isActive ? "active-timer" : ""}`}
             key={`timer-section-${idx}`}
             onClick={() => {
-              selectedItem(idx);
+              selectedTime(idx);
             }}
           >
             <Row>
