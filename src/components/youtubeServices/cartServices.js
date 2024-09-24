@@ -5,7 +5,6 @@ import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { ArrowRight } from "react-bootstrap-icons";
 
-const SKU_ARRAY = [];
 const EmptyContainer = ({ t }) => {
   return (
     <Container className="empty-cart">
@@ -196,6 +195,7 @@ function CartServices() {
                 }}
                 state={{
                   selectedSubServices: cartData,
+                  userInfo: state.userInfo,
                 }}
                 to="/services/youtube/schedules"
               >
