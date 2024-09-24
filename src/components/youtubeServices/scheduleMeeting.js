@@ -92,12 +92,7 @@ function ScheduleMeeting() {
         <Container>
           <Row className="justify-content-md-center">
             <Row className="calendar-row">
-              <Col
-                sm={5}
-                style={{
-                  paddingBottom: 30,
-                }}
-              >
+              <Col sm={4}>
                 {/* https://reactdatepicker.com/ */}
                 <DatePicker
                   //  showTimeSelect
@@ -112,17 +107,16 @@ function ScheduleMeeting() {
                   inline
                 />
               </Col>
-              <h4>{t("select_available_time_slots")}</h4>
+
               <Col
+                sm={8}
                 style={{
-                  height: 250,
+                  height: 450,
                   overflow: "hidden",
                   overflowY: "scroll",
                 }}
               >
-                <Row>
-                  <AvailableHrs selectedItem={selectedItem} />
-                </Row>
+                <AvailableHrs selectedItem={selectedItem} />
               </Col>
             </Row>
 

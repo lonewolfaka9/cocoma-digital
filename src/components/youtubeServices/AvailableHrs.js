@@ -57,11 +57,17 @@ const AvailableHrs = ({ selectedItem }) => {
     setHrsArray([...updateHrs]);
   };
   return (
-    <ListGroup className="timer-row d-flex flex-wrap" horizontal>
+    <ListGroup
+      className="timer-row d-flex flex-wrap"
+      horizontal
+      style={{
+        marginLeft: 20,
+      }}
+    >
       {hrsArray.map((item, idx) => {
         return (
           <Col
-            className={` timer-section flex-grow-0 col-md-2 col-lg-2 bg-primary p-1 text-center ${
+            className={`timer-section flex-grow-0 col-md-2 col-lg-2 bg-primary p-1 text-center ${
               item.isActive ? "active-timer" : ""
             }`}
             key={`timer-section-${idx}`}
