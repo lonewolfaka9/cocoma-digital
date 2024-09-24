@@ -94,11 +94,11 @@ const AddUserInfo = ({ t, isVisible, handleClose, justClose }) => {
         <Form onSubmit={handleSubmit}>
           <Row className="mb-3">
             <Form.Group as={Col} md="6" controlId="validationCustom01">
-              <Form.Label>{t("first_Name")}</Form.Label>
+              <Form.Label>{t("first_name")}</Form.Label>
               <Form.Control
                 required
                 type="text"
-                placeholder={t("first_Name")}
+                placeholder={t("first_name")}
                 value={firstName}
                 onChange={handleFirstNameChange}
                 isValid={firstName.length > 2}

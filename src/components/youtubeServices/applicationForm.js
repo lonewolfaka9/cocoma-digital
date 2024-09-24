@@ -1,10 +1,12 @@
 import { Col, Form, Row } from "react-bootstrap";
+import { useTranslation } from "react-i18next";
 
 const ApplicationFrom = ({
   userData,
   handleDescriptionChange,
   handleCompanyNameChange,
 }) => {
+  const { t } = useTranslation();
   return (
     <Form className="appointment-form">
       <Row>
@@ -15,7 +17,7 @@ const ApplicationFrom = ({
             controlId="formPlaintextFirstName"
           >
             <Form.Label column sm="4">
-              First Name
+              {t("first_name")}
             </Form.Label>
             <Col sm="8">
               <Form.Control
@@ -33,7 +35,7 @@ const ApplicationFrom = ({
             controlId="formPlaintextLastName"
           >
             <Form.Label column sm="4">
-              Last Name
+              {t("last_name")}
             </Form.Label>
             <Col sm="8">
               <Form.Control
@@ -49,7 +51,7 @@ const ApplicationFrom = ({
         <Col sm={6}>
           <Form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
             <Form.Label column sm="4">
-              Email
+              {t("email_address")}
             </Form.Label>
             <Col sm="8">
               <Form.Control
@@ -63,7 +65,7 @@ const ApplicationFrom = ({
         <Col sm={6}>
           <Form.Group as={Row} className="mb-3" controlId="formPlaintextMobile">
             <Form.Label column sm="4">
-              Mobile
+              {t("mobile")}
             </Form.Label>
             <Col sm="8">
               <Form.Control
@@ -82,7 +84,7 @@ const ApplicationFrom = ({
         controlId="formPlaintextCompanyName"
       >
         <Form.Label column sm="2">
-          Company Name
+          {t("company_name")}
         </Form.Label>
         <Col sm="10">
           <Form.Control
@@ -99,7 +101,7 @@ const ApplicationFrom = ({
         controlId="formPlaintextCompanyName"
       >
         <Form.Label column sm="2">
-          Description
+          {t("description")}
         </Form.Label>
         <Col sm="10">
           <Form.Control

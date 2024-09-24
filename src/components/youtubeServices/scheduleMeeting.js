@@ -12,7 +12,7 @@ import { Link, useLocation } from "react-router-dom";
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import AppImages from "../../utils/images";
 import AvailableHrs from "./AvailableHrs";
 import ApplicationFrom from "./applicationForm";
@@ -29,6 +29,7 @@ function ScheduleMeeting() {
     endTime: "",
   });
   console.log("Added Services", state, startDate);
+
   useEffect(() => {
     const skus = [];
     if (state?.selectedSubServices) {
@@ -91,7 +92,12 @@ function ScheduleMeeting() {
         <Container>
           <Row className="justify-content-md-center">
             <Row className="calendar-row">
-              <Col sm={6}>
+              <Col
+                sm={5}
+                style={{
+                  paddingBottom: 30,
+                }}
+              >
                 {/* https://reactdatepicker.com/ */}
                 <DatePicker
                   //  showTimeSelect
@@ -106,9 +112,20 @@ function ScheduleMeeting() {
                   inline
                 />
               </Col>
+              <h4>{t("select_available_time_slots")}</h4>
+              <Col
+                style={{
+                  height: 250,
+                  overflow: "hidden",
+                  overflowY: "scroll",
+                }}
+              >
+                <Row>
+                  <AvailableHrs selectedItem={selectedItem} />
+                </Row>
+              </Col>
             </Row>
 
-            <AvailableHrs selectedItem={selectedItem} />
             <ApplicationFrom
               userData={state.userInfo}
               handleCompanyNameChange={handleCompanyNameChange}

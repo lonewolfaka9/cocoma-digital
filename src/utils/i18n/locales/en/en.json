@@ -173,7 +173,7 @@
     "content_services":"Content Services",
     "recurring":"Recurring",
     "one_time_only":"One Time Only",
-    "first_Name":"First Name",
+    "first_name":"First Name",
     "please_enter_your_first_name":" Please enter your first name",
     "last_name":"Last Name",
     "please_enter_your_last_name":" Please enter your last name",
@@ -182,5 +182,8 @@
     "email_address":"Email Address",
     "please_enter_your_email":" Please enter a valid email address",
     "submit":"Submit",
-    "user_information":"User Information"
+    "user_information":"User Information",
+    "select_available_time_slots":"Select Available time slots",
+    "company_name":"Company Name",
+    "description":"Description"
   }
