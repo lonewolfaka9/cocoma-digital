@@ -20,7 +20,10 @@ function ScheduleMeeting() {
       state?.selectedSubServices.map((service) => {
         service.catagories?.map((category) => {
           if (!category.isDeleted) {
-            skus.push(category.sku);
+            skus.push({
+              sku: category.sku,
+              occurances: category.occurrence,
+            });
           }
         });
       });
