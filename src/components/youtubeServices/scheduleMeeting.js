@@ -4,7 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AppImages from "../../utils/images";
 import AvailableHrs from "./AvailableHrs";
 
@@ -12,8 +12,22 @@ function ScheduleMeeting() {
   const { t } = useTranslation();
   const { state } = useLocation();
   const [startDate, setStartDate] = useState(new Date());
+  const [selectedSkus, setSelectedSkus] = useState([]);
   console.log("Added Services", state, startDate);
-
+  useEffect(() => {
+    const skus = [];
+    if (state?.selectedSubServices) {
+      state?.selectedSubServices.map((service) => {
+        service.catagories?.map((category) => {
+          if (!category.isDeleted) {
+            skus.push(category.sku);
+          }
+        });
+      });
+      setSelectedSkus(skus);
+    }
+  }, [state]);
+  console.log("Added Services-SKUS", selectedSkus);
   return (
     <section id="cart-services" className="cart-services">
       <Row>
@@ -38,7 +52,7 @@ function ScheduleMeeting() {
                   //timeClassName={handleColor}
                   // formatWeekDay={(nameOfDay) => nameOfDay.substr(0, 3)}
                   minDate={new Date()}
-                  monthsShown={2}
+                  // monthsShown={2}
                   // maxDate={addMonths(new Date(), 5)}
                   selected={startDate}
                   onChange={(date) => setStartDate(date)}

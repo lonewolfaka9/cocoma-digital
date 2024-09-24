@@ -172,5 +172,15 @@
     "web_app_software_services":"Web App & Software Services",
     "content_services":"Content Services",
     "recurring":"Recurring",
-    "one_time_only":"One Time Only"
+    "one_time_only":"One Time Only",
+    "first_Name":"First Name",
+    "please_enter_your_first_name":" Please enter your first name",
+    "last_name":"Last Name",
+    "please_enter_your_last_name":" Please enter your last name",
+    "mobile":"Mobile",
+    "please_enter_your_mobile":" Please enter a valid mobile",
+    "email_address":"Email Address",
+    "please_enter_your_email":" Please enter a valid email address",
+    "submit":"Submit",
+    "user_information":"User Information"
   }

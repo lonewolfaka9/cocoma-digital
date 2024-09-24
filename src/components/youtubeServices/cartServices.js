@@ -157,6 +157,7 @@ function CartServices() {
       return countryList.filter((k) => k !== cIndex);
     });
   };
+
   return (
     <section id="cart-services" className="cart-services">
       <Row>
@@ -194,8 +195,7 @@ function CartServices() {
                   width: 200,
                 }}
                 state={{
-                  selectedSubServices: cartData.filter((t) => t.isActive),
-                  skuArrays,
+                  selectedSubServices: cartData,
                 }}
                 to="/services/youtube/schedules"
               >

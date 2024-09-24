@@ -11,7 +11,7 @@ const viewerData = [
 ];
 const performanceHighlights = {
   our_youtube_gathered_user: {
-    count: 450,
+    count: 250,
     nextData: "June 2024",
   },
   our_creative_team_produced_videos: {

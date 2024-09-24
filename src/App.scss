@@ -1350,6 +1350,9 @@ textarea {
     text-transform: none;
   }
 }
+.modal.show .modal-dialog {
+padding-top: 150px;
+}
 .youtube-services {
   background: #080808;
   .carousel {
