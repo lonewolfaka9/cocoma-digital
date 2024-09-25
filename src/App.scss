@@ -1311,6 +1311,18 @@ textarea {
       background: $buttonHoverColor;
     }
   }
+  .link-btn-saved {
+    margin-bottom: 20;
+    background: green;
+    padding: 10px 15px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    &:hover{
+      color: #080808;
+      background: $buttonHoverColor;
+    }
+  }
 
   .delete-btn-container {
    display: flex;

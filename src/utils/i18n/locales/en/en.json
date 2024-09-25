@@ -187,5 +187,6 @@
     "company_name":"Company Name",
     "description":"Description",
     "please_select_available_time_slots":"Please select available time slots",
-    "warning":"Warning"
+    "warning":"Warning",
+    "scheduled":"Scheduled"
   }

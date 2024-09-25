@@ -207,6 +207,7 @@ const ListCarouselItem = ({ list, title }) => {
       },
     });
   };
+  const savedContent = sessionStorage.getItem("content_id");
   return (
     <Row>
       {list.map((item, idx) => (
@@ -222,8 +223,8 @@ const ListCarouselItem = ({ list, title }) => {
             />
             <p>{t(item.title)}</p>
             <Button
-              variant="dark"
-              className="link-btn"
+              variant={savedContent === item.content_id ? "success" : "dark"}
+              disabled={savedContent === item.content_id ? true : false}
               state={{
                 item,
                 title,
@@ -232,7 +233,7 @@ const ListCarouselItem = ({ list, title }) => {
                 onAdd(item);
               }}
             >
-              {t("add")}
+              {savedContent === item.content_id ? t("scheduled") : t("add")}
             </Button>
             {isVisible && (
               <AddUserInfo

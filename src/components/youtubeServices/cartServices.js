@@ -196,6 +196,7 @@ function CartServices() {
                 state={{
                   selectedSubServices: cartData,
                   userInfo: state.userInfo,
+                  id: state.item.content_id,
                 }}
                 to="/services/youtube/schedules"
               >

@@ -80,6 +80,7 @@ function ScheduleMeeting() {
     };
     console.log(data);
     console.log("onSelectedItem", selectedTime);
+    sessionStorage.setItem("content_id", state.id);
   };
   console.log("Added handleCompanyNameChangeServices-SKUS", selectedSkus);
   const handleCompanyNameChange = (e) => {
