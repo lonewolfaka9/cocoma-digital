@@ -48,7 +48,13 @@ function AppHeader() {
               title={t("menu.our_services")}
               id="basic-nav-dropdown"
             ></NavDropdown>
-            <NavDropdown title={t("menu.our_expertise")} id="our_expertise">
+            <NavDropdown
+              title={t("menu.our_expertise")}
+              id="our_expertise"
+              show={show}
+              onMouseEnter={showDropdown}
+              onMouseLeave={hideDropdown}
+            >
               <NavDropdown.Divider />
               <NavDropdown.Item href="creative_services">
                 {t("menu.creative_services")}
