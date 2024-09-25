@@ -185,5 +185,7 @@
     "user_information":"User Information",
     "select_available_time_slots":"Select Available time slots",
     "company_name":"Company Name",
-    "description":"Description"
+    "description":"Description",
+    "please_select_available_time_slots":"Please select available time slots",
+    "warning":"Warning"
   }

@@ -35,7 +35,7 @@ const prepareAvailableHrs = () => {
   return objArray;
 };
 
-const AvailableHrs = ({ selectedItem }) => {
+const AvailableHrs = ({ onSelectedItem }) => {
   const availableHrs = prepareAvailableHrs();
   const [hrsArray, setHrsArray] = useState([]);
 
@@ -53,7 +53,7 @@ const AvailableHrs = ({ selectedItem }) => {
 
     const selected = updateHrs[id];
     selected.isActive = true;
-    selectedItem(selected);
+    onSelectedItem(selected);
     setHrsArray([...updateHrs]);
   };
   return (

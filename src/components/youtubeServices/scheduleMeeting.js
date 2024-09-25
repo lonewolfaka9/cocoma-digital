@@ -1,21 +1,32 @@
 import {
+  Alert,
   Button,
   Col,
   Container,
-  Form,
   Image,
-  ListGroup,
   Row,
+  Toast,
+  ToastContainer,
 } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import { Link, useLocation } from "react-router-dom";
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import AppImages from "../../utils/images";
 import AvailableHrs from "./AvailableHrs";
 import ApplicationFrom from "./applicationForm";
+import CustomAlert from "../common/customAlert";
+import { format } from "date-fns";
+import { setDateTimeForUTC } from "../../utils/utility";
+
+const goTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+};
 
 function ScheduleMeeting() {
   const { t } = useTranslation();
@@ -24,6 +35,7 @@ function ScheduleMeeting() {
   const [selectedSkus, setSelectedSkus] = useState([]);
   const [companyName, setCompanyName] = useState();
   const [description, setDescription] = useState();
+  const [showAlerts, setShowAlerts] = useState(false);
   const [selectedTime, setSelectedTime] = useState({
     startTime: "",
     endTime: "",
@@ -45,11 +57,17 @@ function ScheduleMeeting() {
       });
       setSelectedSkus(skus);
     }
+    setShowAlerts(false);
   }, [state]);
-  const selectedItem = (data) => {
+  const onSelectedItem = (data) => {
     setSelectedTime(data);
   };
   const onSchedulerClick = () => {
+    if (selectedTime?.startTime === "") {
+      setShowAlerts(true);
+      goTop();
+      return;
+    }
     const data = {
       email: state.userInfo.email,
       firstNae: state.userInfo.firstName,
@@ -62,12 +80,16 @@ function ScheduleMeeting() {
         privacyAccepted: true,
         title: "youTube",
         description: description,
-        startTime: "2022-01-01T00:00:00Z",
-        endTime: "2022-01-01T01:00:00Z",
+        appointmentDate: setDateTimeForUTC(startDate, selectedTime.start),
+        endDateTime: setDateTimeForUTC(startDate, selectedTime.end),
         serviceItems: selectedSkus,
+        actualDate: startDate,
+        startTime: selectedTime.start,
+        endTime: selectedTime.end,
       },
     };
     console.log(data);
+    console.log("onSelectedItem", selectedTime);
   };
   console.log("Added handleCompanyNameChangeServices-SKUS", selectedSkus);
   const handleCompanyNameChange = (e) => {
@@ -76,8 +98,18 @@ function ScheduleMeeting() {
   const handleDescriptionChange = (e) => {
     setDescription(e.target.value);
   };
+  const onAlertClose = () => {
+    setShowAlerts(false);
+  };
   return (
     <section id="cart-services" className="cart-services">
+      <CustomAlert
+        onClose={onAlertClose}
+        show={showAlerts}
+        title={t("warning")}
+        message={t("please_select_available_time_slots")}
+      />
+
       <Row>
         <Container className="heading-container">
           <div>
@@ -105,6 +137,7 @@ function ScheduleMeeting() {
                   selected={startDate}
                   onChange={(date) => setStartDate(date)}
                   inline
+                  dateFormat="dd/MM/yyyy"
                 />
               </Col>
 
@@ -116,7 +149,7 @@ function ScheduleMeeting() {
                   overflowY: "scroll",
                 }}
               >
-                <AvailableHrs selectedItem={selectedItem} />
+                <AvailableHrs onSelectedItem={onSelectedItem} />
               </Col>
             </Row>
 
