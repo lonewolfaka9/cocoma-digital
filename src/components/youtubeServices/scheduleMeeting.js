@@ -1,13 +1,4 @@
-import {
-  Alert,
-  Button,
-  Col,
-  Container,
-  Image,
-  Row,
-  Toast,
-  ToastContainer,
-} from "react-bootstrap";
+import { Button, Col, Container, Image, Row } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import { Link, useLocation } from "react-router-dom";
 import DatePicker from "react-datepicker";
@@ -18,7 +9,6 @@ import AppImages from "../../utils/images";
 import AvailableHrs from "./AvailableHrs";
 import ApplicationFrom from "./applicationForm";
 import CustomAlert from "../common/customAlert";
-import { format } from "date-fns";
 import { setDateTimeForUTC } from "../../utils/utility";
 
 const goTop = () => {

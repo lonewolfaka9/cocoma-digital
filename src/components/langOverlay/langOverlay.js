@@ -1,9 +1,5 @@
 import { useState, useRef } from "react";
-import Button from "react-bootstrap/Button";
-import Overlay from "react-bootstrap/Overlay";
-import Popover from "react-bootstrap/Popover";
-import AppImages from "../../utils/images";
-import { Image, ListGroup } from "react-bootstrap";
+import { Dropdown } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 const langData = ["english", "french", "german", "italian", "spanish", "dutch"];
 
@@ -26,47 +22,29 @@ function LangOverlay() {
   };
   return (
     <div ref={ref}>
-      <Button variant="light" onClick={handleClick}>
-        <Image src={AppImages.lang_icon}></Image>
-      </Button>
+      <Dropdown>
+        <Dropdown.Toggle variant="dark" id="dropdown-basic">
+          En
+        </Dropdown.Toggle>
 
-      <Overlay
-        show={show}
-        target={target}
-        placement="bottom"
-        container={ref}
-        containerPadding={0}
-      >
-        <Popover id="popover-contained">
-          <Popover.Body
-            style={{
-              width: 150,
-            }}
-          >
-            <ListGroup
-              as="ul"
-              style={{
-                borderRadius: 0,
-              }}
-            >
-              {langData.map((data) => {
-                return (
-                  <ListGroup.Item
-                    key={data}
-                    as="li"
-                    onClick={() => {
-                      listItemClicked(data);
-                    }}
-                    active={data === selectedLang}
-                  >
-                    {t(data)}
-                  </ListGroup.Item>
-                );
-              })}
-            </ListGroup>
-          </Popover.Body>
-        </Popover>
-      </Overlay>
+        <Dropdown.Menu>
+          {langData.map((data) => {
+            return (
+              <Dropdown.Item
+                key={data}
+                as="li"
+                onClick={() => {
+                  listItemClicked(data);
+                }}
+                active={data === selectedLang}
+              >
+                {" "}
+                {t(data)}
+              </Dropdown.Item>
+            );
+          })}
+        </Dropdown.Menu>
+      </Dropdown>
     </div>
   );
 }

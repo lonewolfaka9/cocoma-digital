@@ -3,8 +3,8 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import AppImages from "../../utils/images";
 import { useTranslation } from "react-i18next";
-import { Button, NavDropdown } from "react-bootstrap";
-import { MenuUp, ArrowUpRight } from "react-bootstrap-icons";
+import { Button, Image, NavDropdown } from "react-bootstrap";
+import { ArrowUpRight } from "react-bootstrap-icons";
 import { useState } from "react";
 import LangOverlay from "../langOverlay/langOverlay";
 
@@ -33,9 +33,14 @@ function AppHeader() {
           <img src={AppImages.app_name} alt="app name" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav">
-          <MenuUp color="#fff" />
+          <Image src={AppImages.menubtn} />
         </Navbar.Toggle>
-        <Navbar.Collapse id="basic-navbar-nav">
+        <Navbar.Collapse
+          id="basic-navbar-nav"
+          style={{
+            paddingTop: 10,
+          }}
+        >
           <Nav className="me-auto">
             <Nav.Link href="/home">{t("menu.home")}</Nav.Link>
             <NavDropdown
@@ -92,12 +97,13 @@ function AppHeader() {
       <Container
         style={{
           width: 350,
+          paddingTop: 10,
         }}
       >
-        <Button variant="warning" style={{ width: 200 }}>
+        <LangOverlay />
+        <Button variant="warning" style={{ width: 200, marginLeft: 10 }}>
           {t("get_started_today")} <ArrowUpRight size={20}></ArrowUpRight>
         </Button>
-        <LangOverlay />
       </Container>
     </Navbar>
   );
