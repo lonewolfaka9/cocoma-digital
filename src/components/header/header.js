@@ -7,6 +7,7 @@ import { Button, Image, NavDropdown } from "react-bootstrap";
 import { ArrowUpRight } from "react-bootstrap-icons";
 import { useState } from "react";
 import LangOverlay from "../langOverlay/langOverlay";
+import { isMobile } from "react-device-detect";
 
 const bottomPanelCss = {
   color: "#131313",
@@ -27,11 +28,11 @@ function AppHeader() {
   };
   return (
     <Navbar bg="light" expand="lg">
-      <Container>
-        <Navbar.Brand href="#home">
-          <img src={AppImages.app_logo} alt="app logo"></img>
-          <img src={AppImages.app_name} alt="app name" />
-        </Navbar.Brand>
+      <Navbar.Brand href="#home" style={{ paddingLeft: 10 }}>
+        <img src={AppImages.app_logo} alt="app logo"></img>
+        <img src={AppImages.app_name} alt="app name" />
+      </Navbar.Brand>
+      <Container style={{ justifyContent: isMobile ? "flex-end" : "center" }}>
         <Navbar.Toggle aria-controls="basic-navbar-nav">
           <Image src={AppImages.menubtn} />
         </Navbar.Toggle>
