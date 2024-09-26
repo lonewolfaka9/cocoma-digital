@@ -24,6 +24,7 @@ import ServicesList from "./components/youtubeServices/servicesList";
 import YoutubeSuccessStories from "./components/youtubeServices/youtubeSuccessStories";
 import CartServices from "./components/youtubeServices/cartServices";
 import ScheduleMeeting from "./components/youtubeServices/scheduleMeeting";
+import ContactUs from "./components/contactUs/contactUs";
 const HomeComponent = () => {
   return (
     <>
@@ -90,6 +91,20 @@ const YouTubeScheduleMeetingContainer = () => {
     </>
   );
 };
+const ContactUsContainer = () => {
+  return (
+    <>
+      <div
+        style={{
+          backgroundColor: "#fff",
+        }}
+      >
+        <ContactUs />
+      </div>
+      <AppFooter />
+    </>
+  );
+};
 const router = createBrowserRouter([
   {
     path: "/",
@@ -106,6 +121,10 @@ const router = createBrowserRouter([
   {
     path: "services/youtube/schedules",
     element: <YouTubeScheduleMeetingContainer />,
+  },
+  {
+    path: "digital/help/contact_us",
+    element: <ContactUsContainer />,
   },
   {
     path: "*",

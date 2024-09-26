@@ -24,7 +24,7 @@ function LangOverlay() {
     <div ref={ref}>
       <Dropdown>
         <Dropdown.Toggle variant="dark" id="dropdown-basic">
-          En
+          {selectedLang.substring(0, 2).toLocaleUpperCase()}
         </Dropdown.Toggle>
 
         <Dropdown.Menu>

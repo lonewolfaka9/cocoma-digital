@@ -147,8 +147,8 @@ ul,
 }
 
 .btn.btn-primary {
-  background: #f64b4b;
-  border-color: #f64b4b;
+  background: $primaryContentColor;
+  border-color: #F5C518;
   padding: 13px 35px;
   font-size: 14px;
   line-height: 18px;
@@ -161,8 +161,8 @@ ul,
 .btn.btn-primary:focus,
 .btn.btn-primary:hover {
   background: #fff;
-  border-color: #f64b4b;
-  color: #f64b4b;
+  border-color: #F5C518;
+  color: #080808;
 }
 
 .btn.btn-primary .fas {
@@ -1087,6 +1087,30 @@ textarea {
   background: #f64b4b;
   color: #fff;
 }
+.contact-us {
+
+.phone-call {
+    background: #fff ;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 15px;
+    div {
+      background: $primaryContentColor;
+      padding: 10px;
+      border-radius: 10px;
+    }
+    img {
+      width: 40px;
+    }
+    span {
+      margin-left: 10px;
+     color: #fff;
+     font-weight: bold;
+    }
+
+}
+}
 .how-it-works {
   padding: 20px;
   h1 {
@@ -1440,6 +1464,7 @@ padding-top: 150px;
   }
 
 }
+
 .pricing-block div[class*="col"]:nth-child(2):before {
   content: 'Popular';
   text-transform: uppercase;
@@ -1675,6 +1700,7 @@ padding-top: 150px;
     height: 50px;
   }
 }
+
 
 @media only screen and (max-width: 767px) {
   h2 {

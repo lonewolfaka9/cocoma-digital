@@ -73,9 +73,31 @@ import emptycart from "../../assets/images/emptycart.svg";
 import backBtn from "../../assets/images/backBtn.svg";
 import addBtn from "../../assets/images/add.svg";
 import menubtn from "../../assets/images/menubtn.svg";
+import phonecall from "../../assets/images/phonecall.svg";
+import userphoto from "../../assets/images/userphoto.svg";
+import youtubevideo from "../../assets/images/youtubevideo.svg";
+import tseriesblack from "../../assets/images/tseriesblack.svg";
+
+import imdbblack from "../../assets/images/imdbblack.svg";
+import langistanblack from "../../assets/images/langistanblack.svg";
+import minitvblack from "../../assets/images/minitvblack.svg";
+import primeblack from "../../assets/images/primeblack.svg";
+import showcardblack from "../../assets/images/showcardblack.svg";
+import tataevblack from "../../assets/images/tataevblack.svg";
 
 const AppImages = {
+  userphoto,
+  tataevblack,
+  showcardblack,
+  primeblack,
+  minitvblack,
+  langistanblack,
+  imdbblack,
+  tseriesblack,
+  youtubevideo,
+  phonecall,
   menubtn,
+  userphoto,
   backBtn,
   addBtn,
   emptycart,
