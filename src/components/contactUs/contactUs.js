@@ -6,6 +6,7 @@ import AppImages from "../../utils/images";
 import { useTranslation } from "react-i18next";
 import { Button, Card, Form } from "react-bootstrap";
 import { ArrowUp, ArrowUpRight } from "react-bootstrap-icons";
+import { useEffect } from "react";
 
 const brandData = [
   "tseriesblack",
@@ -49,12 +50,12 @@ const fightSectionData = [
   },
 ];
 const FightSection = ({ t }) => {
-  // useEffect(() => {
-  //   fetch("https://tidy-lemons-add.loca.lt/api/v1/session")
-  //     .then((response) => response.json())
-  //     .then((data) => console.log(data))
-  //     .catch((error) => console.error(error));
-  // }, []);
+  useEffect(() => {
+    fetch("https://portal-api.loca.lt/api/v1/session")
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+      .catch((error) => console.error(error));
+  }, []);
   return (
     <Row
       className="portfoliolist"

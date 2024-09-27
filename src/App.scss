@@ -146,6 +146,22 @@ ul,
   color: #f64b4b;
 }
 
+.term-condition {
+  margin-top: 30p;
+  .title {
+    text-align: center;
+  }
+  .sub-title {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-transform: capitalize;
+  }
+  .sub-details {
+    padding-bottom: 20px;
+    padding-top: 5px;
+    white-space: break-spaces;
+  }
+}
 .btn.btn-primary {
   background: $primaryContentColor;
   border-color: #F5C518;

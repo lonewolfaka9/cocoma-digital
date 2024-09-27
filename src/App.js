@@ -25,6 +25,7 @@ import YoutubeSuccessStories from "./components/youtubeServices/youtubeSuccessSt
 import CartServices from "./components/youtubeServices/cartServices";
 import ScheduleMeeting from "./components/youtubeServices/scheduleMeeting";
 import ContactUs from "./components/contactUs/contactUs";
+import TermCondition from "./components/termCondition/termConditions";
 const HomeComponent = () => {
   return (
     <>
@@ -105,6 +106,20 @@ const ContactUsContainer = () => {
     </>
   );
 };
+const TermContainer = () => {
+  return (
+    <>
+      <div
+        style={{
+          backgroundColor: "#fff",
+        }}
+      >
+        <TermCondition />
+      </div>
+      <AppFooter />
+    </>
+  );
+};
 const router = createBrowserRouter([
   {
     path: "/",
@@ -125,6 +140,10 @@ const router = createBrowserRouter([
   {
     path: "digital/help/contact_us",
     element: <ContactUsContainer />,
+  },
+  {
+    path: "digital/help/terms_conditions",
+    element: <TermContainer />,
   },
   {
     path: "*",
