@@ -96,6 +96,10 @@ const digitalData = [
         url: "/digital/help/help_centre",
       },
       {
+        title: "privacy_policy",
+        url: "/digital/help/privacy_policy",
+      },
+      {
         title: "terms_conditions",
         url: "/digital/help/terms_conditions",
       },

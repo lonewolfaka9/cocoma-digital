@@ -26,6 +26,7 @@ import CartServices from "./components/youtubeServices/cartServices";
 import ScheduleMeeting from "./components/youtubeServices/scheduleMeeting";
 import ContactUs from "./components/contactUs/contactUs";
 import TermCondition from "./components/termCondition/termConditions";
+import PrivacyPolicy from "./components/privacyPolicy/privacyPolicy";
 const HomeComponent = () => {
   return (
     <>
@@ -106,6 +107,20 @@ const ContactUsContainer = () => {
     </>
   );
 };
+const PrivacyPolicyContainer = () => {
+  return (
+    <>
+      <div
+        style={{
+          backgroundColor: "#fff",
+        }}
+      >
+        <PrivacyPolicy />
+      </div>
+      <AppFooter />
+    </>
+  );
+};
 const TermContainer = () => {
   return (
     <>
@@ -144,6 +159,10 @@ const router = createBrowserRouter([
   {
     path: "digital/help/terms_conditions",
     element: <TermContainer />,
+  },
+  {
+    path: "digital/help/privacy_policy",
+    element: <PrivacyPolicyContainer />,
   },
   {
     path: "*",
