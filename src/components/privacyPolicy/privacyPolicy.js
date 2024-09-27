@@ -8,11 +8,9 @@ const term_conditions = {
   list: [
     {
       title: "Information We Collect",
-      details: `We may collect various types of information from our website visitors and users, including: \n\n
-      a. Personal Information: When you visit our site, register for an account, subscribe to our newsletter, fill out a form, or engage in certain activities on our site, we may collect personal information such as your name, email address, phone number, company name, and job title. \n
-
-     b. Non-Personal Information: We may also collect non-personal information about your interactions with our site. This may include demographic information, IP addresses, browser type, referring/exit pages, and other similar information.
-        `,
+      details: `We may collect various types of information from our website visitors and users, including: \n
+a. Personal Information: When you visit our site, register for an account, subscribe to our newsletter, fill out a form, or engage in certain activities on our site, we may collect personal information such as your name, email address, phone number, company name, and job title. \n
+b. Non-Personal Information: We may also collect non-personal information about your interactions with our site. This may include demographic information, IP addresses, browser type, referring/exit pages, and other similar information.`,
     },
     {
       title: "How we use Collected Information",
