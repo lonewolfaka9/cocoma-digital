@@ -34,8 +34,7 @@ a. Service Providers: We may engage trusted third-party service providers to ass
 
 b. Legal Compliance: We may disclose your personal information if required by law or in response to valid legal requests by public authorities, such as to comply with a subpoena or similar legal process.
 
-c. Business Transfers: In the event of a merger, acquisition, or sale of all or a portion of our assets, your personal information may be transferred as part of the transaction.
-        `,
+c. Business Transfers: In the event of a merger, acquisition, or sale of all or a portion of our assets, your personal information may be transferred as part of the transaction.`,
     },
     {
       title: "Third Party Links",
