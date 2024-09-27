@@ -102,7 +102,7 @@ const AddUserInfo = ({ t, isVisible, handleClose, justClose }) => {
                 value={firstName}
                 onChange={handleFirstNameChange}
                 isValid={firstName.length > 2}
-                isInvalid={firstName.length === 0}
+                // isInvalid={firstName.length === 0}
               />
               <Form.Control.Feedback type="invalid">
                 {t("please_enter_your_first_name")}
@@ -117,7 +117,7 @@ const AddUserInfo = ({ t, isVisible, handleClose, justClose }) => {
                 value={lastName}
                 onChange={handleLastNameChange}
                 isValid={lastName.length > 2}
-                isInvalid={lastName.length === 0}
+                // isInvalid={lastName.length === 0}
               />
               <Form.Control.Feedback type="invalid">
                 {t("please_enter_your_last_name")}

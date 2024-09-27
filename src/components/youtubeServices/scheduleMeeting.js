@@ -6,7 +6,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useEffect, useState } from "react";
 import AppImages from "../../utils/images";
-import AvailableHrs from "./AvailableHrs";
+import AvailableHrs from "./availableHrs";
 import ApplicationFrom from "./applicationForm";
 import CustomAlert from "../common/customAlert";
 import { setDateTimeForUTC } from "../../utils/utility";
