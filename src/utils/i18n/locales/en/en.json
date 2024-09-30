@@ -215,6 +215,7 @@
     "podcast_music":"Podcast & Music",
     "edtech_lms":"EDTECH & LMS",
     "ev":"EV",
-    "sass_business":"SAAS Business"
+    "sass_business":"SAAS Business",
+    "reload-page":"Something went wrong, please refresh your page"
   
   }

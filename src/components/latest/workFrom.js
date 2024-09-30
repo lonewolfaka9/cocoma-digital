@@ -3,59 +3,56 @@ import StoriesCarousel from "../common/storiesCarousel";
 import { useTranslation } from "react-i18next";
 import AppImages from "../../utils/images";
 import Typography from "../../theme/cocoma/typography";
+import { convertArrayForMobile } from "../../utils/utility";
 const carouselData = [
-  [
-    {
-      id: 11,
-      image: AppImages.tvshow,
-    },
-    {
-      id: 12,
-      image: AppImages.tvshow,
-    },
-    {
-      id: 13,
-      image: AppImages.tvshow,
-    },
-    {
-      id: 14,
-      image: AppImages.tvshow,
-    },
-    {
-      id: 15,
-      image: AppImages.tvshow,
-    },
-    {
-      id: 16,
-      image: AppImages.tvshow,
-    },
-  ],
-  [
-    {
-      id: 21,
-      image: AppImages.tvshow,
-    },
-    {
-      id: 22,
-      image: AppImages.tvshow,
-    },
-    {
-      id: 23,
-      image: AppImages.tvshow,
-    },
-    {
-      id: 24,
-      image: AppImages.tvshow,
-    },
-    {
-      id: 25,
-      image: AppImages.tvshow,
-    },
-    {
-      id: 26,
-      image: AppImages.tvshow,
-    },
-  ],
+  {
+    id: 11,
+    image: AppImages.tvshow,
+  },
+  {
+    id: 12,
+    image: AppImages.tvshow,
+  },
+  {
+    id: 13,
+    image: AppImages.tvshow,
+  },
+  {
+    id: 14,
+    image: AppImages.tvshow,
+  },
+  {
+    id: 15,
+    image: AppImages.tvshow,
+  },
+  {
+    id: 16,
+    image: AppImages.tvshow,
+  },
+  {
+    id: 21,
+    image: AppImages.tvshow,
+  },
+  {
+    id: 22,
+    image: AppImages.tvshow,
+  },
+  {
+    id: 23,
+    image: AppImages.tvshow,
+  },
+  {
+    id: 24,
+    image: AppImages.tvshow,
+  },
+  {
+    id: 25,
+    image: AppImages.tvshow,
+  },
+  {
+    id: 26,
+    image: AppImages.tvshow,
+  },
 ];
 
 function WorkFrom() {
@@ -82,7 +79,7 @@ function WorkFrom() {
           </Button>
         </h2>
       </Row>
-      <StoriesCarousel data={carouselData} />
+      <StoriesCarousel data={convertArrayForMobile(carouselData)} />
     </section>
   );
 }

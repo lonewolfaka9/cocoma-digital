@@ -3,59 +3,57 @@ import StoriesCarousel from "../common/storiesCarousel";
 import { useTranslation } from "react-i18next";
 import AppImages from "../../utils/images";
 import Typography from "../../theme/cocoma/typography";
+import { convertArrayForMobile } from "../../utils/utility";
 const carouselData = [
-  [
-    {
-      id: 11,
-      image: AppImages.socialwork,
-    },
-    {
-      id: 12,
-      image: AppImages.designworkgraphics,
-    },
-    {
-      id: 13,
-      image: AppImages.socialwork,
-    },
-    {
-      id: 14,
-      image: AppImages.designworkgraphics,
-    },
-    {
-      id: 15,
-      image: AppImages.socialwork,
-    },
-    {
-      id: 16,
-      image: AppImages.socialwork,
-    },
-  ],
-  [
-    {
-      id: 21,
-      image: AppImages.socialwork,
-    },
-    {
-      id: 22,
-      image: AppImages.designworkgraphics,
-    },
-    {
-      id: 23,
-      image: AppImages.socialwork,
-    },
-    {
-      id: 24,
-      image: AppImages.designworkgraphics,
-    },
-    {
-      id: 25,
-      image: AppImages.socialwork,
-    },
-    {
-      id: 26,
-      image: AppImages.designworkgraphics,
-    },
-  ],
+  {
+    id: 11,
+    image: AppImages.socialwork,
+  },
+  {
+    id: 12,
+    image: AppImages.designworkgraphics,
+  },
+  {
+    id: 13,
+    image: AppImages.socialwork,
+  },
+  {
+    id: 14,
+    image: AppImages.designworkgraphics,
+  },
+  {
+    id: 15,
+    image: AppImages.socialwork,
+  },
+  {
+    id: 16,
+    image: AppImages.socialwork,
+  },
+
+  {
+    id: 21,
+    image: AppImages.socialwork,
+  },
+  {
+    id: 22,
+    image: AppImages.designworkgraphics,
+  },
+  {
+    id: 23,
+    image: AppImages.socialwork,
+  },
+  {
+    id: 24,
+    image: AppImages.designworkgraphics,
+  },
+  {
+    id: 25,
+    image: AppImages.socialwork,
+  },
+  {
+    id: 26,
+    image: AppImages.designworkgraphics,
+  },
 ];
 
 const tabsData = [
@@ -84,7 +82,7 @@ function SocialTabs() {
       {tabsData.map((tab) => {
         return (
           <Tab eventKey={tab.name} title={t(tab.name)} key={`tab-${tab.name}`}>
-            <StoriesCarousel data={carouselData} />
+            <StoriesCarousel data={convertArrayForMobile(carouselData)} />
           </Tab>
         );
       })}

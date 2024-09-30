@@ -3,63 +3,62 @@ import StoriesCarousel from "../common/storiesCarousel";
 import { useTranslation } from "react-i18next";
 import AppImages from "../../utils/images";
 import Typography from "../../theme/cocoma/typography";
-const carouselData = [
-  [
-    {
-      id: 11,
-      image: AppImages.creativehouse,
-    },
-    {
-      id: 12,
-      image: AppImages.creativehousedesign,
-    },
-    {
-      id: 13,
-      image: AppImages.creativehouse,
-    },
-    {
-      id: 14,
-      image: AppImages.tvshow,
-    },
-    {
-      id: 15,
-      image: AppImages.creativehouse,
-    },
-    {
-      id: 16,
-      image: AppImages.creativehouse,
-    },
-  ],
-  [
-    {
-      id: 21,
-      image: AppImages.creativehouse,
-    },
-    {
-      id: 22,
-      image: AppImages.creativehousedesign,
-    },
-    {
-      id: 23,
-      image: AppImages.creativehouse,
-    },
-    {
-      id: 24,
-      image: AppImages.tvshow,
-    },
-    {
-      id: 25,
-      image: AppImages.creativehouse,
-    },
-    {
-      id: 26,
-      image: AppImages.tvshow,
-    },
-  ],
-];
+import { convertArrayForMobile } from "../../utils/utility";
 
+const creativeHouse = [
+  {
+    id: 11,
+    image: AppImages.creativehouse,
+  },
+  {
+    id: 12,
+    image: AppImages.creativehousedesign,
+  },
+  {
+    id: 13,
+    image: AppImages.creativehouse,
+  },
+  {
+    id: 14,
+    image: AppImages.tvshow,
+  },
+  {
+    id: 15,
+    image: AppImages.creativehouse,
+  },
+  {
+    id: 16,
+    image: AppImages.creativehouse,
+  },
+
+  {
+    id: 21,
+    image: AppImages.creativehouse,
+  },
+  {
+    id: 22,
+    image: AppImages.creativehousedesign,
+  },
+  {
+    id: 23,
+    image: AppImages.creativehouse,
+  },
+  {
+    id: 24,
+    image: AppImages.tvshow,
+  },
+  {
+    id: 25,
+    image: AppImages.creativehouse,
+  },
+  {
+    id: 26,
+    image: AppImages.tvshow,
+  },
+];
 function CreativeHouse() {
   const { t } = useTranslation();
+  console.log("creativeHouse");
   return (
     <section
       id="stories_our_creative_house"
@@ -82,7 +81,7 @@ function CreativeHouse() {
           </Button>
         </h2>
       </Row>
-      <StoriesCarousel data={carouselData} />
+      <StoriesCarousel data={convertArrayForMobile(creativeHouse)} />
     </section>
   );
 }

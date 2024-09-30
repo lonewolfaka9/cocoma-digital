@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { API_URL, STORAGE_KEYS } from "../utils/utility";
 
-const useUserAuth = () => {
+const useUserSession = () => {
   const [sessionToken, setSessionToken] = useState(
     sessionStorage.getItem(STORAGE_KEYS.sessionKey)
   );
@@ -39,4 +39,4 @@ const useUserAuth = () => {
   };
 };
 
-export default useUserAuth;
+export default useUserSession;

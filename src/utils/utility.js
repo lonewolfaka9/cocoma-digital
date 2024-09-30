@@ -1,3 +1,6 @@
+import { chunk } from "lodash";
+import { isMobile, isTablet, isIPad13 } from "react-device-detect";
+
 const API_URL = "https://portal-api.loca.lt/api/";
 const convertUTCDateToLocalDate = (serverDate) => {
   const date = new Date(serverDate);
@@ -35,11 +38,19 @@ const setDateTimeForUTC = (date, time) => {
 };
 const STORAGE_KEYS = {
   sessionKey: "session-id",
+  userSession: "user-session",
 };
+
+const convertArrayForMobile = (array, key = 6) => {
+  console.log("Converting", isTablet, isIPad13);
+  return chunk(array, isMobile ? 2 : isTablet || isIPad13 ? 4 : key);
+};
+
 export {
   convertUTCDateToLocalDate,
   formatToUTCDateTime,
   setDateTimeForUTC,
   API_URL,
   STORAGE_KEYS,
+  convertArrayForMobile,
 };

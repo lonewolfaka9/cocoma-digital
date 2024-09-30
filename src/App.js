@@ -27,7 +27,7 @@ import ScheduleMeeting from "./components/youtubeServices/scheduleMeeting";
 import ContactUs from "./components/contactUs/contactUs";
 import TermCondition from "./components/termCondition/termConditions";
 import PrivacyPolicy from "./components/privacyPolicy/privacyPolicy";
-import useUserAuth from "./services/user";
+import useUserSession from "./services/userSession";
 import { useEffect } from "react";
 import IndustryWeServe from "./components/industryWeServe/industryWeServe";
 const HomeComponent = () => {
@@ -174,7 +174,7 @@ const router = createBrowserRouter([
   },
 ]);
 function App() {
-  const { sessionToken } = useUserAuth();
+  const { sessionToken } = useUserSession();
 
   useEffect(() => {
     console.log("data", sessionToken);

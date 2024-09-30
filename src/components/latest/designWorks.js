@@ -3,59 +3,57 @@ import StoriesCarousel from "../common/storiesCarousel";
 import { useTranslation } from "react-i18next";
 import AppImages from "../../utils/images";
 import Typography from "../../theme/cocoma/typography";
+import { convertArrayForMobile } from "../../utils/utility";
 const carouselData = [
-  [
-    {
-      id: 11,
-      image: AppImages.designwork,
-    },
-    {
-      id: 12,
-      image: AppImages.designworkgraphics,
-    },
-    {
-      id: 13,
-      image: AppImages.designwork,
-    },
-    {
-      id: 14,
-      image: AppImages.designworkgraphics,
-    },
-    {
-      id: 15,
-      image: AppImages.designwork,
-    },
-    {
-      id: 16,
-      image: AppImages.designwork,
-    },
-  ],
-  [
-    {
-      id: 21,
-      image: AppImages.designwork,
-    },
-    {
-      id: 22,
-      image: AppImages.designworkgraphics,
-    },
-    {
-      id: 23,
-      image: AppImages.designwork,
-    },
-    {
-      id: 24,
-      image: AppImages.designworkgraphics,
-    },
-    {
-      id: 25,
-      image: AppImages.designwork,
-    },
-    {
-      id: 26,
-      image: AppImages.designworkgraphics,
-    },
-  ],
+  {
+    id: 11,
+    image: AppImages.designwork,
+  },
+  {
+    id: 12,
+    image: AppImages.designworkgraphics,
+  },
+  {
+    id: 13,
+    image: AppImages.designwork,
+  },
+  {
+    id: 14,
+    image: AppImages.designworkgraphics,
+  },
+  {
+    id: 15,
+    image: AppImages.designwork,
+  },
+  {
+    id: 16,
+    image: AppImages.designwork,
+  },
+
+  {
+    id: 21,
+    image: AppImages.designwork,
+  },
+  {
+    id: 22,
+    image: AppImages.designworkgraphics,
+  },
+  {
+    id: 23,
+    image: AppImages.designwork,
+  },
+  {
+    id: 24,
+    image: AppImages.designworkgraphics,
+  },
+  {
+    id: 25,
+    image: AppImages.designwork,
+  },
+  {
+    id: 26,
+    image: AppImages.designworkgraphics,
+  },
 ];
 
 function DesignWorks() {
@@ -82,7 +80,7 @@ function DesignWorks() {
           </Button>
         </h2>
       </Row>
-      <StoriesCarousel data={carouselData} />
+      <StoriesCarousel data={convertArrayForMobile(carouselData)} />
     </section>
   );
 }

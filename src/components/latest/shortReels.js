@@ -3,59 +3,56 @@ import StoriesCarousel from "../common/storiesCarousel";
 import { useTranslation } from "react-i18next";
 import AppImages from "../../utils/images";
 import Typography from "../../theme/cocoma/typography";
+import { convertArrayForMobile } from "../../utils/utility";
 const carouselData = [
-  [
-    {
-      id: 11,
-      image: AppImages.latestshort,
-    },
-    {
-      id: 12,
-      image: AppImages.lastestshortcat,
-    },
-    {
-      id: 13,
-      image: AppImages.latestshort,
-    },
-    {
-      id: 14,
-      image: AppImages.lastestshortcat,
-    },
-    {
-      id: 15,
-      image: AppImages.latestshort,
-    },
-    {
-      id: 16,
-      image: AppImages.latestshort,
-    },
-  ],
-  [
-    {
-      id: 21,
-      image: AppImages.latestshort,
-    },
-    {
-      id: 22,
-      image: AppImages.lastestshortcat,
-    },
-    {
-      id: 23,
-      image: AppImages.latestshort,
-    },
-    {
-      id: 24,
-      image: AppImages.lastestshortcat,
-    },
-    {
-      id: 25,
-      image: AppImages.latestshort,
-    },
-    {
-      id: 26,
-      image: AppImages.lastestshortcat,
-    },
-  ],
+  {
+    id: 11,
+    image: AppImages.latestshort,
+  },
+  {
+    id: 12,
+    image: AppImages.lastestshortcat,
+  },
+  {
+    id: 13,
+    image: AppImages.latestshort,
+  },
+  {
+    id: 14,
+    image: AppImages.lastestshortcat,
+  },
+  {
+    id: 15,
+    image: AppImages.latestshort,
+  },
+  {
+    id: 16,
+    image: AppImages.latestshort,
+  },
+  {
+    id: 21,
+    image: AppImages.latestshort,
+  },
+  {
+    id: 22,
+    image: AppImages.lastestshortcat,
+  },
+  {
+    id: 23,
+    image: AppImages.latestshort,
+  },
+  {
+    id: 24,
+    image: AppImages.lastestshortcat,
+  },
+  {
+    id: 25,
+    image: AppImages.latestshort,
+  },
+  {
+    id: 26,
+    image: AppImages.lastestshortcat,
+  },
 ];
 
 function ShortReels() {
@@ -82,7 +79,7 @@ function ShortReels() {
           </Button>
         </h2>
       </Row>
-      <StoriesCarousel data={carouselData} />
+      <StoriesCarousel data={convertArrayForMobile(carouselData)} />
     </section>
   );
 }
