@@ -1,3 +1,4 @@
+const API_URL = "https://portal-api.loca.lt/api/";
 const convertUTCDateToLocalDate = (serverDate) => {
   const date = new Date(serverDate);
   date.setMinutes(date.getMinutes() - date.getTimezoneOffset());
@@ -32,5 +33,13 @@ const setDateTimeForUTC = (date, time) => {
   );
   return formatToUTCDateTime(newDate);
 };
-
-export { convertUTCDateToLocalDate, formatToUTCDateTime, setDateTimeForUTC };
+const STORAGE_KEYS = {
+  sessionKey: "session-id",
+};
+export {
+  convertUTCDateToLocalDate,
+  formatToUTCDateTime,
+  setDateTimeForUTC,
+  API_URL,
+  STORAGE_KEYS,
+};

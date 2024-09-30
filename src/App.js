@@ -27,6 +27,9 @@ import ScheduleMeeting from "./components/youtubeServices/scheduleMeeting";
 import ContactUs from "./components/contactUs/contactUs";
 import TermCondition from "./components/termCondition/termConditions";
 import PrivacyPolicy from "./components/privacyPolicy/privacyPolicy";
+import useUserAuth from "./services/user";
+import { useEffect } from "react";
+import IndustryWeServe from "./components/industryWeServe/industryWeServe";
 const HomeComponent = () => {
   return (
     <>
@@ -35,6 +38,7 @@ const HomeComponent = () => {
       <ExploreServices />
       <ServicesByPlatform />
       <Viewer />
+      <IndustryWeServe />
       <LatestStories />
       <WorkFrom />
       <CreativeHouse />
@@ -170,6 +174,12 @@ const router = createBrowserRouter([
   },
 ]);
 function App() {
+  const { sessionToken } = useUserAuth();
+
+  useEffect(() => {
+    console.log("data", sessionToken);
+  }, [sessionToken]);
+
   return (
     <Container fluid>
       <header id="header">

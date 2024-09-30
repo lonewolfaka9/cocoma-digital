@@ -77,15 +77,26 @@ import phonecall from "../../assets/images/phonecall.svg";
 import userphoto from "../../assets/images/userphoto.svg";
 import youtubevideo from "../../assets/images/youtubevideo.svg";
 import tseriesblack from "../../assets/images/tseriesblack.svg";
-
 import imdbblack from "../../assets/images/imdbblack.svg";
 import langistanblack from "../../assets/images/langistanblack.svg";
 import minitvblack from "../../assets/images/minitvblack.svg";
 import primeblack from "../../assets/images/primeblack.svg";
 import showcardblack from "../../assets/images/showcardblack.svg";
 import tataevblack from "../../assets/images/tataevblack.svg";
+import sass from "../../assets/images/sass.svg";
+import edtech from "../../assets/images/edtech.svg";
+import ev from "../../assets/images/ev.svg";
+import filmmedia from "../../assets/images/filmmedia.svg";
+import ott from "../../assets/images/ott.svg";
+import podcast from "../../assets/images/podcast.svg";
 
 const AppImages = {
+  ott,
+  edtech,
+  ev,
+  podcast,
+  filmmedia,
+  sass,
   userphoto,
   tataevblack,
   showcardblack,
