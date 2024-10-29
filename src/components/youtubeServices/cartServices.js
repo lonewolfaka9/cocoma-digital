@@ -30,7 +30,7 @@ const EmptyContainer = ({ t }) => {
   );
 };
 
-const ListItem = ({ idx, value, t, onDelete }) => {
+const ListItem = ({ idx, value, t, onDelete, onOccurrenceClick }) => {
   return (
     <Container className="list-view-item-container">
       <h2>
@@ -86,6 +86,9 @@ const ListItem = ({ idx, value, t, onDelete }) => {
                     variant={
                       item.occurrence === "recurring" ? "warning" : "secondary"
                     }
+                    onClick={() => {
+                      onOccurrenceClick(idx, ix, "recurring");
+                    }}
                   >
                     {t("recurring")}
                   </Button>
@@ -93,6 +96,9 @@ const ListItem = ({ idx, value, t, onDelete }) => {
                     variant={
                       item.occurrence === "recurring" ? "secondary" : "warning"
                     }
+                    onClick={() => {
+                      onOccurrenceClick(idx, ix, "oneTime");
+                    }}
                   >
                     {t("one_time_only")}
                   </Button>
@@ -156,7 +162,15 @@ function CartServices() {
       return countryList.filter((k) => k !== cIndex);
     });
   };
-
+  const onOccurrenceClick = (idx, index, type) => {
+    console.log(idx, index, type);
+    const actualCart = [...cartData];
+    const cData = actualCart[idx];
+    setCartData(() => {
+      cData.catagories[index].occurrence = type;
+      return actualCart;
+    });
+  };
   return (
     <section id="cart-services" className="cart-services">
       <Row>
@@ -180,6 +194,7 @@ function CartServices() {
                       t={t}
                       key={`cart-services-${idx}`}
                       onDelete={onDelete}
+                      onOccurrenceClick={onOccurrenceClick}
                     />
                   )
                 );
