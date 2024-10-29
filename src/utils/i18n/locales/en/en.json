@@ -46,16 +46,16 @@
     "it_web_services":"IT, Web & Apps Services",
     "show_more":"Show More",
     "our_services_by_platform":"OUR SERVICES by platform",
-    "become_a_youtube_star":"Become a youtube star",
+    "become_a_youtube_star":"Youtube Growth & Management Services",
     "supercharge_your_youtube_strategies":"Supercharge your youtube channel with targeted strategies",
     "click_now": "Click Now",
-    "become_a_instagram_star":"Become a Instagram Star",
+    "become_a_instagram_star":"Instagram Growth & Management Services",
     "accelerate_your_instagram_content":"Accelerate your Instagram growth with engaging content",
     "connect_with_industry":"Connect with Industry",
     "propel_your_linkedin_goals":"Propel your LinkedIn presence to new heights & achieve your goals",
     "unlock_your_audience":"Unlock your Audience",
     "supercharge_your_facebook_engagement":"Supercharge your Facebook growth and engagement",
-    "boast_your_tiktok":"Boost your TikTok",
+    "boast_your_tiktok":"TikTok Growth & Management Services",
     "supercharge_your_tiktok_content":"Supercharge your Tiktok growth with creative and impactful content",
     "lead_the_conversation":"Lead the conversation",
     "expand_your_twitter_audience":"Expand your twitter influence and engage your audience",
@@ -218,6 +218,9 @@
     "ev":"EV",
     "sass_business":"SAAS Business",
     "reload-page":"Something went wrong, please refresh your page",
-    "explore_now":"Explore Now"
+    "explore_now":"Explore Now",
+    "linkedIn_growth_management_services":"LinkedIn Growth & Management Services",
+    "facebook_growth_management_services":"Facebook Growth & Management Services",
+    "twitter_growth_management_services":"Twitter Growth & Management Services"
   
   }

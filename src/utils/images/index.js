@@ -91,8 +91,20 @@ import ott from "../../assets/images/ott.svg";
 import podcast from "../../assets/images/podcast.svg";
 import motiongraphics from "../../assets/images/motiongraphics.svg";
 import livematch from "../../assets/images/livematch.svg";
+import youtubeservices from "../../assets/images/youtubeservices.svg";
+import instagramservices from "../../assets/images/instagramservices.svg";
+import linkedinservices from "../../assets/images/linkedinservices.svg";
+import facebookservices from "../../assets/images/facebookservices.svg";
+import tiktolkservices from "../../assets/images/tiktolkservices.svg";
+import twitterservices from "../../assets/images/twitterservices.svg";
 
 const AppImages = {
+  twitterservices,
+  tiktolkservices,
+  facebookservices,
+  linkedinservices,
+  instagramservices,
+  youtubeservices,
   livematch,
   motiongraphics,
   ott,
