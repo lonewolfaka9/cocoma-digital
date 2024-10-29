@@ -1,4 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
+import "video-react/dist/video-react.css";
 import "./App.scss";
 
 import Container from "react-bootstrap/Container";
@@ -30,6 +31,8 @@ import PrivacyPolicy from "./components/privacyPolicy/privacyPolicy";
 import useUserSession from "./services/userSession";
 import { useEffect } from "react";
 import IndustryWeServe from "./components/industryWeServe/industryWeServe";
+import HomeVideo from "./components/homeVideo/homeVideo";
+
 const HomeComponent = () => {
   return (
     <>
@@ -38,6 +41,7 @@ const HomeComponent = () => {
       <ExploreServices />
       <ServicesByPlatform />
       <Viewer />
+      <HomeVideo />
       <IndustryWeServe />
       <LatestStories />
       <WorkFrom />
