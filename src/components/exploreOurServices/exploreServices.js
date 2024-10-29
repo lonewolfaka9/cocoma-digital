@@ -6,7 +6,8 @@ import AppImages from "../../utils/images";
 import { useTranslation } from "react-i18next";
 import { Button } from "react-bootstrap";
 import { useState } from "react";
-import { ArrowDown } from "react-bootstrap-icons";
+import { ArrowDown, ArrowUpRight } from "react-bootstrap-icons";
+import Typography from "../../theme/cocoma/typography";
 
 const worksData = [
   {
@@ -40,15 +41,15 @@ const worksData = [
   {
     id: 5,
     link: "https://www.google.com",
-    image: AppImages.designservices,
+    image: AppImages.motiongraphics,
     title: "motion_graphics",
     subtitle: "motion_graphics_details",
   },
   {
     id: 6,
     link: "https://www.google.com",
-    image: AppImages.postproduction,
-    title: "copywriting",
+    image: AppImages.livematch,
+    title: "livematch",
     subtitle: "copywriting_details",
   },
 ];
@@ -99,24 +100,44 @@ function ExploreServices() {
                 }}
               >
                 <Container className="portfolio-wrapper">
-                  <Row className="image-panel">
-                    <Image src={works.image} />
-                  </Row>
-                  <Row className="portfolio-span">
-                    <h4>{t(`${works.title}`)}</h4>
-                  </Row>
+                  <Image src={works.image} />
 
-                  <Container className="label text-center">
+                  <Container className="portfolio-span">
+                    <h4>{t(`${works.title}`)}</h4>
+                  </Container>
+
+                  {/* <Container className="label text-center">
                     <h3>{t(`${works.title}`)}</h3>
                     <p>{t(`${works.subtitle}`)}</p>
+                  </Container> */}
+                  <Container className="button-container">
+                    <Button
+                      variant="dark"
+                      className="explore-more-btn"
+                      onClick={onShowMore}
+                    >
+                      {t("explore_now")}
+                      <ArrowUpRight
+                        color={Typography.color.white}
+                        style={{
+                          marginLeft: 5,
+                        }}
+                      />
+                    </Button>
                   </Container>
                 </Container>
               </Col>
             );
           })}
-          <Button variant="link" className="show-more-btn" onClick={onShowMore}>
-            {t("show_more")} <ArrowDown color="#080808"></ArrowDown>
-          </Button>
+          <Container className="show-btn-container">
+            <Button
+              variant="link"
+              className="show-more-btn"
+              onClick={onShowMore}
+            >
+              {t("show_more")} <ArrowDown color="#080808"></ArrowDown>
+            </Button>
+          </Container>
         </Row>
       </Container>
     </section>

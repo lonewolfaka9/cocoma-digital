@@ -845,7 +845,15 @@ textarea {
       transform: scale(1.08);
    
     }
+    .show-btn-container {
+      text-align: center;
+      .btn-link {
+        border: 1px solid #080808;
+        text-decoration: none;
+      }
+    }
     .portfolio-wrapper {
+  
       overflow: hidden;
       position: relative !important;
       background: $exploreServiceBackground;
@@ -853,11 +861,23 @@ textarea {
       height: auto;
       width: 100%;
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      padding: 0px;
+      .row {
+        margin-left: 0px;
+      }
+      
+      .button-container {
+        text-align: center;
+        .explore-more-btn{
+          margin-bottom: 20px;
+          margin-top: 20px;
+        }
+      }
+    
       .image-panel {
         background: $exploreServiceBackground;
-        width: 200px;
-        margin: 0 auto;
-        padding-top: 10px;
+        margin-left: 0px;
+      
       }
       .portfolio-span {
         background: $exploreServiceBackground;
@@ -865,7 +885,7 @@ textarea {
       h4{
         text-align: center;
         padding-top: 10px;
-        font-size: 32px;
+        font-size: 15px;
         color: $exploreServiceTextColor;
         font-weight: normal;
       }

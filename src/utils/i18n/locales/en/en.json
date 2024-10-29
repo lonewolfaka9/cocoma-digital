@@ -28,18 +28,19 @@
     "trusted_brand_heading":"Trusted by Leading Brands Worldwide",
     "explore_our_services":"Explore Our services",
     "explore_our_awesome_works":"Explore our awesome works",
-    "video_production":"Video Production",
-    "video_production_details":"Know more about our Video Production Details",
+    "video_production":"Video Production & Editing Services",
+    "video_production_details":"Know more about our Video Production & Editing Services Details",
     "design_services":"Design Services",
+    "livematch":"Live Matches",
     "design_services_details":"Know more about our Design Services Details",
     "post_production":"Post Production",
     "post_production_details":"Know more about our Post Production Details",
-    "video_editing":"Video Editing",
-    "video_editing_details":"Know more about our Video Editing Details",
+    "video_editing":"VPodcasts Planning Production And Editing",
+    "video_editing_details":"Know more about our Podcasts Planning Production And Editing Details",
     "motion_graphics":"Motion Graphics",
     "motion_graphics_details":"Know more about our Motion Graphics Details",
     "copywriting":"Copywriting",
-    "copywriting_details":"Know more about our Copywriting Details",
+    "copywriting_details":"Know more about our live matches Details",
     "content_service":"Content Services",
     "performance_marketing_services":"Performance & Marketing Services",
     "it_web_services":"IT, Web & Apps Services",
@@ -216,6 +217,7 @@
     "edtech_lms":"EDTECH & LMS",
     "ev":"EV",
     "sass_business":"SAAS Business",
-    "reload-page":"Something went wrong, please refresh your page"
+    "reload-page":"Something went wrong, please refresh your page",
+    "explore_now":"Explore Now"
   
   }

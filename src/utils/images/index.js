@@ -89,8 +89,12 @@ import ev from "../../assets/images/ev.svg";
 import filmmedia from "../../assets/images/filmmedia.svg";
 import ott from "../../assets/images/ott.svg";
 import podcast from "../../assets/images/podcast.svg";
+import motiongraphics from "../../assets/images/motiongraphics.svg";
+import livematch from "../../assets/images/livematch.svg";
 
 const AppImages = {
+  livematch,
+  motiongraphics,
   ott,
   edtech,
   ev,
