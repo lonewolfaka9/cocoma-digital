@@ -1,0 +1,22 @@
+
+@import './cocoma-variables.scss';
+$primary: #707070;
+$secondary: #DBDBDB;
+$dark: #080808;
+$light: #080808;
+$success: #66ab57;
+$info: #9ab6da;
+$warning: #F5C518;
+$danger: #f44336;
+$listActive:#707070;
+.popover{
+   --bs-body-bg:$light
+} 
+.list-group {
+    --bs-list-group-active-bg: $listActive;
+    --bs-list-group-active-border-color: $listActive;
+    --bs-body-color: $white;
+    --bs-border-color:'red'
+}
+
+@import '~bootstrap/scss/bootstrap.scss';
