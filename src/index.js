@@ -1,10 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import App from "./App";
-import "./theme/cocoma/cocoma-theme.scss";
 import reportWebVitals from "./reportWebVitals";
-import "./utils/i18n";
+import "./index.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js"; // Includes Popper.js
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
