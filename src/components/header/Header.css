@@ -1,0 +1,66 @@
+.custom-navbar {
+  background-color: #000; /* Black background */
+  color: white;
+}
+
+/* Logo Styling */
+.custom-navbar .logo-image {
+  height: 40px; /* Adjust logo size */
+}
+
+/* Center the Menu on Desktop */
+.custom-navbar .menu-items {
+  display: flex;
+  justify-content: center; /* Center the menu items */
+  align-items: center;
+  width: 100%;
+}
+
+.custom-navbar .menu-items .nav-link {
+  color: white !important;
+  /* text-align: center; */
+}
+
+.custom-navbar .menu-items .nav-link:hover {
+  color: #f5c518 !important; /* Highlight on hover */
+}
+
+/* Buttons Styling */
+.custom-navbar .btn-warning {
+  background-color: #f5c518 !important;
+  color: #000 !important;
+  font-weight: bold;
+  border: none;
+}
+
+.custom-navbar .btn-warning:hover {
+  background-color: #e5b517 !important;
+}
+
+/* Mobile/Tablet Specific Adjustments */
+@media (max-width: 991px) {
+  .custom-navbar .btn-language {
+    order: 1;
+  }
+
+  .custom-navbar .navbar-toggler {
+    order: 2;
+    border: none;
+    color: white;
+  }
+
+  .custom-navbar .menu-items {
+    display: block; /* Make the menu stack vertically in mobile */
+  }
+}
+
+/* Desktop Specific Adjustments */
+@media (min-width: 992px) {
+  .custom-navbar .menu-items {
+    justify-content: center; /* Center menu items */
+  }
+
+  .custom-navbar .btn-get-started {
+    margin-left: 10px;
+  }
+}
