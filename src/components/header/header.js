@@ -6,7 +6,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import { Button } from "react-bootstrap";
 import { HiArrowUpRight } from "react-icons/hi2";
 import { RiMenuFill } from "react-icons/ri";
-import "./Header.css"; // Ensure custom CSS is linked
+import "./Header.css";
 import LangOverlay from "./langOverlay";
 function Header() {
   const [expanded, setExpanded] = useState(false); // State for controlling the mobile menu
