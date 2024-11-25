@@ -34,102 +34,6 @@ code {
   background: black;
   color: white;
 }
-
-.menu-items li{
-  max-width: 30%;
-  font-size: 18px;
-  padding-left: .7rem;
-
-}
-
-.hamburger-icon {
-  display: none;
-  cursor: pointer;
-}
-
-.menu-items {
-  list-style: none;
-  display: flex;
-  gap: 15px;
-}
-
-/* Mobile view */
-@media (max-width: 768px) {
-  .hamburger-icon {
-    display: block;
-    font-size: 40px;
-  }
-  .menu-items li{
-    width: 100%;
-  }
-  .menu-items {
-    flex-direction: column;
-    display: none; /* Default to hidden */
-    position: fixed;
-    top: 92px;
-    right: 0px;
-    width: 100%;
-    height: 100vh;
-    background-color: black;
-    color: white;
-    padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 10000;
-  }
-  .menu-items.open {
-    display: block; /* Show when open */
-  }
-}
-.dropdown-menu {
-  transition: opacity 0.3s ease;
-  opacity: 0;
-  pointer-events: none; /* Prevents clicking when not visible */
-}
-
-.dropdown-menu.show {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.dropdown-menu {
-  display: none;
-  background-color: white;
-  border: 1px solid #ddd;
-  list-style: none;
-  padding: 10px;
-  min-width: 150px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  z-index: 1;
-}
-
-.dropdown-menu li {
-  padding: 8px;
-  white-space: nowrap;
-  cursor: pointer;
-}
-
-.dropdown:hover .dropdown-menu,
-.dropdown.open .dropdown-menu {
-  display: block;
-}
-
-/* Mobile view */
-@media (max-width: 768px) {
-  .hamburger-icon {
-    display: block;
-  }
-
-  .dropdown-menu {
-    display: none;
-    position: relative;
-  }
-
-  /* Show dropdown inline, pushing items down */
-  .dropdown.open .dropdown-menu {
-    display: block;
-    margin-top: 10px;
-  }
-}
 .section-image-01{
   width: 100%;
   height: 100%;
@@ -565,4 +469,8 @@ button.position-fixed {
   right: 10px; /* Adjust as needed */
   height: auto; /* Optional: Maintain aspect ratio */
   z-index: 1; /* Ensure it's above other elements */
+}
+
+.navbar-toggler {
+  color: white;
 }

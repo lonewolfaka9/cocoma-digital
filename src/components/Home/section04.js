@@ -8,7 +8,7 @@ const platformServicesData = [
   },
   {
     title: "YouTube Growth & Management Services",
-    img: "../../images/youtube.svg",
+    img: "../../Images/youtube.svg",
   },
   {
     title: "Instagram Growth & Management Services",
