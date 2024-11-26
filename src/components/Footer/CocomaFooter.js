@@ -1,4 +1,4 @@
-export default function Footer() {
+export default function CocomaFooter() {
   return (
     <>
       <div className="container-fluid footer-main pt-5">

@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/header/header";
-import Footer from "./components/Footer/footer";
 import Home from "./Pages/Home";
 import Services from "./Pages/Services";
+import CocomaFooter from "./components/Footer/CocomaFooter";
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
           <Route path="/service" element={<Services />} />
         </Routes>
       </main>
-      <Footer />
+      <CocomaFooter />
     </Router>
   );
 }
