@@ -1,6 +1,7 @@
 .custom-navbar {
   background-color: #000; /* Black background */
   color: white;
+  position: relative;
 }
 
 /* Logo Styling */
@@ -14,6 +15,12 @@
   justify-content: center; /* Center the menu items */
   align-items: center;
   width: 100%;
+  
+}
+.dropdown-menu[data-bs-popper] {
+  top: 95%;
+  left: 40% !important;
+  margin-top: var(--bs-dropdown-spacer);
 }
 
 .custom-navbar .menu-items .nav-link {
@@ -64,14 +71,17 @@
     margin-left: 10px;
   }
 }
-
-.custom-nav-dropdown .dropdown-container {
+.service-dropdown{
+  width: 100%;
+}
+.dropdown-container {
   display: flex;
   flex-direction: row;
-  width: 800px;
+  width: 100%;
   background: #000000d0;
   color: #ffffff;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  right: 0px !important;
 }
 
 /* Left Column: Categories */
@@ -106,11 +116,13 @@
   gap: 15px;
 }
 
+
 .services-headder-Item {
   width: 100%;
   display: flex;
   align-items: flex-start;
-  gap: 10px;
+  gap: 20px;
+  background-color: white;
 }
 
 .service-icon {
@@ -121,8 +133,6 @@
   background-color: #000;
   color: white;
 }
-
-
 .headder-logo-bg{
   text-align: center;
   /* margin-left: 5px; */
@@ -136,7 +146,9 @@
   width: 100%;
   height: 100%;
 }
-
+.for-new-pos{
+  position: static !important;
+}
 .custom-nav-dropdown-our-Expertise{
   background-color: black;
 }
@@ -271,4 +283,13 @@
     padding: 0.5rem 1rem;
     font-size: 0.85rem;
   }
+}
+
+
+.subcategory-container-mobile {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+  background-color: white;
+  color: black;
 }

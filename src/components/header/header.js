@@ -19,6 +19,7 @@ import linkedin from "./linkedin.svg";
 function Header() {
   const [expanded, setExpanded] = useState(false); // State for controlling the mobile menu
   const [activeCategory, setActiveCategory] = useState("Creative Services");
+  const isMobile = () => window.innerWidth <= 768;
 
   // Categories and services for the dropdown
   const categories = [
@@ -134,76 +135,106 @@ function Header() {
             <NavDropdown
               title="Our Services"
               id="services-dropdown"
-              className="custom-nav-dropdown"
+              className="custom-nav-dropdown for-new-pos"
             >
-              <div className="dropdown-container">
-                {/* Left Column: Categories */}
-                <div className="dropdown-left">
-                  <div className="p-2">
-                    <h2>By Platform</h2>
-                  </div>
-                  <div className="d-flex mb-2 justify-content-around">
-                    <div className="headder-logo-bg">
-                      <img src={youtube} alt="" />
-                    </div>
-                    <div className="headder-logo-bg">
-                      <img src={instagram} alt="" />
-                    </div>
-                    <div className="headder-logo-bg">
-                      <img src={facebook} alt="" />
-                    </div>
-
-                    <div className="headder-logo-bg">
-                      <img src={twitter} alt="" />
-                    </div>
-                    <div className="headder-logo-bg">
-                      <img src={tiktok} alt="" />
-                    </div>
-                    <div className="headder-logo-bg">
-                      <img src={linkedin} alt="" />
-                    </div>
-                  </div>
-                  <div style={{ paddingLeft: 10, paddingTop: 10 }}>
-                    <h4>our services by skills</h4>
-                  </div>
+              {isMobile() ? (
+                <div>
                   {categories.map((category, index) => (
-                    <div
-                      key={index}
-                      className={`dropdown-category ${
-                        activeCategory === category ? "active" : ""
-                      }`}
-                      onClick={() => handleCategoryClick(category)}
-                    >
-                      {category}
+                    <div key={index}>
+                      {/* Render Categories */}
+                      <div
+                        className={`dropdown-category ${
+                          activeCategory === category ? "active" : ""
+                        }`}
+                        onClick={() => handleCategoryClick(category)}
+                      >
+                        {category}
+                      </div>
+
+                      {/* Render Subcategories if Category is Active */}
+                      {activeCategory === category && (
+                        <div className="subcategory-container-mobile">
+                          {services[category]?.map((subcategory, subIndex) => (
+                            <div key={subIndex} className="subcategory-card">
+                              <strong>{subcategory.name}</strong>
+                              <p>{subcategory.description}</p>
+                            </div>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   ))}
                 </div>
+              ) : (
+                <div className="dropdown-container">
+                  {/* Left Column: Categories */}
+                  <div className="dropdown-left">
+                    <div className="p-2">
+                      <h2>By Platform</h2>
+                    </div>
+                    <div className="d-flex mb-2 justify-content-around">
+                      <div className="headder-logo-bg">
+                        <img src={youtube} alt="" />
+                      </div>
+                      <div className="headder-logo-bg">
+                        <img src={instagram} alt="" />
+                      </div>
+                      <div className="headder-logo-bg">
+                        <img src={facebook} alt="" />
+                      </div>
 
-                <div className="dropdown-right p-3">
-                  <h3>{activeCategory}</h3>
-                  <div className="services-headder-grid mt-2">
-                    {services[activeCategory]?.map((service, index) => (
-                      <div key={index} className="services-headder-Item">
-                        <img
-                          src={service.icon}
-                          alt={service.name}
-                          className="service-icon"
-                        />
-                        <div>
-                          <strong>{service.name}</strong>
-                          <p>{service.description}</p>
-                        </div>
+                      <div className="headder-logo-bg">
+                        <img src={twitter} alt="" />
+                      </div>
+                      <div className="headder-logo-bg">
+                        <img src={tiktok} alt="" />
+                      </div>
+                      <div className="headder-logo-bg">
+                        <img src={linkedin} alt="" />
+                      </div>
+                    </div>
+                    <div style={{ paddingLeft: 10, paddingTop: 10 }}>
+                      <h4>our services by skills</h4>
+                    </div>
+                    {categories.map((category, index) => (
+                      <div
+                        key={index}
+                        className={`dropdown-category ${
+                          activeCategory === category ? "active" : ""
+                        }`}
+                        onClick={() => handleCategoryClick(category)}
+                      >
+                        {category}
                       </div>
                     ))}
                   </div>
-                </div>
-              </div>
-            </NavDropdown>
 
+                  {/* Right Column: Services */}
+                  <div className="dropdown-right p-3">
+                    <h3>{activeCategory}</h3>
+                    <div className="services-headder-grid mt-2">
+                      {services[activeCategory]?.map((service, index) => (
+                        <div key={index} className="services-headder-Item">
+                          <img
+                            src={service.icon}
+                            alt={service.name}
+                            className="service-icon"
+                          />
+                          <div>
+                            <strong>{service.name}</strong>
+                            <p>{service.description}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+            </NavDropdown>
             {/* Other Dropdowns */}
             <NavDropdown
               title="Our Expertise"
-              className="custom-nav-dropdown-our-Expertise"
+              // className="custom-nav-dropdown-our-Expertise"
               id="expertise-dropdown"
             >
               <div className="expertise-dropdown">
