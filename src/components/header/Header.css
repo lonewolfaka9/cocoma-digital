@@ -12,7 +12,7 @@
 /* Center the Menu on Desktop */
 .custom-navbar .menu-items {
   display: flex;
-  justify-content: center; /* Center the menu items */
+  justify-content: center; /* Center the for-new-pos items */
   align-items: center;
   width: 100%;
   
@@ -292,4 +292,6 @@
   gap: 10px;
   background-color: white;
   color: black;
+}.language-dropdown-container .language-dropdown-menu {
+  left: -289% !important;
 }

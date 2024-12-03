@@ -43,3 +43,6 @@
 .language-dropdown-item:last-child {
   border-bottom: none;
 }
+.language-dropdown-container .language-dropdown-menu {
+  left: -289% !important;
+}

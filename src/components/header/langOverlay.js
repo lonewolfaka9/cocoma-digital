@@ -1,4 +1,3 @@
-import "./Language.css";
 import React, { useState } from "react";
 import { Dropdown } from "react-bootstrap";
 
@@ -43,7 +42,10 @@ function LanguageSelector() {
         >
           {selectedLanguage.substring(0, 2).toUpperCase()}
         </Dropdown.Toggle>
-        <Dropdown.Menu className="language-dropdown-menu">
+        <Dropdown.Menu
+          className="language-dropdown-menu "
+          style={{ Left: "-289% !important" }}
+        >
           {languages.map((language) => (
             <Dropdown.Item
               key={language}

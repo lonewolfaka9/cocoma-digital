@@ -15,6 +15,7 @@ import facebook from "./facebook.svg";
 import twitter from "./twitter.svg";
 import tiktok from "./tiktok.svg";
 import linkedin from "./linkedin.svg";
+import "./Language.css";
 
 function Header() {
   const [expanded, setExpanded] = useState(false); // State for controlling the mobile menu
