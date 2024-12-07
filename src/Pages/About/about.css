@@ -1,0 +1,131 @@
+/* Global Container */
+.timeline-container {
+  font-family: "Arial", sans-serif;
+  padding: 50px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.timeline-header {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.timeline-subtext {
+  font-size: 1rem;
+  color: #6d6d6d;
+  margin-bottom: 40px;
+  line-height: 1.5;
+}
+
+/* Timeline */
+.timeline {
+  position: relative;
+  padding: 0;
+  margin: 0;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0%;
+  width: 2px;
+  height: 100%;
+  background-color: #000;
+  z-index: 0;
+}
+
+/* Timeline Item */
+.timeline-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-circle {
+  flex: 0 0 50px;
+  width: 100px;
+  height: 100px;
+  background-color: #000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  z-index: 1;
+  position: relative;
+}
+
+.timeline-item:nth-child(even) .timeline-circle {
+  background-color: #f2c94c;
+  color: #000;
+}
+
+.timeline-year {
+  z-index: 2;
+}
+
+.timeline-content {
+  flex: 1;
+  margin-left: 20px;
+  text-align: left;
+}
+
+.timeline-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #f2c94c;
+  margin-bottom: 10px;
+}
+
+.timeline-description {
+  font-size: 0.95rem;
+  color: #6d6d6d;
+  margin-bottom: 10px;
+}
+
+.timeline-link {
+  font-size: 0.95rem;
+  font-weight: bold;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.timeline-link:hover {
+  text-decoration: underline;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .timeline {
+    width: 90%;
+  }
+
+  .timeline-item {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .timeline-circle {
+    margin-bottom: 15px;
+  }
+
+  .timeline-content {
+    margin-left: 0;
+  }
+
+  .timeline::before {
+    left: 5%;
+  }
+}
