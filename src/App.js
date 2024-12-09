@@ -12,7 +12,8 @@ import CocomaFooter from "./components/Footer/CocomaFooter";
 import Cart from "./Pages/cart/AddToCart";
 import ContactUs from "./Pages/contactUs/ContactUs";
 import Timeline from "./Pages/About/about";
-
+import Career from "./Pages/Jobs/Career";
+import JobDetails from "./Pages/Jobs/JobDetails";
 function App() {
   const location = useLocation();
   // Pages where Header and Footer should NOT be shown
@@ -30,6 +31,8 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/contact_us" element={<ContactUs />} />
           <Route path="/aboutus" element={<Timeline />} />
+          <Route path="/Career" element={<Career />} />
+          <Route path="/job-details/:id" element={<JobDetails />} />
         </Routes>
       </main>
       {showHeaderFooter && <CocomaFooter />}

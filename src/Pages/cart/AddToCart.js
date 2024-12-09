@@ -61,8 +61,8 @@ export default function AddToCart() {
           <div className="col-lg-6">
             <h1>Your cart of services</h1>
           </div>
-          <div className="col-lg-4"></div>
-          <div className="col-lg-2 d-flex justify-content-end">
+          <div className="col-lg-4 "></div>
+          <div className="col-lg-2 d-flex justify-content-end d-none d-lg-block d-md-block">
             <button
               onClick={() => setViewMode("CartCard")}
               className={`btn ${

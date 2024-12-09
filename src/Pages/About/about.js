@@ -46,7 +46,7 @@ const Timeline = () => {
             <div className="timeline-content">
               <div className="timeline-title">{item.title}</div>
               <p className="timeline-description">{item.description}</p>
-              <a href="#" className="timeline-link">
+              <a href="/" className="timeline-link">
                 Read More
               </a>
             </div>
