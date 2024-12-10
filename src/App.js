@@ -14,6 +14,7 @@ import ContactUs from "./Pages/contactUs/ContactUs";
 import Timeline from "./Pages/About/about";
 import Career from "./Pages/Jobs/Career";
 import JobDetails from "./Pages/Jobs/JobDetails";
+import JobApplicationForm from "./Pages/Jobs/JobApplication";
 function App() {
   const location = useLocation();
   // Pages where Header and Footer should NOT be shown
@@ -33,6 +34,7 @@ function App() {
           <Route path="/aboutus" element={<Timeline />} />
           <Route path="/Career" element={<Career />} />
           <Route path="/job-details/:id" element={<JobDetails />} />
+          <Route path="/job-Application" element={<JobApplicationForm />} />
         </Routes>
       </main>
       {showHeaderFooter && <CocomaFooter />}
