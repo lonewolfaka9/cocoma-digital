@@ -1,7 +1,69 @@
-.floating-cart {
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+.about-us-section {
+  font-family: Arial, sans-serif;
 }
 
-.floating-cart button {
-  font-weight: bold;
+.about-description {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.about-image {
+  border: 5px solid #f0f0f0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.video-thumbnail {
+  position: relative;
+  cursor: pointer;
+}
+
+.play-button {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.6);
+  border: none;
+  border-radius: 50%;
+  padding: 15px;
+  outline: none;
+}
+
+.play-button:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.video-modal {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+  background: white;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  outline: none;
+}
+
+.video-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #333;
 }

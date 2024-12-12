@@ -23,6 +23,36 @@ const Portfolio = () => {
       image: "../../Images/portFolio.svg",
       videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
     },
+    {
+      id: 4,
+      category: "Sales Video",
+      image: "../../Images/portFolio.svg",
+      videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
+    },
+    {
+      id: 5,
+      category: "Sales Video",
+      image: "../../Images/portFolio.svg",
+      videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
+    },
+    {
+      id: 6,
+      category: "Sales Video",
+      image: "../../Images/portFolio.svg",
+      videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
+    },
+    {
+      id: 7,
+      category: "Sales Video",
+      image: "../../Images/portFolio.svg",
+      videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
+    },
+    {
+      id: 8,
+      category: "Sales Video",
+      image: "../../Images/portFolio.svg",
+      videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
+    },
   ];
 
   const categories = ["All", "Explainer", "Motion Graphics", "Sales Video"];
