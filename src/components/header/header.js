@@ -10,8 +10,8 @@ import "./Header.css";
 import LangOverlay from "./langOverlay";
 import youtube from "./youtube.svg"; // Replace with your actual icons/images
 // import { isMobile } from "react-device-detect";
-import instagram from "./instagram.svg";
-import facebook from "./facebook.svg";
+// import instagram from "./instagram.svg";
+// import facebook from "./facebook.svg";
 import twitter from "./twitter.svg";
 import tiktok from "./tiktok.svg";
 import linkedin from "./linkedin.svg";
@@ -178,10 +178,10 @@ function Header() {
                         <img src={youtube} alt="" />
                       </div>
                       <div className="headder-logo-bg">
-                        <img src={instagram} alt="" />
+                        {/* <img src={instagram} alt="" /> */}
                       </div>
                       <div className="headder-logo-bg">
-                        <img src={facebook} alt="" />
+                        {/* <img src={facebook} alt="" /> */}
                       </div>
 
                       <div className="headder-logo-bg">
