@@ -17,6 +17,7 @@ import JobApplicationForm from "./Pages/Jobs/JobApplication";
 import ThankYouPage from "./Pages/Jobs/FormSubmitSuccess";
 import SingleService from "./Pages/Services/SingleService";
 import AboutUs from "./Pages/About/about";
+import CreativeHouse from "./Pages/CreativeHouse/CreativeHouse";
 function App() {
   const location = useLocation();
   // Pages where Header and Footer should NOT be shown
@@ -32,6 +33,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/service" element={<Services />} />
           <Route path="/Single_Services" element={<SingleService />} />
+          <Route path="/Creative-House" element={<CreativeHouse />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/contact_us" element={<ContactUs />} />
           <Route path="/aboutus" element={<AboutUs />} />
