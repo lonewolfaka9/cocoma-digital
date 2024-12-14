@@ -99,7 +99,7 @@ function Header() {
     >
       <Container fluid>
         {/* Logo Section */}
-        <Navbar.Brand href="/" className="d-flex align-items-center">
+        <Navbar.Brand href="/service" className="d-flex align-items-center">
           <img
             src="../../Images/app_logo.svg"
             alt="app logo"
