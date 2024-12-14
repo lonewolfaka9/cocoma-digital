@@ -16,9 +16,10 @@ import Section12 from "../components/Home/section12";
 import Section13 from "../components/Home/section13";
 import Section14 from "../components/Home/section14";
 import "../index.css";
+
 export default function Home() {
   const [homeData, setHomeData] = useState();
-
+  // console.log("process.env.REACT_APP_API_URL", process.env.REACT_APP_API_URL);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   useEffect(() => {
