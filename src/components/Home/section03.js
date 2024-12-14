@@ -1,34 +1,8 @@
 import React, { useState } from "react";
 
-const servicesData = {
-  content: [
-    {
-      title: "Video Production & Editing Services",
-      img: "../../Images/image(2).svg",
-    },
-    {
-      title: "Podcasts Planning Production And Editing",
-      img: "../../Images/video-production.svg",
-    },
-    { title: "Design Services", img: "../../Images/image(1).svg" },
-    { title: "Live Matches", img: "../../Images/image(4).svg" },
-    { title: "Motion Graphics", img: "../../Images/image(5).svg" },
-    { title: "Post Production", img: "../../Images/image(6).svg" },
-  ],
-  performance: [
-    { title: "SEO Optimization", img: "../../Images/image(2).svg" },
-    { title: "Content Marketing", img: "../../Images/image(2).svg" },
-    { title: "Social Media Marketing", img: "../../Images/image(2).svg" },
-  ],
-  itServices: [
-    { title: "Web Development", img: "../../Images/image(1).svg" },
-    { title: "App Development", img: "../../Images/image(1).svg" },
-    { title: "Cloud Solutions", img: "../../Images/image(1).svg" },
-  ],
-};
-
-const Section03 = () => {
-  const [activeTab, setActiveTab] = useState("content");
+const Section03 = ({ ServiceData }) => {
+  const services = ServiceData.services || []; // Access the 'services' property or use an empty array
+  const [activeTab, setActiveTab] = useState(services[0]?.id); // Default to the first category
 
   return (
     <div className="container">
@@ -37,48 +11,49 @@ const Section03 = () => {
           <center>
             <h1>EXPLORE OUR SERVICES</h1>
           </center>
+          {/* Dynamic Tabs */}
           <div className="tab-buttons d-flex justify-content-center mt-4 flex-wrap">
-            <button
-              className={`tab-button ${
-                activeTab === "content" ? "active" : ""
-              }`}
-              onClick={() => setActiveTab("content")}
-            >
-              Content Services
-            </button>
-            <button
-              className={`tab-button ${
-                activeTab === "performance" ? "active" : ""
-              }`}
-              onClick={() => setActiveTab("performance")}
-            >
-              Performance & Marketing Services
-            </button>
-            <button
-              className={`tab-button ${
-                activeTab === "itServices" ? "active" : ""
-              }`}
-              onClick={() => setActiveTab("itServices")}
-            >
-              IT, Web & Apps Services
-            </button>
+            {services.map((category) => (
+              <button
+                key={category.id}
+                className={`tab-button ${
+                  activeTab === category.id ? "active" : ""
+                }`}
+                onClick={() => setActiveTab(category.id)}
+              >
+                {category.service_category_name}
+              </button>
+            ))}
           </div>
         </div>
       </div>
+
+      {/* Services Based on Active Tab */}
       <div className="row services mt-4">
-        {servicesData[activeTab].map((service, index) => (
-          <div key={index} className="col-md-4 col-lg-4 col-sm-6 mt-5">
-            <div className="service-card pb-4 text-center">
-              <img
-                src={service.img}
-                alt={service.title}
-                className="service-image"
-              />
-              <h3>{service.title}</h3>
-              <button className="explore-button">Explore Now &#8594;</button>
-            </div>
-          </div>
-        ))}
+        {services
+          .filter((category) => category.id === activeTab)
+          .map((category) =>
+            category.items.map((service) => (
+              <div className="col-md-4 col-lg-4 col-sm-6 mt-5" key={service.id}>
+                <div className="service-card pb-4 text-center">
+                  <img
+                    src={service.service_image}
+                    alt={service.service_title}
+                    className="service-image"
+                  />
+                  <h3>{service.service_title}</h3>
+                  <button
+                    className="explore-button"
+                    onClick={() =>
+                      window.open(service.service_button_url, "_blank")
+                    }
+                  >
+                    {service.service_button_text} &#8594;
+                  </button>
+                </div>
+              </div>
+            ))
+          )}
       </div>
     </div>
   );

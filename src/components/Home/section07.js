@@ -1,30 +1,15 @@
 import React from "react";
 import Slider from "react-slick";
 
-const Section07 = () => {
-  const stories = [
-    {
-      id: 1,
-      title: "300% Growth In Subscriber In 9 Months",
-      imgSrc: "../../Images/story01.svg", // Replace with actual image source
-    },
-    {
-      id: 2,
-      title: "300% Growth In Subscriber In 9 Months",
-      imgSrc: "../../Images/story01.svg", // Replace with actual image source
-    },
-    {
-      id: 3,
-      title: "300% Growth In Subscriber In 9 Months",
-      imgSrc: "../../Images/story01.svg", // Replace with actual image source
-    },
-  ];
+const Section07 = ({ ClientData }) => {
+  const clients = ClientData.client || []; // Safely access 'client' array
 
   const settings = {
     dots: true,
     infinite: true,
-    speed: 500,
+    speed: 300,
     autoplay: true,
+    arrows: false,
     slidesToShow: 3,
     slidesToScroll: 1,
     initialSlide: 0,
@@ -61,16 +46,18 @@ const Section07 = () => {
       <h3 className="text-uppercase text-muted mb-3">Our Clients</h3>
       <h2 className="fw-bold">Latest Success Stories</h2>
       <Slider {...settings} className="mt-4">
-        {stories.map((story) => (
-          <div className="p-3" key={story.id}>
+        {clients.map((client) => (
+          <div className="p-3 d-flex" key={client.id}>
             <div className="card">
               <img
-                src={story.imgSrc}
+                src={client.client_img}
                 className="card-img-top"
-                alt={story.title}
+                alt={client.client_description}
               />
               <div className="card-body">
-                <p className="card-text fw-bold text-center">{story.title}</p>
+                <p className="card-text fw-bold text-center">
+                  {client.client_description}
+                </p>
               </div>
             </div>
           </div>

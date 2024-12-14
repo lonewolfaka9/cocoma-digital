@@ -1,67 +1,42 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-const Section10 = () => {
+const Section10 = ({ DevelopmentHouseData }) => {
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [categories, setCategories] = useState([]);
+  const [filteredItems, setFilteredItems] = useState([]);
 
-  const data = [
-    {
-      id: 1,
-      category: "UI UX",
-      title: "UI/UX Development",
-      imageUrl: "../../Images/developmentHouse.png",
-    },
-    {
-      id: 2,
-      category: "LMS",
-      title: "LMS Development",
-      imageUrl: "../../Images/developmentHouse.png",
-    },
-    {
-      id: 3,
-      category: "Website",
-      title: "Website Development",
-      imageUrl: "../../Images/developmentHouse.png",
-    },
-    {
-      id: 4,
-      category: "Mobile & Web Apps",
-      title: "App Development",
-      imageUrl: "../../Images/developmentHouse.png",
-    },
-    {
-      id: 5,
-      category: "MVP",
-      title: "MVP Development",
-      imageUrl: "../../Images/developmentHouse.png",
-    },
-    {
-      id: 6,
-      category: "Custom Softwares",
-      title: "Custom Software Development",
-      imageUrl: "../../Images/developmentHouse.png",
-    },
-    // Add more items if needed
-  ];
+  useEffect(() => {
+    // Extract categories from DevelopmentHouseData
+    if (DevelopmentHouseData?.development_house) {
+      const allCategories = [
+        "All",
+        ...DevelopmentHouseData.development_house.map(
+          (cat) => cat.development_house_category_name
+        ),
+      ];
+      setCategories(allCategories);
+      setFilteredItems(DevelopmentHouseData.development_house);
+    }
+  }, [DevelopmentHouseData]);
 
-  const categories = [
-    "All",
-    "UI UX",
-    "Website",
-    "Mobile & Web Apps",
-    "MVP",
-    "Custom Softwares",
-  ];
-
-  const filteredData =
-    selectedCategory === "All"
-      ? data
-      : data.filter((item) => item.category === selectedCategory);
+  useEffect(() => {
+    // Filter items based on the selected category
+    if (selectedCategory === "All") {
+      setFilteredItems(DevelopmentHouseData.development_house);
+    } else {
+      const categoryData = DevelopmentHouseData.development_house.find(
+        (cat) => cat.development_house_category_name === selectedCategory
+      );
+      setFilteredItems(categoryData ? [categoryData] : []);
+    }
+  }, [selectedCategory, DevelopmentHouseData]);
 
   return (
     <div className="container my-5">
       <h2 className="fw-bold">LATEST WORK FROM</h2>
       <h3 className="fw-bold">OUR DEVELOPMENT HOUSE</h3>
 
+      {/* Category Buttons */}
       <div className="d-flex flex-wrap align-items-center justify-content-between">
         <div className="d-flex flex-wrap gap-2 mb-3">
           {categories.map((category) => (
@@ -83,24 +58,47 @@ const Section10 = () => {
         </a>
       </div>
 
+      {/* Grid of Items */}
       <div className="row mt-4">
-        {filteredData.map((item) => (
-          <div key={item.id} className="col-md-4 col-sm-6 col-12 mb-4">
-            <div className="card h-100">
-              <img
-                src={item.imageUrl}
-                className="card-img-top"
-                alt={item.title}
-              />
-              <div className="card-body text-center">
-                <h5 className="card-title">{item.title}</h5>
-                <a href="#explore" className="btn btn-dark">
-                  Explore Now <i className="bi bi-arrow-right"></i>
-                </a>
+        {filteredItems.length > 0 ? (
+          filteredItems.map((category) =>
+            category.items.length > 0 ? (
+              category.items.map((item) => (
+                <div key={item.id} className="col-md-4 col-sm-6 col-12 mb-4">
+                  <div className="card h-100">
+                    <img
+                      src={item.development_house_img}
+                      className="card-img-top"
+                      alt="Development Work"
+                    />
+                    <div className="card-body text-center">
+                      <h5 className="card-title">Development Work</h5>
+                      <a
+                        href={item.development_house_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn btn-dark"
+                      >
+                        Explore Now <i className="bi bi-arrow-right"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              ))
+            ) : (
+              <div key={category.id} className="col-12 text-center">
+                <p className="text-muted">
+                  No items available in{" "}
+                  {category.development_house_category_name}.
+                </p>
               </div>
-            </div>
+            )
+          )
+        ) : (
+          <div className="col-12 text-center">
+            <p className="text-muted">No items available.</p>
           </div>
-        ))}
+        )}
       </div>
     </div>
   );
