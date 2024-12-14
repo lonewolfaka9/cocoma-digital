@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from "react";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
+import React, { useState, useEffect, useRef } from "react";
+import Slider from "react-slick"; // import react-slick
+import "slick-carousel/slick/slick.css"; // slick-carousel styles
+import "slick-carousel/slick/slick-theme.css"; // slick-theme styles
 import { Link } from "react-router-dom";
-
+import { IoIosArrowBack } from "react-icons/io";
+import { IoIosArrowForward } from "react-icons/io";
 const CommunityOutreachSlider = ({ SocialWorkData }) => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [categories, setCategories] = useState([]);
   const [filteredItems, setFilteredItems] = useState([]);
-
+  const sliderRef = useRef(null); // Reference to control the slider
   useEffect(() => {
     if (SocialWorkData?.social_work) {
       const allCategories = [
@@ -32,22 +34,37 @@ const CommunityOutreachSlider = ({ SocialWorkData }) => {
     }
   }, [selectedCategory, SocialWorkData]);
 
-  const responsive = {
-    superLargeDesktop: { breakpoint: { max: 4000, min: 1024 }, items: 3 },
-    desktop: { breakpoint: { max: 1024, min: 768 }, items: 3 },
-    tablet: { breakpoint: { max: 768, min: 464 }, items: 2 },
-    mobile: { breakpoint: { max: 464, min: 0 }, items: 1 },
+  const settings = {
+    infinite: true,
+    speed: 500,
+    arrows: false,
+    slidesToShow: 3, // Number of items to show at once
+    slidesToScroll: 1, // Number of items to scroll at once
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
   };
 
   return (
-    <div className="container my-5">
+    <div className="container my-5 position-relative">
       <h6 className="text-uppercase text-muted">Our Latest</h6>
       <h2 className="fw-bold mb-4">Social Work</h2>
 
       <div className="d-flex flex-wrap justify-content-start align-items-center mb-3">
         {categories.map((category, index) => (
           <button
-            key={index} // Use index if `category` values are unique
+            key={index}
             onClick={() => setSelectedCategory(category)}
             className={`btn ${
               selectedCategory === category ? "btn-warning" : "btn-light"
@@ -58,13 +75,22 @@ const CommunityOutreachSlider = ({ SocialWorkData }) => {
           </button>
         ))}
       </div>
-
-      <Carousel
-        responsive={responsive}
-        infinite={true}
-        autoPlay={false}
-        arrows={true}
+      <button
+        className="btn btn-warning position-absolute top-50 start-0 translate-middle-y"
+        style={{ zIndex: 5 }}
+        onClick={() => sliderRef.current.slickPrev()}
       >
+        <IoIosArrowBack size={30} />
+      </button>
+      <button
+        className="btn  btn-warning position-absolute top-50 end-0 translate-middle-y"
+        style={{ zIndex: 5 }}
+        onClick={() => sliderRef.current.slickNext()}
+      >
+        <IoIosArrowForward size={30} />
+      </button>
+
+      <Slider {...settings} ref={sliderRef}>
         {filteredItems.length > 0 ? (
           filteredItems.flatMap((category) =>
             category.items.map((item) => (
@@ -89,7 +115,7 @@ const CommunityOutreachSlider = ({ SocialWorkData }) => {
             <p className="text-muted">No items available for this category.</p>
           </div>
         )}
-      </Carousel>
+      </Slider>
 
       <div className="text-center mt-3">
         <Link to="#" className="text-warning fw-bold">
