@@ -24,4 +24,6 @@ phases:
   post_build:
     commands:
       - echo Copying build artifacts to S3
-      - aws s3 cp -r build/ s3://cocoma-digital-website/  # Replace with your S3 bucket details
+      - set -x
+      - aws s3 cp --recursive build/ s3://cocoma-digital-website/  # Replace with your S3 bucket details
+      - set +x
