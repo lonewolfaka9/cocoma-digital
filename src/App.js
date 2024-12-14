@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -20,6 +20,39 @@ import AboutUs from "./Pages/About/about";
 import CreativeHouse from "./Pages/CreativeHouse/CreativeHouse";
 function App() {
   const location = useLocation();
+  const [homeData, setHomeData] = useState();
+  // console.log("process.env.REACT_APP_API_URL", process.env.REACT_APP_API_URL);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  useEffect(() => {
+    const fetchHomeData = async () => {
+      try {
+        const response = await fetch(
+          "https://admin.cocomadigital.com/public/api/home"
+        );
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const result = await response.json();
+        setHomeData(result.data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchHomeData();
+  }, []);
+  if (loading)
+    return (
+      <div className="loading-screen">
+        <div className="spinner"></div>
+        <p>Loading, please wait...</p>
+      </div>
+    );
+  if (error) return <div>Error: {error}</div>;
+
   // Pages where Header and Footer should NOT be shown
   const excludeHeaderFooter = ["cart"];
 
@@ -30,10 +63,13 @@ function App() {
       {showHeaderFooter && <Header />}
       <main>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home HomePage={homeData} />} />
           <Route path="/service" element={<Services />} />
           <Route path="/Single_Services" element={<SingleService />} />
-          <Route path="/Creative-House" element={<CreativeHouse />} />
+          <Route
+            path="/Creative-House"
+            element={<CreativeHouse HomePage={homeData} />}
+          />
           <Route path="/cart" element={<Cart />} />
           <Route path="/contact_us" element={<ContactUs />} />
           <Route path="/aboutus" element={<AboutUs />} />

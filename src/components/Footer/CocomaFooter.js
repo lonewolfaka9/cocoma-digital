@@ -1,3 +1,9 @@
+import { FaYoutube } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+import { FaFacebookF } from "react-icons/fa";
+import { FaWhatsapp } from "react-icons/fa";
+import { Link } from "react-router-dom";
+
 export default function CocomaFooter() {
   return (
     <>
@@ -15,16 +21,16 @@ export default function CocomaFooter() {
             <div className="col-lg-4 col-md-3 d-sm-block d-lg-block d-md-block col-sm-2 d-none"></div>
             <div className="col-lg-3 col-md-4 col-sm-6 col-6 d-flex justify-content-between">
               <div className="social-icon">
-                <img src="../../Images/whatsapp-icon.svg" alt="" />
+                <FaWhatsapp className="social-icon-main" size={60} />
               </div>
               <div className="social-icon">
-                <img src="../../Images/instagram-icon.svg" alt="" />
+                <FaInstagram className="social-icon-main" size={60} />
               </div>{" "}
               <div className="social-icon">
-                <img src="../../Images/facebook-icon.svg" alt="" />
+                <FaFacebookF className="social-icon-main" size={60} />
               </div>{" "}
               <div className="social-icon">
-                <img src="../../Images/youtube-icon.svg" alt="" />
+                <FaYoutube className="social-icon-main" size={60} />
               </div>
             </div>
           </div>
@@ -63,7 +69,17 @@ export default function CocomaFooter() {
                 <li>
                   <h2>Cocoma Digital</h2>
                 </li>
-                <li>About us</li>
+                <li>
+                  <Link
+                    to="/aboutus"
+                    onClick={() =>
+                      window.scrollTo({ top: 0, behavior: "smooth" })
+                    }
+                  >
+                    {" "}
+                    About us{" "}
+                  </Link>
+                </li>
                 <li>How it works</li>
                 <li>Blog</li>
               </ul>

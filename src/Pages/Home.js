@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from "react";
-// import Footer from "./components/Footer/footer";
-// import Header from "./components/header/header";
+import React from "react";
 import Section01 from "../components/Home/section01";
 import Section02 from "../components/Home/section02";
 import Section03 from "../components/Home/section03";
@@ -17,50 +15,25 @@ import Section13 from "../components/Home/section13";
 import Section14 from "../components/Home/section14";
 import "../index.css";
 
-export default function Home() {
-  const [homeData, setHomeData] = useState();
-  // console.log("process.env.REACT_APP_API_URL", process.env.REACT_APP_API_URL);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  useEffect(() => {
-    const fetchHomeData = async () => {
-      try {
-        const response = await fetch(
-          "https://admin.cocomadigital.com/public/api/home"
-        );
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const result = await response.json();
-        setHomeData(result.data);
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchHomeData();
-  }, []);
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
+export default function Home({ HomePage }) {
+  console.log("HomePage", HomePage.top_banner);
   return (
     <>
-      <Section01 bannerData={homeData} />
+      <Section01 bannerData={HomePage} />
 
-      <Section02 BrandData={homeData} />
-      <Section03 ServiceData={homeData} />
+      <Section02 BrandData={HomePage} />
+      <Section03 ServiceData={HomePage} />
       <Section04 />
-      <Section05 VideoData={homeData.video} />
+      <Section05 VideoData={HomePage.video} />
       <Section06 />
-      <Section07 ClientData={homeData} />
-      <Section08 MarketingHouseData={homeData} />
-      <Section09 CreativeHouseData={homeData} />
-      <Section10 DevelopmentHouseData={homeData} />
+      <Section07 ClientData={HomePage} />
+      <Section08 MarketingHouseData={HomePage} />
+      <Section09 CreativeHouseData={HomePage} />
+      <Section10 DevelopmentHouseData={HomePage} />
       <Section11 />
       <Section12 />
-      <Section13 SocialWorkData={homeData} />
-      <Section14 HireUsData={homeData.hire_us} />
+      <Section13 SocialWorkData={HomePage} />
+      <Section14 HireUsData={HomePage.hire_us} />
     </>
   );
 }
