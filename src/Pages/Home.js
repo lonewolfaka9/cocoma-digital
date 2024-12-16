@@ -14,6 +14,7 @@ import Section12 from "../components/Home/section12";
 import Section13 from "../components/Home/section13";
 import Section14 from "../components/Home/section14";
 import "../index.css";
+import VideoPlayer from "./SingleVideo/SingleVideo";
 
 export default function Home({ HomePage }) {
   console.log("HomePage", HomePage.top_banner);

@@ -571,3 +571,17 @@ button.position-fixed {
     transform: rotate(360deg);
   }
 }
+
+.cat-filter-button  {
+  font-size: 11px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  margin-left: 10px !important;
+}
+.slick-track{
+margin: 0px;
+}
+.SliderCustom-width  .slick-slide{
+  width: auto !important;
+  
+}

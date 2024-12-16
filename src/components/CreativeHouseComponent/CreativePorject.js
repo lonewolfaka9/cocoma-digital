@@ -100,15 +100,14 @@ const FilterBar = ({ currentCategory, onCategoryChange }) => {
 
   return (
     <div className="mb-3">
-      <Slider {...sliderSettings} className="gap-2">
+      <Slider {...sliderSettings} className="SliderCustom-width">
         {categories.map((cat) => (
           <button
             key={cat}
-            className={`btn ${
+            className={` btn w-auto my-1 me-2 ${
               currentCategory === cat ? "btn-dark" : "btn-outline-dark"
             }`}
             onClick={() => onCategoryChange(cat)}
-            style={{ margin: "0 5px" }}
           >
             {cat}
           </button>
@@ -154,7 +153,7 @@ const VideoGrid = ({ videos, setHoveredItem, hoveredItem }) => {
               <p>
                 <strong>Genres:</strong> Indian Drama, Movies, Funny Movies
               </p>
-              <a href="#" className="btn btn-warning">
+              <a href="/" className="btn btn-warning">
                 Our Work &rarr;
               </a>
             </div>

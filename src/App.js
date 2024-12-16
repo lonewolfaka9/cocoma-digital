@@ -18,6 +18,7 @@ import ThankYouPage from "./Pages/Jobs/FormSubmitSuccess";
 import SingleService from "./Pages/Services/SingleService";
 import AboutUs from "./Pages/About/about";
 import CreativeHouse from "./Pages/CreativeHouse/CreativeHouse";
+import SingleVideo from "./Pages/SingleVideo/SingleVideo";
 function App() {
   const location = useLocation();
   const [homeData, setHomeData] = useState();
@@ -70,6 +71,7 @@ function App() {
             path="/Creative-House"
             element={<CreativeHouse HomePage={homeData} />}
           />
+          <Route path="/Single-Video" element={<SingleVideo />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/contact_us" element={<ContactUs />} />
           <Route path="/aboutus" element={<AboutUs />} />
