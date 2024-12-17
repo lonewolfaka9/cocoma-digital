@@ -19,6 +19,8 @@ import SingleService from "./Pages/Services/SingleService";
 import AboutUs from "./Pages/About/about";
 import CreativeHouse from "./Pages/CreativeHouse/CreativeHouse";
 import SingleVideo from "./Pages/SingleVideo/SingleVideo";
+import AllWebSeriesPortfolio from "./Pages/AllWebSeries/AllWebSeriesPortfolio";
+import ViewAllSeries from "./Pages/AllWebSeries/ViewAllSeries";
 function App() {
   const location = useLocation();
   const [homeData, setHomeData] = useState();
@@ -72,6 +74,11 @@ function App() {
             element={<CreativeHouse HomePage={homeData} />}
           />
           <Route path="/Single-Video" element={<SingleVideo />} />
+          <Route
+            path="All-web-series-portfolio"
+            element={<AllWebSeriesPortfolio />}
+          />
+          <Route path="View-all-Series" element={<ViewAllSeries />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/contact_us" element={<ContactUs />} />
           <Route path="/aboutus" element={<AboutUs />} />

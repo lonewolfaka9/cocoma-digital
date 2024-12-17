@@ -90,7 +90,7 @@ const CommunityOutreachSlider = ({ SocialWorkData }) => {
         <IoIosArrowForward size={30} />
       </button>
 
-      <Slider {...settings} ref={sliderRef}>
+      <Slider {...settings} ref={sliderRef} className="social-slider-width">
         {filteredItems.length > 0 ? (
           filteredItems.flatMap((category) =>
             category.items.map((item) => (

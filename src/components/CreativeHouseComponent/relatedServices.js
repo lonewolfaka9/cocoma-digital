@@ -51,7 +51,7 @@ const RelatedServicesSlider = ({ Haddertitle }) => {
 
   return (
     <div className="container my-5 position-relative">
-      <h2 className="font-weight-bold text-center mb-4">{Haddertitle}</h2>
+      <h1 className="fw-bold text-center mb-4">{Haddertitle}</h1>
       <button
         className="btn relatedservices-slider-button position-absolute top-50 start-0 translate-middle-y"
         style={{ zIndex: 5 }}

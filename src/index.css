@@ -585,3 +585,7 @@ margin: 0px;
   width: auto !important;
   
 }
+.social-slider-width .slick-track{
+  width: 100% !important;
+
+}
