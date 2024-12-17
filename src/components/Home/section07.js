@@ -7,20 +7,19 @@ const Section07 = ({ ClientData }) => {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 300,
+    speed: 500, // Transition speed in milliseconds
     autoplay: true,
+    autoplaySpeed: 2000, // Time between slides in milliseconds
     arrows: false,
     slidesToShow: 3,
     slidesToScroll: 1,
-    initialSlide: 0,
+
     responsive: [
       {
         breakpoint: 1024,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3,
-          infinite: true,
-          dots: true,
         },
       },
       {
@@ -45,7 +44,7 @@ const Section07 = ({ ClientData }) => {
     <div className="container my-5" style={{ overflow: "hidden" }}>
       <h3 className="text-uppercase text-muted mb-3">Our Clients</h3>
       <h2 className="fw-bold">Latest Success Stories</h2>
-      <Slider {...settings} className="mt-4">
+      <Slider {...settings}>
         {clients.map((client) => (
           <div className="p-3 d-flex" key={client.id}>
             <div className="card">

@@ -2,7 +2,7 @@ import React from "react";
 
 const Section12 = () => {
   return (
-    <div className="container">
+    <div className="container mt-5 mb-5">
       <div className="row  border rounded ">
         {/* Left Side (Image) */}
         <div

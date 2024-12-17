@@ -68,11 +68,11 @@ const LifeAtCocoma = () => {
 
       {/* Category Buttons */}
       <div className="mb-4">
-        <Slider {...categorySliderSettings}>
+        <Slider {...categorySliderSettings} className="SliderCustom-width">
           {categories.map((category) => (
             <button
               key={category}
-              className={`btn ${
+              className={` btn w-auto  ${
                 filter === category ? "btn-dark" : "btn-light"
               } mx-2`}
               onClick={() => setFilter(category)}
