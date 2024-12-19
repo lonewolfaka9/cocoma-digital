@@ -6,6 +6,7 @@ import CreativeProjects from "../../components/CreativeHouseComponent/CreativeHo
 import AllSeriesData from "../../components/WebSeries/AllSeriesData";
 import HireingCard from "../../components/WebSeries/HireingCart";
 import ProjectSucess from "../../components/WebSeries/ProjectSucess";
+import Section11 from "../../components/Home/section11";
 const ViewAllSeries = () => {
   return (
     <>
@@ -13,6 +14,7 @@ const ViewAllSeries = () => {
       <AllSeriesData />
       <RelatedServicesSlider Haddertitle="Related Services" />
       <Section12 />
+      <Section11 />
       <RelatedServicesSlider Haddertitle="Explore More Film & Media Services" />
       <HireingCard />
       <ProjectSucess />

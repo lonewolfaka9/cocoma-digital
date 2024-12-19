@@ -21,6 +21,7 @@ import CreativeHouse from "./Pages/CreativeHouse/CreativeHouse";
 import SingleVideo from "./Pages/SingleVideo/SingleVideo";
 import AllWebSeriesPortfolio from "./Pages/AllWebSeries/AllWebSeriesPortfolio";
 import ViewAllSeries from "./Pages/AllWebSeries/ViewAllSeries";
+import WebSeriesIndividual from "./Pages/AllWebSeries/WebSeriesIndividual";
 function App() {
   const location = useLocation();
   const [homeData, setHomeData] = useState();
@@ -77,6 +78,10 @@ function App() {
           <Route
             path="All-web-series-portfolio"
             element={<AllWebSeriesPortfolio />}
+          />
+          <Route
+            path="Web-Series-Individual"
+            element={<WebSeriesIndividual HomePage={homeData} />}
           />
           <Route path="View-all-Series" element={<ViewAllSeries />} />
           <Route path="/cart" element={<Cart />} />

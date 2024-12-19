@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick-theme.css"; // slick-theme styles
 import { Link } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
+
 const CommunityOutreachSlider = ({ SocialWorkData }) => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [categories, setCategories] = useState([]);

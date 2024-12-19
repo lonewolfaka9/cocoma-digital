@@ -5,6 +5,7 @@ const WebSeriesGrid = () => {
     {
       id: 1,
       src: "../../Images/movieimg.svg",
+      bannerImg: "../../images/SingleWebSeriesDataImg.svg",
       title: "Teri Baaton Mein Aisa Uljha Jiya",
       year: "2024",
       genres: "Indian Drama, Movies, Funny Movies",
@@ -12,6 +13,7 @@ const WebSeriesGrid = () => {
     {
       id: 2,
       src: "../../Images/movieimg.svg",
+      bannerImg: "../../images/SingleWebSeriesDataImg.svg",
       title: "Sample Title 2",
       year: "2023",
       genres: "Comedy, Adventure",
@@ -20,6 +22,7 @@ const WebSeriesGrid = () => {
     {
       id: 3,
       src: "../../Images/movieimg.svg",
+      bannerImg: "../../images/SingleWebSeriesDataImg.svg",
       title: "Sample Title 3",
       year: "2022",
       genres: "Drama, Thriller",
@@ -27,6 +30,7 @@ const WebSeriesGrid = () => {
     {
       id: 4,
       src: "../../Images/movieimg.svg",
+      bannerImg: "../../images/SingleWebSeriesDataImg.svg",
       title: "Sample Title 3",
       year: "2022",
       genres: "Drama, Thriller",
@@ -34,6 +38,7 @@ const WebSeriesGrid = () => {
     {
       id: 5,
       src: "../../Images/movieimg.svg",
+      bannerImg: "../../images/SingleWebSeriesDataImg.svg",
       title: "Sample Title 3",
       year: "2022",
       genres: "Drama, Thriller",
@@ -41,6 +46,7 @@ const WebSeriesGrid = () => {
     {
       id: 6,
       src: "../../Images/movieimg.svg",
+      bannerImg: "../../images/SingleWebSeriesDataImg.svg",
       title: "Sample Title 3",
       year: "2022",
       genres: "Drama, Thriller",
@@ -48,6 +54,7 @@ const WebSeriesGrid = () => {
     {
       id: 7,
       src: "../../Images/movieimg.svg",
+      bannerImg: "../../images/SingleWebSeriesDataImg.svg",
       title: "Sample Title 3",
       year: "2022",
       genres: "Drama, Thriller",
@@ -55,6 +62,7 @@ const WebSeriesGrid = () => {
     {
       id: 8,
       src: "../../Images/movieimg.svg",
+      bannerImg: "../../images/SingleWebSeriesDataImg.svg",
       title: "Sample Title 3",
       year: "2022",
       genres: "Drama, Thriller",
@@ -75,7 +83,11 @@ const WebSeriesGrid = () => {
               />
               <div className="overlay p-3 text-white d-flex flex-column justify-content-between">
                 <div>
-                  <img src={image.src} alt={image.title} className=" rounded" />
+                  <img
+                    src={image.bannerImg}
+                    alt={image.title}
+                    className=" rounded"
+                  />
                   <h5 className="fw-bold mt-3">{image.title}</h5>
                   <span>({image.year})</span>
                 </div>
