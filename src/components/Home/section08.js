@@ -75,10 +75,10 @@ const Section08 = ({ MarketingHouseData }) => {
       <h1 className="fw-bold">OUR MARKETING HOUSE</h1>
 
       {/* Filter buttons */}
-      <div className="d-flex flex-wrap justify-content-center my-3 mb-3">
-        {categories.map((category) => (
+      <div className="d-flex flex-wrap  my-3 mb-3">
+        {categories.map((category, index) => (
           <button
-            key={category}
+            key={index}
             className={`btn mx-1 mb-2 ${
               selectedCategory === category ? "btn-warning" : "btn-light"
             }`}

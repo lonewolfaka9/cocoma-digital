@@ -68,7 +68,7 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Home HomePage={homeData} />} />
-          <Route path="/service" element={<Services />} />
+          <Route path="/service" element={<Services HomePage={homeData} />} />
           <Route path="/Single_Services" element={<SingleService />} />
           <Route
             path="/Creative-House"

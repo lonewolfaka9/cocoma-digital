@@ -8,12 +8,12 @@ import Section06 from "../components/About/section06";
 import Section07 from "../components/About/section07";
 import Section08 from "../components/About/section08";
 import Section09 from "../components/About/section02";
-import "../index.css";
-export default function Services() {
+
+export default function Services({ HomePage }) {
   return (
     <>
       <Section01 />
-      <Section02 />
+      <Section02 BrandData={HomePage} />
       <Section09 />
       <Section03 />
       <Section04 />

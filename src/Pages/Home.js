@@ -14,17 +14,14 @@ import Section12 from "../components/Home/section12";
 import Section13 from "../components/Home/section13";
 import Section14 from "../components/Home/section14";
 import "../index.css";
-import VideoPlayer from "./SingleVideo/SingleVideo";
 
 export default function Home({ HomePage }) {
-  console.log("HomePage", HomePage.top_banner);
   return (
     <>
       <Section01 bannerData={HomePage} />
-
       <Section02 BrandData={HomePage} />
       <Section03 ServiceData={HomePage} />
-      <Section04 />
+      <Section04 ServicePlatform={HomePage.service_platform} />
       <Section05 VideoData={HomePage.video} />
       <Section06 />
       <Section07 ClientData={HomePage} />
