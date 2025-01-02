@@ -76,9 +76,6 @@ const VideoEditingServices = () => {
         </div>
       </div>
 
-      {/* Custom Arrows */}
-
-      {/* Slider */}
       <Slider ref={sliderRef} {...settings}>
         {services.map((service) => (
           <div key={service.id} className="px-3">

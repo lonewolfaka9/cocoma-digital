@@ -2,7 +2,7 @@ import React from "react";
 import Section01 from "../components/Home/section01";
 import Section02 from "../components/Home/section02";
 import Section03 from "../components/Home/section03";
-import Section04 from "../components/Home/section04";
+// import Section04 from "../components/Home/section04";
 import Section05 from "../components/Home/section05";
 import Section06 from "../components/Home/section06";
 import Section07 from "../components/Home/section07";
@@ -15,23 +15,28 @@ import Section13 from "../components/Home/section13";
 import Section14 from "../components/Home/section14";
 import "../index.css";
 
-export default function Home({ HomePage }) {
+export default function Home({
+  HomePage,
+  ServiceData,
+  CreativeHouseData,
+  MarketingHouseData,
+}) {
   return (
     <>
       <Section01 bannerData={HomePage} />
-      <Section02 BrandData={HomePage} />
-      <Section03 ServiceData={HomePage} />
-      <Section04 ServicePlatform={HomePage.service_platform} />
-      <Section05 VideoData={HomePage.video} />
+      <Section02 />
+      <Section03 ServidcesToShow={ServiceData} />
+      {/* <Section04 ServicePlatform={HomePage} /> */}
+      <Section05 VideoData={HomePage} />
       <Section06 />
       <Section07 ClientData={HomePage} />
-      <Section08 MarketingHouseData={HomePage} />
-      <Section09 CreativeHouseData={HomePage} />
+      <Section08 MarketingHouseData={MarketingHouseData} />
+      <Section09 CreativeHouseSection={CreativeHouseData} />
       <Section10 DevelopmentHouseData={HomePage} />
       <Section11 />
       <Section12 />
       <Section13 SocialWorkData={HomePage} />
-      <Section14 HireUsData={HomePage.hire_us} />
+      <Section14 HireUsData={HomePage} />
     </>
   );
 }

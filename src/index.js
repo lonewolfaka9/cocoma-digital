@@ -7,11 +7,18 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "./index.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js"; // Includes Popper.js
+import store, { persistor } from "./Service/redux/store";
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react"; // Import PersistGate
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <App />
+      </PersistGate>
+    </Provider>
   </React.StrictMode>
 );
 

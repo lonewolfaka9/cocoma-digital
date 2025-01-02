@@ -3,38 +3,28 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const VideoSlider = () => {
-  const videoList = [
-    {
-      id: 1,
-      title: "Montage",
-      videoSrc: "https://www.w3schools.com/html/mov_bbb.mp4",
-      thumbnail: "../../Images/videoThumbnail.svg",
-    },
-    {
-      id: 2,
-      title: "Final Draft",
-      videoSrc: "https://www.w3schools.com/html/movie.mp4",
-      thumbnail: "../../Images/videoThumbnail.svg",
-    },
-    {
-      id: 3,
-      title: "Story Line",
-      videoSrc: "https://www.w3schools.com/html/mov_bbb.mp4",
-      thumbnail: "../../Images/videoThumbnail.svg",
-    },
-  ];
+const VideoSlider = ({ FinalOutputData }) => {
+  console.log(FinalOutputData);
+  const sliderContent = FinalOutputData?.creative_house_final_output || [];
 
-  const [currentVideo, setCurrentVideo] = useState(videoList[0].videoSrc);
+  console.log("sliderContent>>>>>>>>>>>", sliderContent);
+
+  // Initialize current video and thumbnail from sliderContent
+  const [currentVideo, setCurrentVideo] = useState(
+    sliderContent[0]?.final_output_video_url || ""
+  );
   const [currentThumbnail, setCurrentThumbnail] = useState(
-    videoList[0].thumbnail
+    sliderContent[0]?.final_output_thumbnail || ""
   );
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef(null);
 
-  const handleThumbnailClick = (videoSrc, thumbnail) => {
-    setCurrentVideo(videoSrc);
-    setCurrentThumbnail(thumbnail);
+  const handleThumbnailClick = (
+    final_output_video_url,
+    final_output_thumbnail
+  ) => {
+    setCurrentVideo(final_output_video_url);
+    setCurrentThumbnail(final_output_thumbnail);
     setIsPlaying(false);
     if (videoRef.current) videoRef.current.load();
   };
@@ -124,17 +114,20 @@ const VideoSlider = () => {
         {/* Thumbnail Slider */}
         <div>
           <Slider {...settings}>
-            {videoList.map((video) => (
+            {sliderContent.map((video) => (
               <div key={video.id} className="px-2">
                 <div
                   className="position-relative"
                   onClick={() =>
-                    handleThumbnailClick(video.videoSrc, video.thumbnail)
+                    handleThumbnailClick(
+                      video.final_output_video_url,
+                      video.final_output_thumbnail
+                    )
                   }
                   style={{ cursor: "pointer" }}
                 >
                   <img
-                    src={video.thumbnail}
+                    src={video.final_output_thumbnail}
                     alt={video.title}
                     className="img-fluid rounded"
                   />
@@ -145,7 +138,7 @@ const VideoSlider = () => {
                     ▶
                   </div>
                 </div>
-                <p className="text-center mt-2">{video.title}</p>
+                <p className="text-center mt-2">{video.final_output_title}</p>
               </div>
             ))}
           </Slider>

@@ -89,7 +89,7 @@ code {
 
 .trusted-brand{
   background-color: black;
-  margin-top: -8px;
+
   padding: .5rem;
 }
 .trusted-brand p{
@@ -588,4 +588,19 @@ margin: 0px;
 .social-slider-width .slick-track{
   width: 100% !important;
 
+}
+/* .Cat-Info-Track-slider .slick-track{
+  width: 100% !important;
+} */
+
+
+.card-CreativeHouse {
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.card-CreativeHouse img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
 }

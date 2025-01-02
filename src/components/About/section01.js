@@ -1,34 +1,45 @@
 import React from "react";
+import Slider from "react-slick";
 
-const Section01 = () => {
+const Section01 = ({ bannerData }) => {
+  // Slider settings
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+  };
+
   return (
-    <div className="youtube-service container-fluid">
-      <div className="row align-items-center">
-        <div className="col-md-6 col-lg-6 text-center text-md-start">
-          <h2 className="fw-bold mt-5">
-            YouTube Services To Boost Your Channel's Success
-          </h2>
-          <p className="text-muted">
-            Welcome to Cocoma, your go-to partner for professional YouTube
-            services designed to elevate your online presence and amplify your
-            voice.
-          </p>
-          <a href="#consultation" className="btn btn-warning fw-bold mb-5">
-            Claim Free Consultation <span>→</span>
-          </a>
-        </div>
-
-        <div
-          className="col-md-6 col-lg-6 d-flex mb-2 justify-content-end"
-          style={{ padding: "0px" }}
-        >
-          <img
-            src="../../Images/about/section-1main.svg"
-            alt="YouTube Graphic"
-            className="img-fluid youtube-graphic"
-          />
-        </div>
-      </div>
+    <div className="container-fluid">
+      <Slider {...settings} style={{ padding: "0px" }}>
+        {bannerData.map((banner) => (
+          <div key={banner.id} className="row d-flex align-items-center">
+            {/* Text Section */}
+            <div className="col-md-6 col-lg-6 text-center text-md-start">
+              <h2 className="fw-bold mt-3">{banner.group_banner_heading}</h2>
+              <p className="text-muted">{banner.group_banner_subheading}</p>
+              <a
+                href={banner.group_banner_button_url}
+                className="btn btn-warning fw-bold mb-5"
+              >
+                {banner.group_banner_button_text} <span>→</span>
+              </a>
+            </div>
+            {/* Image Section */}
+            <div className="col-md-6 col-lg-6 d-flex justify-content-center">
+              <img
+                src={banner.group_banner_img}
+                alt={banner.group_banner_heading}
+                className="img-fluid youtube-graphic"
+                style={{ width: "100%" }}
+              />
+            </div>
+          </div>
+        ))}
+      </Slider>
     </div>
   );
 };

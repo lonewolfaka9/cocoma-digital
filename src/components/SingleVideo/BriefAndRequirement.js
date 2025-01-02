@@ -1,4 +1,5 @@
-export default function BriefAndRequirement() {
+export default function BriefAndRequirement({ RequireMentTitle }) {
+  console.log("RequireMentTitle>>>>>", RequireMentTitle);
   return (
     <>
       <div className="container pt-5 pb-5">
@@ -7,16 +8,14 @@ export default function BriefAndRequirement() {
             <h1>Brief And Requirement</h1>
           </div>
           <div className="col-lg-12 text-center mt-4 mb-4">
-            <img src="../../Images/amazon_dark.svg" alt="amazon" />
+            <img
+              src={RequireMentTitle.requirement_title_logo}
+              alt={RequireMentTitle.requirement_title}
+            />
           </div>
           <div className="col-lg-6 m-auto text-center">
             <p className="brf-text">
-              They requested a dynamic video that captures their brand essence,
-              targeting millennials and Gen Z with a fresh, energetic style.
-              They requested a dynamic video that captures their brand essence,
-              targeting millennials and Gen Z with a fresh, energetic style.They
-              requested a dynamic video that captures their brand essence,
-              targeting millennials
+              {RequireMentTitle.requirement_description}
             </p>
           </div>
         </div>

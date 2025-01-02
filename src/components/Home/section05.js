@@ -1,7 +1,7 @@
 import React from "react";
 import ReactPlayer from "react-player";
 
-const Section05 = ({ VideoData = { video_url: "" } }) => {
+const Section05 = ({ VideoData }) => {
   return (
     <section id="works" className="block works-block py-5">
       <div className="container">
@@ -10,10 +10,10 @@ const Section05 = ({ VideoData = { video_url: "" } }) => {
             <div className="video-wrapper">
               <ReactPlayer
                 url="https://www.w3schools.com/html/mov_bbb.mp4"
-                playing={true} // Autoplay enabled
-                controls={false} // Hide controls
-                loop={true} // Optional: Loop the video
-                muted={true} // Optional: Start muted
+                playing={true}
+                controls={false}
+                loop={true}
+                muted={true}
                 width="100%"
                 height="100%"
               />

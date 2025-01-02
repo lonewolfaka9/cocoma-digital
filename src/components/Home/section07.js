@@ -2,14 +2,14 @@ import React from "react";
 import Slider from "react-slick";
 
 const Section07 = ({ ClientData }) => {
-  const clients = ClientData.client || []; // Safely access 'client' array
+  const clients = ClientData.client || [];
 
   const settings = {
     dots: true,
     infinite: true,
-    speed: 500, // Transition speed in milliseconds
+    speed: 500,
     autoplay: true,
-    autoplaySpeed: 2000, // Time between slides in milliseconds
+    autoplaySpeed: 2000,
     arrows: false,
     slidesToShow: 3,
     slidesToScroll: 1,

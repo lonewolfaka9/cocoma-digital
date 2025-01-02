@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
-import Slider from "react-slick"; // import react-slick
-import "slick-carousel/slick/slick.css"; // slick-carousel styles
-import "slick-carousel/slick/slick-theme.css"; // slick-theme styles
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
@@ -10,20 +10,19 @@ const CommunityOutreachSlider = ({ SocialWorkData }) => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [categories, setCategories] = useState([]);
   const [filteredItems, setFilteredItems] = useState([]);
-  const sliderRef = useRef(null); // Reference to control the slider
+  const sliderRef = useRef(null);
   const fixSlickAriaHidden = () => {
     const slides = document.querySelectorAll(".slick-slide");
     slides.forEach((slide) => {
       if (slide.getAttribute("aria-hidden") === "true") {
-        slide.setAttribute("inert", "true"); // Add `inert` attribute
-        slide.removeAttribute("aria-hidden"); // Remove `aria-hidden`
+        slide.setAttribute("inert", "true");
+        slide.removeAttribute("aria-hidden");
       } else {
-        slide.removeAttribute("inert"); // Ensure visible slides are focusable
+        slide.removeAttribute("inert");
       }
     });
   };
 
-  // Run the fix on mount and after slider changes
   useEffect(() => {
     fixSlickAriaHidden();
     const observer = new MutationObserver(fixSlickAriaHidden);
@@ -32,7 +31,7 @@ const CommunityOutreachSlider = ({ SocialWorkData }) => {
       observer.observe(slider, { attributes: true, subtree: true });
     }
     return () => {
-      observer.disconnect(); // Clean up the observer
+      observer.disconnect();
     };
   }, []);
   useEffect(() => {
@@ -40,26 +39,22 @@ const CommunityOutreachSlider = ({ SocialWorkData }) => {
       const allCategories = [
         "All",
         ...SocialWorkData.social_work
-          .filter((cat) => cat.social_work_category_name !== "All") // Avoid duplicate "All"
+          .filter((cat) => cat.social_work_category_name !== "All")
           .map((cat) => cat.social_work_category_name),
       ];
       setCategories(allCategories);
-
-      // Set default items for "All" category
       setFilteredItems(SocialWorkData.social_work.flatMap((cat) => cat.items));
     }
   }, [SocialWorkData]);
 
   useEffect(() => {
     if (selectedCategory === "All") {
-      // Flatten all items from all categories
       setFilteredItems(SocialWorkData.social_work.flatMap((cat) => cat.items));
     } else {
-      // Find the category and extract its items
       const categoryData = SocialWorkData.social_work.find(
         (cat) => cat.social_work_category_name === selectedCategory
       );
-      setFilteredItems(categoryData?.items || []); // Use only the items array
+      setFilteredItems(categoryData?.items || []);
     }
   }, [selectedCategory, SocialWorkData]);
 
@@ -68,8 +63,8 @@ const CommunityOutreachSlider = ({ SocialWorkData }) => {
     speed: 500,
     afterChange: fixSlickAriaHidden,
     arrows: false,
-    slidesToShow: 3, // Number of items to show at once
-    slidesToScroll: 1, // Number of items to scroll at once
+    slidesToShow: 3,
+    slidesToScroll: 1,
     responsive: [
       {
         breakpoint: 1024,
