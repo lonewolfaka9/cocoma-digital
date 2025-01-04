@@ -1,37 +1,46 @@
-// Import React, Bootstrap CSS, and Slick Slider dependencies
-import React, { useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 
-const videoData = [
-  { id: 1, category: "Trailers" },
-  { id: 2, category: "Promos" },
-  { id: 3, category: "Posters" },
-  { id: 4, category: "Videos" },
-  { id: 5, category: "Shorts" },
-  { id: 6, category: "Reels" },
-  { id: 7, category: "Creatives" },
-  // Repeat or add more entries as needed for pagination demo
-];
-
-const CreativeHouseProject = () => {
+const CreativeHouseProject = ({ CreativeHouseProjectCategory }) => {
   const [category, setCategory] = useState("All");
+  const [filteredItems, setFilteredItems] = useState([]);
+  const [categories, setCategories] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 12;
   const [hoveredItem, setHoveredItem] = useState(null);
 
-  // Filter videos based on category
-  const filteredVideos =
-    category === "All"
-      ? videoData
-      : videoData.filter((video) => video.category === category);
+  // Fetch categories and update filtered items when category changes
+  useEffect(() => {
+    if (CreativeHouseProjectCategory?.creative_house) {
+      const allCategories = [
+        "All",
+        ...new Set(
+          CreativeHouseProjectCategory.creative_house.map(
+            (cat) => cat.creative_house_category_name
+          )
+        ),
+      ];
+      setCategories(allCategories);
+
+      if (category === "All") {
+        const allItems = CreativeHouseProjectCategory.creative_house.flatMap(
+          (cat) => cat.items
+        );
+        setFilteredItems(allItems);
+      } else {
+        const selectedCategory =
+          CreativeHouseProjectCategory.creative_house.find(
+            (cat) => cat.creative_house_category_name === category
+          );
+        setFilteredItems(selectedCategory?.items || []);
+      }
+    }
+  }, [category, CreativeHouseProjectCategory]);
 
   // Paginate videos
-  const totalPages = Math.ceil(filteredVideos.length / itemsPerPage);
-  const paginatedVideos = filteredVideos.slice(
+  const totalPages = Math.ceil(filteredItems.length / itemsPerPage);
+  const paginatedVideos = filteredItems.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
@@ -44,6 +53,7 @@ const CreativeHouseProject = () => {
   return (
     <div className="container py-4">
       <FilterBar
+        categories={categories}
         currentCategory={category}
         onCategoryChange={handleCategoryChange}
       />
@@ -61,18 +71,7 @@ const CreativeHouseProject = () => {
   );
 };
 
-const FilterBar = ({ currentCategory, onCategoryChange }) => {
-  const categories = [
-    "All",
-    "Trailers",
-    "Promos",
-    "Posters",
-    "Videos",
-    "Shorts",
-    "Reels",
-    "Creatives",
-  ];
-
+const FilterBar = ({ categories, currentCategory, onCategoryChange }) => {
   const sliderSettings = {
     dots: false,
     arrows: false,
@@ -100,15 +99,14 @@ const FilterBar = ({ currentCategory, onCategoryChange }) => {
 
   return (
     <div className="mb-3">
-      <Slider {...sliderSettings} className="gap-2">
+      <Slider {...sliderSettings} className="SliderCustom-width">
         {categories.map((cat) => (
           <button
             key={cat}
-            className={`btn ${
+            className={`btn w-auto my-1 me-2 ${
               currentCategory === cat ? "btn-dark" : "btn-outline-dark"
             }`}
             onClick={() => onCategoryChange(cat)}
-            style={{ margin: "0 5px" }}
           >
             {cat}
           </button>
@@ -121,44 +119,22 @@ const FilterBar = ({ currentCategory, onCategoryChange }) => {
 const VideoGrid = ({ videos, setHoveredItem, hoveredItem }) => {
   return (
     <div className="row">
-      {videos.map((video) => (
-        <div
-          key={video.id}
-          className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 "
-          onMouseEnter={() => setHoveredItem(video.id)}
-          onMouseLeave={() => setHoveredItem(null)}
-        >
-          <div className="card position-relative">
-            <img
-              src={
-                hoveredItem === video.id
-                  ? "../../Images/puspa.svg"
-                  : "../../Images/puspa.svg"
-              }
-              className="card-img-top"
-              alt="Video Thumbnail"
-            />
+      {videos.map((item) => (
+        <div key={item.id} className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+          <div className="card-CreativeHouse ">
+            <Link to={`/Single-Video/${item.id}`}>
+              <img
+                src={
+                  item.creative_house_thumbnail.startsWith("http")
+                    ? item.creative_house_thumbnail
+                    : `https://cocomadigitalmediabucket.s3.eu-north-1.amazonaws.com/creative-house-thumbnail/${item.creative_house_thumbnail}`
+                }
+                onClick={() => console.log(item.id)}
+                className="card-img-top"
+                alt="Video Thumbnail"
+              />
+            </Link>
           </div>
-          {hoveredItem === video.id && (
-            <div
-              className=" card-hover card position-absolute  bottom-20 start-10  bg-dark text-white p-3"
-              style={{ zIndex: 10 }}
-            >
-              <h5 className="card-title">Pushpa</h5>
-              <p>(2024)</p>
-              <p>
-                <strong>Cast:</strong> Lorem Ipsum Dolor Sit Amet Consectetur.
-                Orci Faucibus Tincidunt Malesuada Convallis Phasellus. Urna Enim
-                Est Purus Ut Sed Velit.
-              </p>
-              <p>
-                <strong>Genres:</strong> Indian Drama, Movies, Funny Movies
-              </p>
-              <a href="#" className="btn btn-warning">
-                Our Work &rarr;
-              </a>
-            </div>
-          )}
         </div>
       ))}
     </div>

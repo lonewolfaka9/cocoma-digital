@@ -1,45 +1,70 @@
 import React, { useState, useEffect, useRef } from "react";
-import Slider from "react-slick"; // import react-slick
-import "slick-carousel/slick/slick.css"; // slick-carousel styles
-import "slick-carousel/slick/slick-theme.css"; // slick-theme styles
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
+
 const CommunityOutreachSlider = ({ SocialWorkData }) => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [categories, setCategories] = useState([]);
   const [filteredItems, setFilteredItems] = useState([]);
-  const sliderRef = useRef(null); // Reference to control the slider
+  const sliderRef = useRef(null);
+  const fixSlickAriaHidden = () => {
+    const slides = document.querySelectorAll(".slick-slide");
+    slides.forEach((slide) => {
+      if (slide.getAttribute("aria-hidden") === "true") {
+        slide.setAttribute("inert", "true");
+        slide.removeAttribute("aria-hidden");
+      } else {
+        slide.removeAttribute("inert");
+      }
+    });
+  };
+
+  useEffect(() => {
+    fixSlickAriaHidden();
+    const observer = new MutationObserver(fixSlickAriaHidden);
+    const slider = document.querySelector(".slick-slider");
+    if (slider) {
+      observer.observe(slider, { attributes: true, subtree: true });
+    }
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
   useEffect(() => {
     if (SocialWorkData?.social_work) {
       const allCategories = [
         "All",
-        ...new Set(
-          SocialWorkData.social_work.map((cat) => cat.social_work_category_name)
-        ),
+        ...SocialWorkData.social_work
+          .filter((cat) => cat.social_work_category_name !== "All")
+          .map((cat) => cat.social_work_category_name),
       ];
       setCategories(allCategories);
-      setFilteredItems(SocialWorkData.social_work);
+      setFilteredItems(SocialWorkData.social_work.flatMap((cat) => cat.items));
     }
   }, [SocialWorkData]);
 
   useEffect(() => {
     if (selectedCategory === "All") {
-      setFilteredItems(SocialWorkData.social_work);
+      setFilteredItems(SocialWorkData.social_work.flatMap((cat) => cat.items));
     } else {
       const categoryData = SocialWorkData.social_work.find(
         (cat) => cat.social_work_category_name === selectedCategory
       );
-      setFilteredItems(categoryData ? [categoryData] : []);
+      setFilteredItems(categoryData?.items || []);
     }
   }, [selectedCategory, SocialWorkData]);
 
   const settings = {
     infinite: true,
     speed: 500,
+    afterChange: fixSlickAriaHidden,
     arrows: false,
-    slidesToShow: 3, // Number of items to show at once
-    slidesToScroll: 1, // Number of items to scroll at once
+    slidesToShow: 3,
+    slidesToScroll: 1,
     responsive: [
       {
         breakpoint: 1024,
@@ -75,6 +100,7 @@ const CommunityOutreachSlider = ({ SocialWorkData }) => {
           </button>
         ))}
       </div>
+
       <button
         className="btn btn-warning position-absolute top-50 start-0 translate-middle-y"
         style={{ zIndex: 5 }}
@@ -91,30 +117,17 @@ const CommunityOutreachSlider = ({ SocialWorkData }) => {
       </button>
 
       <Slider {...settings} ref={sliderRef}>
-        {filteredItems.length > 0 ? (
-          filteredItems.flatMap((category) =>
-            category.items.map((item) => (
-              <div
-                key={`${category.social_work_category_name}-${item.id}`}
-                className="p-2"
-              >
-                <img
-                  className="d-block w-100 rounded"
-                  src={item.social_work_img}
-                  alt={item.social_work_title}
-                  onError={(e) =>
-                    (e.target.src = "../../Images/default-image.svg")
-                  }
-                />
-                <h5 className="mt-3">{item.social_work_title}</h5>
-              </div>
-            ))
-          )
-        ) : (
-          <div className="text-center">
-            <p className="text-muted">No items available for this category.</p>
+        {filteredItems.map((item) => (
+          <div key={item.id} className="p-2">
+            <img
+              className="d-block w-100 rounded"
+              src={item.social_work_img}
+              alt={item.social_work_title}
+              onError={(e) => (e.target.src = "../../Images/default-image.svg")}
+            />
+            <h5 className="mt-3">{item.social_work_title}</h5>
           </div>
-        )}
+        ))}
       </Slider>
 
       <div className="text-center mt-3">

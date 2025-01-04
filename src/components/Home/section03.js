@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
-const Section03 = ({ ServiceData }) => {
-  const services = ServiceData.services || []; // Access the 'services' property or use an empty array
-  const [activeTab, setActiveTab] = useState(services[0]?.id); // Default to the first category
+const Section03 = ({ ServidcesToShow }) => {
+  const services = ServidcesToShow.services || [];
+  const [activeTab, setActiveTab] = useState(services[0]?.id);
+  const activeCategory = services.find((category) => category.id === activeTab);
 
   return (
     <div className="container">
@@ -11,9 +13,9 @@ const Section03 = ({ ServiceData }) => {
           <center>
             <h1>EXPLORE OUR SERVICES</h1>
           </center>
-          {/* Dynamic Tabs */}
+
           <div className="tab-buttons d-flex justify-content-center mt-4 flex-wrap">
-            {services.map((category) => (
+            {ServidcesToShow.services.map((category) => (
               <button
                 key={category.id}
                 className={`tab-button ${
@@ -28,32 +30,30 @@ const Section03 = ({ ServiceData }) => {
         </div>
       </div>
 
-      {/* Services Based on Active Tab */}
       <div className="row services mt-4">
-        {services
-          .filter((category) => category.id === activeTab)
-          .map((category) =>
-            category.items.map((service) => (
-              <div className="col-md-4 col-lg-4 col-sm-6 mt-5" key={service.id}>
-                <div className="service-card pb-4 text-center">
-                  <img
-                    src={service.service_image}
-                    alt={service.service_title}
-                    className="service-image"
-                  />
-                  <h3>{service.service_title}</h3>
-                  <button
-                    className="explore-button"
-                    onClick={() =>
-                      window.open(service.service_button_url, "_blank")
-                    }
-                  >
+        {activeCategory?.service_items?.length > 0 ? (
+          activeCategory.service_items.map((service) => (
+            <div className="col-md-4 col-lg-4 col-sm-6 mt-5" key={service.id}>
+              <div className="service-card pb-4 text-center">
+                <img
+                  src={service.service_image}
+                  alt={service.service_title}
+                  className="service-image"
+                />
+                <h3>{service.service_title}</h3>
+                <button className="explore-button">
+                  <Link to={`service/${service.id}`}>
                     {service.service_button_text} &#8594;
-                  </button>
-                </div>
+                  </Link>
+                </button>
               </div>
-            ))
-          )}
+            </div>
+          ))
+        ) : (
+          <p className="text-center mt-5">
+            No services available for this category.
+          </p>
+        )}
       </div>
     </div>
   );

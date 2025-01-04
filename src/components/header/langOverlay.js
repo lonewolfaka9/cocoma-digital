@@ -32,7 +32,7 @@ function LanguageSelector() {
       <Dropdown
         show={showDropdown}
         onToggle={handleToggle}
-        drop="start"
+        drop="bottom"
         className="language-dropdown-container"
       >
         <Dropdown.Toggle
@@ -42,10 +42,7 @@ function LanguageSelector() {
         >
           {selectedLanguage.substring(0, 2).toUpperCase()}
         </Dropdown.Toggle>
-        <Dropdown.Menu
-          className="language-dropdown-menu "
-          style={{ Left: "-289% !important" }}
-        >
+        <Dropdown.Menu className="language-dropdown-menu ">
           {languages.map((language) => (
             <Dropdown.Item
               key={language}

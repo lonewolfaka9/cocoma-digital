@@ -6,35 +6,33 @@ const Section11 = () => {
   const data = [
     {
       id: 1,
-      title: "Summary",
+      title: "1",
       description:
         "We strategically released the launch date through a dramatic video that played on audience suspense, ensuring the news went viral.We strategically released the launch date through a dramatic video that played on audience suspense, ensuring the news went viral.",
-      image: "../../Images/summary.png", // Replace with actual image URL
+      image: "../../Images/summary.png",
     },
     {
       id: 2,
-      title: "Summary",
+      title: "2",
       description:
         "We strategically released the launch date through a dramatic video that played on audience suspense, ensuring the news went viral.We strategically released the launch date through a dramatic video that played on audience suspense, ensuring the news went viral.",
-      image: "../../Images/videosthumb.png", // Replace with actual image URL
+      image: "../../Images/videosthumb.png",
     },
     {
       id: 3,
-      title: "Summary",
+      title: "3",
       description:
         "We strategically released the launch date through a dramatic video that played on audience suspense, ensuring the news went viral.We strategically released the launch date through a dramatic video that played on audience suspense, ensuring the news went viral.",
-      image: "../../Images/summary.png", // Replace with actual image URL
+      image: "../../Images/summary.png",
     },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Handler to go to the next item
   const handleNext = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % data.length);
   };
 
-  // Handler to go to the previous item
   const handlePrev = () => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + data.length) % data.length);
   };

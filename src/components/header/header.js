@@ -10,12 +10,13 @@ import "./Header.css";
 import LangOverlay from "./langOverlay";
 import youtube from "./youtube.svg"; // Replace with your actual icons/images
 // import { isMobile } from "react-device-detect";
-// import instagram from "./instagram.svg";
-// import facebook from "./facebook.svg";
-import twitter from "./twitter.svg";
-import tiktok from "./tiktok.svg";
-import linkedin from "./linkedin.svg";
+import { FaFacebook } from "react-icons/fa";
 import "./Language.css";
+import { FaInstagram } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
+import { FaTiktok } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+import { FaYoutube } from "react-icons/fa";
 
 function Header() {
   const [expanded, setExpanded] = useState(false); // State for controlling the mobile menu
@@ -174,24 +175,38 @@ function Header() {
                       <h2>By Platform</h2>
                     </div>
                     <div className="d-flex mb-2 justify-content-around">
-                      <div className="headder-logo-bg">
-                        <img src={youtube} alt="" />
+                      <div className="headder-logo-bg p-1">
+                        <FaYoutube
+                          style={{ color: "#FF0000", fontSize: "50px" }}
+                        />
                       </div>
-                      <div className="headder-logo-bg">
-                        {/* <img src={instagram} alt="" /> */}
+                      <div className="headder-logo-bg p-1">
+                        <FaInstagram
+                          style={{ color: "#E4405F", fontSize: "50px" }}
+                        />
                       </div>
-                      <div className="headder-logo-bg">
+                      <div className="headder-logo-bg p-1">
                         {/* <img src={facebook} alt="" /> */}
+                        <FaFacebook
+                          style={{ color: "#1877F2", fontSize: "50px" }}
+                        />
                       </div>
 
-                      <div className="headder-logo-bg">
-                        <img src={twitter} alt="" />
+                      <div className="headder-logo-bg p-1">
+                        <FaXTwitter
+                          style={{ color: "black", fontSize: "50px" }}
+                        />
                       </div>
-                      <div className="headder-logo-bg">
-                        <img src={tiktok} alt="" />
+                      <div className="headder-logo-bg p-1">
+                        <FaTiktok
+                          style={{ color: "black", fontSize: "50px" }}
+                        />
                       </div>
-                      <div className="headder-logo-bg">
-                        <img src={linkedin} alt="" />
+                      <div className="headder-logo-bg p-1">
+                        {/* <img src={linkedin} alt="" /> */}
+                        <FaLinkedin
+                          style={{ color: "#0A66C2", fontSize: "50px" }}
+                        />
                       </div>
                     </div>
                     <div style={{ paddingLeft: 10, paddingTop: 10 }}>

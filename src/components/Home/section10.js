@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const Section10 = ({ DevelopmentHouseData }) => {
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -6,7 +9,6 @@ const Section10 = ({ DevelopmentHouseData }) => {
   const [filteredItems, setFilteredItems] = useState([]);
 
   useEffect(() => {
-    // Extract categories from DevelopmentHouseData
     if (DevelopmentHouseData?.development_house) {
       const allCategories = [
         "All",
@@ -20,7 +22,6 @@ const Section10 = ({ DevelopmentHouseData }) => {
   }, [DevelopmentHouseData]);
 
   useEffect(() => {
-    // Filter items based on the selected category
     if (selectedCategory === "All") {
       setFilteredItems(DevelopmentHouseData.development_house);
     } else {
@@ -31,68 +32,89 @@ const Section10 = ({ DevelopmentHouseData }) => {
     }
   }, [selectedCategory, DevelopmentHouseData]);
 
+  const sliderSettings = {
+    dots: false,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    arrows: false,
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 4,
+        },
+      },
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 576,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
+  };
+
   return (
     <div className="container my-5">
       <h2 className="fw-bold">LATEST WORK FROM</h2>
       <h3 className="fw-bold">OUR DEVELOPMENT HOUSE</h3>
 
-      {/* Category Buttons */}
-      <div className="d-flex flex-wrap align-items-center justify-content-between">
-        <div className="d-flex flex-wrap gap-2 mb-3">
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setSelectedCategory(category)}
-              className={`btn ${
-                selectedCategory === category
-                  ? "btn-warning"
-                  : "btn-outline-secondary"
-              } me-2 mb-2`}
-            >
-              {category}
-            </button>
-          ))}
-        </div>
-        <a href="#view-all" className="text-warning">
-          View All
-        </a>
-      </div>
+      <Slider {...sliderSettings} className="SliderCustom-width">
+        {categories.map((category, index) => (
+          <button
+            key={index}
+            onClick={() => setSelectedCategory(category)}
+            className={`cat-filter-button btn w-auto ${
+              selectedCategory === category
+                ? "btn-warning"
+                : "btn-outline-secondary"
+            } my-1 me-2`}
+          >
+            {category}
+          </button>
+        ))}
+      </Slider>
 
-      {/* Grid of Items */}
       <div className="row mt-4">
         {filteredItems.length > 0 ? (
           filteredItems.map((category) =>
-            category.items.length > 0 ? (
-              category.items.map((item) => (
-                <div key={item.id} className="col-md-4 col-sm-6 col-12 mb-4">
-                  <div className="card h-100">
-                    <img
-                      src={item.development_house_img}
-                      className="card-img-top"
-                      alt="Development Work"
-                    />
-                    <div className="card-body text-center">
-                      <h5 className="card-title">Development Work</h5>
-                      <a
-                        href={item.development_house_url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn btn-dark"
-                      >
-                        Explore Now <i className="bi bi-arrow-right"></i>
-                      </a>
+            category.items.length > 0
+              ? category.items.map((item) => (
+                  <div key={item.id} className="col-md-4 col-sm-6 col-12 mb-4">
+                    <div className="card h-100">
+                      <img
+                        src={item.development_house_img}
+                        className="card-img-top"
+                        alt="Development Work"
+                      />
+                      <div className="card-body text-center">
+                        <h5 className="card-title">Development Work</h5>
+                        <a
+                          href={item.development_house_url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="btn btn-dark"
+                        >
+                          Explore Now <i className="bi bi-arrow-right"></i>
+                        </a>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))
-            ) : (
-              <div key={category.id} className="col-12 text-center">
-                <p className="text-muted">
-                  No items available in{" "}
-                  {category.development_house_category_name}.
-                </p>
-              </div>
-            )
+                ))
+              : null
           )
         ) : (
           <div className="col-12 text-center">
