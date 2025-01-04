@@ -32,7 +32,6 @@ function App() {
   const [creativeData, setCreativeData] = useState();
   const [MarketingHouseData, setMarketingHouseData] = useState();
 
-  console.log(MarketingHouseData);
   // FOR LOADING DATA
   const [loadingHome, setLoadingHome] = useState(true);
   const [loadingServices, setLoadingServices] = useState(true);
