@@ -5,7 +5,7 @@
 //   const [showMore, setShowMore] = useState(false);
 
 //   // Determine how many items to show based on `showMore`
-//   const visibleItems = showMore ? ServicePlatform : ServicePlatform.slice(0, 6);
+// const visibleItems = showMore ? ServicePlatform : ServicePlatform;
 
 //   return (
 //     <div className="container text-center my-5">
