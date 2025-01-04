@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import AdminService from "../../Service/apiService";
 
-const CreativeProjects = ({ bannerData }) => {
+const MarkatingHouseBanner = ({ bannerData }) => {
   const [bannerApiData, setBannerApiData] = useState([]); // Initialize as an empty array
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -31,7 +31,7 @@ const CreativeProjects = ({ bannerData }) => {
   // Match `banner_title_template_id` with `id` in the API data
   const matchedBanner = bannerApiData.find(
     (item) =>
-      item.id === bannerData.creative_house_projects.banner_title_template_id
+      item.id === bannerData.marketing_house_projects.banner_title_template_id
   );
 
   if (!matchedBanner) {
@@ -68,4 +68,4 @@ const CreativeProjects = ({ bannerData }) => {
   );
 };
 
-export default CreativeProjects;
+export default MarkatingHouseBanner;

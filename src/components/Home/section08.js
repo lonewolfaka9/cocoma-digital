@@ -41,8 +41,22 @@ const Section08 = ({ MarketingHouseData }) => {
 
   return (
     <div className="container my-4">
-      <h4 className="">LATEST WORK FROM</h4>
-      <h1 className="fw-bold">OUR MARKETING HOUSE</h1>
+      <div className="row">
+        <div className="col-lg-11">
+          {" "}
+          <h5 className="">LATEST WORK FROM</h5>
+          <h1 className="fw-bold">OUR MARKETING HOUSE</h1>
+        </div>
+        <div className="col-lg-1">
+          {" "}
+          <a
+            href="/View-all-Series "
+            className="ms-auto text-warning text-decoration-none"
+          >
+            View All
+          </a>
+        </div>
+      </div>
 
       <div className="d-flex flex-wrap my-3 mb-3">
         <button

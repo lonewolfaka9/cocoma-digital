@@ -32,7 +32,7 @@ function App() {
   const [creativeData, setCreativeData] = useState();
   const [MarketingHouseData, setMarketingHouseData] = useState();
 
-  // console.log(MarketingHouseData);
+  console.log(MarketingHouseData);
   // FOR LOADING DATA
   const [loadingHome, setLoadingHome] = useState(true);
   const [loadingServices, setLoadingServices] = useState(true);
@@ -142,16 +142,21 @@ function App() {
             element={<SingleVideo CreativeHouseData={creativeData} />}
           />
 
-          <Route path="/View-all-Series" element={<ViewAllSeries />} />
-
+          <Route
+            path="/View-all-Series"
+            element={<ViewAllSeries MarketingHouseData={MarketingHouseData} />}
+          />
+          <Route
+            path="/Web-Series-Individual/:id"
+            element={
+              <WebSeriesIndividual MarketingHouseData={MarketingHouseData} />
+            }
+          />
           <Route
             path="/All-web-series-portfolio"
             element={<AllWebSeriesPortfolio />}
           />
-          <Route
-            path="/Web-Series-Individual"
-            element={<WebSeriesIndividual />}
-          />
+
           <Route path="/cart" element={<AddToCart />} />
           <Route path="/contact_us" element={<ContactUs />} />
           <Route path="/aboutus" element={<AboutUs />} />

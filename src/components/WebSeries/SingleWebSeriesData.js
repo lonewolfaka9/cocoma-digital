@@ -1,13 +1,16 @@
 import Carousel from "react-bootstrap/Carousel";
 
-export default function SingleWebSeriesData() {
+export default function SingleWebSeriesData({ itemData }) {
+  console.log(itemData);
   return (
     <>
       {" "}
       <div className="container-fluid text-white bg-black py-5">
         {/* Movie Header */}
         <div className="container">
-          <h1 className="fw-bold mb-3">Teri Baton Mein Uljah Jiya ( 2024 )</h1>
+          <h2 className="fw-bold mb-3">
+            {itemData.title} ({itemData.year})
+          </h2>
           <p>YouTube Marketing</p>
 
           {/* Author Section */}
@@ -44,29 +47,21 @@ export default function SingleWebSeriesData() {
           <div className="row">
             <div className="col-md-6 mb-4">
               <p>
-                <strong>Client :</strong> Excel Entertainment
+                <strong>Client :</strong> {itemData.client}
               </p>
               <p>
-                <strong>Genre :</strong> Crime, Thriller, Drama
+                <strong>Genre :</strong> {itemData.genre}
               </p>
               <p>
-                <strong>Cast :</strong> Pankaj Tripathi, Ali Fazal, Divyendu
-                Sharma
+                <strong>Cast :</strong> {itemData.cast}
               </p>
               <p>
-                <strong>Directors :</strong> Directed By Karan Anshuman, Gurmeet
-                Singh
+                <strong>Directors :</strong> {itemData.directors}
               </p>
               <p>
-                <strong>Year :</strong> 2020
+                <strong>Year :</strong> {itemData.year}
               </p>
-              <p>
-                Mirzapur Is A City In Uttar Pradesh, India, Known For Its
-                Carpets And Brassware Industries, As Well As........{" "}
-                <a href="/" className="text-warning text-decoration-none">
-                  See More
-                </a>
-              </p>
+              <p>{itemData.description}</p>
             </div>
 
             {/* Image Slider */}
@@ -77,27 +72,19 @@ export default function SingleWebSeriesData() {
                 controls={true}
                 interval={3000}
               >
-                <Carousel.Item>
-                  <img
-                    src="../../Images/SingleWebSeriesDataImg.svg" // Replace with actual image 1
-                    alt="Slide 1"
-                    className="d-block w-100 img-fluid"
-                  />
-                </Carousel.Item>
-                <Carousel.Item>
-                  <img
-                    src="../../Images/SingleWebSeriesDataImg.svg" // Replace with actual image 2
-                    alt="Slide 2"
-                    className="d-block w-100 img-fluid"
-                  />
-                </Carousel.Item>
-                <Carousel.Item>
-                  <img
-                    src="../../Images/SingleWebSeriesDataImg.svg" // Replace with actual image 3
-                    alt="Slide 3"
-                    className="d-block w-100 img-fluid"
-                  />
-                </Carousel.Item>
+                {itemData.images && itemData.images.length > 0 ? (
+                  itemData.images.map((image, index) => (
+                    <Carousel.Item key={index}>
+                      <img
+                        src={image.image}
+                        alt="Slide 3"
+                        className="d-block w-100 img-fluid"
+                      />
+                    </Carousel.Item>
+                  ))
+                ) : (
+                  <p>No images available</p>
+                )}
               </Carousel>
             </div>
           </div>

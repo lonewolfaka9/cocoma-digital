@@ -2,44 +2,25 @@ import React, { useState, useRef } from "react";
 import { FaPlay } from "react-icons/fa";
 import { CiPause1 } from "react-icons/ci";
 
-const contentData = [
-  {
-    id: 1,
-    type: "Videos",
-    video: "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
-    thumbnail: "https://via.placeholder.com/300x200?text=Mirzapur+1",
-  },
-  {
-    id: 2,
-    type: "Videos",
-    video: "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
-    thumbnail: "https://via.placeholder.com/300x200?text=Mirzapur+2",
-  },
-  {
-    id: 3,
-    type: "Videos",
-    video: "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
-    thumbnail: "https://via.placeholder.com/300x200?text=Mirzapur+3",
-  },
-  {
-    id: 4,
-    type: "Shorts",
-    video: "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
-    thumbnail: "https://via.placeholder.com/300x200?text=Short+1",
-  },
-];
-
 const ITEMS_PER_PAGE = 6;
 
-const ContentCreateByTeam = () => {
+const ContentCreateByTeam = ({ itemData }) => {
   const [activeFilter, setActiveFilter] = useState("Videos");
   const [currentPage, setCurrentPage] = useState(1);
   const [playingVideo, setPlayingVideo] = useState(null);
   const videoRefs = useRef({}); // Ref to store video elements
 
-  const filteredContent = contentData.filter(
-    (item) => item.type === activeFilter
+  // Filter content by the active category name
+  const filteredCategory = itemData.content_created_category.find(
+    (category) => category.category_name === activeFilter
   );
+
+  // Handle the case where no items are found
+  const filteredContent =
+    filteredCategory?.content_created_item ||
+    filteredCategory?.content_created_carousal ||
+    [];
+
   const totalPages = Math.ceil(filteredContent.length / ITEMS_PER_PAGE);
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
   const paginatedContent = filteredContent.slice(
@@ -79,19 +60,21 @@ const ContentCreateByTeam = () => {
 
       {/* Filter Buttons */}
       <div className="d-flex justify-content-center mb-4">
-        {["Videos", "Shorts"].map((filter) => (
+        {itemData.content_created_category.slice(0, 3).map((category) => (
           <button
-            key={filter}
+            key={category.id}
             className={`btn mx-2 ${
-              activeFilter === filter ? "btn-warning text-dark" : "btn-light"
+              activeFilter === category.category_name
+                ? "btn-warning text-dark"
+                : "btn-light"
             }`}
             onClick={() => {
-              setActiveFilter(filter);
+              setActiveFilter(category.category_name);
               setCurrentPage(1);
               setPlayingVideo(null);
             }}
           >
-            {filter}
+            {category.category_name}
           </button>
         ))}
       </div>
@@ -101,37 +84,46 @@ const ContentCreateByTeam = () => {
         {paginatedContent.map((item) => (
           <div className="col-12 col-md-4" key={item.id}>
             <div className="position-relative video-wrapper">
-              {playingVideo === item.id ? (
-                <div className="play-overlay">
-                  <video
-                    ref={(el) => (videoRefs.current[item.id] = el)}
-                    className="img-fluid w-100 rounded"
-                    onEnded={() => setPlayingVideo(null)}
-                    autoPlay
+              {item.url ? (
+                playingVideo === item.id ? (
+                  <div className="play-overlay">
+                    <video
+                      ref={(el) => (videoRefs.current[item.id] = el)}
+                      className="img-fluid w-100 rounded"
+                      onEnded={() => setPlayingVideo(null)}
+                      autoPlay
+                    >
+                      <source src={item.url} type="video/mp4" />
+                    </video>
+
+                    <button
+                      className="play-btn btn btn-danger mt-2"
+                      onClick={() => handlePause(item.id)}
+                    >
+                      <CiPause1 />
+                    </button>
+                  </div>
+                ) : (
+                  <div
+                    className="play-overlay"
+                    onClick={() => handlePlay(item.id)}
                   >
-                    <source src={item.video} type="video/mp4" />
-                  </video>
-                  <button
-                    className="play-btn btn btn-danger mt-2"
-                    onClick={() => handlePause(item.id)}
-                  >
-                    <CiPause1 />
-                  </button>
-                </div>
+                    <img
+                      src={item.image}
+                      alt="Thumbnail"
+                      className="img-fluid w-100 rounded"
+                    />
+                    <button className="btn btn-dark rounded-circle play-btn">
+                      <FaPlay />
+                    </button>
+                  </div>
+                )
               ) : (
-                <div
-                  className="play-overlay"
-                  onClick={() => handlePlay(item.id)}
-                >
-                  <img
-                    src={item.thumbnail}
-                    alt="Thumbnail"
-                    className="img-fluid w-100 rounded"
-                  />
-                  <button className="btn btn-dark rounded-circle play-btn">
-                    <FaPlay />
-                  </button>
-                </div>
+                <img
+                  src={item.image}
+                  alt="Content"
+                  className="img-fluid w-100 rounded"
+                />
               )}
             </div>
           </div>
