@@ -44,5 +44,6 @@
   border-bottom: none;
 }
 .language-dropdown-container .language-dropdown-menu {
-  left: -289% !important;
+  left: -230% !important;
+  top:104% !important
 }

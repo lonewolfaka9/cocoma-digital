@@ -3,55 +3,19 @@ import { PiCirclesFourLight } from "react-icons/pi";
 import { IoReorderFourSharp } from "react-icons/io5";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { FaArrowRightLong } from "react-icons/fa6";
+import { useDispatch, useSelector } from "react-redux";
+import { removeItemFromCart } from "../../Service/redux/cartSlice";
 
 export default function AddToCart() {
-  const cartItems = [
-    {
-      title: "Content Services",
-      services: [
-        {
-          title: "YouTube Video Editing",
-          description: "High-quality video editing for your YouTube channel.",
-          image: "../../Images/about/cartItem.svg",
-        },
-        {
-          title: "Instagram Content Creation",
-          description: "Creative posts for your Instagram audience.",
-          image: "../../Images/about/cartItem.svg",
-        },
-        {
-          title: "Blog Writing",
-          description: "Engaging blogs written by professional writers.",
-          image: "../../Images/about/cartItem.svg",
-        },
-        {
-          title: "Blog Writing",
-          description: "Engaging blogs written by professional writers.",
-          image: "../../Images/about/cartItem.svg",
-        },
-      ],
-    },
-    {
-      title: "Web Development Services",
-      services: [
-        {
-          title: "Website Design",
-          description: "Custom designs to make your website stand out.",
-          image: "../../Images/about/cartItem.svg",
-        },
-        {
-          title: "E-commerce Setup",
-          description: "Complete setup of your online store.",
-          image: "../../Images/about/cartItem.svg",
-        },
-        {
-          title: "SEO Optimization",
-          description: "Boost your website's ranking on search engines.",
-          image: "../../Images/about/cartItem.svg",
-        },
-      ],
-    },
-  ];
+  const dispatch = useDispatch();
+  const cartItems = useSelector((state) => state.cart.items);
+
+  const handleRemoveFromCart = (id) => {
+    dispatch(removeItemFromCart(id)); // Dispatch the action to remove the item by ID
+  };
+
+  console.log(cartItems);
+
   const [viewMode, setViewMode] = useState("CartCard");
 
   return (
@@ -84,19 +48,14 @@ export default function AddToCart() {
 
         {cartItems && cartItems.length > 0 ? (
           <>
-            {cartItems.map((category, index) => (
-              <div key={index} className="cart-container mt-4 p-5">
-                <h2 className="mb-3">
-                  {index + 1}. {category.title}
-                </h2>
-                <div
-                  className={`row g-3 ${
-                    viewMode === "row" ? "flex-column" : ""
-                  }`}
-                >
-                  {category.services.map((service, serviceIndex) => (
+            <div className="cart-container mt-4 p-5">
+              <div
+                className={`row g-3 ${viewMode === "row" ? "flex-column" : ""}`}
+              >
+                {cartItems.map((category, index) => (
+                  <>
                     <div
-                      key={serviceIndex}
+                      key={index}
                       className={`${
                         viewMode === "CartCard"
                           ? "col-lg-4 col-md-6 col-sm-12"
@@ -105,8 +64,13 @@ export default function AddToCart() {
                     >
                       <div className=" cart-card-bg w-100 p-3 ">
                         <div className="d-flex  justify-content-between">
-                          {index + 1}.{serviceIndex + 1}
-                          <RiDeleteBin6Line size={20} />
+                          <h2>{index + 1}</h2>
+                          <button
+                            className="btn btn-danger mb-3"
+                            onClick={() => handleRemoveFromCart(category.id)} // Pass the item's ID
+                          >
+                            <RiDeleteBin6Line size={20} />
+                          </button>
                         </div>
                         <div
                           className={`${
@@ -114,16 +78,19 @@ export default function AddToCart() {
                           }`}
                         >
                           <img
-                            src={service.image}
-                            // className="cart-img-top mt-3"
-                            alt={service.title}
+                            src={category.group_service_item_thumbnail}
+                            alt={category.group_service_item_title}
                             className={`${
                               viewMode === "CartCard" ? "cart-img-top" : ""
                             }`}
                           />
                           <div className="card-body d-flex flex-column">
-                            <h5 className="card-title">{service.title}</h5>
-                            <p className="card-text">{service.description}</p>
+                            <h5 className="card-title">
+                              {category.group_service_item_title}
+                            </h5>
+                            <p className="card-text">
+                              {category.group_service_item_description2}
+                            </p>
                             <div className=" d-flex  justify-content-between">
                               <button className="btn btn-primery-recurring me-2">
                                 Recurring
@@ -136,10 +103,10 @@ export default function AddToCart() {
                         </div>
                       </div>
                     </div>
-                  ))}
-                </div>
+                  </>
+                ))}
               </div>
-            ))}
+            </div>
 
             <div className="text-center mt-4 mb-4">
               <button className="btn sehedule-meeting-btn">
@@ -150,13 +117,10 @@ export default function AddToCart() {
         ) : (
           <div className="text-center">
             <img
-              src="empty-cart-image.png"
+              src="../../Images/EmptyCart.svg"
               alt="Empty Cart"
               className="img-fluid mb-3"
-              style={{ maxWidth: "200px" }}
             />
-            <h2>Your cart is Empty</h2>
-            <p>Add Services to Schedule Meeting</p>
           </div>
         )}
       </div>

@@ -72,8 +72,6 @@ const Section10 = ({ DevelopmentHouseData }) => {
       <h2 className="fw-bold">LATEST WORK FROM</h2>
       <h3 className="fw-bold">OUR DEVELOPMENT HOUSE</h3>
 
-      {/* Category Slider */}
-
       <Slider {...sliderSettings} className="SliderCustom-width">
         {categories.map((category, index) => (
           <button
@@ -90,7 +88,6 @@ const Section10 = ({ DevelopmentHouseData }) => {
         ))}
       </Slider>
 
-      {/* Grid of Items */}
       <div className="row mt-4">
         {filteredItems.length > 0 ? (
           filteredItems.map((category) =>

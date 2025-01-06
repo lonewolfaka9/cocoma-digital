@@ -3,8 +3,10 @@ import Slider from "react-slick";
 import { FaPlay } from "react-icons/fa";
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
-const CreativeSlider = () => {
+
+const CreativeSlider = ({ CreativeSliderData }) => {
   const sliderRef = useRef(null);
+
   const settings = {
     dots: false,
     infinite: true,
@@ -35,27 +37,12 @@ const CreativeSlider = () => {
     ],
   };
 
-  // Slide Content
-  const sliderContent = [
-    {
-      id: 1,
-      title: "Ideas Collection",
-      description:
-        "We Strategically Released The Launch Date Through A Dramatic Video That Played On Audience Suspense, Ensuring The News Went Viral.",
-      image: "../../Images/summary.png", // Replace with actual image
-    },
-    {
-      id: 2,
-      title: "Creative Design",
-      description:
-        "Our team designed stunning visuals that captured the essence of the brand and engaged the audience effectively.",
-      image: "../../Images/summary.png",
-    },
-  ];
-
+  // Use creative_house_approach data
+  const sliderContent = CreativeSliderData?.creative_house_approach || [];
+  console.log(sliderContent);
   return (
     <div className="creative-approach-bg pt-5 pb-5">
-      <div className="container ">
+      <div className="container">
         <div className="row">
           <div className="col-lg-12">
             <h1 className="text-center fw-bold mb-4">Creative Approach</h1>
@@ -64,13 +51,13 @@ const CreativeSlider = () => {
         <div className="row">
           <div className="col-lg-6 m-auto">
             <Slider {...settings} ref={sliderRef}>
-              {sliderContent.map((item) => (
-                <div key={item.id} className=" p-3">
-                  <div className="slider-image-wrapper  mb-3">
+              {sliderContent.map((item, index) => (
+                <div key={index} className="p-3">
+                  <div className="slider-image-wrapper mb-3">
                     <img
-                      src={item.image}
-                      alt={item.title}
-                      className="positon-relative"
+                      src={item.approach_thumbnail} // Use image property from API
+                      alt={item.approach_heading}
+                      className="position-relative"
                       style={{
                         width: "100%",
                         maxHeight: "400px",
@@ -82,12 +69,12 @@ const CreativeSlider = () => {
                       style={{
                         position: "absolute",
                         top: "40%",
-                        left: "30%",
+                        left: "50%",
                         transform: "translate(-50%, -50%)",
                         backgroundColor: "#fff",
                         border: "none",
                         borderRadius: "50%",
-                        padding: " 10px 15px",
+                        padding: "10px 15px",
                       }}
                     >
                       <FaPlay size={20} />
@@ -95,9 +82,11 @@ const CreativeSlider = () => {
                   </div>
                   <div>
                     <h4 className="fw-bold">
-                      {item.id} {item.title}
+                      {index + 1} {item.approach_heading}
                     </h4>
-                    <p className="text-muted px-4">{item.description}</p>
+                    <p className="text-muted px-4">
+                      {item.approach_description}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -105,7 +94,7 @@ const CreativeSlider = () => {
           </div>
           <div className="col-lg-12 text-end position-relative">
             <button
-              className="btn btn-dark  translate-middle-y"
+              className="btn btn-dark translate-middle-y"
               style={{ zIndex: 5 }}
               onClick={() => sliderRef.current.slickPrev()}
             >

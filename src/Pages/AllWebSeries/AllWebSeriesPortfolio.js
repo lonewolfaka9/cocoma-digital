@@ -8,7 +8,7 @@ import CreativeProjects from "../../components/CreativeHouseComponent/CreativeHo
 const AllWebSeriesPortfolio = () => {
   return (
     <>
-      <CreativeProjects />
+      {/* <CreativeProjects /> */}
       <AllWebSeries />
       <WebSeriesGrid />
       <AllWebSeries />

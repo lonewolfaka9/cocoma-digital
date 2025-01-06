@@ -1,95 +1,87 @@
 import React, { useState, useEffect } from "react";
-
+import { Link } from "react-router-dom";
 const Section08 = ({ MarketingHouseData }) => {
-  const [selectedCategory, setSelectedCategory] = useState("All");
-  const [categories, setCategories] = useState([]);
+  const [category, setCategory] = useState("All");
   const [filteredItems, setFilteredItems] = useState([]);
 
   useEffect(() => {
-    if (
-      MarketingHouseData?.marketting_house &&
-      Array.isArray(MarketingHouseData.marketting_house)
-    ) {
-      // Extract unique categories
-      const allCategories = [
-        "All",
-        ...MarketingHouseData.marketting_house.map(
-          (cat) => cat.marketting_house_category_name
-        ),
-      ];
-      setCategories(allCategories);
-
-      // Flatten items into a single array
-      const allItems = MarketingHouseData.marketting_house.flatMap((cat) =>
-        cat.items.map((item) => ({
-          id: item.id,
-          imgSrc: item.marketting_house_img.startsWith("http")
-            ? item.marketting_house_img
-            : `https://cocomadigitalmediabucket.s3.eu-north-1.amazonaws.com/marketting-house-image/${item.marketting_house_img}`,
-          url: item.marketting_house_url,
-          category: cat.marketting_house_category_name,
-        }))
-      );
-
-      setFilteredItems(allItems);
-    }
-  }, [MarketingHouseData]);
-
-  const handleFilter = (category) => {
-    setSelectedCategory(category);
-
-    if (category === "All") {
-      // Show all items
-      const allItems = MarketingHouseData.marketting_house.flatMap((cat) =>
-        cat.items.map((item) => ({
-          id: item.id,
-          imgSrc: item.marketting_house_img.startsWith("http")
-            ? item.marketting_house_img
-            : `https://cocomadigitalmediabucket.s3.eu-north-1.amazonaws.com/marketting-house-image/${item.marketting_house_img}`,
-          url: item.marketting_house_url,
-          category: cat.marketting_house_category_name,
-        }))
-      );
-      setFilteredItems(allItems);
-    } else {
-      // Filter items by category
-      const filtered = MarketingHouseData.marketting_house
-        .filter((cat) => cat.marketting_house_category_name === category)
-        .flatMap((cat) =>
+    if (MarketingHouseData) {
+      if (category === "All") {
+        const allItems = MarketingHouseData.marketing_house.flatMap((cat) =>
           cat.items.map((item) => ({
             id: item.id,
-            imgSrc: item.marketting_house_img.startsWith("http")
-              ? item.marketting_house_img
-              : `https://cocomadigitalmediabucket.s3.eu-north-1.amazonaws.com/marketting-house-image/${item.marketting_house_img}`,
-            url: item.marketting_house_url,
-            category: cat.marketting_house_category_name,
+            imgSrc: item.poster_image.startsWith("http")
+              ? item.poster_image
+              : `https://cocomadigitalmediabucket.s3.eu-north-1.amazonaws.com/marketting-house-image/${item.poster_image}`,
+            url: item.marketing_house_url,
+            category: cat.category_name,
           }))
         );
-      setFilteredItems(filtered);
+        setFilteredItems(allItems);
+      } else {
+        const selectedCategory = MarketingHouseData.marketing_house.find(
+          (cat) => cat.category_name === category
+        );
+        if (selectedCategory) {
+          const filtered = selectedCategory.items.map((item) => ({
+            id: item.id,
+            imgSrc: item.poster_image.startsWith("http")
+              ? item.poster_image
+              : `https://cocomadigitalmediabucket.s3.eu-north-1.amazonaws.com/marketting-house-image/${item.poster_image}`,
+            url: item.marketing_house_url,
+            category: selectedCategory.category_name,
+          }));
+          setFilteredItems(filtered);
+        } else {
+          setFilteredItems([]);
+        }
+      }
     }
-  };
+  }, [category, MarketingHouseData]);
 
   return (
     <div className="container my-4">
-      <h4 className="">LATEST WORK FROM</h4>
-      <h1 className="fw-bold">OUR MARKETING HOUSE</h1>
-
-      {/* Filter buttons */}
-      <div className="d-flex flex-wrap justify-content-center my-3 mb-3">
-        {categories.map((category) => (
-          <button
-            key={category}
-            className={`btn mx-1 mb-2 ${
-              selectedCategory === category ? "btn-warning" : "btn-light"
-            }`}
-            onClick={() => handleFilter(category)}
+      <div className="row">
+        <div className="col-lg-11">
+          {" "}
+          <h5 className="">LATEST WORK FROM</h5>
+          <h1 className="fw-bold">OUR MARKETING HOUSE</h1>
+        </div>
+        <div className="col-lg-1">
+          {" "}
+          <a
+            href="/View-all-Series "
+            className="ms-auto text-warning text-decoration-none"
           >
-            {category}
+            View All
+          </a>
+        </div>
+      </div>
+
+      <div className="d-flex flex-wrap my-3 mb-3">
+        <button
+          className={`cat-filter-button btn w-auto me-2 ${
+            category === "All" ? "btn-warning" : "btn-outline-secondary"
+          }`}
+          onClick={() => setCategory("All")}
+        >
+          All
+        </button>
+        {MarketingHouseData?.marketing_house?.map((cat) => (
+          <button
+            key={cat.id}
+            className={`cat-filter-button btn w-auto me-2 ${
+              category === cat.category_name
+                ? "btn-warning"
+                : "btn-outline-secondary"
+            }`}
+            onClick={() => setCategory(cat.category_name)}
+          >
+            {cat.category_name}
           </button>
         ))}
       </div>
 
-      {/* Grid of items */}
       <div className="row mt-3">
         {filteredItems.length > 0 ? (
           filteredItems.map((item) => (
@@ -98,22 +90,13 @@ const Section08 = ({ MarketingHouseData }) => {
               className="col-lg-3 col-md-4 col-sm-6 col-6 mb-4"
             >
               <div className="card">
-                <img
-                  src={item.imgSrc}
-                  alt={item.category}
-                  className="card-img-top"
-                />
-                {/* <div className="card-body">
-                  <h5 className="card-title text-center">{item.category}</h5>
-                  <a
-                    href={item.url}
-                    className="btn btn-primary btn-block"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    View More
-                  </a>
-                </div> */}
+                <Link to={`/${item.id}`}>
+                  <img
+                    src={item.imgSrc}
+                    alt={item.category}
+                    className="card-img-top"
+                  />
+                </Link>
               </div>
             </div>
           ))

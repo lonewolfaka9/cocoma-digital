@@ -1,71 +1,28 @@
 import React, { useState } from "react";
 import Slider from "react-slick";
 import ReactPlayer from "react-player";
-import { FaPlay } from "react-icons/fa";
+import { FaPause, FaPlay } from "react-icons/fa";
 
-const Portfolio = () => {
-  const videoData = [
-    {
-      id: 1,
-      category: "Explainer",
-      image: "../../Images/portFolio.svg",
-      videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
-    },
-    {
-      id: 2,
-      category: "Motion Graphics",
-      image: "../../Images/portFolio.svg",
-      videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
-    },
-    {
-      id: 3,
-      category: "Sales Video",
-      image: "../../Images/portFolio.svg",
-      videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
-    },
-    {
-      id: 4,
-      category: "Sales Video",
-      image: "../../Images/portFolio.svg",
-      videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
-    },
-    {
-      id: 5,
-      category: "Sales Video",
-      image: "../../Images/portFolio.svg",
-      videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
-    },
-    {
-      id: 6,
-      category: "Sales Video",
-      image: "../../Images/portFolio.svg",
-      videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
-    },
-    {
-      id: 7,
-      category: "Sales Video",
-      image: "../../Images/portFolio.svg",
-      videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
-    },
-    {
-      id: 8,
-      category: "Sales Video",
-      image: "../../Images/portFolio.svg",
-      videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
-    },
-  ];
-
-  const categories = ["All", "Explainer", "Motion Graphics", "Sales Video"];
-
+const Portfolio = ({ PortfolioData }) => {
   const [filter, setFilter] = useState("All");
   const [currentPage, setCurrentPage] = useState(1);
   const [playingVideoId, setPlayingVideoId] = useState(null);
   const videosPerPage = 6;
 
+  const categories =
+    PortfolioData?.group_single_service_portfolio_category || [];
+
+  const videos = categories.flatMap((category) =>
+    (category.group_single_service_portfolio_item || []).map((video) => ({
+      ...video,
+      portfolio_category_name: category.portfolio_category_name,
+    }))
+  );
+
   const filteredVideos =
     filter === "All"
-      ? videoData
-      : videoData.filter((video) => video.category === filter);
+      ? videos
+      : videos.filter((video) => video.portfolio_category_name === filter);
 
   const indexOfLastVideo = currentPage * videosPerPage;
   const indexOfFirstVideo = indexOfLastVideo - videosPerPage;
@@ -99,12 +56,16 @@ const Portfolio = () => {
   };
 
   const handlePlay = (id) => {
-    // Set the currently playing video
     setPlayingVideoId(id);
   };
 
+  const handlePause = (id) => {
+    if (playingVideoId === id) {
+      setPlayingVideoId(null);
+    }
+  };
+
   const handleEnd = () => {
-    // Reset playing video when it ends
     setPlayingVideoId(null);
   };
 
@@ -112,49 +73,106 @@ const Portfolio = () => {
     <div className="container my-5">
       <h3 className="text-center mb-4">Portfolio</h3>
 
-      {/* Filter Slider */}
       <div className="mb-4">
         <Slider {...sliderSettings}>
+          <button
+            className={`category-button ${
+              filter === "All" ? "active" : "inactive"
+            }`}
+            onClick={() => setFilter("All")}
+          >
+            All
+          </button>
           {categories.map((category) => (
             <button
-              key={category}
+              key={category.id}
               className={`category-button ${
-                filter === category ? "active" : "inactive"
+                filter === category.portfolio_category_name
+                  ? "active"
+                  : "inactive"
               }`}
-              onClick={() => setFilter(category)}
+              onClick={() => {
+                setFilter(category.portfolio_category_name);
+              }}
             >
-              {category}
+              {category.portfolio_category_name}
             </button>
           ))}
         </Slider>
       </div>
 
-      {/* Video Grid */}
       <div className="row">
         {currentVideos.map((video) => (
           <div key={video.id} className="col-12 col-md-6 col-lg-6 mb-4">
             <div className="position-relative videoplayer-and-thumbnail">
-              <ReactPlayer
-                url={video.videoUrl}
-                light={playingVideoId === video.id ? false : video.image} // Show thumbnail for other videos
-                playing={playingVideoId === video.id} // Play only the selected video
-                controls={false} // Hide controls
-                muted={false} // Required for autoplay
-                className="VideoPlayer"
-                playIcon={
-                  <div className="play-icon d-flex justify-content-center align-items-center">
+              {playingVideoId === video.id ? (
+                <div className="video-wrapper">
+                  <ReactPlayer
+                    url={video.portfolio_video_url}
+                    playing={true}
+                    controls={false}
+                    muted={false}
+                    width="100%"
+                    height="400px"
+                    className="VideoPlayer"
+                    onEnded={handleEnd}
+                  />
+
+                  <div
+                    className="control-button"
+                    onClick={() => handlePause(video.id)}
+                    style={{
+                      position: "absolute",
+                      top: "50%",
+                      left: "50%",
+                      transform: "translate(-50%, -50%)",
+                      background: "rgba(0, 0, 0, 0.7)",
+                      padding: "10px",
+                      borderRadius: "50%",
+                      cursor: "pointer",
+                    }}
+                  >
+                    <FaPause size={30} color="white" />
+                  </div>
+                </div>
+              ) : (
+                <div
+                  className="thumbnail-container"
+                  onClick={() => handlePlay(video.id)}
+                  style={{ cursor: "pointer", position: "relative" }}
+                >
+                  <img
+                    src={
+                      video.portfolio_video_thumbnail ||
+                      "https://via.placeholder.com/150"
+                    }
+                    alt="Video Thumbnail"
+                    className="img-fluid video-thumbnail"
+                    style={{ width: "100%", height: "400px" }}
+                  />
+
+                  <div
+                    className="control-button"
+                    style={{
+                      position: "absolute",
+                      top: "50%",
+                      left: "50%",
+                      transform: "translate(-50%, -50%)",
+                      background: "rgba(0, 0, 0, 0.5)",
+                      borderRadius: "50%",
+                      padding: "10px",
+                      cursor: "pointer",
+                    }}
+                  >
                     <FaPlay size={30} color="white" />
                   </div>
-                }
-                onClickPreview={() => handlePlay(video.id)} // Start playing video
-                onEnded={handleEnd} // Reset playingVideoId on end
-              />
+                </div>
+              )}
             </div>
           </div>
         ))}
       </div>
 
-      {/* Pagination */}
       <div className="d-flex justify-content-center mt-4">
         <nav>
           <ul className="pagination">
