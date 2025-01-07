@@ -83,15 +83,34 @@ const CommunityOutreachSlider = ({ SocialWorkData }) => {
 
   return (
     <div className="container my-5 position-relative">
-      <h6 className="text-uppercase text-muted">Our Latest</h6>
-      <h2 className="fw-bold mb-4">Social Work</h2>
+      <div className="row">
+        <div className="col-lg-11">
+          {" "}
+          <h3
+            className="text-uppercase text-muted mb-3"
+            style={{ fontSize: "20px" }}
+          >
+            LATEST WORK FROM
+          </h3>
+          <h2 className="fw-bold">Social Work</h2>
+        </div>
+        <div className="col-lg-1">
+          {" "}
+          {/* <a
+            href="/Creative-House"
+            className="ms-auto text-warning text-decoration-none"
+          >
+            View All
+          </a> */}
+        </div>
+      </div>
 
       <div className="d-flex flex-wrap justify-content-start align-items-center mb-3">
         {categories.map((category, index) => (
           <button
             key={index}
             onClick={() => setSelectedCategory(category)}
-            className={`btn ${
+            className={` cat-filter-button  btn ${
               selectedCategory === category ? "btn-warning" : "btn-light"
             } me-2 mb-2 mb-sm-0`}
             style={{ minWidth: "100px" }}
@@ -103,14 +122,31 @@ const CommunityOutreachSlider = ({ SocialWorkData }) => {
 
       <button
         className="btn btn-warning position-absolute top-50 start-0 translate-middle-y"
-        style={{ zIndex: 5 }}
+        style={{
+          zIndex: 5,
+          borderRadius: "50%", // Makes the button circular
+          width: "50px", // Adjust width to make it circular
+          height: "50px", // Adjust height to make it circular
+          display: "flex", // Centers the icon
+          alignItems: "center",
+          justifyContent: "center",
+        }}
         onClick={() => sliderRef.current.slickPrev()}
       >
-        <IoIosArrowBack size={30} />
+        <IoIosArrowBack size={24} />
       </button>
+
       <button
         className="btn  btn-warning position-absolute top-50 end-0 translate-middle-y"
-        style={{ zIndex: 5 }}
+        style={{
+          zIndex: 5,
+          borderRadius: "50%", // Makes the button circular
+          width: "50px", // Adjust width to make it circular
+          height: "50px", // Adjust height to make it circular
+          display: "flex", // Centers the icon
+          alignItems: "center",
+          justifyContent: "center",
+        }}
         onClick={() => sliderRef.current.slickNext()}
       >
         <IoIosArrowForward size={30} />
@@ -129,12 +165,6 @@ const CommunityOutreachSlider = ({ SocialWorkData }) => {
           </div>
         ))}
       </Slider>
-
-      <div className="text-center mt-3">
-        <Link to="#" className="text-warning fw-bold">
-          View All
-        </Link>
-      </div>
     </div>
   );
 };

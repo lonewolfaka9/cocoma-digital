@@ -25,6 +25,8 @@ margin: auto;
 
 
 
+
+
 .video-thumbnail {
   position: relative;
   cursor: pointer;
@@ -80,3 +82,42 @@ margin: auto;
   color: #333;
 }
 
+
+
+/* Timeline.css */
+
+
+/* Timeline Container Styling */
+.timeline-arrow{
+  border-left: 2px solid black;
+  position: relative;
+}
+.arrow-upper{
+  position: absolute;
+  top: -10px;
+  left: -14px;
+}
+.image-year-group {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.year-center-svg {
+  position: absolute;
+  font-size: 32px;
+  font-weight: 600;
+  text-align: center;
+  color: black; /* Adjust color as needed */
+  transform: translate(-50%, -60%);
+  top: 50%;
+  left: 60%;
+}
+.timeline-title-text{
+  padding: 10px;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color:#ffe68caa;
+  color:#fac609 ;
+}

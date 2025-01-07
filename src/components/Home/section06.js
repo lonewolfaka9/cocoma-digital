@@ -7,7 +7,14 @@ export default function Section06() {
         <div className="row">
           <div className="col-12">
             <center>
-              <h1>Industries We Serve</h1>
+              <p
+                style={{
+                  fontSize: "32px",
+                  fontWeight: 500,
+                }}
+              >
+                Industries We Serve
+              </p>
             </center>
           </div>
         </div>

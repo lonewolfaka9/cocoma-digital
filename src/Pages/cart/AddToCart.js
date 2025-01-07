@@ -5,7 +5,7 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { useDispatch, useSelector } from "react-redux";
 import { removeItemFromCart } from "../../Service/redux/cartSlice";
-
+import "./cart.css";
 export default function AddToCart() {
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.items);
@@ -15,6 +15,16 @@ export default function AddToCart() {
   };
 
   console.log(cartItems);
+  const onScheduleMeeting = () => {
+    // Prepare the JSON payload
+    const payload = {
+      cartItems, // Include all cart items
+      timestamp: new Date().toISOString(), // Add a timestamp (optional)
+    };
+
+    // Log the JSON payload to the console
+    console.log("Payload to be sent:", JSON.stringify(payload, null, 2));
+  };
 
   const [viewMode, setViewMode] = useState("CartCard");
 
@@ -29,16 +39,20 @@ export default function AddToCart() {
           <div className="col-lg-2 d-flex justify-content-end d-none d-lg-block d-md-block">
             <button
               onClick={() => setViewMode("CartCard")}
-              className={`btn ${
-                viewMode === "CartCard" ? "btn-primary" : "btn-outline-primary"
+              className={`btn add-to-cart-grid-button ${
+                viewMode === "CartCard"
+                  ? "add-to-cart-grid-button-active"
+                  : "btn-outline-primary"
               } me-2`}
             >
               <PiCirclesFourLight />
             </button>
             <button
               onClick={() => setViewMode("row")}
-              className={`btn ${
-                viewMode === "row" ? "btn-primary" : "btn-outline-primary"
+              className={`btn add-to-cart-grid-button ${
+                viewMode === "row"
+                  ? "add-to-cart-grid-button-active"
+                  : "btn-outline-primary"
               }`}
             >
               <IoReorderFourSharp />
@@ -109,7 +123,10 @@ export default function AddToCart() {
             </div>
 
             <div className="text-center mt-4 mb-4">
-              <button className="btn sehedule-meeting-btn">
+              <button
+                className="btn sehedule-meeting-btn"
+                onClick={onScheduleMeeting}
+              >
                 Schedule Meeting <FaArrowRightLong />
               </button>
             </div>

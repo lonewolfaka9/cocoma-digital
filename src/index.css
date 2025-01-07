@@ -51,7 +51,7 @@ code {
 .section-heading-01{
   width: 100%;
   font-weight: 700;
-  font-size: 2.5rem;
+  font-size: 28px;
   /* margin-left: 5rem; */
   padding-left: 5rem;
   padding-right: 5rem;
@@ -64,7 +64,7 @@ code {
   padding-left: 5rem;
   margin-top: 1rem;
   padding-right: 5rem;
-  font-size: 18px; 
+  font-size: 20px; 
 }
 @media (max-width: 925px) {
   .section-heading-01{
@@ -127,7 +127,7 @@ h2 {
   border: none;
   padding: 10px 20px;
   margin: 0 5px;
-  font-size: 16px;
+  font-size: 24px;
   cursor: pointer;
   border-radius: 5px;
 }

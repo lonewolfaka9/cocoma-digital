@@ -7,6 +7,7 @@ import Slider from "react-slick";
 import LifeAtCocoma from "../../components/AboutUs/LifeAtCocoma";
 import SocialWorkSlider from "../../components/AboutUs/SocialWork";
 import Section14 from "../../components/Home/section14";
+import Timeline from "../../components/AboutUs/timeline";
 const AboutUs = () => {
   const settings = {
     dots: false,
@@ -168,6 +169,7 @@ const AboutUs = () => {
           />
         </Modal>
       </div>
+      <Timeline />
       <LifeAtCocoma />
       <SocialWorkSlider />
       <Section14 />

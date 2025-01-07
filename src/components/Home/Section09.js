@@ -54,7 +54,12 @@ const Section09 = ({ CreativeHouseSection }) => {
       <div className="row">
         <div className="col-lg-11">
           {" "}
-          <h5 className="text-secondary">LATEST WORK FROM</h5>
+          <h3
+            className="text-uppercase text-muted mb-3"
+            style={{ fontSize: "20px" }}
+          >
+            LATEST WORK FROM
+          </h3>
           <h2 className="fw-bold">OUR CREATIVE HOUSE</h2>
         </div>
         <div className="col-lg-1">

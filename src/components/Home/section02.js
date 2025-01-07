@@ -35,13 +35,15 @@ export default function Section02() {
     <>
       <div className="trusted-brand">
         <center>
-          <p>Trusted by Leading Brands Worldwide</p>
+          <p style={{ fontSize: "20px", textTransform: "uppercase" }}>
+            Trusted by Leading Brands Worldwide
+          </p>
         </center>
         <Marquee className="mt-3">
           {BrandData.map((brand) => (
             <img
               key={brand.id}
-              src={brand.brand_image || "../../Images/default-brand.svg"}
+              src={brand.brand_image}
               alt={brand.brand_name || "Brand Logo"}
             />
           ))}

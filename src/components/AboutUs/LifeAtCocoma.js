@@ -59,7 +59,7 @@ const LifeAtCocoma = () => {
     <div className="container py-5">
       {/* Section Title */}
       <div className="text-center mb-4">
-        <h2 className="fw-bold">Life at Cocoma</h2>
+        <h1 className="fw-bold text-center">Life at Cocoma</h1>
         <p className="text-muted">
           Lorem Ipsum Dolor Sit Amet Consectetur. Non Tortor Malesuada Lectus
           Libero. Ipsum Commodo Pellentesque Elementum Ut.

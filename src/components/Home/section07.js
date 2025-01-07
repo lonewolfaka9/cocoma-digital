@@ -42,7 +42,12 @@ const Section07 = ({ ClientData }) => {
 
   return (
     <div className="container my-5" style={{ overflow: "hidden" }}>
-      <h3 className="text-uppercase text-muted mb-3">Our Clients</h3>
+      <h3
+        className="text-uppercase text-muted mb-3"
+        style={{ fontSize: "20px" }}
+      >
+        Our Clients
+      </h3>
       <h2 className="fw-bold">Latest Success Stories</h2>
       <Slider {...settings}>
         {clients.map((client) => (

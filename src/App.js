@@ -102,7 +102,7 @@ function App() {
 
   return (
     <>
-      {showHeaderFooter && <Header />}
+      {showHeaderFooter && <Header ServiceData={servicesData} />}
       <main>
         <Routes>
           <Route

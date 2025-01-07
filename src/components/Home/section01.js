@@ -18,7 +18,7 @@ export default function Section01({ bannerData }) {
             <div className="section-title mt-4 mb-3">
               <button
                 className="btn btn-warning"
-                style={{ fontSize: "20px", fontWeight: 700 }}
+                style={{ fontSize: "24px", fontWeight: 700 }}
               >
                 {bannerData.top_banner.banner_button_text}{" "}
                 <MdOutlineArrowOutward size={30} />

@@ -44,8 +44,13 @@ const Section08 = ({ MarketingHouseData }) => {
       <div className="row">
         <div className="col-lg-11">
           {" "}
-          <h5 className="">LATEST WORK FROM</h5>
-          <h1 className="fw-bold">OUR MARKETING HOUSE</h1>
+          <p
+            className="text-uppercase text-muted mb-3"
+            style={{ fontSize: "20px" }}
+          >
+            LATEST WORK FROM
+          </p>
+          <h2 className="fw-bold">OUR MARKETING HOUSE</h2>
         </div>
         <div className="col-lg-1">
           {" "}

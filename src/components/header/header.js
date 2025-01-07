@@ -8,7 +8,7 @@ import { HiArrowUpRight } from "react-icons/hi2";
 import { RiMenuFill } from "react-icons/ri";
 import "./Header.css";
 import LangOverlay from "./langOverlay";
-import youtube from "./youtube.svg"; // Replace with your actual icons/images
+
 // import { isMobile } from "react-device-detect";
 import { FaFacebook } from "react-icons/fa";
 import "./Language.css";
@@ -18,78 +18,43 @@ import { FaTiktok } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaYoutube } from "react-icons/fa";
 
-function Header() {
-  const [expanded, setExpanded] = useState(false); // State for controlling the mobile menu
-  const [activeCategory, setActiveCategory] = useState("Creative Services");
+function Header({ ServiceData }) {
+  const services = ServiceData.services || [];
+  const [expanded, setExpanded] = useState(false);
   const isMobile = () => window.innerWidth <= 768;
+  const [activeTab, setActiveTab] = useState(services[0]?.id || "");
 
-  // Categories and services for the dropdown
-  const categories = [
-    "Creative Services",
-    "Video Editing",
-    "Design Services",
-    "Post-Production",
-    "Performance & Marketing",
-    "Google Ads",
-    "Meta Ads",
-    "Influencer Marketing",
-    "Digital Marketing",
-    "Search Engine Marketing",
-    "IT, Web & Apps",
-    "Software Development",
-  ];
-  const solution = [
-    "For Brands",
-    "For Agencies",
-    "For Creators",
-    "For Entrepreneurs",
-    "For Studios",
-  ];
+  // Find active category details
+  const activeCategory = services.find((category) => category.id === activeTab);
 
-  const services = {
-    "Creative Services": [
-      {
-        icon: youtube,
-        name: "Logo Design",
-        description: "Lorem ipsum dolor sit amet.",
-      },
-      {
-        icon: youtube,
-        name: "Social Media Design",
-        description: "Ornare enim tempor tortor nisi.",
-      },
-      {
-        icon: youtube,
-        name: "Web Banner",
-        description: "Professional banners for your website.",
-      },
-      {
-        icon: youtube,
-        name: "Website UI",
-        description: "Create stunning user interfaces.",
-      },
-    ],
-    "Video Editing": [
-      {
-        icon: youtube,
-        name: "Social Media Clips",
-        description: "High-quality editing for social media.",
-      },
-      {
-        icon: youtube,
-        name: "Movie Trailers",
-        description: "Eye-catching trailers to captivate audiences.",
-      },
-    ],
-    // Add more categories and services as needed
-  };
+  // const categories = [
+  //   "Creative Services",
+  //   "Video Editing",
+  //   "Design Services",
+  //   "Post-Production",
+  //   "Performance & Marketing",
+  //   "Google Ads",
+  //   "Meta Ads",
+  //   "Influencer Marketing",
+  //   "Digital Marketing",
+  //   "Search Engine Marketing",
+  //   "IT, Web & Apps",
+  //   "Software Development",
+  // ];
+  // const solution = [
+  //   "For Brands",
+  //   "For Agencies",
+  //   "For Creators",
+  //   "For Entrepreneurs",
+  //   "For Studios",
+  // ];
 
   const toggleNavbar = () => {
     setExpanded((prev) => !prev);
   };
 
-  const handleCategoryClick = (category) => {
-    setActiveCategory(category);
+  const handleCategoryClick = (categoryId) => {
+    setActiveTab(categoryId);
   };
 
   return (
@@ -141,25 +106,30 @@ function Header() {
             >
               {isMobile() ? (
                 <div>
-                  {categories.map((category, index) => (
-                    <div key={index}>
+                  {services.map((category) => (
+                    <div key={category.id}>
                       {/* Render Categories */}
                       <div
                         className={`dropdown-category ${
-                          activeCategory === category ? "active" : ""
+                          activeTab === category.id ? "active" : ""
                         }`}
-                        onClick={() => handleCategoryClick(category)}
+                        onClick={() => handleCategoryClick(category.id)}
                       >
-                        {category}
+                        {category.service_category_name}
                       </div>
 
-                      {/* Render Subcategories if Category is Active */}
-                      {activeCategory === category && (
+                      {/* Show Relevant Services When Category is Active */}
+                      {activeTab === category.id && (
                         <div className="subcategory-container-mobile">
-                          {services[category]?.map((subcategory, subIndex) => (
-                            <div key={subIndex} className="subcategory-card">
-                              <strong>{subcategory.name}</strong>
-                              <p>{subcategory.description}</p>
+                          {category.service_items?.map((service, index) => (
+                            <div key={index} className="subcategory-card">
+                              <img
+                                src={service.service_image}
+                                alt={service.service_title}
+                                className="service-icon"
+                              />
+                              <strong>{service.service_title}</strong>
+                              <p>{service.description}</p>
                             </div>
                           ))}
                         </div>
@@ -174,7 +144,7 @@ function Header() {
                     <div className="p-2">
                       <h2>By Platform</h2>
                     </div>
-                    <div className="d-flex mb-2 justify-content-around">
+                    <div className="d-flex mb-2 justify-content-around ">
                       <div className="headder-logo-bg p-1">
                         <FaYoutube
                           style={{ color: "#FF0000", fontSize: "50px" }}
@@ -212,32 +182,30 @@ function Header() {
                     <div style={{ paddingLeft: 10, paddingTop: 10 }}>
                       <h4>our services by skills</h4>
                     </div>
-                    {categories.map((category, index) => (
+                    {services.map((category) => (
                       <div
-                        key={index}
+                        key={category.id}
                         className={`dropdown-category ${
-                          activeCategory === category ? "active" : ""
+                          activeTab === category.id ? "active" : ""
                         }`}
-                        onClick={() => handleCategoryClick(category)}
+                        onClick={() => handleCategoryClick(category.id)}
                       >
-                        {category}
+                        {category.service_category_name}
                       </div>
                     ))}
                   </div>
-
-                  {/* Right Column: Services */}
                   <div className="dropdown-right p-3">
-                    <h3>{activeCategory}</h3>
-                    <div className="services-headder-grid mt-2">
-                      {services[activeCategory]?.map((service, index) => (
-                        <div key={index} className="services-headder-Item">
+                    <h3>{activeCategory?.service_category_name}</h3>
+                    <div className="services-header-grid mt-2">
+                      {activeCategory?.service_items?.map((service, index) => (
+                        <div key={index} className="services-header-item">
                           <img
-                            src={service.icon}
+                            src={service.service_image}
                             alt={service.name}
                             className="service-icon"
                           />
                           <div>
-                            <strong>{service.name}</strong>
+                            <strong>{service.service_title}</strong>
                             <p>{service.description}</p>
                           </div>
                         </div>
@@ -246,54 +214,6 @@ function Header() {
                   </div>
                 </div>
               )}
-            </NavDropdown>
-            {/* Other Dropdowns */}
-            <NavDropdown
-              title="Our Expertise"
-              // className="custom-nav-dropdown-our-Expertise"
-              id="expertise-dropdown"
-            >
-              <div className="expertise-dropdown">
-                {/* Categories */}
-                <div className="expertise-categories">
-                  {categories.map((category, index) => (
-                    <div
-                      key={index}
-                      className={`expertise-category ${
-                        activeCategory === category ? "active" : ""
-                      }`}
-                      onClick={() => handleCategoryClick(category)}
-                    >
-                      <span>{category}</span>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Footer */}
-                <div className="view-all-btn">View All Events</div>
-              </div>
-            </NavDropdown>
-
-            <NavDropdown title="Solution" id="solution-dropdown">
-              <div className="expertise-dropdown">
-                {/* Categories */}
-                <div className="expertise-categories">
-                  {solution.map((solution, index) => (
-                    <div
-                      key={index}
-                      className={`expertise-category ${
-                        activeCategory === solution ? "active" : ""
-                      }`}
-                      onClick={() => handleCategoryClick(solution)}
-                    >
-                      <span>{solution}</span>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Footer */}
-                <div className="view-all-btn">View All Events</div>
-              </div>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
