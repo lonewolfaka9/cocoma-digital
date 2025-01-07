@@ -41,21 +41,21 @@ const Slider07 = () => {
   const slides = [
     {
       title: "Emily Brown",
-      imgSrc: "../../Images/About/success_story01.svg", // Replace with your image URL
+      imgSrc: "../../Images/about/success_story01.svg", // Replace with your image URL
       description: "How to Promote Your Business",
       subtext:
         "Lorem Ipsum Dolor Sit Amet Consectetur. Nulla Adipiscing Mattis Ullamcorper.",
     },
     {
       title: "Emily Brown",
-      imgSrc: "../../Images/About/seccess_story02.svg", // Replace with your image URL
+      imgSrc: "../../Images/about/seccess_story02.svg", // Replace with your image URL
       description: "$50,000 Per Month",
       subtext:
         "Lorem Ipsum Dolor Sit Amet Consectetur. Nulla Adipiscing Mattis Ullamcorper.",
     },
     {
       title: "Emily Brown",
-      imgSrc: "../../Images/About/seccess_story03.svg", // Replace with your image URL
+      imgSrc: "../../Images/about/seccess_story03.svg", // Replace with your image URL
       description: "Custom YouTube Thumbnails",
       subtext:
         "Lorem Ipsum Dolor Sit Amet Consectetur. Nulla Adipiscing Mattis Ullamcorper.",
@@ -72,7 +72,7 @@ const Slider07 = () => {
           <div key={index} className="p-2">
             <div className="success-stories-card h-100">
               <img
-                src="../../Images/About/upperDots.svg"
+                src="../../Images/about/upperDots.svg"
                 className="upperDots position-absolute"
                 alt="upper dots"
               />

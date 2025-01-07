@@ -60,7 +60,7 @@ const Timeline = () => {
         <div className="col-lg-3 col-md-4 col-sm-6 col-7 p-5 timeline-arrow">
           <div className="image-year-group">
             <img
-              src="../../Images/about/GroupService.svg"
+              src="../../Images/about/groupService.svg"
               alt="circle"
               width={"100%"}
             />
@@ -98,7 +98,7 @@ const Timeline = () => {
         <div className="col-lg-3 col-md-4 col-sm-6 col-7 p-5 timeline-arrow">
           <div className="image-year-group">
             <img
-              src="../../Images/about/GroupService.svg"
+              src="../../Images/about/groupService.svg"
               alt="circle"
               width={"100%"}
             />
