@@ -17,6 +17,7 @@ import { FaLinkedin } from "react-icons/fa";
 import { FaTiktok } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaYoutube } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 function Header({ ServiceData }) {
   const services = ServiceData.services || [];
@@ -82,7 +83,7 @@ function Header({ ServiceData }) {
         <div className="d-flex align-items-center ms-auto">
           {/* Language Button (Mobile and Tablet) */}
           <div className="me-2 d-lg-none btn-language">
-            <LangOverlay />
+            {/* <LangOverlay /> */}
           </div>
           {/* Mobile Menu Toggle */}
           <Navbar.Toggle
@@ -220,10 +221,12 @@ function Header({ ServiceData }) {
 
         {/* Get Started Button and Language (Desktop Only) */}
         <div className="d-none d-lg-flex align-items-center">
-          <LangOverlay />
-          <Button variant="warning" className="btn-get-started">
-            Get Started Today <HiArrowUpRight size={20} />
-          </Button>
+          {/* <LangOverlay /> */}
+          <Link to={"/contact_us"}>
+            <Button variant="warning" className="btn-get-started">
+              Get Started Today <HiArrowUpRight size={20} />
+            </Button>
+          </Link>
         </div>
       </Container>
     </Navbar>

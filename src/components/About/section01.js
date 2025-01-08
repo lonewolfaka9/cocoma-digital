@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Slider from "react-slick";
 
 const Section01 = ({ bannerData }) => {
@@ -21,12 +22,12 @@ const Section01 = ({ bannerData }) => {
             <div className="col-md-6 col-lg-6 text-center text-md-start">
               <h2 className="fw-bold mt-3">{banner.group_banner_heading}</h2>
               <p className="text-muted">{banner.group_banner_subheading}</p>
-              <a
-                href={banner.group_banner_button_url}
+              <Link
+                to={"/ScheduleMeeting"}
                 className="btn btn-warning fw-bold mb-5"
               >
                 {banner.group_banner_button_text} <span>→</span>
-              </a>
+              </Link>
             </div>
             {/* Image Section */}
             <div className="col-md-6 col-lg-6 d-flex justify-content-center">

@@ -63,9 +63,9 @@ const CaseStudies = () => {
           </div>
         ))}
       </div>
-      <div className="text-center mt-4">
+      {/* <div className="text-center mt-4">
         <button className="btn btn-dark p-3">See More Case Studies</button>
-      </div>
+      </div> */}
     </div>
   );
 };

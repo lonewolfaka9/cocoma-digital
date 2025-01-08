@@ -23,6 +23,16 @@ class AdminService {
   async MarkatingHouse() {
     return instance.get("/marketing_house");
   }
+
+  // POST API'S
+
+  async FreeConsultation(data) {
+    return instance.post("/free_consultation", data);
+  }
+
+  async ContactUs(data) {
+    return instance.post("/contact", data);
+  }
 }
 
 // Assign the instance to a variable

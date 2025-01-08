@@ -604,3 +604,20 @@ margin: 0px;
   height: 400px;
   object-fit: cover;
 }
+.custom-modal .modal-header {
+ 
+  color: black;
+}
+
+
+.video-container {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.playbutton:hover {
+  opacity: 0.8;
+  transform: scale(1.1);
+  transition: all 0.3s ease-in-out;
+}

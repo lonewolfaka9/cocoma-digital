@@ -87,7 +87,7 @@ const VideoEditingServices = () => {
                   className="img-fluid mb-3"
                 />
                 <h5 className="card-title">{service.title}</h5>
-                <button className="btn btn-dark">Add</button>
+                {/* <button className="btn btn-dark">Add</button> */}
               </div>
             </div>
           </div>

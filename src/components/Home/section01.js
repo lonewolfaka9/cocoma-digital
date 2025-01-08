@@ -1,33 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaRegPlayCircle } from "react-icons/fa";
 import { MdOutlineArrowOutward } from "react-icons/md";
+import { Link } from "react-router-dom";
+import Modal from "react-bootstrap/Modal";
+import ReactPlayer from "react-player";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function Section01({ bannerData }) {
+  const [showModal, setShowModal] = useState(false);
+
+  const handleOpenModal = () => {
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
   return (
     <>
       <div className="container-fluid">
         <div className="row">
           <div className="col-lg-6 col-md-6">
             <div className="section-heading-01">
-              {bannerData.top_banner.heading}
+              {bannerData?.top_banner?.heading}
             </div>
             <div className="section-title">
-              {bannerData.top_banner.sub_heading}
+              {bannerData?.top_banner?.sub_heading}
             </div>
 
             <div className="section-title mt-4 mb-3">
-              <button
+              <Link
+                to={"/ScheduleMeeting"}
                 className="btn btn-warning"
                 style={{ fontSize: "24px", fontWeight: 700 }}
               >
-                {bannerData.top_banner.banner_button_text}{" "}
+                {bannerData?.top_banner?.banner_button_text}{" "}
                 <MdOutlineArrowOutward size={30} />
-              </button>
+              </Link>
             </div>
           </div>
           <div
             className="col-lg-6 col-md-6 section-image"
-            style={{ padding: "0px" }}
+            style={{ padding: "0px", position: "relative" }}
           >
             <img
               src={
@@ -37,12 +52,56 @@ export default function Section01({ bannerData }) {
               className="section-image-01"
               alt=""
             />
-            <div className="playbutton">
-              <FaRegPlayCircle size={80} color={"#ffff"} />
+            <div
+              className="playbutton"
+              style={{
+                position: "absolute",
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+                cursor: "pointer",
+              }}
+              onClick={handleOpenModal}
+            >
+              <FaRegPlayCircle size={80} color={"#fff"} />
             </div>
           </div>
         </div>
       </div>
+
+      {/* Modal for Video */}
+      <Modal
+        show={showModal}
+        onHide={handleCloseModal}
+        centered
+        backdrop="static"
+        size="lg"
+        className="custom-modal"
+      >
+        <Modal.Header closeButton>
+          <Modal.Title className="">
+            <strong>Watch Video</strong>
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="p-0">
+          <div
+            className="video-container"
+            style={{ position: "relative", paddingTop: "56.25%" }}
+          >
+            <ReactPlayer
+              url="https://www.youtube.com/watch?v=dRCwE0Bv148"
+              controls
+              width="100%"
+              height="100%"
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+              }}
+            />
+          </div>
+        </Modal.Body>
+      </Modal>
     </>
   );
 }

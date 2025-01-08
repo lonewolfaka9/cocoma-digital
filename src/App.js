@@ -24,6 +24,8 @@ import ViewAllSeries from "./Pages/AllWebSeries/ViewAllSeries";
 import WebSeriesIndividual from "./Pages/AllWebSeries/WebSeriesIndividual";
 import AdminService from "./Service/apiService";
 import NotFound from "./Pages/PageNotFound";
+import ScheduleMeeting from "./Pages/Sedulemeating/ScheduleMeeting";
+import ScheduleMeetingDetails from "./Pages/Sedulemeating/ScheduleMeetingDetail";
 function App() {
   const location = useLocation();
   // SET DATA WITH USESTATE
@@ -163,6 +165,13 @@ function App() {
           <Route path="/job-details/:id" element={<JobDetails />} />
           <Route path="/job-Application" element={<JobApplicationForm />} />
           <Route path="/ThankYou" element={<ThankYouPage />} />
+
+          {/* Schedule Meeting */}
+          <Route path="/ScheduleMeeting" element={<ScheduleMeeting />} />
+          <Route
+            path="/schedule-meeting"
+            element={<ScheduleMeetingDetails />}
+          />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

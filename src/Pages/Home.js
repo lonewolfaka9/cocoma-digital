@@ -8,7 +8,7 @@ import Section06 from "../components/Home/section06";
 import Section07 from "../components/Home/section07";
 import Section08 from "../components/Home/section08";
 import Section09 from "../components/Home/Section09";
-import Section10 from "../components/Home/section10";
+// import Section10 from "../components/Home/section10";
 import Section11 from "../components/Home/section11";
 import Section12 from "../components/Home/section12";
 import Section13 from "../components/Home/section13";
@@ -36,7 +36,7 @@ export default function Home({
       <Section11 />
       <Section12 />
       <Section13 SocialWorkData={HomePage} />
-      <Section14 />
+      {/* <Section14 /> */}
     </>
   );
 }
