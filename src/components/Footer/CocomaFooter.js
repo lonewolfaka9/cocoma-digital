@@ -19,7 +19,7 @@ export default function CocomaFooter() {
               />
             </div>
             <div className="col-lg-4 col-md-3 d-sm-block d-lg-block d-md-block col-sm-2 d-none"></div>
-            <div className="col-lg-3 col-md-4 col-sm-6 col-6 d-flex justify-content-between">
+            <div className="col-lg-3 col-sm-6 col-md-4 col-sm-6 col-6 d-flex justify-content-between">
               <div className="social-icon">
                 <FaWhatsapp className="social-icon-main" size={60} />
               </div>
@@ -36,7 +36,7 @@ export default function CocomaFooter() {
           </div>
 
           <div className="row mt-5 footer-menu-item">
-            <div className="col-lg-3">
+            <div className="col-lg-3 col-sm-6 col-md-3">
               <ul>
                 <li>
                   <h2>Services</h2>
@@ -51,7 +51,7 @@ export default function CocomaFooter() {
               </ul>
             </div>
 
-            <div className="col-lg-3">
+            <div className="col-lg-3 col-sm-6 col-md-3">
               <ul>
                 <li>
                   <h2>Solutions</h2>
@@ -64,7 +64,7 @@ export default function CocomaFooter() {
               </ul>
             </div>
 
-            <div className="col-lg-3">
+            <div className="col-lg-3 col-sm-6 col-md-3">
               <ul>
                 <li>
                   <h2>Cocoma Digital</h2>
@@ -85,7 +85,7 @@ export default function CocomaFooter() {
               </ul>
             </div>
 
-            <div className="col-lg-3">
+            <div className="col-lg-3 col-sm-6 com-md-3">
               <ul>
                 <li>
                   <h2>Company</h2>
@@ -96,9 +96,9 @@ export default function CocomaFooter() {
                 <li>Customer Stories</li> */}
               </ul>
             </div>
-            <div className="col-lg-3"></div>
+            <div className="col-lg-3 col-sm-6 col-md-3"></div>
 
-            <div className="col-lg-3">
+            <div className="col-lg-3 col-sm-6 col-md-3">
               <ul>
                 <li>
                   <h2>Expertise</h2>
@@ -109,7 +109,7 @@ export default function CocomaFooter() {
                 <li></li>
               </ul>
             </div>
-            <div className="col-lg-3">
+            <div className="col-lg-3 col-sm-6 col-md-3 ">
               <ul>
                 <li>
                   <h2>Help</h2>
@@ -123,7 +123,7 @@ export default function CocomaFooter() {
                 <li>Cookie Setting</li> */}
               </ul>
             </div>
-            <div className="col-lg-3">
+            <div className="col-lg-3 col-sm-6 col-md-3">
               <ul>
                 <li>
                   <h2>resources</h2>
