@@ -129,7 +129,7 @@ object-fit: cover;
 }
 
 .videoplayer-and-thumbnail{
-  width: 90%;
+  width: 100%;
 }
 @media (max-width: 768px) {
   .videoplayer-and-thumbnail{

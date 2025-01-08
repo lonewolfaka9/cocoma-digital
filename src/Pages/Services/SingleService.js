@@ -43,8 +43,6 @@ export default function SingleService({ ServicesPage }) {
   if (!matchingGroupServiceItem) {
     return <p>No matching group service item found.</p>;
   }
-
-  console.log("matchingServiceItem >>>>>>>", matchingGroupServiceItem);
   return (
     <>
       <SingleServiceSlider matchingItem={matchingGroupServiceItem} />

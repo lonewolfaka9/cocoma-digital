@@ -64,7 +64,7 @@ function Header({ ServiceData }) {
       expand="lg"
       expanded={expanded} // Control collapse state
     >
-      <Container fluid>
+      <Container>
         {/* Logo Section */}
         <Navbar.Brand href="/" className="d-flex align-items-center">
           <img
