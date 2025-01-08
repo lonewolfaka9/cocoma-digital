@@ -1,38 +1,82 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { GoArrowUpRight } from "react-icons/go";
+import Slider from "react-slick"; // Import react-slick
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const Section03 = ({ ServidcesToShow }) => {
   const services = ServidcesToShow.services || [];
-  const [activeTab, setActiveTab] = useState(services[0]?.id);
-  const activeCategory = services.find((category) => category.id === activeTab);
+
+  // Filter out the category with name "Service Platform"
+  const filteredServices = services.filter(
+    (category) => category.service_category_name !== "Service Platform"
+  );
+
+  const [activeTab, setActiveTab] = useState(filteredServices[0]?.id);
+  const activeCategory = filteredServices.find(
+    (category) => category.id === activeTab
+  );
+
+  const sliderSettings = {
+    dots: false,
+    infinite: false,
+    speed: 500,
+    arrows: false,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 425,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
+  };
 
   return (
     <div className="container">
       <div className="row mt-5">
         <div className="col-lg-12">
           <center>
-            <p style={{ fontSize: "40px", fontWeight: 500 }}>
-              EXPLORE OUR SERVICES
-            </p>
+            <h1 className="all-service-heading-home">EXPLORE OUR SERVICES</h1>
           </center>
-
-          <div className="tab-buttons d-flex justify-content-center mt-4 flex-wrap">
-            {ServidcesToShow.services.slice(0, 3).map((category) => (
-              <button
-                key={category.id}
-                className={`tab-button ${
-                  activeTab === category.id ? "active" : ""
-                }`}
-                onClick={() => setActiveTab(category.id)}
-              >
-                {category.service_category_name}
-              </button>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-lg-2"></div>
+        <div className="col-lg-8 text-center">
+          <Slider {...sliderSettings} className="category-slider mt-4">
+            {filteredServices.map((category) => (
+              <div key={category.id} className="category-slide">
+                <button
+                  className={`tab-button ${
+                    activeTab === category.id ? "active" : ""
+                  }`}
+                  onClick={() => setActiveTab(category.id)}
+                >
+                  {category.service_category_name}
+                </button>
+              </div>
             ))}
-          </div>
+          </Slider>
         </div>
       </div>
 
+      {/* Services Section */}
       <div className="row services mt-4">
         {activeCategory?.service_items?.length > 0 ? (
           activeCategory.service_items.map((service) => (

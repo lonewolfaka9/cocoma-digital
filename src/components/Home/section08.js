@@ -54,12 +54,12 @@ const Section08 = ({ MarketingHouseData }) => {
         </div>
         <div className="col-lg-1">
           {" "}
-          <a
-            href="/View-all-Series "
+          <Link
+            to="/View-all-Series "
             className="ms-auto text-warning text-decoration-none"
           >
             View All
-          </a>
+          </Link>
         </div>
       </div>
 
@@ -95,7 +95,7 @@ const Section08 = ({ MarketingHouseData }) => {
               className="col-lg-3 col-md-4 col-sm-6 col-6 mb-4"
             >
               <div className="card">
-                <Link to={`/${item.id}`}>
+                <Link to={`Web-Series-Individual/${item.id}`}>
                   <img
                     src={item.imgSrc}
                     alt={item.category}

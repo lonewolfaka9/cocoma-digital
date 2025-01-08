@@ -21,7 +21,7 @@ export default function Section01({ bannerData }) {
     <>
       <div className="container-fluid">
         <div className="row">
-          <div className="col-lg-6 col-md-6">
+          <div className="col-lg-6 col-md-6 col-sm-7 p-lg-5 p-md-0 ">
             <div className="section-heading-01">
               {bannerData?.top_banner?.heading}
             </div>
@@ -29,19 +29,18 @@ export default function Section01({ bannerData }) {
               {bannerData?.top_banner?.sub_heading}
             </div>
 
-            <div className="section-title mt-4 mb-3">
+            <div className="section-title mt-5 mb-3">
               <Link
                 to={"/ScheduleMeeting"}
-                className="btn btn-warning"
-                style={{ fontSize: "24px", fontWeight: 700 }}
+                className="btn btn-warning clam-free-consultation-button"
               >
-                {bannerData?.top_banner?.banner_button_text}{" "}
-                <MdOutlineArrowOutward size={30} />
+                {bannerData?.top_banner?.banner_button_text}
+                <MdOutlineArrowOutward className="clam-free-consultation-button" />
               </Link>
             </div>
           </div>
           <div
-            className="col-lg-6 col-md-6 section-image"
+            className="col-lg-6 col-md-6 col-sm-5 section-image"
             style={{ padding: "0px", position: "relative" }}
           >
             <img

@@ -12,8 +12,7 @@ import Section09 from "../components/Home/Section09";
 import Section11 from "../components/Home/section11";
 import Section12 from "../components/Home/section12";
 import Section13 from "../components/Home/section13";
-import Section14 from "../components/Home/section14";
-import "../index.css";
+// import Section14 from "../components/Home/section14";
 
 export default function Home({
   HomePage,
@@ -33,7 +32,7 @@ export default function Home({
       <Section08 MarketingHouseData={MarketingHouseData} />
       <Section09 CreativeHouseSection={CreativeHouseData} />
       {/* <Section10 DevelopmentHouseData={HomePage} /> */}
-      <Section11 />
+      <Section11 MonthlyPerformanaceData={HomePage} />
       <Section12 />
       <Section13 SocialWorkData={HomePage} />
       {/* <Section14 /> */}

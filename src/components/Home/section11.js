@@ -16,7 +16,7 @@ const Section11 = () => {
       title: "2",
       description:
         "We strategically released the launch date through a dramatic video that played on audience suspense, ensuring the news went viral.We strategically released the launch date through a dramatic video that played on audience suspense, ensuring the news went viral.",
-      image: "../../Images/videosthumb.png",
+      image: "../../Images/summary.png",
     },
     {
       id: 3,
@@ -44,9 +44,9 @@ const Section11 = () => {
           <h2 className="fw-bold">MONTHLY PERFORMANCE SHOWCASE</h2>
         </div>
         <div className="col-lg-4">
-          <div className="d-flex justify-content-end ">
+          {/* <div className="d-flex justify-content-end ">
             <p className="text-muted mb-0">June–August 2024 Highlights</p>
-          </div>
+          </div> */}
         </div>
       </div>
       <div className="border rounded p-4" style={{ background: "#F1F1F1" }}>

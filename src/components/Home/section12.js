@@ -5,7 +5,7 @@ const Section12 = () => {
     <div className="container mt-5 mb-5">
       <div className="row  border rounded ">
         <div
-          className="col-md-4 text-center mb-3 mb-md-0 position-relative"
+          className="col-md-6 col-lg-5  text-center mb-3 mb-md-0 position-relative"
           style={{ background: "#F9F9F9", height: "auto" }}
         >
           <img
@@ -16,7 +16,7 @@ const Section12 = () => {
           />
         </div>
 
-        <div className="col-md-8 pt-5">
+        <div className="col-md-6 col-lg-7 pt-5">
           <h2>
             See How My Team Can Make Your Web Series Go Viral On Social Media?
           </h2>

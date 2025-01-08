@@ -1,17 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { GoArrowUpRight } from "react-icons/go";
 
 const Section04 = ({ ServidcesToShow }) => {
   const services = ServidcesToShow.services || [];
 
-  // Set default active tab to the 3rd index (if it exists)
-  const [activeTab, setActiveTab] = useState(
-    services[3]?.service_category_name
-  );
-
-  const activeCategory = services.find(
-    (category) => category.service_category_name === activeTab
+  // Filter to get only the "Service Platform" category
+  const servicePlatform = services.find(
+    (category) => category.service_category_name === "Service Platform"
   );
 
   return (
@@ -19,23 +15,17 @@ const Section04 = ({ ServidcesToShow }) => {
       <div className="row mt-5">
         <div className="col-lg-12">
           <center>
-            <p
-              style={{
-                fontSize: "40px",
-                fontWeight: 500,
-                textTransform: "uppercase",
-              }}
-            >
+            <h1 className="all-service-heading-home">
               Our Services By Platform
-            </p>
+            </h1>
           </center>
         </div>
       </div>
 
-      {/* Render services for the active category */}
+      {/* Render services for the "Service Platform" category */}
       <div className="row services mt-1">
-        {activeCategory?.service_items?.length > 0 ? (
-          activeCategory.service_items.map((service) => (
+        {servicePlatform?.service_items?.length > 0 ? (
+          servicePlatform.service_items.map((service) => (
             <div className="col-md-6 col-lg-4 col-sm-12 mt-5" key={service.id}>
               <div className="service-card pb-4 text-center">
                 <img
@@ -54,7 +44,7 @@ const Section04 = ({ ServidcesToShow }) => {
           ))
         ) : (
           <p className="text-center mt-5">
-            No services available for this category.
+            No services available for "Service Platform".
           </p>
         )}
       </div>

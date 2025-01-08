@@ -5,8 +5,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import "./index.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js"; // Includes Popper.js
+import "./index.css";
 import store, { persistor } from "./Service/redux/store";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react"; // Import PersistGate

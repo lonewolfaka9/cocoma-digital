@@ -35,11 +35,14 @@ export default function Section02() {
     <>
       <div className="trusted-brand">
         <center>
-          <p style={{ fontSize: "20px", textTransform: "uppercase" }}>
+          <h3
+            className="all-service-heading-home"
+            style={{ color: "white", textTransform: "uppercase" }}
+          >
             Trusted by Leading Brands Worldwide
-          </p>
+          </h3>
         </center>
-        <Marquee className="mt-3">
+        <Marquee className="mt-2 mb-2">
           {BrandData.map((brand) => (
             <img
               key={brand.id}
