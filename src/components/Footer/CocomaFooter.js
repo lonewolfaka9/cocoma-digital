@@ -56,11 +56,11 @@ export default function CocomaFooter() {
                 <li>
                   <h2>Solutions</h2>
                 </li>
-                <li>For Brands</li>
+                {/* <li>For Brands</li>
                 <li>For Agencies</li>
                 <li>For Creators</li>
                 <li>For Entrepreneurs</li>
-                <li>For Studios</li>
+                <li>For Studios</li> */}
               </ul>
             </div>
 
@@ -80,8 +80,8 @@ export default function CocomaFooter() {
                     About us{" "}
                   </Link>
                 </li>
-                <li>How it works</li>
-                <li>Blog</li>
+                {/* <li>How it works</li>
+                <li>Blog</li> */}
               </ul>
             </div>
 
@@ -90,10 +90,10 @@ export default function CocomaFooter() {
                 <li>
                   <h2>Company</h2>
                 </li>
-                <li>Media kit</li>
+                {/* <li>Media kit</li>
                 <li>Cocoma for good</li>
                 <li>Press</li>
-                <li>Customer Stories</li>
+                <li>Customer Stories</li> */}
               </ul>
             </div>
             <div className="col-lg-3"></div>
@@ -114,11 +114,13 @@ export default function CocomaFooter() {
                 <li>
                   <h2>Help</h2>
                 </li>
-                <li>Contact us</li>
-                <li>FAQs</li>
+                <li>
+                  <Link to={"/contact_us"}>Contact us</Link>
+                </li>
+                {/* <li>FAQs</li>
                 <li>Help Centre</li>
                 <li>terms & conditions</li>
-                <li>Cookie Setting</li>
+                <li>Cookie Setting</li> */}
               </ul>
             </div>
             <div className="col-lg-3">
@@ -126,9 +128,9 @@ export default function CocomaFooter() {
                 <li>
                   <h2>resources</h2>
                 </li>
-                <li>Affiliates</li>
+                {/* <li>Affiliates</li>
                 <li>Partners</li>
-                <li>Learning Centre</li>
+                <li>Learning Centre</li> */}
               </ul>
             </div>
           </div>
