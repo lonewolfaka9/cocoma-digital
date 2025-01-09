@@ -155,14 +155,15 @@ object-fit: cover;
 }
 
 .cart-widget {
-  position: fixed;
-  width: 250px;
+  position: sticky;
+  width: 180px;
   height: 130px;
-  top: 80%;
+  top: 60%;
+  left: 100%;
   right: 0;
   background-color: #F5C518; /* Yellow color */
   padding: 0px 0px 0px 20px;
-  border-radius: 60px 0% 0% 60px;
+  border-radius: 50px 0% 0% 50px;
   z-index: 1000;
   text-align: center;
   
@@ -175,13 +176,13 @@ object-fit: cover;
 }
 
 .cart-count {
-  
   font-size: 18px;
   font-weight: bold;
   align-items: center;
   justify-content: center;
 
 }
+
 
 .cart-text {
   color: white;
@@ -206,6 +207,40 @@ object-fit: cover;
   background-color: #000;
   color: white;
 }
+
+
+
+@media (max-width: 768px) {
+  .cart-widget {
+    position: sticky;
+    width: 100px;
+    height: 60px;
+    top: 50%;
+    right: 0%;
+    left: 100%;
+    background-color: #F5C518; /* Yellow color */
+    padding: 0px 0px 0px 20px;
+    border-radius: 60px 0% 0% 60px;
+    z-index: 1000;
+    text-align: center;
+    
+  }
+  .schedule-button {
+    background-color: white;
+    color: #000;
+    font-size: 14px;
+    display: none;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 10px;
+  }
+  
+}
+
 .thumbnail-wrapper img {
   width: 100%;
   height: auto;

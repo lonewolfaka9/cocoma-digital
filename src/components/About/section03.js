@@ -45,6 +45,13 @@ const Section03 = ({ categoryDataTitle, items }) => {
           slidesToScroll: 1,
         },
       },
+      {
+        breakpoint: 425,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
     ],
   };
 
