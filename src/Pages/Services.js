@@ -55,8 +55,6 @@ export default function Services({ HomePage, ServicesPage }) {
 
   const MatchCardsData = matchingServiceItem.group_service_category;
 
-  console.log(MatchCardsData);
-
   return (
     <>
       {cartItemCount > 0 ? (

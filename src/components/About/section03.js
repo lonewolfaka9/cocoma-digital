@@ -50,7 +50,7 @@ const Section03 = ({ categoryDataTitle, items }) => {
 
   return (
     <div className="container my-5 position-relative">
-      <h2 className="font-weight-bold mb-4">{categoryDataTitle}</h2>
+      <h2 className="font-weight-bold mb-4">{categoryDataTitle} </h2>
       <button
         className="btn btn-light position-absolute top-50 start-0 translate-middle-y"
         style={{ zIndex: 5 }}

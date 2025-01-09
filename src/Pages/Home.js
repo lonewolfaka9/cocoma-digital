@@ -19,6 +19,7 @@ export default function Home({
   ServiceData,
   CreativeHouseData,
   MarketingHouseData,
+  MonthlyPerformanaceData,
 }) {
   return (
     <>
@@ -32,7 +33,7 @@ export default function Home({
       <Section08 MarketingHouseData={MarketingHouseData} />
       <Section09 CreativeHouseSection={CreativeHouseData} />
       {/* <Section10 DevelopmentHouseData={HomePage} /> */}
-      <Section11 MonthlyPerformanaceData={HomePage} />
+      <Section11 MonthlyPerformanaceData={MonthlyPerformanaceData} />
       <Section12 />
       <Section13 SocialWorkData={HomePage} />
       {/* <Section14 /> */}

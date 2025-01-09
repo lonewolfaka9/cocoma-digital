@@ -1,8 +1,45 @@
 import React, { useState, useEffect } from "react";
+import Slider from "react-slick";
 import { Link } from "react-router-dom";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 const Section08 = ({ MarketingHouseData }) => {
   const [category, setCategory] = useState("All");
   const [filteredItems, setFilteredItems] = useState([]);
+
+  // Settings for the slider
+  const sliderSettings = {
+    dots: false,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 5,
+    arrows: false,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
 
   useEffect(() => {
     if (MarketingHouseData) {
@@ -43,7 +80,6 @@ const Section08 = ({ MarketingHouseData }) => {
     <div className="container my-4">
       <div className="row">
         <div className="col-lg-11">
-          {" "}
           <p
             className="text-uppercase text-muted mb-3"
             style={{ fontSize: "20px" }}
@@ -53,7 +89,6 @@ const Section08 = ({ MarketingHouseData }) => {
           <h2 className="fw-bold">OUR MARKETING HOUSE</h2>
         </div>
         <div className="col-lg-1">
-          {" "}
           <Link
             to="/View-all-Series "
             className="ms-auto text-warning text-decoration-none"
@@ -63,33 +98,37 @@ const Section08 = ({ MarketingHouseData }) => {
         </div>
       </div>
 
-      <div className="d-flex flex-wrap my-3 mb-3">
-        <button
-          className={`cat-filter-button btn w-auto me-2 ${
-            category === "All" ? "btn-warning" : "btn-outline-secondary"
-          }`}
-          onClick={() => setCategory("All")}
-        >
-          All
-        </button>
-        {MarketingHouseData?.marketing_house?.map((cat) => (
+      {/* Category Slider */}
+      <div className="my-3">
+        <Slider {...sliderSettings} className="SliderCustom-width">
           <button
-            key={cat.id}
             className={`cat-filter-button btn w-auto me-2 ${
-              category === cat.category_name
-                ? "btn-warning"
-                : "btn-outline-secondary"
+              category === "All" ? "btn-warning" : "btn-outline-secondary"
             }`}
-            onClick={() => setCategory(cat.category_name)}
+            onClick={() => setCategory("All")}
           >
-            {cat.category_name}
+            All
           </button>
-        ))}
+          {MarketingHouseData?.marketing_house?.map((cat) => (
+            <button
+              key={cat.id}
+              className={`cat-filter-button btn w-auto me-2 ${
+                category === cat.category_name
+                  ? "btn-warning"
+                  : "btn-outline-secondary"
+              }`}
+              onClick={() => setCategory(cat.category_name)}
+            >
+              {cat.category_name}
+            </button>
+          ))}
+        </Slider>
       </div>
 
+      {/* Filtered Items */}
       <div className="row mt-3">
         {filteredItems.length > 0 ? (
-          filteredItems.map((item) => (
+          filteredItems.slice(0, 8).map((item) => (
             <div
               key={item.id}
               className="col-lg-3 col-md-4 col-sm-6 col-6 mb-4"

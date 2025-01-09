@@ -4,7 +4,9 @@ import { FaFacebookF } from "react-icons/fa";
 import { FaWhatsapp } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-export default function CocomaFooter() {
+export default function CocomaFooter({ ServiceFooter }) {
+  const services = ServiceFooter.services || [];
+  console.log(services);
   return (
     <>
       <div className="container-fluid footer-main pt-5">
@@ -39,22 +41,22 @@ export default function CocomaFooter() {
             <div className="col-lg-3 col-sm-6 col-md-3">
               <ul>
                 <li>
-                  <h2>Services</h2>
+                  <h4>Services</h4>
                 </li>
-                <li>YouTube Services</li>
-                <li>Instagram Services</li>
-                <li>Video Editing Services</li>
-                <li>Motion Graphics</li>
-                <li>Graphic Designs</li>
-                <li>Influencer Marketing</li>
-                <li>Digital Marketing</li>
+                {services.slice(0, 3).map((service) =>
+                  service.service_items.slice(0, 2).map((item, index) => (
+                    <li key={index}>
+                      <a href={`/service/${item.id}`}>{item.service_title}</a>
+                    </li>
+                  ))
+                )}
               </ul>
             </div>
 
             <div className="col-lg-3 col-sm-6 col-md-3">
               <ul>
                 <li>
-                  <h2>Solutions</h2>
+                  <h4>Solutions</h4>
                 </li>
                 {/* <li>For Brands</li>
                 <li>For Agencies</li>
@@ -67,7 +69,7 @@ export default function CocomaFooter() {
             <div className="col-lg-3 col-sm-6 col-md-3">
               <ul>
                 <li>
-                  <h2>Cocoma Digital</h2>
+                  <h4>Cocoma Digital</h4>
                 </li>
                 <li>
                   <Link
@@ -80,58 +82,61 @@ export default function CocomaFooter() {
                     About us{" "}
                   </Link>
                 </li>
-                {/* <li>How it works</li>
-                <li>Blog</li> */}
+                <li>
+                  {" "}
+                  <a href={"/contact_us"}>Contact us</a>
+                </li>
+                {/* <li>Blog</li> */}
               </ul>
             </div>
 
             <div className="col-lg-3 col-sm-6 com-md-3">
-              <ul>
+              {/* <ul>
                 <li>
-                  <h2>Company</h2>
+                  <h4>Company</h4>
                 </li>
-                {/* <li>Media kit</li>
+                <li>Media kit</li>
                 <li>Cocoma for good</li>
                 <li>Press</li>
-                <li>Customer Stories</li> */}
-              </ul>
+                <li>Customer Stories</li>
+              </ul> */}
             </div>
             <div className="col-lg-3 col-sm-6 col-md-3"></div>
 
             <div className="col-lg-3 col-sm-6 col-md-3">
-              <ul>
+              {/* <ul>
                 <li>
-                  <h2>Expertise</h2>
+                  <h4>Expertise</h4>
                 </li>
                 <li></li>
                 <li></li>
                 <li></li>
                 <li></li>
-              </ul>
+              </ul> */}
             </div>
             <div className="col-lg-3 col-sm-6 col-md-3 ">
-              <ul>
+              {/* <ul>
                 <li>
-                  <h2>Help</h2>
+                  <h4>Help</h4>
                 </li>
                 <li>
-                  <Link to={"/contact_us"}>Contact us</Link>
+                  <a href={"/contact_us"}>Contact us</a>
                 </li>
-                {/* <li>FAQs</li>
+                <li>FAQs</li>
                 <li>Help Centre</li>
                 <li>terms & conditions</li>
-                <li>Cookie Setting</li> */}
-              </ul>
+                <li>Cookie Setting</li>
+              </ul> */}
             </div>
             <div className="col-lg-3 col-sm-6 col-md-3">
-              <ul>
+              {/* <ul>
                 <li>
-                  <h2>resources</h2>
+                  <h4>resources</h4>
                 </li>
-                {/* <li>Affiliates</li>
+                <li>Affiliates</li>
                 <li>Partners</li>
-                <li>Learning Centre</li> */}
-              </ul>
+                <li>Learning Centre</li>
+              </ul> */}
             </div>
           </div>
 

@@ -6,9 +6,6 @@ import { FaPlay } from "react-icons/fa";
 
 const RecentlyWorkedWith = ({ RecentWorkData }) => {
   const videoData = RecentWorkData?.group_single_service_recent_work || [];
-
-  console.log("RecentWorkData>>", videoData);
-
   const sliderRef = React.useRef(null);
   const [playingVideo, setPlayingVideo] = useState(null);
 
@@ -61,24 +58,31 @@ const RecentlyWorkedWith = ({ RecentWorkData }) => {
         {videoData.map((item) => (
           <div key={item.id} className="px-2">
             <div className="video-thumbnail position-relative">
-              <ReactPlayer
-                url={item.recent_work_video}
-                light={
-                  playingVideo !== item.id ? item.recent_work_video : undefined
-                }
-                playing={playingVideo === item.id}
-                controls={false}
-                width="100%"
-                playIcon={
-                  playingVideo === item.id ? null : (
-                    <div className="play-icon d-flex justify-content-center align-items-center">
-                      <FaPlay size={30} color="white" />
-                    </div>
-                  )
-                }
-                onClickPreview={() => setPlayingVideo(item.id)}
-                onEnded={() => setPlayingVideo(null)}
-              />
+              {playingVideo === item.id ? (
+                <ReactPlayer
+                  url={item.recent_work_video}
+                  playing={true}
+                  controls={true}
+                  width="100%"
+                  height="100%"
+                  onEnded={() => setPlayingVideo(null)} // Stop video after it finishes
+                />
+              ) : (
+                <div
+                  className="thumbnail-wrapper position-relative"
+                  onClick={() => setPlayingVideo(item.id)}
+                  style={{ cursor: "pointer" }}
+                >
+                  <img
+                    src={item.recent_work_video_thumbnail}
+                    alt="Video Thumbnail"
+                    className="img-fluid rounded"
+                  />
+                  <div className="play-icon ">
+                    <FaPlay size={30} color="white" />
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         ))}

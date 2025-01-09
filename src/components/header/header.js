@@ -200,15 +200,16 @@ function Header({ ServiceData }) {
                     <div className="services-header-grid mt-2">
                       {activeCategory?.service_items?.map((service, index) => (
                         <div key={index} className="services-header-item">
-                          <img
-                            src={service.service_image}
-                            alt={service.name}
-                            className="service-icon"
-                          />
-                          <div>
-                            <strong>{service.service_title}</strong>
-                            <p>{service.description}</p>
-                          </div>
+                          <a href={`/service/${service.id}`}>
+                            <img
+                              src={service.service_image}
+                              alt={service.name}
+                              className="service-icon"
+                            />
+                            <div>
+                              <strong>{service.service_title}</strong>
+                            </div>
+                          </a>
                         </div>
                       ))}
                     </div>

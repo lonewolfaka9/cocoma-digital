@@ -33,12 +33,13 @@ function App() {
   const [servicesData, setServicesData] = useState();
   const [creativeData, setCreativeData] = useState();
   const [MarketingHouseData, setMarketingHouseData] = useState();
-
+  const [MonthlyPerformanaceData, SetMonthlyPerformanceData] = useState();
   // FOR LOADING DATA
   const [loadingHome, setLoadingHome] = useState(true);
   const [loadingServices, setLoadingServices] = useState(true);
   const [loadingCreative, setLoadingCreative] = useState(true);
   const [loadingMarkating, setLoadingMarkating] = useState(true);
+  const [loadingMonthlyPerformance, setloadingMonthlyPerformance] = useState();
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -80,11 +81,25 @@ function App() {
         setError(err.message);
       })
       .finally(() => setLoadingMarkating(false));
+
+    // Monthly Performance
+    AdminService.MonthlyPerformance()
+      .then((response) => {
+        SetMonthlyPerformanceData(response.data.data.monthly_performance);
+      })
+      .catch((err) => {
+        setError(err.message);
+      })
+      .finally(() => setloadingMonthlyPerformance(false));
   }, []);
 
   // Show loading screen until all data is fetched
   const isLoading =
-    loadingHome || loadingServices || loadingCreative || loadingMarkating;
+    loadingHome ||
+    loadingServices ||
+    loadingCreative ||
+    loadingMarkating ||
+    loadingMonthlyPerformance;
 
   if (isLoading)
     return (
@@ -115,6 +130,7 @@ function App() {
                 ServiceData={servicesData}
                 CreativeHouseData={creativeData}
                 MarketingHouseData={MarketingHouseData}
+                MonthlyPerformanaceData={MonthlyPerformanaceData}
               />
             }
           />
@@ -175,7 +191,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
-      {showHeaderFooter && <CocomaFooter />}
+      {showHeaderFooter && <CocomaFooter ServiceFooter={servicesData} />}
     </>
   );
 }

@@ -76,6 +76,7 @@ const SingleServiceSlider = ({ matchingItem }) => {
         <div className="col-md-1 d-none d-sm-none d-lg-block d-md-block"></div>
         <div className="col-md-5">
           <ul className="list-unstyled text-muted">
+            <h3>{matchingItem.group_service_item_title}</h3>
             {matchingItem.featured_description
               .split("</p>")
               .filter((tag) => tag.trim() !== "")

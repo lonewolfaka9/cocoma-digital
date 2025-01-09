@@ -1,3 +1,4 @@
+import { useState } from "react";
 import RecentlyWorkedWith from "../../components/Services/RecentWork";
 import Portfolio from "../../components/Services/ServicePortfolio";
 import SingleServiceSlider from "../../components/Services/SingleServiceSlider";
@@ -20,6 +21,7 @@ export default function SingleService({ ServicesPage }) {
 
   // Loop through each service item to find a matching group_service_item id
   let matchingGroupServiceItem = null;
+  let groupServiceItems = null; // To store the group_service_item
 
   // Iterate through each service item
   for (const service of matchingServiceItem) {
@@ -29,11 +31,16 @@ export default function SingleService({ ServicesPage }) {
       for (const category of service.group_service_category) {
         // Check for group_service_item within the category
         if (category.group_service_item) {
+          // Access the entire group_service_item
+          groupServiceItems = category.group_service_item;
+
           // Look for the item that matches the id
-          matchingGroupServiceItem = category.group_service_item.find(
+          matchingGroupServiceItem = groupServiceItems.find(
             (item) => item.id === itemId
           );
-          if (matchingGroupServiceItem) break; // Exit if a match is found
+
+          // Exit if a match is found
+          if (matchingGroupServiceItem) break;
         }
       }
     }
@@ -43,10 +50,13 @@ export default function SingleService({ ServicesPage }) {
   if (!matchingGroupServiceItem) {
     return <p>No matching group service item found.</p>;
   }
+
+  console.log(groupServiceItems);
+
   return (
     <>
       <SingleServiceSlider matchingItem={matchingGroupServiceItem} />
-      <VideoEditingServices />
+      <VideoEditingServices groupServiceItems={groupServiceItems} />
       <RecentlyWorkedWith RecentWorkData={matchingGroupServiceItem} />
       <Portfolio PortfolioData={matchingGroupServiceItem} />
     </>

@@ -18,9 +18,10 @@
   
 }
 .dropdown-menu[data-bs-popper] {
-  top: 95%;
+  top: 83%;
   left: 30% !important;
   margin-top: var(--bs-dropdown-spacer);
+  padding: 0px;
 }
 
 .custom-navbar .menu-items .nav-link {
@@ -86,7 +87,7 @@
 
 /* Left Column: Categories */
 .dropdown-left {
-  width: 45%;
+  min-width: 400px !important;
   border-right: 1px solid #ffffff;
 }
 
@@ -104,7 +105,7 @@
 
 /* Right Column: Services */
 .dropdown-right {
-  width: 55%;
+  /* width: 50rem; */
   padding-left: 20px;
   background-color: white;
   color: #000;
@@ -130,15 +131,13 @@
   height: 50px;
 }
 .dropdown-menu {
-  background-color: #000;
+  background-color: #00000000;
   color: white;
 }
 .headder-logo-bg{
   text-align: center;
-  /* margin-left: 5px; */
   border-radius: 5px;
   background-color: white;
-
   overflow: hidden;
 }
 .headder-logo-bg img{
@@ -150,7 +149,7 @@
   position: static !important;
 }
 .custom-nav-dropdown-our-Expertise{
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.341);
 }
 .custom-nav-dropdown-our-Expertise .dropdown-menu {
   background:black;

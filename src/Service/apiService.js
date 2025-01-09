@@ -29,8 +29,14 @@ class AdminService {
     return instance.get("/marketing_house");
   }
 
-  // POST API'S
+  async MonthlyPerformance() {
+    return instance.get("/monthly_performance_showcase");
+  }
 
+  async BookACall() {
+    return instance.get("/book_call");
+  }
+  // POST API FETCH
   async FreeConsultation(data) {
     return instance.post("/free_consultation", data);
   }

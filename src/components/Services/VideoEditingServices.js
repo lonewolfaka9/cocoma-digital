@@ -1,54 +1,28 @@
 import React from "react";
 import Slider from "react-slick";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-
-const VideoEditingServices = () => {
-  const services = [
-    {
-      id: 1,
-      title: "Whiteboard Animation",
-      image: "../../Images/about/youtube-channel.svg",
-    },
-    {
-      id: 2,
-      title: "Motion Graphics",
-      image: "../../Images/about/youtube-channel.svg",
-    },
-    {
-      id: 3,
-      title: "Video Editing",
-      image: "../../Images/about/youtube-channel.svg",
-    },
-    {
-      id: 4,
-      title: "3D Animation",
-      image: "../../Images/about/youtube-channel.svg",
-    },
-  ];
-
+import { Link } from "react-router-dom";
+const VideoEditingServices = ({ groupServiceItems }) => {
   const sliderRef = React.useRef(null);
 
   const settings = {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: 4, // Show 3 if 3 or more items, else show the number of items
     slidesToScroll: 1,
     arrows: false,
     responsive: [
       {
         breakpoint: 768, // Mobile
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 1, // Mobile: Show 1 item
         },
       },
       {
         breakpoint: 992, // Tablets
         settings: {
-          slidesToShow: 2,
+          slidesToShow: groupServiceItems.length >= 2 ? 2 : 1, // Tablets: Show 2 if there are 2 items, else show 1
         },
       },
     ],
@@ -77,19 +51,24 @@ const VideoEditingServices = () => {
       </div>
 
       <Slider ref={sliderRef} {...settings}>
-        {services.map((service) => (
-          <div key={service.id} className="px-3">
-            <div className="card text-center">
+        {groupServiceItems.map((service, index) => (
+          <div className="card text-center">
+            <a
+              href={`/Single_Services/${service.id}`}
+              style={{ color: "black" }}
+            >
               <div className="card-body">
                 <img
-                  src={service.image}
-                  alt={service.title}
-                  className="img-fluid mb-3"
+                  src={service.group_service_item_thumbnail}
+                  alt={service.group_service_item_title}
+                  className="mb-3"
+                  width={"400px"}
                 />
-                <h5 className="card-title">{service.title}</h5>
-                {/* <button className="btn btn-dark">Add</button> */}
+                <h5 className="card-title">
+                  {service.group_service_item_title}
+                </h5>
               </div>
-            </div>
+            </a>
           </div>
         ))}
       </Slider>
