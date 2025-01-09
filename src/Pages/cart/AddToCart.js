@@ -13,6 +13,8 @@ export default function AddToCart() {
 
   const [selections, setSelections] = useState({});
   const [viewMode, setViewMode] = useState("CartCard");
+  const [message, setMessage] = useState();
+
   const navigate = useNavigate(); // Initialize useNavigate
 
   const handleRemoveFromCart = (id) => {
@@ -42,7 +44,7 @@ export default function AddToCart() {
     );
 
     if (unselectedItems.length > 0) {
-      alert("Please select at least one value for each item.");
+      setMessage("Please select at least one value for each item.");
       return;
     }
 
@@ -70,6 +72,7 @@ export default function AddToCart() {
         <div className="col-lg-6">
           <h1>Your cart of services</h1>
         </div>
+        <div className="col-lg-4"></div>
         <div className="col-lg-2 d-flex justify-content-end d-none d-lg-block d-md-block">
           <button
             onClick={() => setViewMode("CartCard")}
@@ -176,6 +179,11 @@ export default function AddToCart() {
           </div>
 
           <div className="text-center mt-4 mb-4">
+            {message && (
+              <div className="alert alert-danger" role="alert">
+                {message}
+              </div>
+            )}
             <button
               className="btn sehedule-meeting-btn"
               onClick={onScheduleMeeting}
