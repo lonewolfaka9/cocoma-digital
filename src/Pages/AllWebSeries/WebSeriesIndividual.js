@@ -10,8 +10,12 @@ import Section12 from "../../components/Home/section12";
 import ProjectSuccess from "../../components/WebSeries/ProjectSucess";
 import { useParams } from "react-router-dom";
 import BusinessCareerSection from "../../components/Home/section14";
+import HireingCard from "../../components/WebSeries/HireingCart";
 
-const WebSeriesIndividual = ({ MarketingHouseData }) => {
+const WebSeriesIndividual = ({
+  MarketingHouseData,
+  MonthlyPerformanaceData,
+}) => {
   const { id } = useParams(); // Extracting itemId from the URL
   const [itemData, setItemData] = useState(null);
 
@@ -41,14 +45,17 @@ const WebSeriesIndividual = ({ MarketingHouseData }) => {
           <SingleWebSeriesData itemData={itemData} />
           <Section02 />
           <ClientRequirement itemData={itemData} />
+          <HireingCard
+            itemData={itemData}
+            MonthlyPerformanaceData={MonthlyPerformanaceData}
+          />
           <OtherActivities itemData={itemData} />
           <ContentCreateByTeam itemData={itemData} />
           <ProjectSuccess />
           <RelatedServicesSlider Haddertitle="Related Services" />
           <Section12 />
           <RelatedServicesSlider Haddertitle="Explore More Film & Media Services" />
-
-          <BusinessCareerSection />
+          {/* <BusinessCareerSection /> */}
         </>
       ) : (
         <p>Item not found</p>

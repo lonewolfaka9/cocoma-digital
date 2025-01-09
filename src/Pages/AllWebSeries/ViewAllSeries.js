@@ -17,9 +17,9 @@ const ViewAllSeries = ({ MarketingHouseData }) => {
       <AllSeriesData allFilmData={MarketingHouseData} />
       <RelatedServicesSlider Haddertitle="Related Services" />
       <Section12 />
-      <Section11 />
+      {/* <Section11 /> */}
       <RelatedServicesSlider Haddertitle="Explore More Film & Media Services" />
-      <HireingCard />
+
       <ProjectSucess />
     </>
   );

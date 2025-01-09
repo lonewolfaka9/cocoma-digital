@@ -161,12 +161,20 @@ function App() {
 
           <Route
             path="/View-all-Series"
-            element={<ViewAllSeries MarketingHouseData={MarketingHouseData} />}
+            element={
+              <ViewAllSeries
+                MarketingHouseData={MarketingHouseData}
+                MonthlyPerformanaceData={MonthlyPerformanaceData}
+              />
+            }
           />
           <Route
             path="/Web-Series-Individual/:id"
             element={
-              <WebSeriesIndividual MarketingHouseData={MarketingHouseData} />
+              <WebSeriesIndividual
+                MarketingHouseData={MarketingHouseData}
+                MonthlyPerformanaceData={MonthlyPerformanaceData}
+              />
             }
           />
           <Route
