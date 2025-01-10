@@ -60,7 +60,7 @@ const ContentCreateByTeam = ({ itemData }) => {
 
       {/* Filter Buttons */}
       <div className="d-flex justify-content-center mb-4">
-        {itemData.content_created_category.slice(0, 3).map((category) => (
+        {itemData.content_created_category.slice(0, 4).map((category) => (
           <button
             key={category.id}
             className={`btn mx-2 ${

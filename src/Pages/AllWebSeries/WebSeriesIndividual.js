@@ -9,7 +9,7 @@ import RelatedServicesSlider from "../../components/CreativeHouseComponent/relat
 import Section12 from "../../components/Home/section12";
 import ProjectSuccess from "../../components/WebSeries/ProjectSucess";
 import { useParams } from "react-router-dom";
-import BusinessCareerSection from "../../components/Home/section14";
+// import BusinessCareerSection from "../../components/Home/section14";
 import HireingCard from "../../components/WebSeries/HireingCart";
 
 const WebSeriesIndividual = ({

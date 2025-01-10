@@ -7,26 +7,27 @@ import { useDispatch, useSelector } from "react-redux";
 import { removeItemFromCart } from "../../Service/redux/cartSlice";
 import "./cart.css";
 import { useNavigate } from "react-router-dom";
+
 export default function AddToCart() {
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.items);
-
   const [selections, setSelections] = useState({});
   const [viewMode, setViewMode] = useState("CartCard");
   const [message, setMessage] = useState();
 
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate();
 
   const handleRemoveFromCart = (id) => {
     dispatch(removeItemFromCart(id));
   };
 
-  const handleSelectionChange = (id, value) => {
+  const handleSelectionChange = (id, selectedValue) => {
     setSelections((prev) => ({
       ...prev,
       [id]: {
         ...prev[id],
-        [value]: !prev[id]?.[value], // Toggle the selection
+        // Toggle the selected value
+        [selectedValue]: !prev[id]?.[selectedValue],
       },
     }));
   };
@@ -36,11 +37,14 @@ export default function AddToCart() {
       id: item.id,
       group_service_category_id: item.group_service_category_id,
       selectedValues: selections[item.id] || {},
+      subscriptionType: item.subscriptionType || null,
     }));
 
     const unselectedItems = selectedItems.filter(
       (item) =>
-        !item.selectedValues.Recurring && !item.selectedValues["One Time Only"]
+        !item.selectedValues.Recurring &&
+        !item.selectedValues["One Time Only"] &&
+        !item.subscriptionType
     );
 
     if (unselectedItems.length > 0) {
@@ -49,19 +53,25 @@ export default function AddToCart() {
     }
 
     const payload = selectedItems.map(
-      ({ id, group_service_category_id, selectedValues }) => ({
+      ({
         id,
         group_service_category_id,
-        Recurring: selectedValues.Recurring || false,
-        OneTimeOnly: selectedValues["One Time Only"] || false,
+        selectedValues,
+        subscriptionType,
+      }) => ({
+        id,
+        group_service_category_id,
+        Recurring: selectedValues.Recurring || subscriptionType === "Recurring",
+        OneTimeOnly:
+          selectedValues["One Time Only"] ||
+          subscriptionType === "One Time Only",
       })
     );
 
     console.log("Payload to be sent:", JSON.stringify(payload, null, 2));
-    // Redirect to /ScheduleMeeting or make an API call here
     navigate("/ScheduleMeeting", {
       state: {
-        cartItems: payload, // Send the payload data as state
+        cartItems: payload,
       },
     });
   };
@@ -142,9 +152,12 @@ export default function AddToCart() {
                           {category.group_service_item_description2}
                         </p>
                         <div className="d-flex justify-content-between">
+                          {/* Recurring Button */}
                           <button
                             className={`btn ${
                               selections[category.id]?.Recurring
+                                ? "btn-warning"
+                                : category.subscriptionType === "Recurring"
                                 ? "btn-warning"
                                 : "btn-light"
                             } me-2`}
@@ -154,9 +167,13 @@ export default function AddToCart() {
                           >
                             Recurring
                           </button>
+
+                          {/* One Time Only Button */}
                           <button
                             className={`btn ${
                               selections[category.id]?.["One Time Only"]
+                                ? "btn-warning"
+                                : category.subscriptionType === "One Time Only"
                                 ? "btn-warning"
                                 : "btn-light"
                             }`}

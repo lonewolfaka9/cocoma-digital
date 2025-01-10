@@ -58,3 +58,12 @@
     font-size: 0.9rem;
   }
 }
+.TimePicker-input-feild{
+  border: none;
+  width: 100%;
+  align-items: center;
+}
+.css-jupps9-MuiInputBase-root-MuiOutlinedInput-root{
+  width: 100%;
+  font-size: 1rem !important;
+}

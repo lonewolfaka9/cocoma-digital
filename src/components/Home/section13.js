@@ -59,14 +59,14 @@ const CommunityOutreachSlider = ({ SocialWorkData }) => {
     ],
   };
 
-  const handleCategoryScroll = (direction) => {
-    if (categoryRef.current) {
-      categoryRef.current.scrollBy({
-        left: direction === "left" ? -150 : 150,
-        behavior: "smooth",
-      });
-    }
-  };
+  // const handleCategoryScroll = (direction) => {
+  //   if (categoryRef.current) {
+  //     categoryRef.current.scrollBy({
+  //       left: direction === "left" ? -150 : 150,
+  //       behavior: "smooth",
+  //     });
+  //   }
+  // };
 
   return (
     <div className="container my-5 position-relative">

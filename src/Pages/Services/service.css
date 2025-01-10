@@ -155,11 +155,11 @@ object-fit: cover;
 }
 
 .cart-widget {
-  position: sticky;
+  position: fixed;
   width: 180px;
   height: 130px;
   top: 60%;
-  left: 100%;
+ 
   right: 0;
   background-color: #F5C518; /* Yellow color */
   padding: 0px 0px 0px 20px;
@@ -212,12 +212,12 @@ object-fit: cover;
 
 @media (max-width: 768px) {
   .cart-widget {
-    position: sticky;
+    position: fixed;
     width: 150px;
     height: 120px;
     top: 50%;
     right: 0%;
-    left: 100%;
+    
     background-color: #F5C518; /* Yellow color */
     padding: 0px 0px 0px 20px;
     border-radius: 60px 0% 0% 60px;

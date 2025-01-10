@@ -3,7 +3,7 @@ import Section01 from "../components/About/section01";
 import Section02 from "../components/Home/section02";
 import Section03 from "../components/About/section03";
 import Section07 from "../components/About/section07";
-import Section08 from "../components/About/section08";
+// import Section08 from "../components/About/section08";
 import Section09 from "../components/About/section02";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux"; // Assuming you're using Redux
@@ -101,7 +101,7 @@ export default function Services({ HomePage, ServicesPage }) {
         <p>No cards available</p>
       )}
 
-      <Section08 />
+      {/* <Section08 /> */}
       <Section07 />
     </>
   );

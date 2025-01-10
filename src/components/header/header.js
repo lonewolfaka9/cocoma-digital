@@ -7,7 +7,7 @@ import { Button } from "react-bootstrap";
 import { HiArrowUpRight } from "react-icons/hi2";
 import { RiMenuFill } from "react-icons/ri";
 import "./Header.css";
-import LangOverlay from "./langOverlay";
+// import LangOverlay from "./langOverlay";
 
 // import { isMobile } from "react-device-detect";
 import { FaFacebook } from "react-icons/fa";

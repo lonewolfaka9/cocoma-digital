@@ -14,7 +14,9 @@ const ScheduleMeetingDetails = () => {
   const { state } = location || {};
   const { date, time, cartItems } = state || {};
   const [error, setError] = useState();
-  const dispatch = useDispatch(); // Get dispatch function
+  const dispatch = useDispatch();
+
+  console.log(error);
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -35,19 +37,31 @@ const ScheduleMeetingDetails = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    setErrors((prev) => ({ ...prev, [name]: "" })); // Clear error on input
+    setErrors((prev) => ({ ...prev, [name]: "" }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Validate inputs
+    // Validate only required fields
     const newErrors = {};
-    Object.keys(formData).forEach((key) => {
-      if (!formData[key].trim()) {
-        newErrors[key] = `${key.replace(/([A-Z])/g, " $1")} is required`;
-      }
-    });
+    if (!formData.firstName.trim()) {
+      newErrors.firstName = "First Name is required";
+    }
+    if (!formData.lastName.trim()) {
+      newErrors.lastName = "Last Name is required";
+    }
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+    }
+    if (!formData.phoneNumber.trim()) {
+      newErrors.phoneNumber = "Phone Number is required";
+    }
+    if (!formData.message.trim()) {
+      newErrors.message = "Message is required";
+    }
+
+    // If date or time are required, validate them as well
     if (!date) newErrors.date = "Schedule date is required";
     if (!time) newErrors.time = "Schedule time is required";
 

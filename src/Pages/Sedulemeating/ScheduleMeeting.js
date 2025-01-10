@@ -5,24 +5,32 @@ import "react-calendar/dist/Calendar.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./ScheduleMeeting.css"; // Add your custom CSS for additional styling
 import { useLocation } from "react-router-dom";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { MobileTimePicker } from "@mui/x-date-pickers/MobileTimePicker";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+// import dayjs from "dayjs";
+import TextField from "@mui/material/TextField";
 
 const ScheduleMeeting = () => {
-  const [selectedDate, setSelectedDate] = useState(new Date()); // Set default to current date
+  const [selectedDate, setSelectedDate] = useState(new Date()); // Default to current date
   const [selectedTime, setSelectedTime] = useState(null);
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Default cartItems to an empty array if it's not available
   const { cartItems = [] } = location.state || {}; // Retrieve the payload passed from the cart page
 
   console.log(cartItems);
 
-  const timeSlots = ["7:00 PM", "8:00 PM", "9:00 PM", "10:00 PM", "11:00 PM"];
-
   const handleScheduleMeeting = () => {
     if (selectedDate && selectedTime) {
+      console.log(selectedTime.format("h:mm A"));
+
       navigate("/schedule-meeting", {
-        state: { date: selectedDate, time: selectedTime, cartItems: cartItems },
+        state: {
+          date: selectedDate,
+          time: selectedTime.format("h:mm A"),
+          cartItems: cartItems,
+        },
       });
     } else {
       alert("Please select both a date and a time slot to proceed.");
@@ -48,41 +56,36 @@ const ScheduleMeeting = () => {
         <div className="col-lg-1"></div>
         {/* Time Slot Section */}
         <div className="col-md-6">
-          <h3 className="mb-3">Meeting Duration</h3>
-          <div>
-            <button className=" btn btn-block btn-light text-muted  w-100">
-              15 Mins
-            </button>
-          </div>
-
+          <h3 className="mb-3">Meeting Time</h3>
           {selectedDate && (
-            <div className="mb-3 mt-3">
+            <div className="mb-3">
               <p>
-                <strong>What Time Works Best?</strong> <br />
-                Showing Time For{" "}
+                <strong>Select a Time:</strong> <br />
+                Showing Time for{" "}
                 <span className="text-primary">
                   {selectedDate.toDateString()}
                 </span>
               </p>
-              <div className="d-flex flex-column">
-                {timeSlots.map((slot) => (
-                  <button
-                    key={slot}
-                    onClick={() => setSelectedTime(slot)}
-                    className={`btn btn-block mb-2 ${
-                      selectedTime === slot ? "btn-warning" : "btn-light"
-                    }`}
-                  >
-                    {slot}
-                  </button>
-                ))}
-              </div>
+              <LocalizationProvider dateAdapter={AdapterDayjs}>
+                <MobileTimePicker
+                  label={
+                    selectedTime ? " Selected Time" : "Please Select  Time"
+                  }
+                  value={selectedTime || null} // Pass `null`  if no time is selected
+                  onChange={(newTime) => setSelectedTime(newTime)}
+                  minutesStep={15}
+                  className=" btn-warning TimePicker-input-feild"
+                  renderInput={(params) => (
+                    <TextField type="text" {...params} />
+                  )}
+                />
+              </LocalizationProvider>
             </div>
           )}
 
           <button
             onClick={handleScheduleMeeting}
-            className="btn btn-warning w-100"
+            className="btn btn-warning w-100 mt-4"
           >
             Schedule Meeting →
           </button>

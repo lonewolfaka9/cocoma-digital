@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
-import { RxCountdownTimer } from "react-icons/rx";
 
 const HireingCard = ({ itemData }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
