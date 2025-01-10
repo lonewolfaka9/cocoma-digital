@@ -88,7 +88,7 @@ export default function Section01({ bannerData }) {
             style={{ position: "relative", paddingTop: "56.25%" }}
           >
             <ReactPlayer
-              url="https://www.youtube.com/watch?v=dRCwE0Bv148"
+              url={bannerData?.top_banner?.banner_video_url}
               controls
               width="100%"
               height="100%"
