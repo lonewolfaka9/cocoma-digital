@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Calendar from "react-calendar";
 import { useNavigate } from "react-router-dom";
 import "react-calendar/dist/Calendar.css";
@@ -16,10 +16,18 @@ const ScheduleMeeting = () => {
   const [selectedTime, setSelectedTime] = useState(null);
   const navigate = useNavigate();
   const location = useLocation();
+  const [timezone, setTimezone] = useState("");
 
   const { cartItems = [] } = location.state || {}; // Retrieve the payload passed from the cart page
 
   console.log(cartItems);
+
+  useEffect(() => {
+    const userTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    setTimezone(userTimezone); // Set the user's time zone (e.g., "Asia/Kolkata" or "America/New_York")
+  }, []);
+
+  console.log(timezone);
 
   const handleScheduleMeeting = () => {
     if (selectedDate && selectedTime) {
@@ -29,6 +37,7 @@ const ScheduleMeeting = () => {
         state: {
           date: selectedDate,
           time: selectedTime.format("h:mm A"),
+          timeZone: timezone,
           cartItems: cartItems,
         },
       });
@@ -57,8 +66,13 @@ const ScheduleMeeting = () => {
         {/* Time Slot Section */}
         <div className="col-md-6">
           <h3 className="mb-3">Meeting Time</h3>
+          <div>
+            <button className=" btn btn-block btn-light text-muted  w-100">
+              15 Mins
+            </button>
+          </div>
           {selectedDate && (
-            <div className="mb-3">
+            <div className="mb-3 mt-3">
               <p>
                 <strong>Select a Time:</strong> <br />
                 Showing Time for{" "}

@@ -12,7 +12,7 @@ const ScheduleMeetingDetails = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const { state } = location || {};
-  const { date, time, cartItems } = state || {};
+  const { date, time, cartItems, timeZone } = state || {};
   const [error, setError] = useState();
   const dispatch = useDispatch();
 
@@ -30,6 +30,7 @@ const ScheduleMeetingDetails = () => {
     twitter: "",
     youtube: "",
     message: "",
+    timezone: "",
   });
 
   const [errors, setErrors] = useState({});
@@ -102,6 +103,7 @@ const ScheduleMeetingDetails = () => {
       schedule_time: time,
       schedule_duration: "120", // Example duration
       first_name: formData.firstName,
+      timezone: timeZone,
       last_name: formData.lastName,
       company_name: formData.companyName,
       phone_no: formData.phoneNumber,
@@ -363,6 +365,9 @@ const ScheduleMeetingDetails = () => {
                     <strong>Scheduled Date:</strong>{" "}
                     {new Date(date).toDateString()} <br />
                     <strong>Scheduled Time:</strong> {time}
+                    <br></br>
+                    <strong>Time Zone: </strong>
+                    {timeZone}
                   </p>
                 ) : (
                   <p className="text-danger">No date and time selected!</p>
