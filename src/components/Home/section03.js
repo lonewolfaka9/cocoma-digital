@@ -18,12 +18,25 @@ const Section03 = ({ ServidcesToShow }) => {
     (category) => category.id === activeTab
   );
 
+  // State to manage visible items
+  const [visibleItems, setVisibleItems] = useState(6);
+
+  const showMoreItems = () => {
+    setVisibleItems((prev) =>
+      Math.min(prev + 3, activeCategory?.service_items?.length || 0)
+    );
+  };
+
+  const showLessItems = () => {
+    setVisibleItems(3); // Reset visible items to the initial 3
+  };
+
   const sliderSettings = {
     dots: false,
     infinite: false,
     speed: 500,
     arrows: false,
-    slidesToShow: 4,
+    slidesToShow: 3,
     slidesToScroll: 1,
     responsive: [
       {
@@ -66,7 +79,10 @@ const Section03 = ({ ServidcesToShow }) => {
                   className={`tab-button ${
                     activeTab === category.id ? "active" : ""
                   }`}
-                  onClick={() => setActiveTab(category.id)}
+                  onClick={() => {
+                    setActiveTab(category.id);
+                    setVisibleItems(3); // Reset visible items when tab changes
+                  }}
                 >
                   {category.service_category_name}
                 </button>
@@ -79,7 +95,7 @@ const Section03 = ({ ServidcesToShow }) => {
       {/* Services Section */}
       <div className="row services mt-4">
         {activeCategory?.service_items?.length > 0 ? (
-          activeCategory.service_items.map((service) => (
+          activeCategory.service_items.slice(0, visibleItems).map((service) => (
             <div className="col-md-6 col-lg-4 col-sm-12 mt-5" key={service.id}>
               <div className="service-card pb-4 text-center">
                 <img
@@ -101,6 +117,21 @@ const Section03 = ({ ServidcesToShow }) => {
             No services available for this category.
           </p>
         )}
+      </div>
+
+      {/* Show More and Hide Button */}
+      <div className="row mt-3">
+        <div className="col-lg-12 text-center">
+          {visibleItems < (activeCategory?.service_items?.length || 0) ? (
+            <button className="show-more-button" onClick={showMoreItems}>
+              Show More
+            </button>
+          ) : (
+            <button className="show-less-button" onClick={showLessItems}>
+              Hide
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );

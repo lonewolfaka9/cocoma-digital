@@ -18,7 +18,7 @@ import { FaTiktok } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaYoutube } from "react-icons/fa";
 import { Link } from "react-router-dom";
-
+import { FaWhatsapp } from "react-icons/fa";
 function Header({ ServiceData }) {
   const services = ServiceData.services || [];
   const [expanded, setExpanded] = useState(false);
@@ -124,13 +124,15 @@ function Header({ ServiceData }) {
                         <div className="subcategory-container-mobile">
                           {category.service_items?.map((service, index) => (
                             <div key={index} className="subcategory-card">
-                              <img
-                                src={service.service_image}
-                                alt={service.service_title}
-                                className="service-icon"
-                              />
-                              <strong>{service.service_title}</strong>
-                              <p>{service.description}</p>
+                              <a href={`/service/${service.id}`}>
+                                <img
+                                  src={service.service_image}
+                                  alt={service.service_title}
+                                  className="service-icon"
+                                />
+                                <strong>{service.service_title}</strong>
+                                <p>{service.description}</p>
+                              </a>
                             </div>
                           ))}
                         </div>
@@ -147,38 +149,65 @@ function Header({ ServiceData }) {
                     </div>
                     <div className="d-flex mb-2 justify-content-around ">
                       <div className="headder-logo-bg p-1">
-                        <a href="/"></a>
-                        <FaYoutube
-                          style={{ color: "#FF0000", fontSize: "50px" }}
-                        />
+                        <a
+                          href="https://www.youtube.com/channel/UCP3vqjxVD4VlLxDWiKeq1Mg"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <FaYoutube
+                            style={{ color: "#FF0000", fontSize: "50px" }}
+                          />
+                        </a>
                       </div>
                       <div className="headder-logo-bg p-1">
-                        <FaInstagram
-                          style={{ color: "#E4405F", fontSize: "50px" }}
-                        />
+                        <a
+                          href="https://www.instagram.com/cocomadigital/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <FaInstagram
+                            style={{ color: "#E4405F", fontSize: "50px" }}
+                          />
+                        </a>
                       </div>
                       <div className="headder-logo-bg p-1">
-                        {/* <img src={facebook} alt="" /> */}
-                        <FaFacebook
-                          style={{ color: "#1877F2", fontSize: "50px" }}
-                        />
+                        <a
+                          href="https://www.facebook.com/Cocoma-Digital-Private-Limited-107521348660701=pages_you_manage"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <FaFacebook
+                            style={{ color: "#1877F2", fontSize: "50px" }}
+                          />
+                        </a>
                       </div>
 
                       <div className="headder-logo-bg p-1">
-                        <FaXTwitter
-                          style={{ color: "black", fontSize: "50px" }}
-                        />
+                        <a
+                          href="https://wa.me/+918655643377?text=Hello,%20I%20need%20more%20information."
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <FaWhatsapp
+                            style={{ color: "#25D366", fontSize: "50px" }}
+                          />
+                        </a>
                       </div>
-                      <div className="headder-logo-bg p-1">
+                      {/* <div className="headder-logo-bg p-1">
                         <FaTiktok
                           style={{ color: "black", fontSize: "50px" }}
                         />
-                      </div>
+                      </div> */}
                       <div className="headder-logo-bg p-1">
-                        {/* <img src={linkedin} alt="" /> */}
-                        <FaLinkedin
-                          style={{ color: "#0A66C2", fontSize: "50px" }}
-                        />
+                        <a
+                          href="https://www.linkedin.com/company/cocomadigital/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <FaLinkedin
+                            style={{ color: "#0A66C2", fontSize: "50px" }}
+                          />
+                        </a>
                       </div>
                     </div>
                     <div style={{ paddingLeft: 10, paddingTop: 10 }}>

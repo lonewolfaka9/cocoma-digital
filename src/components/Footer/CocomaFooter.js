@@ -6,7 +6,22 @@ import { Link } from "react-router-dom";
 
 export default function CocomaFooter({ ServiceFooter }) {
   const services = ServiceFooter.services || [];
-  console.log(services);
+  const servicePlatformServices = services
+    .filter((service) => service.service_category_name === "Service Platform")
+    .map((service) => service.service_items)
+    .flat();
+
+  // Filter out the "Service Platform" services from the main services list
+  const remainingServices = services
+    .filter((service) => service.service_category_name !== "Service Platform")
+    .map((service) => ({
+      ...service,
+      service_items: service.service_items.filter(
+        (item) => item.category_name !== "Service Platform"
+      ),
+    }));
+
+  console.log(servicePlatformServices);
   return (
     <>
       <div className="container-fluid footer-main pt-5">
@@ -23,16 +38,56 @@ export default function CocomaFooter({ ServiceFooter }) {
             <div className="col-lg-4 col-md-3 d-sm-block d-lg-block d-md-block col-sm-2 d-none"></div>
             <div className="col-lg-3 col-sm-6 col-md-4 col-sm-6 col-6 d-flex justify-content-between">
               <div className="social-icon">
-                <FaWhatsapp className="social-icon-main" size={60} />
+                <a
+                  href="https://wa.me/+918655643377?text=Hello,%20I%20need%20more%20information."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaWhatsapp
+                    className="social-icon-main"
+                    color="black"
+                    size={60}
+                  />
+                </a>
               </div>
               <div className="social-icon">
-                <FaInstagram className="social-icon-main" size={60} />
+                <a
+                  href="https://www.instagram.com/cocomadigital/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaInstagram
+                    className="social-icon-main"
+                    color="black"
+                    size={60}
+                  />
+                </a>
               </div>{" "}
               <div className="social-icon">
-                <FaFacebookF className="social-icon-main" size={60} />
+                <a
+                  href="https://www.facebook.com/Cocoma-Digital-Private-Limited-107521348660701=pages_you_manage"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaFacebookF
+                    className="social-icon-main"
+                    color="black"
+                    size={60}
+                  />
+                </a>
               </div>{" "}
               <div className="social-icon">
-                <FaYoutube className="social-icon-main" size={60} />
+                <a
+                  href="https://www.youtube.com/channel/UCP3vqjxVD4VlLxDWiKeq1Mg"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaYoutube
+                    className="social-icon-main"
+                    color="black"
+                    size={60}
+                  />
+                </a>
               </div>
             </div>
           </div>
@@ -43,7 +98,7 @@ export default function CocomaFooter({ ServiceFooter }) {
                 <li>
                   <h4>Services</h4>
                 </li>
-                {services.slice(0, 3).map((service) =>
+                {remainingServices.slice(0, 3).map((service) =>
                   service.service_items.slice(0, 2).map((item, index) => (
                     <li key={index}>
                       <a href={`/service/${item.id}`}>{item.service_title}</a>
@@ -56,13 +111,13 @@ export default function CocomaFooter({ ServiceFooter }) {
             <div className="col-lg-3 col-sm-6 col-md-3">
               <ul>
                 <li>
-                  <h4>Solutions</h4>
+                  <h4>By Platform</h4>
                 </li>
-                {/* <li>For Brands</li>
-                <li>For Agencies</li>
-                <li>For Creators</li>
-                <li>For Entrepreneurs</li>
-                <li>For Studios</li> */}
+                {servicePlatformServices.slice(0, 5).map((item, index) => (
+                  <li key={index}>
+                    <a href={`/service/${item.id}`}>{item.service_title}</a>
+                  </li>
+                ))}
               </ul>
             </div>
 

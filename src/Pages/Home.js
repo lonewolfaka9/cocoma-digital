@@ -34,7 +34,7 @@ export default function Home({
       <Section09 CreativeHouseSection={CreativeHouseData} />
       {/* <Section10 DevelopmentHouseData={HomePage} /> */}
       <Section11 MonthlyPerformanaceData={MonthlyPerformanaceData} />
-      <Section12 />
+      <Section12 bannerData={HomePage} />
       <Section13 SocialWorkData={HomePage} />
       {/* <Section14 /> */}
     </>

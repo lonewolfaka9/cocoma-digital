@@ -16,7 +16,11 @@ const ViewAllSeries = ({ MarketingHouseData }) => {
       <MarkatingHouseBanner bannerData={MarketingHouseData} />
       <AllSeriesData allFilmData={MarketingHouseData} />
       <RelatedServicesSlider Haddertitle="Related Services" />
-      <Section12 />
+      <Section12
+        bannerId={
+          MarketingHouseData.marketing_house_projects.banner_title_template_id
+        }
+      />
       {/* <Section11 /> */}
       <RelatedServicesSlider Haddertitle="Explore More Film & Media Services" />
 

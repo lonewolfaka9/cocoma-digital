@@ -23,7 +23,11 @@ export default function SingleVideo({ CreativeHouseData }) {
       <BriefAndRequirement RequireMentTitle={matchingItem} />
       <CreativeSlider CreativeSliderData={matchingItem} />
       <FinalOutput FinalOutputData={matchingItem} />
-      <Section12 />
+      <Section12
+        bannerId={
+          CreativeHouseData.creative_house_projects.banner_title_template_id
+        }
+      />
       <CreativeHouseServices />
     </>
   );

@@ -4,10 +4,13 @@ import SingleServiceSlider from "../../components/Services/SingleServiceSlider";
 import VideoEditingServices from "../../components/Services/VideoEditingServices";
 import "./service.css";
 import { useParams } from "react-router-dom";
-
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux"; // Assuming you're using Redux
+import { TbShoppingBagPlus } from "react-icons/tb";
 export default function SingleService({ ServicesPage }) {
   const { id } = useParams(); // Get the item id from the URL
   const itemId = parseInt(id, 10); // Convert id to integer for comparison
+  const cartItemCount = useSelector((state) => state.cart.items.length);
 
   // Find the service item that matches the ID
   const matchingServiceItem = ServicesPage.services.flatMap(
@@ -54,6 +57,25 @@ export default function SingleService({ ServicesPage }) {
 
   return (
     <>
+      {cartItemCount > 0 ? (
+        <>
+          <div className="cart-widget">
+            <div className="cart-icon ">
+              <p className="cart-text">
+                <TbShoppingBagPlus size={30} />
+                &nbsp;&nbsp;
+                <span className="cart-count">{cartItemCount}</span> <br />
+                service
+              </p>
+            </div>
+            <Link to="/cart">
+              <button className="schedule-button">Schedule Meeting</button>
+            </Link>
+          </div>
+        </>
+      ) : (
+        ""
+      )}
       <SingleServiceSlider matchingItem={matchingGroupServiceItem} />
       <VideoEditingServices groupServiceItems={groupServiceItems} />
       <RecentlyWorkedWith RecentWorkData={matchingGroupServiceItem} />

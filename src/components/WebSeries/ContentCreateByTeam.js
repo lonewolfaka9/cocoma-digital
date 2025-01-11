@@ -1,25 +1,24 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { FaPlay } from "react-icons/fa";
 import { CiPause1 } from "react-icons/ci";
-
+import ReactPlayer from "react-player";
 const ITEMS_PER_PAGE = 6;
 
 const ContentCreateByTeam = ({ itemData }) => {
   const [activeFilter, setActiveFilter] = useState("Videos");
   const [currentPage, setCurrentPage] = useState(1);
   const [playingVideo, setPlayingVideo] = useState(null);
-  const videoRefs = useRef({}); // Ref to store video elements
 
-  // Filter content by the active category name
+  // Filter content based on category name
   const filteredCategory = itemData.content_created_category.find(
     (category) => category.category_name === activeFilter
   );
 
-  // Handle the case where no items are found
+  // If category is "Carousels", fetch from content_created_carousal
   const filteredContent =
-    filteredCategory?.content_created_item ||
-    filteredCategory?.content_created_carousal ||
-    [];
+    activeFilter === "Carousels"
+      ? filteredCategory?.content_created_carousal || []
+      : filteredCategory?.content_created_item || [];
 
   const totalPages = Math.ceil(filteredContent.length / ITEMS_PER_PAGE);
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
@@ -30,28 +29,14 @@ const ContentCreateByTeam = ({ itemData }) => {
 
   // Handle Play
   const handlePlay = (id) => {
-    // Pause currently playing video (if any)
-    if (playingVideo && videoRefs.current[playingVideo]) {
-      videoRefs.current[playingVideo].pause();
-      videoRefs.current[playingVideo].currentTime = 0; // Reset current playing video
-    }
-
-    // Play selected video
     setPlayingVideo(id);
-    const video = videoRefs.current[id];
-    if (video) {
-      video.play();
-    }
   };
 
   // Handle Pause
   const handlePause = (id) => {
-    const video = videoRefs.current[id];
-    if (video) {
-      video.pause();
-      video.currentTime = 0; // Reset video to the start
+    if (playingVideo === id) {
+      setPlayingVideo(null);
     }
-    setPlayingVideo(null);
   };
 
   return (
@@ -85,17 +70,22 @@ const ContentCreateByTeam = ({ itemData }) => {
           <div className="col-12 col-md-4" key={item.id}>
             <div className="position-relative video-wrapper">
               {item.url ? (
-                playingVideo === item.id ? (
+                activeFilter === "Posters" ? ( // Hide play/pause for "Poster" category
+                  <img
+                    src={item.image}
+                    alt="Content"
+                    className="img-fluid w-100 rounded"
+                  />
+                ) : playingVideo === item.id ? (
                   <div className="play-overlay">
-                    <video
-                      ref={(el) => (videoRefs.current[item.id] = el)}
+                    <ReactPlayer
+                      url={item.url}
+                      playing={true}
+                      controls={true}
                       className="img-fluid w-100 rounded"
-                      onEnded={() => setPlayingVideo(null)}
-                      autoPlay
-                    >
-                      <source src={item.url} type="video/mp4" />
-                    </video>
-
+                      width="100%"
+                      onEnded={() => setPlayingVideo(null)} // Stop video after it finishes
+                    />
                     <button
                       className="play-btn btn btn-danger mt-2"
                       onClick={() => handlePause(item.id)}
@@ -122,7 +112,7 @@ const ContentCreateByTeam = ({ itemData }) => {
                 <img
                   src={item.image}
                   alt="Content"
-                  className="img-fluid w-100 rounded"
+                  className="Carousels-images"
                 />
               )}
             </div>

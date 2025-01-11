@@ -11,7 +11,11 @@ export default function CreativeHouse({ CreativeHouseData }) {
       <CreativeProjects bannerData={CreativeHouseData} />
       <CreativeHouseProject CreativeHouseProjectCategory={CreativeHouseData} />
       <RelatedServicesSlider Haddertitle="related Services" />
-      <Section12 />
+      <Section12
+        bannerId={
+          CreativeHouseData.creative_house_projects.banner_title_template_id
+        }
+      />
       <RelatedServicesSlider Haddertitle="Explore More Film & Media Services" />
       <Section14 />
     </>
