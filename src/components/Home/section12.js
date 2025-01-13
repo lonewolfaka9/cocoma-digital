@@ -6,13 +6,13 @@ const Section12 = ({ bannerData, bannerId }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Get the `id` from bannerData or fallback to the route params or default `1`
-  const params = bannerId;
+  // Determine the `id` to filter data
   const templateId = bannerData?.top_banner?.book_call_template_id;
-  const id = templateId || parseInt(params.id, 10) || 1;
+  const id = templateId || bannerId || 1; // Priority: templateId > bannerId > default 1
 
   useEffect(() => {
-    setLoading(true); // Reset loading state when fetching new data
+    setLoading(true); // Start loading state when fetching data
+    setError(null); // Reset error state when fetching new data
 
     AdminService.BookACall()
       .then((response) => {
@@ -21,21 +21,23 @@ const Section12 = ({ bannerData, bannerId }) => {
         // Find data matching the given `id`
         const selectedData = bookCallData.find((item) => item.id === id);
 
-        // Handle case when no matching data is found
+        // Handle no data found for the given `id`
         if (!selectedData) {
-          throw new Error(`No data found for id: ${id}`);
+          setError(`No data found for id: ${id}`);
+          return;
         }
 
-        setBookCall(selectedData);
+        setBookCall(selectedData); // Update state with the selected data
       })
       .catch((err) => {
         setError(err.message || "An error occurred while fetching data.");
       })
       .finally(() => {
-        setLoading(false);
+        setLoading(false); // Stop loading state
       });
-  }, [id]); // Fetch new data whenever `id` changes
+  }, [id]); // Refetch data if `id` changes
 
+  // Loading state
   if (loading) {
     return (
       <div className="loading-screen">
@@ -45,14 +47,17 @@ const Section12 = ({ bannerData, bannerId }) => {
     );
   }
 
+  // Error state
   if (error) {
     return <p className="text-danger">Error: {error}</p>;
   }
 
+  // No data state
   if (!BookCall) {
     return <p>No data found.</p>;
   }
 
+  // Render the BookCall data
   return (
     <div className="container mt-5 mb-5">
       <div className="row border rounded">
