@@ -1,10 +1,51 @@
+import React, { useEffect, useState } from "react";
 import Carousel from "react-bootstrap/Carousel";
 
 export default function SingleWebSeriesData({ itemData }) {
-  console.log(itemData);
+  console.log("itemData>>>>>>", itemData.author_template_id);
+  const [authorData, setAuthorData] = useState(null);
+
+  console.log(authorData);
+  useEffect(() => {
+    // Fetch author data when author_template_id is available
+    if (itemData.author_template_id) {
+      fetchAuthorData(itemData.author_template_id);
+    }
+  }, [itemData.author_template_id]);
+
+  const fetchAuthorData = async (authorId) => {
+    try {
+      const response = await fetch(
+        `https://admin.cocomadigital.com/public/api/author`
+      );
+      if (!response.ok) {
+        throw new Error(`Error fetching author data: ${response.status}`);
+      }
+      const result = await response.json();
+
+      if (
+        result.status === "success" &&
+        result.data &&
+        result.data.author_template
+      ) {
+        // Find the matching author data by ID
+        const author = result.data.author_template.find(
+          (author) => author.id === authorId
+        );
+        if (author) {
+          setAuthorData(author);
+          console.log("Fetched Author Data:", author);
+        } else {
+          console.warn("No author found with the provided ID.");
+        }
+      }
+    } catch (error) {
+      console.error("Error fetching author data:", error);
+    }
+  };
+
   return (
     <>
-      {" "}
       <div className="container-fluid text-white bg-black py-5">
         {/* Movie Header */}
         <div className="container">
@@ -17,7 +58,7 @@ export default function SingleWebSeriesData({ itemData }) {
           <div className=" row d-flex align-items-center mb-4">
             <div className="col-lg-1">
               <img
-                src="../../Images/Owner.svg" // Replace with the actual image URL
+                src={authorData.author_image} // Replace with the actual image URL
                 alt="Author"
                 className="rounded-circle me-3"
               />
@@ -25,8 +66,7 @@ export default function SingleWebSeriesData({ itemData }) {
 
             <div className="col-lg-11">
               <p>
-                I hope you‘re enjoying browsing this page. If you want my team
-                to do your marketing for you &nbsp;
+                {authorData.author_description} &nbsp;
                 <span>
                   <a
                     href="/ScheduleMeeting"
@@ -38,10 +78,13 @@ export default function SingleWebSeriesData({ itemData }) {
               </p>
               <p className="mb-0">
                 Author:{" "}
-                <span className="fw-bold text-warning">Anil Mahato</span> |
-                Founder -{" "}
-                <span className="text-warning">Cocoma Digital, Langistan</span>{" "}
-                & CTO - <span className="text-warning">vShowcards</span>
+                <span className="fw-bold text-warning">
+                  {authorData.author_name}
+                </span>{" "}
+                | Founder -{" "}
+                <span className="text-warning">{authorData.founder_text}</span>{" "}
+                & CTO -{" "}
+                <span className="text-warning">{authorData.cto_text}</span>
               </p>
             </div>
           </div>
