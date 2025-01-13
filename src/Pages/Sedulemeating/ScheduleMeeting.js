@@ -90,7 +90,11 @@ const ScheduleMeeting = () => {
                   minutesStep={15}
                   className=" btn-warning TimePicker-input-feild"
                   renderInput={(params) => (
-                    <TextField type="text" {...params} />
+                    <TextField
+                      type="text"
+                      {...params}
+                      style={{ width: "100%" }}
+                    />
                   )}
                 />
               </LocalizationProvider>
