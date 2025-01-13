@@ -82,7 +82,7 @@ const ContentCreateByTeam = ({ itemData }) => {
                       url={item.url}
                       playing={true}
                       controls={true}
-                      className="img-fluid w-100 rounded"
+                      className="img-fluid w-100 rounded "
                       width="100%"
                       onEnded={() => setPlayingVideo(null)} // Stop video after it finishes
                     />

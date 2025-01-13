@@ -55,10 +55,11 @@
 
 .play-overlay button.play-btn {
   position: absolute;
-  font-size: 1.5rem;
   width: 50px;
   height: 50px;
+
   color: white;
+  text-align: center;
   background-color: black;
   border: none;
 }

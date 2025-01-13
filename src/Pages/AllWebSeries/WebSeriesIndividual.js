@@ -35,10 +35,6 @@ const WebSeriesIndividual = ({
     }
   }, [id, MarketingHouseData]);
 
-  console.log("Matched Item Data:", itemData.book_call_template_id);
-
-  console.log(itemData);
-
   return (
     <>
       {/* Render SingleWebSeriesData with matched item data */}
@@ -55,7 +51,11 @@ const WebSeriesIndividual = ({
           <ContentCreateByTeam itemData={itemData} />
           <ProjectSuccess />
           <RelatedServicesSlider Haddertitle="Related Services" />
-          <Section12 bannerId={itemData.book_call_template_id} />
+          <Section12
+            bannerId={
+              MarketingHouseData.marketing_house_projects.book_call_template_id
+            }
+          />
           <RelatedServicesSlider Haddertitle="Explore More Film & Media Services" />
           {/* <BusinessCareerSection /> */}
         </>

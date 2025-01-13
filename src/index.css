@@ -65,6 +65,7 @@ code {
   position:absolute;
   top:35%;
   left: 48%;
+  
 }
 .section-heading-01{
   width: 100%;
@@ -720,4 +721,10 @@ margin: 0px;
   width: 50%;
   align-self: center;
   font-size: 1.2rem;
+}
+.creative-house-play-button{
+
+  height: auto;
+  width: 50px;
+  height: 50px;
 }

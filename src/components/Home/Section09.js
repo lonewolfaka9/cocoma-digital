@@ -105,7 +105,7 @@ const Section09 = ({ CreativeHouseSection }) => {
               />
               <div className="position-absolute top-50 start-50 translate-middle">
                 <button
-                  className="btn btn-light rounded-circle"
+                  className="btn btn-light rounded-circle creative-house-play-button "
                   onClick={() => setVideoToPlay(item.creative_house_video_url)}
                 >
                   <FaPlay className="fs-2" size={14} />

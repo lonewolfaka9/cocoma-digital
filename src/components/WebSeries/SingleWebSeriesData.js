@@ -28,7 +28,10 @@ export default function SingleWebSeriesData({ itemData }) {
                 I hope you‘re enjoying browsing this page. If you want my team
                 to do your marketing for you &nbsp;
                 <span>
-                  <a href="/" className="text-warning text-decoration-none">
+                  <a
+                    href="/ScheduleMeeting"
+                    className="text-warning text-decoration-none"
+                  >
                     click here.
                   </a>
                 </span>
