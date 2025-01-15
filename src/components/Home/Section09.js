@@ -197,12 +197,9 @@ const Section09 = ({ CreativeHouseSection = { creative_house: [] } }) => {
             <Link to={`/Single-Video/${videoToPlay.VideoId}`}>
               <button className="btn btn-warning">See How We Edit</button>
             </Link>
-            <button
-              className="btn btn-success"
-              onClick={() => alert("Saved to your favorites!")}
-            >
-              Book A Demo Call
-            </button>
+            <Link to={`/ScheduleMeeting`}>
+              <button className="btn btn-light">Book A Demo Call</button>
+            </Link>
           </Modal.Footer>
         </Modal>
       )}

@@ -146,7 +146,7 @@ const ScheduleMeeting = () => {
             onClick={handleScheduleMeeting}
             className="btn btn-warning w-100 mt-4"
           >
-            Schedule Meeting →
+            Schedule Meeting
           </button>
         </div>
       </div>
