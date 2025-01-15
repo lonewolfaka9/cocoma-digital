@@ -60,7 +60,7 @@ const Section07 = ({ ClientData }) => {
               />
               <div className="card-body">
                 <p className="card-text fw-bold text-center">
-                  {client.client_description}
+                  {client.client_title}
                 </p>
               </div>
             </div>

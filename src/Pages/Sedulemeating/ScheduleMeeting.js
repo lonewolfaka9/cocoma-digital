@@ -3,9 +3,9 @@ import Calendar from "react-calendar";
 import { useNavigate } from "react-router-dom";
 import "react-calendar/dist/Calendar.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./ScheduleMeeting.css"; // Add your custom CSS for additional styling
+import "./ScheduleMeeting.css";
 import { useLocation } from "react-router-dom";
-import Select from "react-select"; // Import react-select
+import Select from "react-select";
 
 const ScheduleMeeting = () => {
   const [selectedDate, setSelectedDate] = useState(new Date()); // Default to current date

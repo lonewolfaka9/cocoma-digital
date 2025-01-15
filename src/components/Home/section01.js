@@ -34,7 +34,10 @@ export default function Section01({ bannerData }) {
                 className="btn btn-warning clam-free-consultation-button"
               >
                 {bannerData?.top_banner?.banner_button_text}
-                <MdOutlineArrowOutward className="clam-free-consultation-button" />
+                <MdOutlineArrowOutward
+                  className=" mx-3 clam-free-consultation-button"
+                  size={30}
+                />
               </Link>
             </div>
           </div>

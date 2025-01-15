@@ -5,6 +5,8 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
+import { IoIosArrowDown } from "react-icons/io";
+import { IoIosArrowUp } from "react-icons/io";
 
 const Section03 = ({ ServidcesToShow }) => {
   const services = ServidcesToShow.services || [];
@@ -111,9 +113,9 @@ const Section03 = ({ ServidcesToShow }) => {
           <div className="d-flex justify-content-between mt-3 position-relative">
             <button
               className="btn btn-light custom-prev-btn position-absolute "
-              onClick={() => sliderRef?.slickPrev()} // Trigger slickPrev()
+              onClick={() => sliderRef?.slickPrev()}
               aria-label="Previous"
-              disabled={currentSlide === 0} // Disable if on the first slide
+              disabled={currentSlide === 0}
             >
               <FaAngleLeft />
             </button>
@@ -161,11 +163,13 @@ const Section03 = ({ ServidcesToShow }) => {
         <div className="col-lg-12 text-center">
           {visibleItems < (activeCategory?.service_items?.length || 0) ? (
             <button className="show-more-button" onClick={showMoreItems}>
-              Show More
+              Show More &nbsp;
+              <IoIosArrowDown size={20} />
             </button>
           ) : (
             <button className="show-less-button" onClick={showLessItems}>
-              Hide
+              Hide &nbsp;
+              <IoIosArrowUp size={20} />
             </button>
           )}
         </div>
