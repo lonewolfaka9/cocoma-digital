@@ -70,7 +70,7 @@ const ScheduleMeeting = () => {
     const timeString = slot.toLocaleTimeString([], {
       hour: "2-digit",
       minute: "2-digit",
-      hour12: true,
+      hour12: false,
     });
     return { value: timeString, label: timeString };
   });
@@ -104,7 +104,10 @@ const ScheduleMeeting = () => {
           <p>
             <strong>Select a Time:</strong> <br />
             Showing Time for{" "}
-            <span className="text-primary">{selectedDate.toDateString()}</span>
+            <span className="text-primary">
+              {selectedDate.toDateString()}
+            </span>{" "}
+            And Time Zone <span className="text-primary">{timezone}</span>
           </p>
 
           {/* React-Select Dropdown */}
@@ -118,7 +121,7 @@ const ScheduleMeeting = () => {
                 setSelectedTime(selectedOption.value)
               }
               isSearchable={false}
-              placeholder="Select a Time"
+              placeholder="Select a Meeting Time"
               getOptionLabel={(e) => (
                 <div className="time-slot-button">{e.label}</div>
               )}

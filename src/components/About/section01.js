@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; // Slick CSS
 import "slick-carousel/slick/slick-theme.css"; // Slick Theme CSS
-import { colors } from "@mui/material";
-
+import { FiArrowUpRight } from "react-icons/fi";
+import { MdOutlineArrowOutward } from "react-icons/md";
 const Section01 = ({ bannerData }) => {
   const settings = {
     dots: false, // Show navigation dots
@@ -28,35 +28,70 @@ const Section01 = ({ bannerData }) => {
 
   return (
     <div className="">
-      <Slider {...settings}>
-        {bannerData.map((banner) => (
-          <div key={banner.id} className="slider-slide">
-            <div className="row d-flex align-items-center">
-              {/* Text Section */}
-              <div className="col-md-6 col-lg-6 text-center text-md-start text-white p-5">
-                <h1 className="fw-bold mt-3" style={{ color: "black" }}>
-                  {banner.group_banner_heading} {banner.id}
-                </h1>
-                <p className="text-muted">{banner.group_banner_subheading}</p>
-                <Link
-                  to={"/ScheduleMeeting"}
-                  className="btn btn-warning fw-bold mb-5"
-                >
-                  {banner.group_banner_button_text} <span>→</span>
-                </Link>
-              </div>
-              {/* Image Section */}
-              <div className="col-md-6 col-lg-6 d-flex justify-content-center">
-                <img
-                  src={banner.group_banner_img}
-                  alt={banner.group_banner_heading}
-                  className="img-fluid youtube-graphic"
-                />
+      {bannerData.length > 1 ? (
+        <Slider {...settings}>
+          {bannerData.map((banner) => (
+            <div key={banner.id} className="slider-slide">
+              <div className="row d-flex align-items-center">
+                {/* Text Section */}
+                <div className="col-md-6 col-lg-6 text-center text-md-start text-white p-5">
+                  <h1 className="fw-bold mt-3" style={{ color: "black" }}>
+                    {banner.group_banner_heading} {banner.id}
+                  </h1>
+                  <p className="text-muted">{banner.group_banner_subheading}</p>
+                  <Link
+                    to={"/ScheduleMeeting"}
+                    className="btn btn-warning clam-free-consultation-button"
+                  >
+                    {banner.group_banner_button_text}{" "}
+                    <span>
+                      <MdOutlineArrowOutward className="clam-free-consultation-button" />
+                    </span>
+                  </Link>
+                </div>
+                {/* Image Section */}
+                <div className="col-md-6 col-lg-6 d-flex justify-content-center">
+                  <img
+                    src={banner.group_banner_img}
+                    alt={banner.group_banner_heading}
+                    className="img-fluid youtube-graphic"
+                  />
+                </div>
               </div>
             </div>
+          ))}
+        </Slider>
+      ) : (
+        // Single banner case, don't show slider
+        bannerData.map((banner) => (
+          <div key={banner.id} className="row d-flex align-items-center">
+            {/* Text Section */}
+            <div className="col-md-6 col-lg-6 text-center text-md-start text-white p-5">
+              <h1 className="fw-bold mt-3" style={{ color: "black" }}>
+                {banner.group_banner_heading} {banner.id}
+              </h1>
+              <p className="text-muted">{banner.group_banner_subheading}</p>
+              <Link
+                to={"/ScheduleMeeting"}
+                className="btn btn-warning clam-free-consultation-button"
+              >
+                {banner.group_banner_button_text}{" "}
+                <span>
+                  <MdOutlineArrowOutward className="clam-free-consultation-button" />
+                </span>
+              </Link>
+            </div>
+            {/* Image Section */}
+            <div className="col-md-6 col-lg-6 d-flex justify-content-center">
+              <img
+                src={banner.group_banner_img}
+                alt={banner.group_banner_heading}
+                className="img-fluid youtube-graphic"
+              />
+            </div>
           </div>
-        ))}
-      </Slider>
+        ))
+      )}
     </div>
   );
 };

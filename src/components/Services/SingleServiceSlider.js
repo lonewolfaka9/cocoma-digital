@@ -65,17 +65,29 @@ const SingleServiceSlider = ({ matchingItem }) => {
       </div>
       <div className="row">
         <div className="col-md-6">
-          <Slider {...settings}>
-            {matchingItem.group_single_service_image.map((images, index) => (
-              <div key={index}>
-                <img
-                  src={images.single_service_img}
-                  alt={`Slide ${index + 1}`}
-                  className="single-service-slider-image"
-                />
-              </div>
-            ))}
-          </Slider>
+          {matchingItem.group_single_service_image.length > 1 ? (
+            <Slider {...settings}>
+              {matchingItem.group_single_service_image.map((images, index) => (
+                <div key={index}>
+                  <img
+                    src={images.single_service_img}
+                    alt={`Slide ${index + 1}`}
+                    className="single-service-slider-image"
+                  />
+                </div>
+              ))}
+            </Slider>
+          ) : (
+            <div>
+              <img
+                src={
+                  matchingItem.group_single_service_image[0].single_service_img
+                }
+                alt="Single Item"
+                className="single-service-slider-image"
+              />
+            </div>
+          )}
 
           <div className="d-flex align-items-center mt-3">
             <p className="mb-0">
