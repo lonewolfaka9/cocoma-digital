@@ -21,7 +21,7 @@ const CreativeSlider = ({ CreativeSliderData }) => {
       {
         breakpoint: 768, // For tablets and smaller
         settings: {
-          arrows: true,
+          arrows: false,
           dots: false,
           slidesToShow: 1,
           slidesToScroll: 1,

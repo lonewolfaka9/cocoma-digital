@@ -765,4 +765,15 @@ button.btn:hover {
   transform: scale(1.1);
   opacity: 0.8;
 } */
-
+.custom-prev-btn{
+  top:-70px;
+  left:-40px;
+  z-index: 111;
+  border: 1px solid black !important;
+}
+.custom-next-btn{
+  top:-70px;
+  right:-40px;
+  z-index: 111;
+  border: 1px solid black !important;
+}

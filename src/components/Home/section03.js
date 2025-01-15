@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { GoArrowUpRight } from "react-icons/go";
-import Slider from "react-slick"; // Import react-slick
+import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 
 const Section03 = ({ ServidcesToShow }) => {
   const services = ServidcesToShow.services || [];
-  const [sliderRef, setSliderRef] = useState(null); // Reference to the slider
+  const [sliderRef, setSliderRef] = useState(null);
+  const [currentSlide, setCurrentSlide] = useState(0); // Track the current slide index
+  const [sliderLength, setSliderLength] = useState(0); // Total number of slides
 
   // Filter out the category with name "Service Platform"
   const filteredServices = services.filter(
@@ -20,7 +22,6 @@ const Section03 = ({ ServidcesToShow }) => {
     (category) => category.id === activeTab
   );
 
-  // State to manage visible items
   const [visibleItems, setVisibleItems] = useState(6);
 
   const showMoreItems = () => {
@@ -30,16 +31,22 @@ const Section03 = ({ ServidcesToShow }) => {
   };
 
   const showLessItems = () => {
-    setVisibleItems(3); // Reset visible items to the initial 3
+    setVisibleItems(3);
   };
 
   const sliderSettings = {
     dots: false,
     infinite: false,
-    arrows: false, // Disable default arrows
+    arrows: false,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
+    beforeChange: (current, next) => {
+      setCurrentSlide(next); // Update current slide on beforeChange
+    },
+    afterChange: (index) => {
+      setCurrentSlide(index); // Set the current slide after change
+    },
     responsive: [
       {
         breakpoint: 1024,
@@ -75,36 +82,24 @@ const Section03 = ({ ServidcesToShow }) => {
         <div className="col-lg-2"></div>
         <div className="col-lg-8 text-center">
           {/* Custom navigation buttons */}
-          <div className="d-flex justify-content-end mt-3">
-            <button
-              className="btn btn-light me-2 custom-prev-btn"
-              onClick={() => sliderRef?.slickPrev()} // Trigger slickPrev()
-              aria-label="Previous"
-            >
-              <FaAngleLeft />
-            </button>
-            <button
-              className="btn btn-light custom-next-btn"
-              onClick={() => sliderRef?.slickNext()} // Trigger slickNext()
-              aria-label="Next"
-            >
-              <FaAngleRight />
-            </button>
-          </div>
           <Slider
             {...sliderSettings}
             className="category-slider mt-4"
-            ref={setSliderRef} // Attach the slider reference
+            ref={setSliderRef}
+            afterChange={(index) => setSliderLength(filteredServices.length)}
           >
             {filteredServices.map((category) => (
-              <div key={category.id} className="category-slide">
+              <div
+                key={category.id}
+                className="category-slide position-relative"
+              >
                 <button
                   className={`tab-button ${
                     activeTab === category.id ? "active" : ""
                   }`}
                   onClick={() => {
                     setActiveTab(category.id);
-                    setVisibleItems(3); // Reset visible items when tab changes
+                    setVisibleItems(3);
                   }}
                 >
                   {category.service_category_name}
@@ -112,6 +107,25 @@ const Section03 = ({ ServidcesToShow }) => {
               </div>
             ))}
           </Slider>
+
+          <div className="d-flex justify-content-between mt-3 position-relative">
+            <button
+              className="btn btn-light custom-prev-btn position-absolute "
+              onClick={() => sliderRef?.slickPrev()} // Trigger slickPrev()
+              aria-label="Previous"
+              disabled={currentSlide === 0} // Disable if on the first slide
+            >
+              <FaAngleLeft />
+            </button>
+            <button
+              className="btn btn-light custom-next-btn position-absolute "
+              onClick={() => sliderRef?.slickNext()} // Trigger slickNext()
+              aria-label="Next"
+              disabled={currentSlide === filteredServices.length - 1} // Disable if on the last slide
+            >
+              <FaAngleRight />
+            </button>
+          </div>
         </div>
       </div>
 
