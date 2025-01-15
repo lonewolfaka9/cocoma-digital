@@ -5,38 +5,57 @@ import "react-calendar/dist/Calendar.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./ScheduleMeeting.css"; // Add your custom CSS for additional styling
 import { useLocation } from "react-router-dom";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { MobileTimePicker } from "@mui/x-date-pickers/MobileTimePicker";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-// import dayjs from "dayjs";
-import TextField from "@mui/material/TextField";
+import Select from "react-select"; // Import react-select
 
 const ScheduleMeeting = () => {
   const [selectedDate, setSelectedDate] = useState(new Date()); // Default to current date
-  const [selectedTime, setSelectedTime] = useState(null);
+  const [selectedTime, setSelectedTime] = useState(""); // Keep as string for button selection
   const navigate = useNavigate();
   const location = useLocation();
   const [timezone, setTimezone] = useState("");
+  const [timeSlots, setTimeSlots] = useState([]);
 
   const { cartItems = [] } = location.state || {}; // Retrieve the payload passed from the cart page
-
-  console.log(cartItems);
 
   useEffect(() => {
     const userTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
     setTimezone(userTimezone); // Set the user's time zone (e.g., "Asia/Kolkata" or "America/New_York")
   }, []);
 
-  console.log(timezone);
+  useEffect(() => {
+    generateTimeSlots();
+  }, [selectedDate]);
+
+  const generateTimeSlots = () => {
+    const slots = [];
+    const startOfDay = new Date(selectedDate);
+    startOfDay.setHours(0, 0, 0, 0);
+
+    const now = new Date();
+
+    for (let i = 0; i < 24 * 4; i++) {
+      const slot = new Date(startOfDay);
+      slot.setMinutes(i * 15);
+
+      // Only add slots that are not in the past for the current date
+      if (selectedDate.toDateString() === now.toDateString()) {
+        if (slot > now) {
+          slots.push(slot);
+        }
+      } else {
+        slots.push(slot);
+      }
+    }
+
+    setTimeSlots(slots);
+  };
 
   const handleScheduleMeeting = () => {
     if (selectedDate && selectedTime) {
-      console.log(selectedTime.format("h:mm A"));
-
       navigate("/schedule-meeting", {
         state: {
           date: selectedDate,
-          time: selectedTime.format("h:mm A"),
+          time: selectedTime,
           timeZone: timezone,
           cartItems: cartItems,
         },
@@ -45,6 +64,16 @@ const ScheduleMeeting = () => {
       alert("Please select both a date and a time slot to proceed.");
     }
   };
+
+  // Format the time slots for react-select
+  const timeSlotOptions = timeSlots.map((slot) => {
+    const timeString = slot.toLocaleTimeString([], {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: true,
+    });
+    return { value: timeString, label: timeString };
+  });
 
   return (
     <div className="container py-5">
@@ -66,40 +95,52 @@ const ScheduleMeeting = () => {
         {/* Time Slot Section */}
         <div className="col-md-6">
           <h3 className="mb-3">Meeting Time</h3>
-          <div>
+          <div className="mb-3">
+            {" "}
             <button className=" btn btn-block btn-light text-muted  w-100">
               15 Mins
             </button>
           </div>
-          {selectedDate && (
-            <div className="mb-3 mt-3">
-              <p>
-                <strong>Select a Time:</strong> <br />
-                Showing Time for{" "}
-                <span className="text-primary">
-                  {selectedDate.toDateString()}
-                </span>
-              </p>
-              <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <MobileTimePicker
-                  label={
-                    selectedTime ? " Selected Time" : "Please Select  Time"
-                  }
-                  value={selectedTime || null} // Pass `null`  if no time is selected
-                  onChange={(newTime) => setSelectedTime(newTime)}
-                  minutesStep={15}
-                  className=" btn-warning TimePicker-input-feild"
-                  renderInput={(params) => (
-                    <TextField
-                      type="text"
-                      {...params}
-                      style={{ width: "100%" }}
-                    />
-                  )}
-                />
-              </LocalizationProvider>
-            </div>
-          )}
+          <p>
+            <strong>Select a Time:</strong> <br />
+            Showing Time for{" "}
+            <span className="text-primary">{selectedDate.toDateString()}</span>
+          </p>
+
+          {/* React-Select Dropdown */}
+          <div className="mb-3">
+            <Select
+              options={timeSlotOptions}
+              value={timeSlotOptions.find(
+                (option) => option.value === selectedTime
+              )}
+              onChange={(selectedOption) =>
+                setSelectedTime(selectedOption.value)
+              }
+              isSearchable={false}
+              placeholder="Select a Time"
+              getOptionLabel={(e) => (
+                <div className="time-slot-button">{e.label}</div>
+              )}
+              styles={{
+                menuList: (base) => ({
+                  ...base,
+                  display: "grid",
+                  gridTemplateColumns: "repeat(4, 1fr)", // 4 buttons per row
+                  gap: "10px",
+                }),
+                option: (base) => ({
+                  ...base,
+                  padding: "0",
+                  backgroundColor: "transparent",
+                }),
+                control: (base) => ({
+                  ...base,
+                  border: "1px solid #ccc",
+                }),
+              }}
+            />
+          </div>
 
           <button
             onClick={handleScheduleMeeting}

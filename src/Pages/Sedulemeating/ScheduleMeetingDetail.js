@@ -8,15 +8,15 @@ import { useDispatch } from "react-redux"; // Import useDispatch
 // import { clearCart } from "../../redux/cartSlice"; // Import the clearCart action
 
 import { clearCart } from "../../Service/redux/cartSlice";
+
 const ScheduleMeetingDetails = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const { state } = location || {};
   const { date, time, cartItems, timeZone } = state || {};
+
   const [error, setError] = useState();
   const dispatch = useDispatch();
-
-  console.log(error);
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -41,10 +41,24 @@ const ScheduleMeetingDetails = () => {
     setErrors((prev) => ({ ...prev, [name]: "" }));
   };
 
+  function convertTo24HourFormat(time12h) {
+    const [time, modifier] = time12h.split(" ");
+    let [hours, minutes] = time.split(":");
+
+    if (modifier === "PM" && hours !== "12") {
+      hours = parseInt(hours) + 12; // Convert PM hours to 24-hour format
+    }
+    if (modifier === "AM" && hours === "12") {
+      hours = "00"; // Convert 12 AM to 00 (midnight)
+    }
+
+    return `${hours}:${minutes}:00`; // Return time in HH:mm:ss format
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Validate only required fields
+    // Validate required fields
     const newErrors = {};
     if (!formData.firstName.trim()) {
       newErrors.firstName = "First Name is required";
@@ -62,46 +76,36 @@ const ScheduleMeetingDetails = () => {
       newErrors.message = "Message is required";
     }
 
-    // If date or time are required, validate them as well
+    // Validate date and time
     if (!date) newErrors.date = "Schedule date is required";
     if (!time) newErrors.time = "Schedule time is required";
 
-    const localDate = new Date(date);
-
-    // Convert to IST (Indian Standard Time)
-    const dateOnly = localDate.toLocaleDateString("en-IN", {
-      timeZone: "Asia/Kolkata",
-    });
-
-    console.log(dateOnly);
     setErrors(newErrors);
 
     if (Object.keys(newErrors).length > 0) return;
 
-    const formattedCartItems = cartItems
-      ? cartItems.map((item, index) => {
-          const group_service_category_id = item.group_service_category_id;
-          const group_service_item_id = item.id; // Use 'id' as 'group_service_item_id'
-          const oneTime = item.OneTimeOnly || false; // Default to false if not provided
-          const recurring = item.Recurring || false; // Default to false if not provided
+    // Format the date to YYYY-MM-DD
+    // Convert date to 'YYYY-MM-DD' format
+    const formattedDate = new Date(date);
+    const localDate = new Date(
+      formattedDate.getTime() - formattedDate.getTimezoneOffset() * 60000
+    );
+    const finalDate = localDate.toISOString().split("T")[0];
 
-          // Only return the necessary fields
-          return {
-            group_service_category_id: group_service_category_id,
-            group_service_item_id: group_service_item_id, // 'id' is used as 'group_service_item_id'
-            one_time: oneTime,
-            recurring: recurring,
-          };
-        })
-      : [];
+    // Convert time from 12-hour format to 24-hour format
+    let formattedTime;
+    try {
+      formattedTime = convertTo24HourFormat(time); // Convert time to 24-hour format
+    } catch (error) {
+      setError("Invalid time format.");
+      return;
+    }
 
-    // Filter out any invalid items
-    const validCartItems = formattedCartItems.filter((item) => item !== null);
-    // Prepare API payload
+    // Prepare the payload
     const payload = {
-      schedule_date: dateOnly,
-      schedule_time: time,
-      schedule_duration: "120", // Example duration
+      schedule_date: finalDate,
+      schedule_time: formattedTime,
+      schedule_duration: "120", // Example duration (change as needed)
       first_name: formData.firstName,
       timezone: timeZone,
       last_name: formData.lastName,
@@ -114,15 +118,20 @@ const ScheduleMeetingDetails = () => {
       x_link: formData.twitter,
       youtube_link: formData.youtube,
       msg: formData.message,
-      free_consultaion_item: validCartItems,
+      free_consultaion_item: cartItems
+        ? cartItems.map((item) => ({
+            group_service_category_id: item.group_service_category_id,
+            group_service_item_id: item.id,
+            one_time: item.OneTimeOnly || false,
+            recurring: item.Recurring || false,
+          }))
+        : [],
     };
 
     // Call API
     adminService
       .FreeConsultation(payload)
       .then((response) => {
-        console.log("API Response:", response.data);
-
         // Clear form fields
         setFormData({
           firstName: "",
@@ -139,12 +148,14 @@ const ScheduleMeetingDetails = () => {
         });
         dispatch(clearCart()); // Clear the cart after success
 
-        // Redirect to home page and clear date/time
+        // Redirect to Thank You page
         navigate("/ThankYou", {
           state: {
             date: null,
             time: null,
             successMessage: "Meeting scheduled successfully!",
+            cartItems: null,
+            timeZone: null,
           },
         });
       })
@@ -152,9 +163,7 @@ const ScheduleMeetingDetails = () => {
         console.error("API Error:", err.response?.data || err.message);
         setError(err.message); // Optional: Set error message to display to the user
       })
-      .finally(() => {
-        console.log("API call completed");
-      });
+      .finally(() => {});
   };
 
   return (

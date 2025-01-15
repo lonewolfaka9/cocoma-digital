@@ -8,19 +8,17 @@
 .play-btn {
   top: 50%;
   left: 50%;
+  width: 50px;
+  height: 50px;
   transform: translate(-50%, -50%);
-  font-size: 3rem;
   color: #fff;
   background-color: rgba(0, 0, 0, 0.7);
   border-radius: 50%;
-  padding: 0rem 1rem;
   border: none;
   outline: none;
   cursor: pointer;
 }
-/* .slick-track{
-  margin-left:0px !important ;
-} */
+
 .play-btn:hover {
   background-color: rgba(0, 0, 0, 0.9);
 }

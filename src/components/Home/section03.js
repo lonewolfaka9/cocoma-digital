@@ -4,9 +4,11 @@ import { GoArrowUpRight } from "react-icons/go";
 import Slider from "react-slick"; // Import react-slick
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 
 const Section03 = ({ ServidcesToShow }) => {
   const services = ServidcesToShow.services || [];
+  const [sliderRef, setSliderRef] = useState(null); // Reference to the slider
 
   // Filter out the category with name "Service Platform"
   const filteredServices = services.filter(
@@ -34,8 +36,8 @@ const Section03 = ({ ServidcesToShow }) => {
   const sliderSettings = {
     dots: false,
     infinite: false,
+    arrows: false, // Disable default arrows
     speed: 500,
-    arrows: false,
     slidesToShow: 3,
     slidesToScroll: 1,
     responsive: [
@@ -72,7 +74,28 @@ const Section03 = ({ ServidcesToShow }) => {
       <div className="row">
         <div className="col-lg-2"></div>
         <div className="col-lg-8 text-center">
-          <Slider {...sliderSettings} className="category-slider mt-4">
+          {/* Custom navigation buttons */}
+          <div className="d-flex justify-content-end mt-3">
+            <button
+              className="btn btn-light me-2 custom-prev-btn"
+              onClick={() => sliderRef?.slickPrev()} // Trigger slickPrev()
+              aria-label="Previous"
+            >
+              <FaAngleLeft />
+            </button>
+            <button
+              className="btn btn-light custom-next-btn"
+              onClick={() => sliderRef?.slickNext()} // Trigger slickNext()
+              aria-label="Next"
+            >
+              <FaAngleRight />
+            </button>
+          </div>
+          <Slider
+            {...sliderSettings}
+            className="category-slider mt-4"
+            ref={setSliderRef} // Attach the slider reference
+          >
             {filteredServices.map((category) => (
               <div key={category.id} className="category-slide">
                 <button

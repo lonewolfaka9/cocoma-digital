@@ -83,7 +83,7 @@ const Section12 = ({ bannerData, bannerId }) => {
           </div>
 
           <a
-            href="/contact_us"
+            href="/ScheduleMeeting"
             className="btn btn-warning book-a-call-button-width  mt-5 mb-5"
           >
             {BookCall.book_button_text}

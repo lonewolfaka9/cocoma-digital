@@ -1,11 +1,13 @@
-import React, { useRef } from "react";
+import React, { useState, useRef } from "react";
 import Slider from "react-slick";
-import { FaPlay } from "react-icons/fa";
+import { FaPlay, FaPause } from "react-icons/fa";
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
+import ReactPlayer from "react-player";
 
 const CreativeSlider = ({ CreativeSliderData }) => {
   const sliderRef = useRef(null);
+  const [playingVideo, setPlayingVideo] = useState(null); // state to track which video is playing
 
   const settings = {
     dots: false,
@@ -39,7 +41,15 @@ const CreativeSlider = ({ CreativeSliderData }) => {
 
   // Use creative_house_approach data
   const sliderContent = CreativeSliderData?.creative_house_approach || [];
-  console.log(sliderContent);
+
+  const handlePlayClick = (videoUrl) => {
+    setPlayingVideo(videoUrl); // Set the video URL to be played
+  };
+
+  const handlePauseClick = () => {
+    setPlayingVideo(null); // Clear the video URL to stop playing
+  };
+
   return (
     <div className="creative-approach-bg pt-5 pb-5">
       <div className="container">
@@ -53,31 +63,54 @@ const CreativeSlider = ({ CreativeSliderData }) => {
             <Slider {...settings} ref={sliderRef}>
               {sliderContent.map((item, index) => (
                 <div key={index} className="p-3">
-                  <div className="slider-image-wrapper mb-3">
-                    <img
-                      src={item.approach_thumbnail} // Use image property from API
-                      alt={item.approach_heading}
-                      className="position-relative"
-                      style={{
-                        width: "100%",
-                        maxHeight: "400px",
-                        objectFit: "cover",
-                        borderRadius: "8px",
-                      }}
-                    />
+                  <div className="slider-image-wrapper position-relative mb-3">
+                    {playingVideo === item.approach_video_url ? (
+                      // Show ReactPlayer if video is playing
+                      <ReactPlayer
+                        url={item.approach_video_url}
+                        playing={true}
+                        controls={true}
+                        width="100%"
+                        height="400px"
+                      />
+                    ) : (
+                      // Show the thumbnail image
+                      <img
+                        src={item.approach_thumbnail}
+                        alt={item.approach_heading}
+                        className=""
+                        style={{
+                          width: "100%",
+                          maxHeight: "400px",
+                          objectFit: "cover",
+                          borderRadius: "8px",
+                        }}
+                      />
+                    )}
+
                     <button
                       style={{
                         position: "absolute",
-                        top: "40%",
+                        top: "50%",
                         left: "50%",
                         transform: "translate(-50%, -50%)",
                         backgroundColor: "#fff",
                         border: "none",
                         borderRadius: "50%",
                         padding: "10px 15px",
+                        zIndex: 10, // Ensure button is on top of the image
                       }}
+                      onClick={
+                        playingVideo === item.approach_video_url
+                          ? handlePauseClick // Pause if the video is already playing
+                          : () => handlePlayClick(item.approach_video_url) // Play the video
+                      }
                     >
-                      <FaPlay size={20} />
+                      {playingVideo === item.approach_video_url ? (
+                        <FaPause size={20} />
+                      ) : (
+                        <FaPlay size={20} />
+                      )}
                     </button>
                   </div>
                   <div>

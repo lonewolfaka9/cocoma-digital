@@ -4,7 +4,6 @@ import { MdOutlineArrowOutward } from "react-icons/md";
 import { Link } from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
 import ReactPlayer from "react-player";
-import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function Section01({ bannerData }) {
   const [showModal, setShowModal] = useState(false);

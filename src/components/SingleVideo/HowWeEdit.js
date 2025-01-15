@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { FaPlay } from "react-icons/fa";
 
 export default function HowWeEdit({ HowWeEditTitle }) {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -17,7 +18,7 @@ export default function HowWeEdit({ HowWeEditTitle }) {
     <div className="container-fluid edit-bg">
       <div className="container pt-5 pb-5">
         <div className="text-center">
-          <h1 className="fw-bold">
+          <h1 className="fw-bold" style={{ color: "white" }}>
             {HowWeEditTitle.creative_house_video_title}
           </h1>
         </div>
@@ -36,7 +37,7 @@ export default function HowWeEdit({ HowWeEditTitle }) {
                 className="btn btn-light position-absolute play-btn"
                 onClick={handlePlay}
               >
-                ▶
+                <FaPlay />
               </button>
             </div>
           )}

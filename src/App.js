@@ -26,6 +26,7 @@ import AdminService from "./Service/apiService";
 import NotFound from "./Pages/PageNotFound";
 import ScheduleMeeting from "./Pages/Sedulemeating/ScheduleMeeting";
 import ScheduleMeetingDetails from "./Pages/Sedulemeating/ScheduleMeetingDetail";
+import ScrollToTop from "./components/scrollToTop";
 function App() {
   const location = useLocation();
   // SET DATA WITH USESTATE
@@ -119,6 +120,8 @@ function App() {
 
   return (
     <>
+      {" "}
+      <ScrollToTop />
       {showHeaderFooter && <Header ServiceData={servicesData} />}
       <main>
         <Routes>

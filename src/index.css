@@ -723,8 +723,46 @@ margin: 0px;
   font-size: 1.2rem;
 }
 .creative-house-play-button{
-
   height: auto;
   width: 50px;
   height: 50px;
+  border: none;
 }
+.creative-house-play-button:hover{
+
+  background-color: #000000af;
+  color: white;
+  border: 1px solid white;
+}
+.view-all-link-text{
+  font-size: 20px;
+  font-weight: 900 !important;
+  text-decoration: underline;
+  
+}
+/* Fade-in Animation */
+/* @keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px); 
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 4s ease-in-out;
+}
+
+
+button.btn {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+button.btn:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+} */
+

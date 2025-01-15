@@ -88,10 +88,10 @@ const Section08 = ({ MarketingHouseData }) => {
           </p>
           <h2 className="fw-bold">OUR MARKETING HOUSE</h2>
         </div>
-        <div className="col-lg-1">
+        <div className="col-lg-1 d-flex justify-content-center align-items-center">
           <Link
-            to="/View-all-Series "
-            className="ms-auto text-warning text-decoration-none"
+            to="/View-all-Series"
+            className="text-warning view-all-link-text"
           >
             View All
           </Link>

@@ -1,19 +1,47 @@
 import React, { useState, useEffect } from "react";
 import { FaPlay } from "react-icons/fa";
 import Slider from "react-slick";
-const Section09 = ({ CreativeHouseSection }) => {
-  const [category, setCategory] = useState("Videos");
+import { Link } from "react-router-dom";
+import Modal from "react-bootstrap/Modal";
+import ReactPlayer from "react-player";
+
+const Section09 = ({ CreativeHouseSection = { creative_house: [] } }) => {
+  const [category, setCategory] = useState("All");
   const [filteredItems, setFilteredItems] = useState([]);
   const [videoToPlay, setVideoToPlay] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+  const [showAllItems, setShowAllItems] = useState(true);
 
   useEffect(() => {
-    const selectedCategory = CreativeHouseSection?.creative_house?.find(
-      (cat) => cat.creative_house_category_name === category
-    );
-    if (selectedCategory) {
-      setFilteredItems(selectedCategory.items);
+    if (showAllItems) {
+      // Merge all categories' items if showing all items
+      const allItems = CreativeHouseSection?.creative_house?.reduce(
+        (acc, cat) => [...acc, ...cat.items],
+        []
+      );
+      setFilteredItems(allItems || []);
+    } else {
+      const selectedCategory = CreativeHouseSection?.creative_house?.find(
+        (cat) => cat.creative_house_category_name === category
+      );
+      setFilteredItems(selectedCategory?.items || []);
     }
-  }, [category, CreativeHouseSection]);
+  }, [category, CreativeHouseSection, showAllItems]);
+
+  const handleAllItemsClick = () => {
+    setCategory("All");
+    setShowAllItems(true);
+  };
+
+  const handleCategoryClick = (catName) => {
+    setCategory(catName);
+    setShowAllItems(false);
+  };
+
+  const handleCloseModal = () => {
+    setVideoToPlay(null);
+    setShowModal(false);
+  };
 
   const sliderSettings = {
     dots: false,
@@ -49,11 +77,11 @@ const Section09 = ({ CreativeHouseSection }) => {
       },
     ],
   };
+
   return (
     <div className="container my-5">
       <div className="row">
         <div className="col-lg-11">
-          {" "}
           <h3
             className="text-uppercase text-muted mb-3"
             style={{ fontSize: "20px" }}
@@ -62,19 +90,26 @@ const Section09 = ({ CreativeHouseSection }) => {
           </h3>
           <h2 className="fw-bold">OUR CREATIVE HOUSE</h2>
         </div>
-        <div className="col-lg-1">
-          {" "}
-          <a
-            href="/Creative-House"
-            className="ms-auto text-warning text-decoration-none"
+        <div className="col-lg-1 d-flex justify-content-center align-items-center">
+          <Link
+            to="/Creative-House"
+            className="text-warning view-all-link-text"
           >
             View All
-          </a>
+          </Link>
         </div>
       </div>
 
       <div className="mb-5 mt-2">
         <Slider {...sliderSettings} className="SliderCustom-width">
+          <button
+            className={`cat-filter-button btn w-auto me-2 ${
+              category === "All" ? "btn-warning" : "btn-outline-secondary"
+            }`}
+            onClick={handleAllItemsClick}
+          >
+            All
+          </button>
           {CreativeHouseSection?.creative_house?.slice(0, 7).map((cat) => (
             <button
               key={cat.id}
@@ -83,7 +118,9 @@ const Section09 = ({ CreativeHouseSection }) => {
                   ? "btn-warning"
                   : "btn-outline-secondary"
               }`}
-              onClick={() => setCategory(cat.creative_house_category_name)}
+              onClick={() =>
+                handleCategoryClick(cat.creative_house_category_name)
+              }
             >
               {cat.creative_house_category_name}
             </button>
@@ -92,7 +129,7 @@ const Section09 = ({ CreativeHouseSection }) => {
       </div>
 
       <div className="row">
-        {filteredItems.map((item) => (
+        {filteredItems.slice(0, 16).map((item) => (
           <div key={item.id} className="col-md-3 mb-4">
             <div className="card-CreativeHouse position-relative">
               <img
@@ -101,12 +138,19 @@ const Section09 = ({ CreativeHouseSection }) => {
                     ? item.creative_house_thumbnail
                     : `https://cocomadigitalmediabucket.s3.eu-north-1.amazonaws.com/creative-house-thumbnail/${item.creative_house_thumbnail}`
                 }
-                alt="Thumbnail"
+                alt={item.creative_house_video_title}
               />
               <div className="position-absolute top-50 start-50 translate-middle">
                 <button
-                  className="btn btn-light rounded-circle creative-house-play-button "
-                  onClick={() => setVideoToPlay(item.creative_house_video_url)}
+                  className="btn btn-light rounded-circle creative-house-play-button"
+                  onClick={() => {
+                    setVideoToPlay({
+                      url: item.creative_house_video_url,
+                      title: item.creative_house_video_title,
+                      VideoId: item.id,
+                    });
+                    setShowModal(true);
+                  }}
                 >
                   <FaPlay className="fs-2" size={14} />
                 </button>
@@ -117,32 +161,50 @@ const Section09 = ({ CreativeHouseSection }) => {
       </div>
 
       {videoToPlay && (
-        <div
-          className="modal fade show d-block"
-          style={{ backgroundColor: "rgba(0, 0, 0, 0.7)" }}
+        <Modal
+          show={showModal}
+          onHide={handleCloseModal}
+          centered
+          backdrop="static"
+          size="lg"
+          className="custom-modal"
         >
-          <div className="modal-dialog modal-dialog-centered">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h5 className="modal-title">Video Player</h5>
-                <button
-                  type="button"
-                  className="btn-close"
-                  onClick={() => setVideoToPlay(null)}
-                ></button>
-              </div>
-              <div className="modal-body">
-                <video
-                  controls
-                  style={{ width: "100%" }}
-                  src={videoToPlay.startsWith("http") ? videoToPlay : ""}
-                >
-                  Your browser does not support the video tag.
-                </video>
-              </div>
+          <Modal.Header closeButton>
+            <Modal.Title>
+              <strong>{videoToPlay.title}</strong>
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body className="p-0">
+            <div
+              className="video-container"
+              style={{ position: "relative", paddingTop: "56.25%" }}
+            >
+              <ReactPlayer
+                url={videoToPlay.url}
+                controls
+                playing={true}
+                width="100%"
+                height="100%"
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                }}
+              />
             </div>
-          </div>
-        </div>
+          </Modal.Body>
+          <Modal.Footer>
+            <Link to={`/Single-Video/${videoToPlay.VideoId}`}>
+              <button className="btn btn-warning">See How We Edit</button>
+            </Link>
+            <button
+              className="btn btn-success"
+              onClick={() => alert("Saved to your favorites!")}
+            >
+              Book A Demo Call
+            </button>
+          </Modal.Footer>
+        </Modal>
       )}
     </div>
   );
