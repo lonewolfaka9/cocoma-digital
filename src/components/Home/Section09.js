@@ -81,7 +81,7 @@ const Section09 = ({ CreativeHouseSection = { creative_house: [] } }) => {
   return (
     <div className="container my-5">
       <div className="row">
-        <div className="col-lg-11">
+        <div className="col-lg-10 col-md-9 col-sm-9 col-12">
           <h3
             className="text-uppercase text-muted mb-3"
             style={{ fontSize: "20px" }}
@@ -90,7 +90,7 @@ const Section09 = ({ CreativeHouseSection = { creative_house: [] } }) => {
           </h3>
           <h2 className="fw-bold">OUR CREATIVE HOUSE</h2>
         </div>
-        <div className="col-lg-1 d-flex justify-content-center align-items-center">
+        <div className="col-lg-2 col-md-3 col-sm-3 col-12 d-flex justify-content-end align-items-center">
           <Link
             to="/Creative-House"
             className="text-warning view-all-link-text"
@@ -103,7 +103,7 @@ const Section09 = ({ CreativeHouseSection = { creative_house: [] } }) => {
       <div className="mb-5 mt-2">
         <Slider {...sliderSettings} className="SliderCustom-width">
           <button
-            className={`cat-filter-button btn w-auto me-2 ${
+            className={`cat-filter-button btn  me-2 ${
               category === "All" ? "btn-warning" : "btn-outline-secondary"
             }`}
             onClick={handleAllItemsClick}
@@ -113,7 +113,7 @@ const Section09 = ({ CreativeHouseSection = { creative_house: [] } }) => {
           {CreativeHouseSection?.creative_house?.slice(0, 7).map((cat) => (
             <button
               key={cat.id}
-              className={`cat-filter-button btn w-auto me-2 ${
+              className={`cat-filter-button btn  me-2 ${
                 category === cat.creative_house_category_name
                   ? "btn-warning"
                   : "btn-outline-secondary"
@@ -142,7 +142,7 @@ const Section09 = ({ CreativeHouseSection = { creative_house: [] } }) => {
               />
               <div className="position-absolute top-50 start-50 translate-middle">
                 <button
-                  className="btn btn-light rounded-circle creative-house-play-button"
+                  className="btn  rounded-circle creative-house-play-button"
                   onClick={() => {
                     setVideoToPlay({
                       url: item.creative_house_video_url,
@@ -193,7 +193,7 @@ const Section09 = ({ CreativeHouseSection = { creative_house: [] } }) => {
               />
             </div>
           </Modal.Body>
-          <Modal.Footer>
+          <Modal.Footer style={{ background: "white" }}>
             <Link to={`/Single-Video/${videoToPlay.VideoId}`}>
               <button className="btn btn-warning">See How We Edit</button>
             </Link>

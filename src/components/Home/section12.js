@@ -60,7 +60,7 @@ const Section12 = ({ bannerData, bannerId }) => {
   // Render the BookCall data
   return (
     <div className="container mt-5 mb-5">
-      <div className="row border rounded">
+      <div className="row">
         <div className="col-md-6 col-lg-5 d-flex align-items-end">
           <img
             src={BookCall.book_image}
@@ -70,15 +70,15 @@ const Section12 = ({ bannerData, bannerId }) => {
         </div>
 
         <div className="col-md-6 col-lg-7 pt-5">
-          <h2>{BookCall.book_heading}</h2>
+          <h2 className="fw-bold">{BookCall.book_heading}</h2>
 
           <div className="my-3 mt-5">
-            <h5>{BookCall.book_title1}</h5>
+            <h5 className="fw-bold">{BookCall.book_title1}</h5>
             <p>{BookCall.book_description1}</p>
           </div>
 
           <div className="my-3 mt-5">
-            <h5>{BookCall.book_title2}</h5>
+            <h5 className="fw-bold">{BookCall.book_title2}</h5>
             <p>{BookCall.book_description2}</p>
           </div>
 

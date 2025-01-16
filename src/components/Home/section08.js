@@ -79,7 +79,7 @@ const Section08 = ({ MarketingHouseData }) => {
   return (
     <div className="container my-4">
       <div className="row">
-        <div className="col-lg-11">
+        <div className="col-lg-10 col-md-9 col-sm-9 col-12">
           <p
             className="text-uppercase text-muted mb-3"
             style={{ fontSize: "20px" }}
@@ -88,7 +88,7 @@ const Section08 = ({ MarketingHouseData }) => {
           </p>
           <h2 className="fw-bold">OUR MARKETING HOUSE</h2>
         </div>
-        <div className="col-lg-1 d-flex justify-content-center align-items-center">
+        <div className="col-lg-2 col-md-3 col-sm-3 col-12 d-flex justify-content-end align-items-center">
           <Link
             to="/View-all-Series"
             className="text-warning view-all-link-text"

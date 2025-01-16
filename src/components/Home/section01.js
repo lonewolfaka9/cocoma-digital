@@ -18,9 +18,9 @@ export default function Section01({ bannerData }) {
 
   return (
     <>
-      <div className="container-fluid">
+      <div className="container-fluid ">
         <div className="row">
-          <div className="col-lg-6 col-md-6 col-sm-7 p-lg-5 p-md-0 ">
+          <div className="col-lg-6 home-main-bg col-md-6 col-sm-6 p-lg-5 p-md-5 ">
             <div className="section-heading-01">
               {bannerData?.top_banner?.heading}
             </div>
@@ -42,7 +42,7 @@ export default function Section01({ bannerData }) {
             </div>
           </div>
           <div
-            className="col-lg-6 col-md-6 col-sm-5 section-image"
+            className="col-lg-6 col-md-6 col-sm-6 section-image"
             style={{ padding: "0px", position: "relative" }}
           >
             <img
@@ -76,7 +76,7 @@ export default function Section01({ bannerData }) {
         onHide={handleCloseModal}
         centered
         backdrop="static"
-        size="lg"
+        size="xl"
         className="custom-modal"
       >
         <Modal.Header closeButton>
@@ -84,7 +84,7 @@ export default function Section01({ bannerData }) {
             <strong>Watch Video</strong>
           </Modal.Title>
         </Modal.Header>
-        <Modal.Body className="p-0">
+        <Modal.Body className="p-0" closeButton>
           <div
             className="video-container"
             style={{ position: "relative", paddingTop: "56.25%" }}

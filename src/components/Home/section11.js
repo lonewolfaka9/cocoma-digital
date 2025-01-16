@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { RxCountdownTimer } from "react-icons/rx";
+import { IoMdArrowBack, IoMdArrowForward } from "react-icons/io";
 
 const Section11 = ({ MonthlyPerformanaceData }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -70,9 +71,9 @@ const Section11 = ({ MonthlyPerformanaceData }) => {
       <div className="border rounded p-4" style={{ background: "#F1F1F1" }}>
         {filteredData.length > 0 ? (
           <div>
-            <div className={`row ${isAnimating ? "fade-in" : ""}`}>
-              <div className="col-md-8">
-                <h2 className="fw-bold">
+            <div className={`row`}>
+              <div className="col-md-8 p-5">
+                <h2 className="fw-bold mt-5">
                   {filteredData[currentIndex]?.mps_title}
                 </h2>
                 <p className="pt-3">
@@ -89,18 +90,18 @@ const Section11 = ({ MonthlyPerformanaceData }) => {
             </div>
             <div className="d-flex justify-content-end mt-3">
               <button
-                className="btn btn-light me-2"
+                className="btn monthly-performance-left-btn me-3"
                 onClick={handlePrev}
                 aria-label="Previous"
               >
-                <FaAngleLeft />
+                <IoMdArrowBack />
               </button>
               <button
-                className="btn btn-light"
+                className="btn monthly-performance-right-btn"
                 onClick={handleNext}
                 aria-label="Next"
               >
-                <FaAngleRight />
+                <IoMdArrowForward />
               </button>
             </div>
           </div>

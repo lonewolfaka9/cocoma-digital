@@ -41,7 +41,7 @@ const Section03 = ({ ServidcesToShow }) => {
     infinite: false,
     arrows: false,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: 4,
     slidesToScroll: 1,
     beforeChange: (current, next) => {
       setCurrentSlide(next); // Update current slide on beforeChange
@@ -57,7 +57,7 @@ const Section03 = ({ ServidcesToShow }) => {
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 768,
         settings: {
           slidesToShow: 2,
         },
@@ -72,7 +72,7 @@ const Section03 = ({ ServidcesToShow }) => {
   };
 
   return (
-    <div className="container">
+    <div className="container pt-5">
       <div className="row mt-5">
         <div className="col-lg-12">
           <center>
@@ -80,13 +80,24 @@ const Section03 = ({ ServidcesToShow }) => {
           </center>
         </div>
       </div>
-      <div className="row">
-        <div className="col-lg-2"></div>
-        <div className="col-lg-8 text-center">
+
+      <div className="row mt-3">
+        <div className="col-lg-1 col-md-2 d-flex align-items-end col-sm-2 justify-content-end col-2 col-xs-2">
+          {" "}
+          <button
+            className="btn  custom-prev-btn "
+            onClick={() => sliderRef?.slickPrev()}
+            aria-label="Previous"
+            disabled={currentSlide === 0}
+          >
+            <FaAngleLeft size={30} />
+          </button>
+        </div>
+        <div className="col-lg-10 col-md-8 col-sm-8  col-8 col-xs-8">
           {/* Custom navigation buttons */}
           <Slider
             {...sliderSettings}
-            className="category-slider mt-4"
+            className="category-slider "
             ref={setSliderRef}
             afterChange={(index) => setSliderLength(filteredServices.length)}
           >
@@ -109,30 +120,21 @@ const Section03 = ({ ServidcesToShow }) => {
               </div>
             ))}
           </Slider>
-
-          <div className="d-flex justify-content-between mt-3 position-relative">
-            <button
-              className="btn btn-light custom-prev-btn position-absolute "
-              onClick={() => sliderRef?.slickPrev()}
-              aria-label="Previous"
-              disabled={currentSlide === 0}
-            >
-              <FaAngleLeft />
-            </button>
-            <button
-              className="btn btn-light custom-next-btn position-absolute "
-              onClick={() => sliderRef?.slickNext()} // Trigger slickNext()
-              aria-label="Next"
-              disabled={currentSlide === filteredServices.length - 1} // Disable if on the last slide
-            >
-              <FaAngleRight />
-            </button>
-          </div>
+        </div>
+        <div className="col-lg-1 col-md-2 d-flex align-items-end justify-content-start col-sm-2 col-2 col-xs-2">
+          <button
+            className="btn  custom-next-btn"
+            onClick={() => sliderRef?.slickNext()} // Trigger slickNext()
+            aria-label="Next"
+            disabled={currentSlide === filteredServices.length - 1} // Disable if on the last slide
+          >
+            <FaAngleRight size={30} />
+          </button>
         </div>
       </div>
 
       {/* Services Section */}
-      <div className="row services mt-4">
+      <div className="row services mt-2">
         {activeCategory?.service_items?.length > 0 ? (
           activeCategory.service_items.slice(0, visibleItems).map((service) => (
             <div className="col-md-6 col-lg-4 col-sm-12 mt-5" key={service.id}>
@@ -143,7 +145,7 @@ const Section03 = ({ ServidcesToShow }) => {
                   className="service-image"
                 />
                 <h3>{service.service_title}</h3>
-                <button className="explore-button">
+                <button className="explore-button mt-3 mb-3">
                   <Link to={`service/${service.id}`}>
                     {service.service_button_text} <GoArrowUpRight size={24} />
                   </Link>
