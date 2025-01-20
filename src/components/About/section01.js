@@ -33,7 +33,7 @@ const Section01 = ({ bannerData }) => {
           {bannerData.map((banner) => (
             <div key={banner.id} className="slider-slide">
               <div className="row d-flex ">
-                <div className="col-md-6 col-lg-6  p-lg-5 p-md-5 text-md-start ">
+                <div className="col-md-6 col-lg-6  p-4 p-lg-5 p-md-5  text-md-start ">
                   <h1 className="section-heading-01" style={{ color: "black" }}>
                     {banner.group_banner_heading} {banner.id}
                   </h1>
@@ -42,7 +42,7 @@ const Section01 = ({ bannerData }) => {
                   </div>
                   <Link
                     to={"/ScheduleMeeting"}
-                    className="btn mt-5 btn-warning clam-free-consultation-button"
+                    className="btn mt-5 m btn-warning clam-free-consultation-button"
                   >
                     {banner.group_banner_button_text}{" "}
                     <span>
