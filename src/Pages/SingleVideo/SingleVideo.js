@@ -7,6 +7,7 @@ import FinalOutput from "../../components/SingleVideo/FinalOutput";
 import HowWeEdit from "../../components/SingleVideo/HowWeEdit";
 import InviteForService from "../../components/SingleVideo/InviteForEdit";
 import "./videoediting.css";
+import AuthorInfo from "../../components/common/authorInfo";
 export default function SingleVideo({ CreativeHouseData }) {
   console.log(CreativeHouseData);
 

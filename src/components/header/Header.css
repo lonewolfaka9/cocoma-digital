@@ -7,7 +7,7 @@
 }
 .hide-div{
   position: relative;
-  height: 66px;
+  height: 82px;
 }
 /* Logo Styling */
 .custom-navbar .logo-image {
@@ -154,7 +154,10 @@
   gap: 20px;
   background-color: white;
 }
-
+.by-platform-services-image{
+  width: 100px;
+  height: 100px;
+}
 .service-icon {
   width: 70px;
   height: 70px;
@@ -164,15 +167,21 @@
   color: white;
 }
 .headder-logo-bg{
+  width: 60px;
   text-align: center;
-  border-radius: 10px;
-  background-color: white;
+  border-radius: 5px;
   overflow: hidden;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border: 1px solid black;
+  background-color: white;
+
 }
 .headder-logo-bg img{
-  padding: .5rem;
-  width: 100%;
-  height: 100%;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  object-fit: cover;
 }
 .for-new-pos{
   position: static !important;
@@ -316,10 +325,61 @@
 
 .subcategory-container-mobile {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 10px;
   background-color: white;
   color: black;
 }.language-dropdown-container .language-dropdown-menu {
   left: -289% !important;
+}
+
+
+.subcategory-container-mobile::-webkit-scrollbar {
+  width: 8px;
+}
+
+.subcategory-container-mobile::-webkit-scrollbar-thumb {
+  background-color: #888; /* Thumb color */
+  border-radius: 4px;
+}
+
+.subcategory-container-mobile::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Track color */
+}
+/* Mobile Menu Specific Styles */
+@media (max-width: 991px) {
+  .custom-navbar .menu-items {
+    display: block; /* Stack menu vertically */
+    max-height: 80vh; /* Set a max height for the menu */
+    overflow-y: auto; /* Enable vertical scrolling */
+    scrollbar-width: thin; /* Thin scrollbar for modern browsers */
+  }
+  .service-icon{
+    width: 150px;
+    height: 100%;
+  }
+  .custom-navbar .menu-items::-webkit-scrollbar {
+    width: 8px; /* Scrollbar width */
+  }
+
+  .custom-navbar .menu-items::-webkit-scrollbar-thumb {
+    background-color: #555; /* Scrollbar thumb color */
+    border-radius: 4px; /* Rounded corners for thumb */
+  }
+
+  .custom-navbar .menu-items::-webkit-scrollbar-track {
+    background: #222; /* Scrollbar track color */
+  }
+}
+
+.subcategory-card{
+  display: block !important;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.mobile-service-render-image{
+  width: 80px;
+  height: 80px;
+  margin-right: 30px;
 }

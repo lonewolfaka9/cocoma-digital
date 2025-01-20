@@ -2,13 +2,12 @@ import React, { useState, useRef } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import ReactPlayer from "react-player";
 
 const VideoSlider = ({ FinalOutputData }) => {
-  console.log(FinalOutputData);
+  const sliderRef = useRef(null);
   const sliderContent = FinalOutputData?.creative_house_final_output || [];
-
-  console.log("sliderContent>>>>>>>>>>>", sliderContent);
-
   // Initialize current video and thumbnail from sliderContent
   const [currentVideo, setCurrentVideo] = useState(
     sliderContent[0]?.final_output_video_url || ""
@@ -46,15 +45,17 @@ const VideoSlider = ({ FinalOutputData }) => {
 
   const settings = {
     dots: false,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 3,
+    infinite: true,
+    arrows: false,
+    speed: 3000,
+    autoplay: true,
+    slidesToShow: 4,
     slidesToScroll: 1,
     responsive: [
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 3,
           slidesToScroll: 1,
         },
       },
@@ -81,7 +82,7 @@ const VideoSlider = ({ FinalOutputData }) => {
           {/* Video */}
           <video
             ref={videoRef}
-            className={isPlaying ? "d-block w-100" : "d-none"} // Show video only when playing
+            className={isPlaying ? "d-block w-100" : "d-none"}
             onEnded={handleVideoEnd}
           >
             <source src={currentVideo} type="video/mp4" />
@@ -113,7 +114,7 @@ const VideoSlider = ({ FinalOutputData }) => {
 
         {/* Thumbnail Slider */}
         <div>
-          <Slider {...settings}>
+          <Slider {...settings} ref={sliderRef}>
             {sliderContent.map((video) => (
               <div key={video.id} className="px-2">
                 <div
@@ -129,7 +130,7 @@ const VideoSlider = ({ FinalOutputData }) => {
                   <img
                     src={video.final_output_thumbnail}
                     alt={video.title}
-                    className="img-fluid rounded"
+                    className="final-output-slider-images"
                   />
                   <div
                     className="position-absolute top-50 start-50 translate-middle bg-dark text-white rounded-circle d-flex align-items-center justify-content-center"
@@ -141,7 +142,7 @@ const VideoSlider = ({ FinalOutputData }) => {
                 <p className="text-center mt-2">{video.final_output_title}</p>
               </div>
             ))}
-          </Slider>
+          </Slider>{" "}
         </div>
       </div>
     </div>

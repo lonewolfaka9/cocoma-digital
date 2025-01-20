@@ -45,7 +45,7 @@ const Section03 = ({ categoryDataTitle, items }) => {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 4,
           slidesToScroll: 1,
         },
       },
@@ -68,52 +68,82 @@ const Section03 = ({ categoryDataTitle, items }) => {
 
   return (
     <div className="container my-5 position-relative">
-      <h2 className="font-weight-bold mb-4">{categoryDataTitle}</h2>
-      <button
-        className="btn btn-light position-absolute top-50 start-0 translate-middle-y"
-        style={{ zIndex: 5 }}
-        onClick={() => sliderRef.current.slickPrev()}
-      >
-        <IoIosArrowBack size={30} />
-      </button>
-      <button
-        className="btn btn-light position-absolute top-50 end-0 translate-middle-y"
-        style={{ zIndex: 5 }}
-        onClick={() => sliderRef.current.slickNext()}
-      >
-        <IoIosArrowForward size={30} />
-      </button>
+      <h2 className="fw-bold text-uppercase mb-4">{categoryDataTitle}</h2>
 
-      {/* Slider */}
-      <Slider ref={sliderRef} {...settings}>
-        {items.map((item, index) => (
-          <div className="p-2 w-100 d-flex" key={index}>
-            <div className="card h-100">
-              <Link to={`/Single_Services/${item.id}`}>
-                <img
-                  src={item.group_service_item_thumbnail}
-                  className="card-img-top"
-                  alt={item.group_service_item_title}
-                />
-              </Link>
+      {/* Check if only one item exists */}
+      {items.length > 1 ? (
+        <>
+          <button
+            className="btn btn-light position-absolute top-50 start-0 translate-middle-y custom-service-categories-arrow-button  "
+            style={{ zIndex: 5 }}
+            onClick={() => sliderRef.current.slickPrev()}
+          >
+            <IoIosArrowBack size={30} />
+          </button>
+          <button
+            className="btn btn-light position-absolute top-50 end-0 translate-middle-y custom-service-categories-arrow-button "
+            style={{ zIndex: 5 }}
+            onClick={() => sliderRef.current.slickNext()}
+          >
+            <IoIosArrowForward size={30} />
+          </button>
 
-              <div className="card-body">
-                <h6 className="">{item.group_service_item_title}</h6>
+          {/* Slider */}
+          <Slider ref={sliderRef} {...settings}>
+            {items.map((item, index) => (
+              <div className="p-2 w-100 d-flex" key={index}>
+                <div className="services-related-box-card">
+                  <Link to={`/Single_Services/${item.id}`}>
+                    <img
+                      src={item.group_service_item_thumbnail}
+                      className="card-img-top"
+                      alt={item.group_service_item_title}
+                    />
+                  </Link>
+                  <div className="services-related-box-card-text mt-2">
+                    {item.group_service_item_title}
+                    <button
+                      className={`explore-button w-100 mt-4 fw-bold  ${
+                        isItemInCart(item.id) ? "btn-success" : "btn-dark"
+                      }`}
+                      onClick={() => handleToggleCart(item)}
+                    >
+                      {isItemInCart(item.id) ? "Added" : "ADD"}
+                    </button>
+                  </div>
+                </div>
               </div>
-              <div className="card-body text-center">
-                <button
-                  className={`explore-button ${
-                    isItemInCart(item.id) ? "btn-success" : "btn-dark"
-                  }`}
-                  onClick={() => handleToggleCart(item)}
-                >
-                  {isItemInCart(item.id) ? "Added" : "ADD"}
-                </button>
-              </div>
+            ))}
+          </Slider>
+        </>
+      ) : (
+        // If there's only one item, render it outside the slider
+        <div className="p-2 w-100 d-flex">
+          <div className="card h-100">
+            <Link to={`/Single_Services/${items[0].id}`}>
+              <img
+                src={items[0].group_service_item_thumbnail}
+                className="card-img-top"
+                alt={items[0].group_service_item_title}
+              />
+            </Link>
+
+            <div className="card-body">
+              <h6 className="">{items[0].group_service_item_title}</h6>
+            </div>
+            <div className="card-body text-center">
+              <button
+                className={`explore-button ${
+                  isItemInCart(items[0].id) ? "btn-success" : "btn-dark"
+                }`}
+                onClick={() => handleToggleCart(items[0])}
+              >
+                {isItemInCart(items[0].id) ? "Added" : "ADD"}
+              </button>
             </div>
           </div>
-        ))}
-      </Slider>
+        </div>
+      )}
     </div>
   );
 };

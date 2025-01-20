@@ -110,6 +110,20 @@ export default function AddToCart() {
       {cartItems && cartItems.length > 0 ? (
         <>
           <div className="cart-container mt-4 p-5">
+            {" "}
+            <div className="text-end ">
+              {message && (
+                <div className="alert alert-danger" role="alert">
+                  {message}
+                </div>
+              )}
+              <button
+                className="btn sehedule-meeting-btn"
+                onClick={onScheduleMeeting}
+              >
+                Schedule Meeting <FaArrowRightLong />
+              </button>
+            </div>
             <div
               className={`row g-3 ${viewMode === "row" ? "flex-column" : ""}`}
             >
@@ -126,7 +140,7 @@ export default function AddToCart() {
                     <div className="d-flex justify-content-between">
                       <h2>{index + 1}</h2>
                       <button
-                        className="btn btn-danger mb-3"
+                        className="btn  mb-3"
                         onClick={() => handleRemoveFromCart(category.id)}
                       >
                         <RiDeleteBin6Line size={20} />

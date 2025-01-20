@@ -1,0 +1,72 @@
+/* General Styles */
+.client-description {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: "Poppins", Arial, sans-serif;
+  color: #333;
+}
+
+.client-description h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+.client-description img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 40px;
+  align-items: center;
+}
+
+.section img {
+  flex: 1 1 40%;
+  margin: 10px;
+}
+
+.section .text {
+  flex: 1 1 50%;
+  padding: 10px 20px;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+/* Alternate Image Alignment */
+.section.reverse {
+  flex-direction: row-reverse;
+}
+
+.section .text h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .section {
+    flex-direction: column;
+  }
+
+  .section.reverse {
+    flex-direction: column;
+  }
+
+  .section img,
+  .section .text {
+    flex: 1 1 100%;
+  }
+
+  .section .text {
+    padding: 10px;
+  }
+}

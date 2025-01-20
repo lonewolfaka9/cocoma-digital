@@ -27,6 +27,7 @@ import NotFound from "./Pages/PageNotFound";
 import ScheduleMeeting from "./Pages/Sedulemeating/ScheduleMeeting";
 import ScheduleMeetingDetails from "./Pages/Sedulemeating/ScheduleMeetingDetail";
 import ScrollToTop from "./components/scrollToTop";
+import ClientPage from "./Pages/SucessStories/clientSucess";
 function App() {
   const location = useLocation();
   // SET DATA WITH USESTATE
@@ -186,6 +187,7 @@ function App() {
           />
 
           <Route path="/cart" element={<AddToCart />} />
+          <Route path="/client-sucess-stories/:id" element={<ClientPage />} />
           <Route path="/contact_us" element={<ContactUs />} />
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/Career" element={<Career />} />

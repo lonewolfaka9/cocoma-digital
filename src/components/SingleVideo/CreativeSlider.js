@@ -1,9 +1,10 @@
 import React, { useState, useRef } from "react";
 import Slider from "react-slick";
-import { FaPlay, FaPause } from "react-icons/fa";
+import { FaPlay, FaPause, FaArrowRight } from "react-icons/fa";
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
 import ReactPlayer from "react-player";
+import { FaArrowLeft } from "react-icons/fa";
 
 const CreativeSlider = ({ CreativeSliderData }) => {
   const sliderRef = useRef(null);
@@ -113,13 +114,12 @@ const CreativeSlider = ({ CreativeSliderData }) => {
                       )}
                     </button>
                   </div>
+                  <div className="d-flex align-items-end">
+                    <p className="creative-house-approach-text">{index + 1}</p>
+                    <h4 className="fw-bold ">{item.approach_heading}</h4>
+                  </div>
                   <div>
-                    <h4 className="fw-bold">
-                      {index + 1} {item.approach_heading}
-                    </h4>
-                    <p className="text-muted px-4">
-                      {item.approach_description}
-                    </p>
+                    <p className="text-muted ">{item.approach_description}</p>
                   </div>
                 </div>
               ))}
@@ -127,18 +127,18 @@ const CreativeSlider = ({ CreativeSliderData }) => {
           </div>
           <div className="col-lg-12 text-end position-relative">
             <button
-              className="btn btn-dark translate-middle-y"
+              className="btn btn-dark creative-approach-arrow-button translate-middle-y"
               style={{ zIndex: 5 }}
               onClick={() => sliderRef.current.slickPrev()}
             >
-              <IoIosArrowBack size={30} />
+              <FaArrowLeft size={25} />
             </button>
             <button
-              className="btn btn-light translate-middle-y"
+              className="btn btn-light creative-approach-arrow-button translate-middle-y"
               style={{ zIndex: 5 }}
               onClick={() => sliderRef.current.slickNext()}
             >
-              <IoIosArrowForward size={30} />
+              <FaArrowRight size={25} />
             </button>
           </div>
         </div>

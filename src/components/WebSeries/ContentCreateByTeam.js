@@ -40,15 +40,16 @@ const ContentCreateByTeam = ({ itemData }) => {
   };
 
   return (
-    <div className="container py-5">
-      <h2 className="text-center mb-4">Content Created By Our Team</h2>
-
+    <div className="container mt-5 py-5">
+      <h2 className="fw-bold text-center text-uppercase">
+        Content Created By Our Team
+      </h2>
       {/* Filter Buttons */}
-      <div className="d-flex justify-content-center mb-4">
+      <div className="d-flex justify-content-center mt-5">
         {itemData.content_created_category.slice(0, 4).map((category) => (
           <button
             key={category.id}
-            className={`btn mx-2 ${
+            className={` content-created-by-team-button mx-2 ${
               activeFilter === category.category_name
                 ? "btn-warning text-dark"
                 : "btn-light"
@@ -65,7 +66,7 @@ const ContentCreateByTeam = ({ itemData }) => {
       </div>
 
       {/* Content Grid */}
-      <div className="row g-4">
+      <div className="row g-4 mt-4">
         {paginatedContent.map((item) => (
           <div className="col-12 col-md-4" key={item.id}>
             <div className="position-relative video-wrapper">

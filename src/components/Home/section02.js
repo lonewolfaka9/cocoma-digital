@@ -35,12 +35,12 @@ export default function Section02() {
     <>
       <div className="trusted-brand">
         <center>
-          <h3
+          <h4
             className="all-service-heading-home pt-3 pb-3"
             style={{ color: "white", textTransform: "uppercase" }}
           >
             Trusted by Leading Brands Worldwide
-          </h3>
+          </h4>
         </center>
         <Marquee className="mt-3 mb-3">
           {BrandData.map((brand) => (

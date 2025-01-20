@@ -39,3 +39,19 @@ video {
 .creative-approach-bg{
   background-color: #F7F7F7;
 }
+.creative-house-approach-text{
+  font-size: 40px;
+  margin-right: 20px;
+  font-weight: 700;
+}
+.creative-approach-arrow-button{
+  border-radius:50px ;
+  margin-right: 10px;
+}
+.final-output-slider-images{
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  position: relative;
+  border-radius: 20px !important;
+}

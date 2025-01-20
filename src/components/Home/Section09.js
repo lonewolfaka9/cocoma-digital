@@ -140,21 +140,24 @@ const Section09 = ({ CreativeHouseSection = { creative_house: [] } }) => {
                 }
                 alt={item.creative_house_video_title}
               />
-              <div className="position-absolute top-50 start-50 translate-middle">
-                <button
-                  className="btn  rounded-circle creative-house-play-button"
-                  onClick={() => {
-                    setVideoToPlay({
-                      url: item.creative_house_video_url,
-                      title: item.creative_house_video_title,
-                      VideoId: item.id,
-                    });
-                    setShowModal(true);
-                  }}
-                >
-                  <FaPlay className="fs-2" size={14} />
-                </button>
-              </div>
+              {/* Conditionally render the play button */}
+              {item.category !== "Posters" && (
+                <div className="position-absolute top-50 start-50 translate-middle">
+                  <button
+                    className="btn rounded-circle creative-house-play-button"
+                    onClick={() => {
+                      setVideoToPlay({
+                        url: item.creative_house_video_url,
+                        title: item.creative_house_video_title,
+                        VideoId: item.id,
+                      });
+                      setShowModal(true);
+                    }}
+                  >
+                    <FaPlay className="fs-2" size={14} />
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         ))}

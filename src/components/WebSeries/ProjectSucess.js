@@ -22,9 +22,12 @@ const ProjectSuccess = () => {
           Let’s chat about how we can help you craft the perfect marketing
           strategy for your film, web-series, or TV show.
         </p>
-        <button className="btn btn-warning fw-bold px-4 py-2">
+        <a
+          href="/ScheduleMeeting"
+          className="btn btn-warning book-a-call-button-width mt-5 mb-3"
+        >
           Book A Call With Us
-        </button>
+        </a>
       </div>
     </div>
   );

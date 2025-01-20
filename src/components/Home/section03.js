@@ -33,7 +33,7 @@ const Section03 = ({ ServidcesToShow }) => {
   };
 
   const showLessItems = () => {
-    setVisibleItems(3);
+    setVisibleItems(6);
   };
 
   const sliderSettings = {
@@ -139,11 +139,13 @@ const Section03 = ({ ServidcesToShow }) => {
           activeCategory.service_items.slice(0, visibleItems).map((service) => (
             <div className="col-md-6 col-lg-4 col-sm-12 mt-5" key={service.id}>
               <div className="service-card pb-4 text-center">
-                <img
-                  src={service.service_image}
-                  alt={service.service_title}
-                  className="service-image"
-                />
+                <Link to={`service/${service.id}`} style={{ width: "100%" }}>
+                  <img
+                    src={service.service_image}
+                    alt={service.service_title}
+                    className="service-image"
+                  />{" "}
+                </Link>
                 <h3>{service.service_title}</h3>
                 <button className="explore-button mt-3 mb-3">
                   <Link to={`service/${service.id}`}>

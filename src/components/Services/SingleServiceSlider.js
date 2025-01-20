@@ -3,30 +3,32 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   addItemToCart,
   removeItemFromCart,
-} from "../../Service/redux/cartSlice"; // Ensure `removeItemFromCart` is available in your slice
+} from "../../Service/redux/cartSlice";
 import Slider from "react-slick";
+import ReactPlayer from "react-player";
+import { Modal, Button } from "react-bootstrap"; // Import Modal and Button from react-bootstrap
+import { FaPlay } from "react-icons/fa";
 
 const SingleServiceSlider = ({ matchingItem }) => {
   const [isExpanded, setIsExpanded] = useState(false);
-  const [selectedOption, setSelectedOption] = useState("One Time Only"); // Default value
+  const [selectedOption, setSelectedOption] = useState("One Time Only");
+  const [isModalOpen, setIsModalOpen] = useState(false); // State to control modal visibility
+  const [videoUrl, setVideoUrl] = useState(""); // State to store the video URL
 
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.items);
 
-  // Check if the item is in the cart
   const isItemInCart = (itemId) => {
     return cartItems.some((cartItem) => cartItem.id === itemId);
   };
 
   const handleToggleCart = (item) => {
     if (isItemInCart(item.id)) {
-      // If item is in cart, remove it
       dispatch(removeItemFromCart(item.id));
     } else {
-      // If item is not in cart, add it with the selected option
       const itemWithCategory = {
         ...item,
-        subscriptionType: selectedOption, // Add selected option
+        subscriptionType: selectedOption,
       };
       dispatch(addItemToCart(itemWithCategory));
     }
@@ -34,6 +36,11 @@ const SingleServiceSlider = ({ matchingItem }) => {
 
   const handleOptionSelect = (option) => {
     setSelectedOption(option);
+  };
+
+  const handlePlayVideo = (videoUrl) => {
+    setVideoUrl(videoUrl);
+    setIsModalOpen(true); // Open the modal when play is clicked
   };
 
   const fullText = matchingItem.group_service_item_description2;
@@ -55,6 +62,10 @@ const SingleServiceSlider = ({ matchingItem }) => {
     arrows: false,
   };
 
+  // Placeholder image URL
+  const placeholderImage =
+    "https://placehold.jp/000000/ffffff/150x150.png?text=Cocoma%20Digitals"; // Replace with the actual placeholder image path
+
   return (
     <div className="container my-5">
       <div className="row">
@@ -65,31 +76,40 @@ const SingleServiceSlider = ({ matchingItem }) => {
       </div>
       <div className="row">
         <div className="col-md-6">
-          {matchingItem.group_single_service_image.length > 1 ? (
+          {matchingItem.group_single_service_image &&
+          matchingItem.group_single_service_image.length > 0 ? (
             <Slider {...settings}>
               {matchingItem.group_single_service_image.map((images, index) => (
                 <div key={index}>
                   <img
-                    src={images.single_service_img}
+                    src={images.single_service_img || placeholderImage} // Use placeholder if image is not available
                     alt={`Slide ${index + 1}`}
                     className="single-service-slider-image"
                   />
+                  {images.single_service_upload_video && (
+                    <button
+                      className="btn  mt-2"
+                      onClick={() =>
+                        handlePlayVideo(images.single_service_upload_video)
+                      }
+                    >
+                      <FaPlay size={30} />
+                    </button>
+                  )}
                 </div>
               ))}
             </Slider>
           ) : (
             <div>
               <img
-                src={
-                  matchingItem.group_single_service_image[0].single_service_img
-                }
-                alt="Single Item"
+                src={placeholderImage} // Use placeholder image when no images are available
+                alt="Placeholder"
                 className="single-service-slider-image"
               />
             </div>
           )}
 
-          <div className="d-flex align-items-center mt-3">
+          <div className="d-flex align-items-center mt-5">
             <p className="mb-0">
               {visibleText}{" "}
               <span
@@ -111,15 +131,18 @@ const SingleServiceSlider = ({ matchingItem }) => {
               .filter((tag) => tag.trim() !== "")
               .map((tag, index) => (
                 <div key={index} style={{ marginBottom: "5px" }}>
-                  {tag.replace("<p>", "").trim()}
+                  {tag
+                    .replace("<p>", "")
+                    .replace(/&nbsp;/g, " ")
+                    .trim()}
                 </div>
               ))}
           </ul>
 
-          <h5 className="mt-4">Running Time</h5>
-          <div className="d-flex">
+          <h3 className="mt-4 fw-bold">Running Time</h3>
+          <div className="d-flex w-100">
             <button
-              className={`btn ${
+              className={`btn w-50 p-2 single-service-add-recurring-button-text ${
                 selectedOption === "One Time Only"
                   ? "btn-warning"
                   : "btn-outline-secondary"
@@ -129,7 +152,7 @@ const SingleServiceSlider = ({ matchingItem }) => {
               One Time Only
             </button>
             <button
-              className={`btn ${
+              className={`btn w-50 single-service-add-recurring-button-text ${
                 selectedOption === "Recurring"
                   ? "btn-warning"
                   : "btn-outline-secondary"
@@ -141,7 +164,7 @@ const SingleServiceSlider = ({ matchingItem }) => {
           </div>
 
           <button
-            className={`btn mt-4 px-4 py-2 ${
+            className={`btn w-100 mt-4 p-2 px-4 py-2 single-service-add-recurring-button-text me-2 ${
               isItemInCart(matchingItem.id) ? "btn-warning" : "btn-dark"
             }`}
             onClick={() => handleToggleCart(matchingItem)}
@@ -150,6 +173,28 @@ const SingleServiceSlider = ({ matchingItem }) => {
           </button>
         </div>
       </div>
+
+      {/* React Bootstrap Modal */}
+      <Modal
+        show={isModalOpen}
+        onHide={() => setIsModalOpen(false)}
+        centered
+        size="lg"
+      >
+        <Modal.Header
+          style={{ background: "white" }}
+          closeButton
+        ></Modal.Header>
+        <Modal.Body style={{ background: "white" }}>
+          <ReactPlayer
+            url={videoUrl}
+            controls
+            playing
+            width="100%"
+            height="100%"
+          />
+        </Modal.Body>
+      </Modal>
     </div>
   );
 };

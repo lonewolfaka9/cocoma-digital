@@ -58,10 +58,12 @@ code {
   background: black;
   color: white;
 }
-
+.services-page-banner{
+  padding: 0px !important;
+}
 .section-image{
   position: relative;
-  height: 600px;
+  height: 500px;
 }
 .section-image-01{
   width: 100%;
@@ -226,7 +228,7 @@ code {
 }
 
 .explore-button:hover {
-  background-color: #333;
+  background-color: #f5c518;
 }
 .container h1 {
   font-size: 2rem;
@@ -533,15 +535,16 @@ button.position-fixed {
   object-fit: cover;
 }
 .sehedule-meeting-btn{
-  background: black;
-  color: white;
-  font-size: 1rem;
-  font-weight: 700;
-  padding: 10px 20px 10px 20px;
-}
-.sehedule-meeting-btn:hover{
   background: #F5C518;
   color: black;
+  font-size: 1.2rem;
+  font-weight: 900;
+  padding: 10px 20px 10px 20px;
+  margin-bottom: 30px;
+}
+.sehedule-meeting-btn:hover{
+  background: black; 
+  color: white;
 }
 .btn-primery-recurring{
   background:#F5C518 ;
@@ -676,6 +679,7 @@ margin: 0px;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background-color: white;
 }
 
 .playbutton:hover {
@@ -845,3 +849,32 @@ button.btn:hover {
   height: 50px;
 }
 
+.youtube-graphic{
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+}
+
+.custom-service-categories-arrow-button{
+  border-radius: 30px;
+  background-color: #f5c518;
+  color: white;
+  border: none;
+}
+.services-related-box-card{
+  width: 100%;
+  background: #F1F1F1;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 0px 4px black;
+  height:100%;
+}
+.services-related-box-card img{
+  width: 100%;
+  height: 250px;
+}
+.services-related-box-card-text{
+  padding: 15px;
+  font-size: 16px;
+  font-weight: 900;
+}

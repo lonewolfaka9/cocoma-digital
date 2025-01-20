@@ -1,46 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Carousel from "react-bootstrap/Carousel";
+import AuthorInfo from "../common/authorInfo";
 
 export default function SingleWebSeriesData({ itemData }) {
-  const [authorData, setAuthorData] = useState(null);
-
-  useEffect(() => {
-    // Fetch author data when author_template_id is available
-    if (itemData.author_template_id) {
-      fetchAuthorData(itemData.author_template_id);
-    }
-  }, [itemData.author_template_id]);
-
-  const fetchAuthorData = async (authorId) => {
-    try {
-      const response = await fetch(
-        `https://admin.cocomadigital.com/public/api/author`
-      );
-      if (!response.ok) {
-        throw new Error(`Error fetching author data: ${response.status}`);
-      }
-      const result = await response.json();
-
-      if (
-        result.status === "success" &&
-        result.data &&
-        result.data.author_template
-      ) {
-        // Find the matching author data by ID
-        const author = result.data.author_template.find(
-          (author) => author.id === authorId
-        );
-        if (author) {
-          setAuthorData(author);
-        } else {
-          console.warn("No author found with the provided ID.");
-        }
-      }
-    } catch (error) {
-      console.error("Error fetching author data:", error);
-    }
-  };
-
   return (
     <>
       <div className="container-fluid text-white bg-black py-5">
@@ -50,49 +12,8 @@ export default function SingleWebSeriesData({ itemData }) {
             {itemData.title} ({itemData.year})
           </h2>
           <p>YouTube Marketing</p>
+          <AuthorInfo autherId={itemData.author_template_id} />
 
-          {/* Author Section */}
-          {authorData ? (
-            <div className="row d-flex align-items-center mb-4">
-              <div className="col-lg-1">
-                <img
-                  src={authorData.author_image} // Replace with the actual image URL
-                  alt="Author"
-                  className="rounded-circle me-3"
-                />
-              </div>
-
-              <div className="col-lg-11">
-                <p>
-                  {authorData.author_description} &nbsp;
-                  <span>
-                    <a
-                      href="/ScheduleMeeting"
-                      className="text-warning text-decoration-none"
-                    >
-                      click here.
-                    </a>
-                  </span>
-                </p>
-                <p className="mb-0">
-                  Author:{" "}
-                  <span className="fw-bold text-warning">
-                    {authorData.author_name}
-                  </span>{" "}
-                  | Founder -{" "}
-                  <span className="text-warning">
-                    {authorData.founder_text}
-                  </span>{" "}
-                  & CTO -{" "}
-                  <span className="text-warning">{authorData.cto_text}</span>
-                </p>
-              </div>
-            </div>
-          ) : (
-            <p>Loading author data...</p>
-          )}
-
-          {/* Movie Details */}
           <div className="row">
             <div className="col-md-6 mb-4">
               <p>
@@ -117,7 +38,7 @@ export default function SingleWebSeriesData({ itemData }) {
             <div className="col-md-6">
               <Carousel
                 indicators={true}
-                arrows={false}
+                arrows={"false"}
                 controls={true}
                 interval={3000}
               >

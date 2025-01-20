@@ -87,12 +87,12 @@ export default function Services({ HomePage, ServicesPage }) {
           const categoryName = card.group_service_category_name;
           const items = card.group_service_item;
 
-          // Only render Section03 if the category name and items are present
+          // Render Section03 only if categoryName and items exist
           return categoryName && items && items.length > 0 ? (
             <div key={index}>
               <Section03
                 categoryDataTitle={categoryName}
-                items={items} // Pass the full items array
+                items={Array.isArray(items) ? items : [items]} // Ensure items is always an array
               />
             </div>
           ) : null;

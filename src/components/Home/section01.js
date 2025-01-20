@@ -1,26 +1,13 @@
-import React, { useState } from "react";
-import { FaRegPlayCircle } from "react-icons/fa";
-import { MdOutlineArrowOutward } from "react-icons/md";
+import React from "react";
 import { Link } from "react-router-dom";
-import Modal from "react-bootstrap/Modal";
 import ReactPlayer from "react-player";
 
 export default function Section01({ bannerData }) {
-  const [showModal, setShowModal] = useState(false);
-
-  const handleOpenModal = () => {
-    setShowModal(true);
-  };
-
-  const handleCloseModal = () => {
-    setShowModal(false);
-  };
-
   return (
     <>
-      <div className="container-fluid ">
+      <div className="container-fluid">
         <div className="row">
-          <div className="col-lg-6 home-main-bg col-md-6 col-sm-6 p-lg-5 p-md-5 ">
+          <div className="col-lg-5 home-main-bg col-md-6 col-sm-6 col-xs-12 col-12 p-lg-5 p-md-5">
             <div className="section-heading-01">
               {bannerData?.top_banner?.heading}
             </div>
@@ -34,75 +21,54 @@ export default function Section01({ bannerData }) {
                 className="btn btn-warning clam-free-consultation-button"
               >
                 {bannerData?.top_banner?.banner_button_text}
-                <MdOutlineArrowOutward
-                  className=" mx-3 clam-free-consultation-button"
-                  size={30}
-                />
               </Link>
             </div>
           </div>
           <div
-            className="col-lg-6 col-md-6 col-sm-6 section-image"
-            style={{ padding: "0px", position: "relative" }}
+            className="col-lg-7 col-md-6 col-sm-6 col-xs-12 col-12 "
+            style={{
+              padding: "0px",
+              position: "relative",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
           >
-            <img
-              src={
-                bannerData?.top_banner?.banner_video_thumbnail ||
-                "../../Images/section-01.png"
-              }
-              className="section-image-01"
-              alt=""
-            />
+            {/* Video that autoplays */}
             <div
-              className="playbutton"
+              className="section-image-01"
               style={{
-                position: "absolute",
-                top: "50%",
-                left: "50%",
-                transform: "translate(-50%, -50%)",
-                cursor: "pointer",
+                position: "relative",
+                width: "100%",
+                height: "500px",
+                overflow: "hidden",
               }}
-              onClick={handleOpenModal}
             >
-              <FaRegPlayCircle size={80} color={"#fff"} />
+              <ReactPlayer
+                url={bannerData?.top_banner?.banner_video_url}
+                playing
+                loop
+                muted
+                controls={false} // Hide default controls
+                width="100%"
+                height="100%"
+                config={{
+                  youtube: {
+                    playerVars: {
+                      modestbranding: 1, // Hide YouTube branding/logo
+                      controls: 0, // Hide controls
+                      showinfo: 0, // Hide video title
+                      iv_load_policy: 3, // Hide video annotations
+                      rel: 0, // Hide related videos at the end
+                      fs: 0, // Disable fullscreen button
+                    },
+                  },
+                }}
+              />
             </div>
           </div>
         </div>
       </div>
-
-      {/* Modal for Video */}
-      <Modal
-        show={showModal}
-        onHide={handleCloseModal}
-        centered
-        backdrop="static"
-        size="xl"
-        className="custom-modal"
-      >
-        <Modal.Header closeButton>
-          <Modal.Title className="">
-            <strong>Watch Video</strong>
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body className="p-0" closeButton>
-          <div
-            className="video-container"
-            style={{ position: "relative", paddingTop: "56.25%" }}
-          >
-            <ReactPlayer
-              url={bannerData?.top_banner?.banner_video_url}
-              controls
-              width="100%"
-              height="100%"
-              style={{
-                position: "absolute",
-                top: 0,
-                left: 0,
-              }}
-            />
-          </div>
-        </Modal.Body>
-      </Modal>
     </>
   );
 }

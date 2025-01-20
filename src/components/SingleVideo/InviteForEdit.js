@@ -43,7 +43,7 @@ export default function InviteForService({ matchingItemId }) {
 
   return (
     <>
-      <div className="container-fluid">
+      <div className="container-fluid mt-2 mb-2">
         <div className="container">
           <div className="row">
             <div className="col-lg-1 col-md-2 col-sm-11 col-11">

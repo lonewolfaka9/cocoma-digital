@@ -32,6 +32,13 @@ function Header({ ServiceData }) {
   const location = useLocation(); // Get current location
   const currentPath = location.pathname; // Extract the current path
 
+  const servicePlatformCategory = services.find(
+    (category) => category.service_category_name === "Service Platform"
+  );
+  const filteredServices = services.filter(
+    (category) => category.service_category_name !== "Service Platform"
+  );
+
   // const categories = [
   //   "Creative Services",
   //   "Video Editing",
@@ -70,7 +77,7 @@ function Header({ ServiceData }) {
         expand="lg"
         expanded={expanded} // Control collapse state
       >
-        <Container>
+        <Container fluid className="px-5 pt-2 pb-2">
           {/* Logo Section */}
           <Navbar.Brand href="/" className="d-flex align-items-center">
             <img
@@ -120,7 +127,7 @@ function Header({ ServiceData }) {
               >
                 {isMobile() ? (
                   <div>
-                    {services.map((category) => (
+                    {filteredServices.map((category) => (
                       <div key={category.id}>
                         {/* Render Categories */}
                         <div
@@ -132,19 +139,24 @@ function Header({ ServiceData }) {
                           {category.service_category_name}
                         </div>
 
-                        {/* Show Relevant Services When Category is Active */}
                         {activeTab === category.id && (
                           <div className="subcategory-container-mobile">
                             {category.service_items?.map((service, index) => (
                               <div key={index} className="subcategory-card">
-                                <a href={`/service/${service.id}`}>
-                                  <img
-                                    src={service.service_image}
-                                    alt={service.service_title}
-                                    className="service-icon"
-                                  />
-                                  <strong>{service.service_title}</strong>
-                                  <p>{service.description}</p>
+                                <a
+                                  href={`/service/${service.id}`}
+                                  className="d-block"
+                                >
+                                  <div className="w-100 d-flex ">
+                                    <img
+                                      src={service.service_image}
+                                      alt={service.service_title}
+                                      className="mobile-service-render-image"
+                                    />
+                                    <div>
+                                      <strong>{service.service_title}</strong>
+                                    </div>
+                                  </div>
                                 </a>
                               </div>
                             ))}
@@ -161,67 +173,15 @@ function Header({ ServiceData }) {
                         <h2>By Platform</h2>
                       </div>
                       <div className="d-flex mb-2 justify-content-around ">
-                        <div className="headder-logo-bg p-1">
-                          <a
-                            href="https://www.youtube.com/channel/UCP3vqjxVD4VlLxDWiKeq1Mg"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <FaYoutube
-                              style={{ color: "#FF0000", fontSize: "45px" }}
-                            />
-                          </a>
-                        </div>
-                        <div className="headder-logo-bg p-1">
-                          <a
-                            href="https://www.instagram.com/cocomadigital/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <FaInstagram
-                              style={{ color: "#E4405F", fontSize: "45px" }}
-                            />
-                          </a>
-                        </div>
-                        <div className="headder-logo-bg p-1">
-                          <a
-                            href="https://www.facebook.com/Cocoma-Digital-Private-Limited-107521348660701=pages_you_manage"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <FaFacebook
-                              style={{ color: "#1877F2", fontSize: "45px" }}
-                            />
-                          </a>
-                        </div>
-
-                        <div className="headder-logo-bg p-1">
-                          <a
-                            href="https://wa.me/+918655643377?text=Hello,%20I%20need%20more%20information."
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <FaWhatsapp
-                              style={{ color: "#25D366", fontSize: "45px" }}
-                            />
-                          </a>
-                        </div>
-                        {/* <div className="headder-logo-bg p-1">
-                        <FaTiktok
-                          style={{ color: "black", fontSize: "45px" }}
-                        />
-                      </div> */}
-                        <div className="headder-logo-bg p-1">
-                          <a
-                            href="https://www.linkedin.com/company/cocomadigital/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <FaLinkedin
-                              style={{ color: "#0A66C2", fontSize: "45px" }}
-                            />
-                          </a>
-                        </div>
+                        {servicePlatformCategory.service_items.map(
+                          (category) => (
+                            <div className="headder-logo-bg" key={category.id}>
+                              <a href={`/service/${category.id}`}>
+                                <img src={category.service_image} />
+                              </a>
+                            </div>
+                          )
+                        )}
                       </div>
                       <div
                         style={{
@@ -232,7 +192,7 @@ function Header({ ServiceData }) {
                       >
                         <h4>our services by skills</h4>
                       </div>
-                      {services.map((category) => (
+                      {filteredServices.map((category) => (
                         <div
                           key={category.id}
                           className={`dropdown-category ${

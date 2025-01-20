@@ -40,7 +40,7 @@ const OtherActivities = ({ itemData }) => {
         <h2 className="text-center fw-bold mb-4">Other Activities</h2>
 
         {/* Filter Buttons */}
-        <div className="d-flex justify-content-center mb-4">
+        <div className="d-flex mt-5 justify-content-center mb-4">
           {itemData.other_activity_category.map((item) => (
             <button
               key={item.category_name}
@@ -63,8 +63,10 @@ const OtherActivities = ({ itemData }) => {
           {/* Text Content */}
           {activeTextItem ? (
             <div className="col-12 col-md-6 mb-4 mt-5 mb-md-0">
-              <h4 className="fw-bold text-warning">{activeTextItem.title}</h4>
-              <p>{activeTextItem.description}</p>
+              <h3 className="fw-bold text-warning">{activeTextItem.title}</h3>
+              <p className="other-activiy-text-slide">
+                {activeTextItem.description}
+              </p>
             </div>
           ) : (
             <div className="col-12 col-md-6">
@@ -89,21 +91,21 @@ const OtherActivities = ({ itemData }) => {
                     <img
                       src={image}
                       alt={`Slide ${i + 1}`}
-                      className="img-fluid rounded"
+                      className="other-activity-slider-images"
                     />
                   </div>
                 ));
               })}
             </Slider>
             <button
-              className="btn btn-warning position-absolute  start-0 translate-middle-y"
+              className="btn btn-warning position-absolute other-activity-button-next-prev start-0 translate-middle-y"
               style={{ zIndex: 5 }}
               onClick={() => sliderRef.current.slickPrev()}
             >
               <IoIosArrowBack size={30} />
             </button>
             <button
-              className="btn btn-warning position-absolute  end-0 translate-middle-y"
+              className="btn btn-warning position-absolute other-activity-button-next-prev end-0 translate-middle-y"
               style={{ zIndex: 5 }}
               onClick={() => sliderRef.current.slickNext()}
             >

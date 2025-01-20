@@ -32,7 +32,9 @@ const VideoEditingServices = ({ groupServiceItems }) => {
     <div className="container my-5 position-relative">
       <div className="row">
         <div>
-          <h3 className=" mb-4">Other Video Editing Services</h3>
+          <h2 className="fw-bold text-uppercase mb-4">
+            Other Video Editing Services
+          </h2>
         </div>
         <div>
           <button
@@ -52,23 +54,26 @@ const VideoEditingServices = ({ groupServiceItems }) => {
 
       <Slider ref={sliderRef} {...settings}>
         {groupServiceItems.map((service, index) => (
-          <div className="card text-center">
-            <a
-              href={`/Single_Services/${service.id}`}
-              style={{ color: "black" }}
-            >
-              <div className="card-body">
-                <img
-                  src={service.group_service_item_thumbnail}
-                  alt={service.group_service_item_title}
-                  className="mb-3"
-                  width={"400px"}
-                />
-                <h5 className="card-title">
-                  {service.group_service_item_title}
-                </h5>
-              </div>
-            </a>
+          <div className="p-2 w-100 d-flex" key={index}>
+            <div className="services-related-box-card ">
+              <a
+                href={`/Single_Services/${service.id}`}
+                style={{ color: "black" }}
+              >
+                <div className="card-body">
+                  <img
+                    src={service.group_service_item_thumbnail}
+                    alt={service.group_service_item_title}
+                    className="mb-3"
+
+                    // width={"400px"}
+                  />
+                  <h5 className="card-title">
+                    {service.group_service_item_title}
+                  </h5>
+                </div>
+              </a>
+            </div>
           </div>
         ))}
       </Slider>
