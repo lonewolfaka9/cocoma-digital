@@ -76,7 +76,7 @@ const CreativeHouseServices = () => {
       </div>
       <div className="row g-4">
         {services.map((service) => (
-          <div key={service.id} className="col-12 col-md-6 col-lg-4">
+          <div key={service.id} className="col-6 col-md-6 col-lg-4">
             <div className="card border-0 shadow-sm h-100">
               <img
                 src={service.image}

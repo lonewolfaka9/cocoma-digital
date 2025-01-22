@@ -68,7 +68,7 @@ const ContentCreateByTeam = ({ itemData }) => {
       {/* Content Grid */}
       <div className="row g-4 mt-4">
         {paginatedContent.map((item) => (
-          <div className="col-12 col-md-4" key={item.id}>
+          <div className="col-6 col-lg-4 col-md-4" key={item.id}>
             <div className="position-relative video-wrapper">
               {item.url ? (
                 activeFilter === "Posters" ? ( // Hide play/pause for "Poster" category

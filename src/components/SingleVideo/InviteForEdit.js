@@ -46,7 +46,7 @@ export default function InviteForService({ matchingItemId }) {
       <div className="container-fluid mt-2 mb-2">
         <div className="container">
           <div className="row">
-            <div className="col-lg-1 col-md-2 col-sm-11 col-11">
+            <div className="col-lg-1 col-md-2 col-sm-2 col-11">
               <img
                 src={
                   authorData
@@ -56,7 +56,7 @@ export default function InviteForService({ matchingItemId }) {
                 alt={authorData ? authorData.author_name : "Anil"}
               />
             </div>
-            <div className="col-lg-11 mt-3 col-md-10 col-sm-11 col-11">
+            <div className="col-lg-11 mt-3 col-md-10 col-sm-10 col-11">
               {authorData ? (
                 <>
                   <h5>

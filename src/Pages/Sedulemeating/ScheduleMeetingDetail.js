@@ -239,7 +239,7 @@ const ScheduleMeetingDetails = () => {
             </div>
 
             <div className="row mb-3">
-              <div className="col-md-6">
+              <div className="col-md-12">
                 <label>Email</label>
                 <input
                   type="email"
@@ -254,7 +254,7 @@ const ScheduleMeetingDetails = () => {
                   <small className="text-danger">{errors.email}</small>
                 )}
               </div>
-              <div className="col-md-6">
+              <div className="col-md-6 d-none">
                 <label>Website Link</label>
                 <input
                   type="url"
@@ -272,7 +272,7 @@ const ScheduleMeetingDetails = () => {
             </div>
 
             <div className="row mb-3">
-              <div className="col-md-12">
+              <div className="col-md-12 d-none">
                 <label>Social Media Links</label>
                 <div className="mb-4 mt-4">
                   <div className="d-flex">

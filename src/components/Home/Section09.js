@@ -130,7 +130,7 @@ const Section09 = ({ CreativeHouseSection = { creative_house: [] } }) => {
 
       <div className="row">
         {filteredItems.slice(0, 16).map((item) => (
-          <div key={item.id} className="col-md-3 mb-4">
+          <div key={item.id} className="col-md-3 col-lg-3 col-sm-6 col-6 col-xs-6 mb-4">
             <div className="card-CreativeHouse position-relative">
               <img
                 src={
