@@ -35,7 +35,7 @@ const Section01 = ({ bannerData }) => {
               <div className="row d-flex ">
                 <div className="col-md-6 col-lg-6  p-4 p-lg-5 p-md-5  text-md-start ">
                   <h1 className="section-heading-01" style={{ color: "black" }}>
-                    {banner.group_banner_heading} {banner.id}
+                    {banner.group_banner_heading} 
                   </h1>
                   <div className="section-title mt-5 mb-3">
                     {banner.group_banner_subheading}
