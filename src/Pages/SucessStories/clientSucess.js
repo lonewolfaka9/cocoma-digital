@@ -62,41 +62,38 @@ const ClientPage = () => {
     );
   }
 
+  
   return (
-    <div className="container py-5">
+    <div className="container py-3 py-md-5">
       <div className="row justify-content-center">
-        <div className="col-lg-10">
-          <div className="card shadow-lg border-0">
-            <div style={{ position: "relative" }}>
+        <div className="col-10 col-md-10 col-xl-10">
+          <div className="card shadow-lg border-0 rounded-4 overflow-hidden">
+            {/* Image Section with Gradient Overlay */}
+            <div className="position-relative">
               <img
-                src={
-                  clientData.client_img || "https://via.placeholder.com/800x400"
-                }
+                src={clientData.client_img || "https://via.placeholder.com/800x400"}
                 alt={clientData.client_title}
-                className="card-img-top"
-                style={{ height: "400px", objectFit: "cover" }}
-              />
-              <div
-                style={{
-                  position: "absolute",
-                  top: 0,
-                  left: 0,
-                  width: "100%",
-                  height: "100%",
-                  background:
-                    "linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7))",
+                className="card-img-top img-fluid"
+                style={{ 
+                  height: "50vh",
+                  minHeight: "400px",
+                  maxHeight: "600px",
+                  objectFit: "cover",
+                  objectPosition: "center"
                 }}
               />
+              <div className="gradient-overlay" />
             </div>
-            <div className="card-body">
-              <h1 className="card-title text-center mb-4">
-                {clientData.client_title}
-              </h1>
+
+            {/* Content Section */}
+            <div className="card-body p-4 p-md-5">
               <div className="row">
-                <div className="col-md-12">
-                  <ClientDescription
-                    description={clientData.client_description}
-                  />
+                <div className="col-12">
+                  <div className="content-block p-3 p-md-4 rounded-3 bg-light">
+                    <ClientDescription 
+                      description={clientData.client_description}
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -106,5 +103,4 @@ const ClientPage = () => {
     </div>
   );
 };
-
 export default ClientPage;

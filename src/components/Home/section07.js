@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Slider from "react-slick";
 
 const Section07 = ({ ClientData }) => {
@@ -52,11 +53,12 @@ const Section07 = ({ ClientData }) => {
         {clients.map((client) => (
           <div className="p-3 d-flex" key={client.id}>
             <div className="client-card">
+              <Link to={`/client-sucess-stories/${client.id}`} >
               <img
                 src={client.client_img}
                 className="card-img-top"
                 alt={client.client_description}
-              />
+              /></Link>
               <div className="client-card-body">
                 <p className="card-text fw-bold text-left">
                   {client.client_title}

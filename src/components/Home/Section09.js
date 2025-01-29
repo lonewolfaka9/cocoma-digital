@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
 import ReactPlayer from "react-player";
 
-const Section09 = ({ CreativeHouseSection = { creative_house: [] } }) => {
+const Section09 = ({ CreativeHouseSection = { creative_house: [], all_button_priority: {} } }) => {
   const [category, setCategory] = useState("All");
   const [filteredItems, setFilteredItems] = useState([]);
   const [videoToPlay, setVideoToPlay] = useState(null);
@@ -14,11 +14,17 @@ const Section09 = ({ CreativeHouseSection = { creative_house: [] } }) => {
 
   useEffect(() => {
     if (showAllItems) {
-      // Merge all categories' items if showing all items
-      const allItems = CreativeHouseSection?.creative_house?.reduce(
-        (acc, cat) => [...acc, ...cat.items],
-        []
+      const priorityItemIds = Object.values(CreativeHouseSection.all_button_priority).map(
+        (button) => button.creative_house_item_id.toString()
       );
+
+      console.log("Priority Item IDs:", priorityItemIds);
+
+      const allItems = CreativeHouseSection?.creative_house
+        ?.flatMap((cat) => cat.items || []) // Ensure items is always an array
+        .filter((item) => priorityItemIds.includes(item.id.toString()));
+
+      console.log("Filtered Items:",allItems  );
       setFilteredItems(allItems || []);
     } else {
       const selectedCategory = CreativeHouseSection?.creative_house?.find(
@@ -51,30 +57,10 @@ const Section09 = ({ CreativeHouseSection = { creative_house: [] } }) => {
     slidesToScroll: 1,
     arrows: false,
     responsive: [
-      {
-        breakpoint: 1200,
-        settings: {
-          slidesToShow: 4,
-        },
-      },
-      {
-        breakpoint: 992,
-        settings: {
-          slidesToShow: 3,
-        },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 2,
-        },
-      },
-      {
-        breakpoint: 576,
-        settings: {
-          slidesToShow: 1,
-        },
-      },
+      { breakpoint: 1200, settings: { slidesToShow: 4 } },
+      { breakpoint: 992, settings: { slidesToShow: 3 } },
+      { breakpoint: 768, settings: { slidesToShow: 2 } },
+      { breakpoint: 576, settings: { slidesToShow: 1 } },
     ],
   };
 
@@ -82,19 +68,13 @@ const Section09 = ({ CreativeHouseSection = { creative_house: [] } }) => {
     <div className="container my-5">
       <div className="row">
         <div className="col-lg-10 col-md-9 col-sm-9 col-12">
-          <h3
-            className="text-uppercase text-muted mb-3"
-            style={{ fontSize: "20px" }}
-          >
+          <h3 className="text-uppercase text-muted mb-3" style={{ fontSize: "20px" }}>
             LATEST WORK FROM
           </h3>
           <h2 className="fw-bold">OUR CREATIVE HOUSE</h2>
         </div>
         <div className="col-lg-2 col-md-3 col-sm-3 col-12 d-flex justify-content-end align-items-center">
-          <Link
-            to="/Creative-House"
-            className="text-warning view-all-link-text"
-          >
+          <Link to="/Creative-House" className="text-warning view-all-link-text">
             View All
           </Link>
         </div>
@@ -103,9 +83,7 @@ const Section09 = ({ CreativeHouseSection = { creative_house: [] } }) => {
       <div className="mb-5 mt-2">
         <Slider {...sliderSettings} className="SliderCustom-width">
           <button
-            className={`cat-filter-button btn  me-2 ${
-              category === "All" ? "btn-warning" : "btn-outline-secondary"
-            }`}
+            className={`cat-filter-button btn me-2 ${category === "All" ? "btn-warning" : "btn-outline-secondary"}`}
             onClick={handleAllItemsClick}
           >
             All
@@ -113,14 +91,10 @@ const Section09 = ({ CreativeHouseSection = { creative_house: [] } }) => {
           {CreativeHouseSection?.creative_house?.slice(0, 7).map((cat) => (
             <button
               key={cat.id}
-              className={`cat-filter-button btn  me-2 ${
-                category === cat.creative_house_category_name
-                  ? "btn-warning"
-                  : "btn-outline-secondary"
+              className={`cat-filter-button btn me-2 ${
+                category === cat.creative_house_category_name ? "btn-warning" : "btn-outline-secondary"
               }`}
-              onClick={() =>
-                handleCategoryClick(cat.creative_house_category_name)
-              }
+              onClick={() => handleCategoryClick(cat.creative_house_category_name)}
             >
               {cat.creative_house_category_name}
             </button>
@@ -140,7 +114,6 @@ const Section09 = ({ CreativeHouseSection = { creative_house: [] } }) => {
                 }
                 alt={item.creative_house_video_title}
               />
-              {/* Conditionally render the play button */}
               {item.category !== "Posters" && (
                 <div className="position-absolute top-50 start-50 translate-middle">
                   <button
@@ -164,35 +137,21 @@ const Section09 = ({ CreativeHouseSection = { creative_house: [] } }) => {
       </div>
 
       {videoToPlay && (
-        <Modal
-          show={showModal}
-          onHide={handleCloseModal}
-          centered
-          backdrop="static"
-          size="lg"
-          className="custom-modal"
-        >
+        <Modal show={showModal} onHide={handleCloseModal} centered backdrop="static" size="lg" className="custom-modal">
           <Modal.Header closeButton>
             <Modal.Title>
               <strong>{videoToPlay.title}</strong>
             </Modal.Title>
           </Modal.Header>
           <Modal.Body className="p-0">
-            <div
-              className="video-container"
-              style={{ position: "relative", paddingTop: "56.25%" }}
-            >
+            <div className="video-container" style={{ position: "relative", paddingTop: "56.25%" }}>
               <ReactPlayer
                 url={videoToPlay.url}
                 controls
                 playing={true}
                 width="100%"
                 height="100%"
-                style={{
-                  position: "absolute",
-                  top: 0,
-                  left: 0,
-                }}
+                style={{ position: "absolute", top: 0, left: 0 }}
               />
             </div>
           </Modal.Body>
