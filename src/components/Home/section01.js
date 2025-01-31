@@ -32,6 +32,7 @@ export default function Section01({ bannerData }) {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
+              backgroundColor: "black",
             }}
           >
             {/* Video that autoplays */}

@@ -13,6 +13,7 @@ export default function Services({ HomePage, ServicesPage }) {
   const { id } = useParams(); // Get the service item id from the URL
   const itemId = parseInt(id, 10); // Convert id to integer for comparison
 
+  console.log("services", ServicesPage);
   const navigate = useNavigate(); // Get the navigate function for redirection
 
   const [errorMessage, setErrorMessage] = useState(""); // State for error message
@@ -55,6 +56,7 @@ export default function Services({ HomePage, ServicesPage }) {
 
   const MatchCardsData = matchingServiceItem.group_service_category;
 
+
   return (
     <>
       {cartItemCount > 0 ? (
@@ -85,7 +87,8 @@ export default function Services({ HomePage, ServicesPage }) {
       {MatchCardsData && MatchCardsData.length > 0 ? (
         MatchCardsData.map((card, index) => {
           const categoryName = card.group_service_category_name;
-          const items = card.group_service_item;
+          const items = card.
+          api_group_service_items;
 
           // Render Section03 only if categoryName and items exist
           return categoryName && items && items.length > 0 ? (
