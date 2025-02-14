@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "bootstrap-icons/font/bootstrap-icons.css";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 const JobApplicationForm = () => {
-  const { id } = useParams(); // Get job_id from the URL
-  const [formData, setFormData] = useState({
+  const { id } = useParams(); // Get job_id from URL
+  const navigate = useNavigate(); // Initialize navigation
+
+  const initialFormState = {
     first_name: "",
     last_name: "",
     phone_no: "",
@@ -17,7 +18,9 @@ const JobApplicationForm = () => {
     notice_period_days: "",
     portfolio_link: "",
     upload_resume: null, // File upload
-  });
+  };
+
+  const [formData, setFormData] = useState(initialFormState);
 
   // Handle input change
   const handleChange = (e) => {
@@ -48,7 +51,13 @@ const JobApplicationForm = () => {
       );
 
       console.log("Response:", response.data);
-      alert("Application submitted successfully!");
+     
+      // Clear form
+      setFormData(initialFormState);
+
+      // Redirect to Thank You page
+      navigate("/ThankYou");
+
     } catch (error) {
       console.error("Error submitting form:", error);
       alert("Submission failed. Please try again.");
@@ -66,35 +75,35 @@ const JobApplicationForm = () => {
         <div className="row g-3">
           <div className="col-md-6">
             <label className="form-label">First Name</label>
-            <input type="text" name="first_name" className="form-control" onChange={handleChange} required />
+            <input type="text" name="first_name" className="form-control" value={formData.first_name} onChange={handleChange} required />
           </div>
           <div className="col-md-6">
             <label className="form-label">Last Name</label>
-            <input type="text" name="last_name" className="form-control" onChange={handleChange} required />
+            <input type="text" name="last_name" className="form-control" value={formData.last_name} onChange={handleChange} required />
           </div>
           <div className="col-md-6">
             <label className="form-label">Phone Number</label>
-            <input type="text" name="phone_no" className="form-control" onChange={handleChange} required />
+            <input type="text" name="phone_no" className="form-control" value={formData.phone_no} onChange={handleChange} required />
           </div>
           <div className="col-md-6">
             <label className="form-label">Email</label>
-            <input type="email" name="email" className="form-control" onChange={handleChange} required />
+            <input type="email" name="email" className="form-control" value={formData.email} onChange={handleChange} required />
           </div>
           <div className="col-md-6">
             <label className="form-label">Experience (years)</label>
-            <input type="text" name="experience" className="form-control" onChange={handleChange} required />
+            <input type="text" name="experience" className="form-control" value={formData.experience} onChange={handleChange} required />
           </div>
           <div className="col-md-6">
             <label className="form-label">LinkedIn Profile</label>
-            <input type="text" name="linkedin_profile" className="form-control" onChange={handleChange} required />
+            <input type="text" name="linkedin_profile" className="form-control" value={formData.linkedin_profile} onChange={handleChange} required />
           </div>
           <div className="col-md-6">
             <label className="form-label">Annual CTC</label>
-            <input type="text" name="annual_ctc" className="form-control" onChange={handleChange} required />
+            <input type="text" name="annual_ctc" className="form-control" value={formData.annual_ctc} onChange={handleChange} required />
           </div>
           <div className="col-md-6">
             <label className="form-label">Job Preference</label>
-            <select name="job_preference" className="form-select" onChange={handleChange} required>
+            <select name="job_preference" className="form-select" value={formData.job_preference} onChange={handleChange} required>
               <option value="">Select</option>
               <option value="Full time">Full Time</option>
               <option value="Part time">Part Time</option>
@@ -103,11 +112,11 @@ const JobApplicationForm = () => {
           </div>
           <div className="col-md-6">
             <label className="form-label">Notice Period (days)</label>
-            <input type="text" name="notice_period_days" className="form-control" onChange={handleChange} required />
+            <input type="text" name="notice_period_days" className="form-control" value={formData.notice_period_days} onChange={handleChange} required />
           </div>
           <div className="col-md-6">
             <label className="form-label">Portfolio Link</label>
-            <input type="text" name="portfolio_link" className="form-control" onChange={handleChange} required />
+            <input type="text" name="portfolio_link" className="form-control" value={formData.portfolio_link} onChange={handleChange} required />
           </div>
           <div className="col-md-12">
             <label className="form-label">Upload Resume</label>

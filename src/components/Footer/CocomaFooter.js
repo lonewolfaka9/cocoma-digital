@@ -132,7 +132,11 @@ export default function CocomaFooter({ ServiceFooter }) {
                   {" "}
                   <a href={"/contact_us"}>Contact us</a>
                 </li>
-                {/* <li>Blog</li> */}
+                <li>
+                  <a href={"/Career"} >
+                     Career at cocoma
+                  </a>
+                  </li>
               </ul>
             </div>
 
