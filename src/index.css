@@ -257,7 +257,7 @@ code {
 @media (max-width: 425px) {
   .service-card img {
     width: 100%;
-    height: 150px;
+    height: 200px;
     border-radius: 8px;
   }
   .service-card h3 {
@@ -271,7 +271,7 @@ code {
     padding: 10px 20px;
     cursor: pointer;
     border-radius: 5px;
-    font-size: 13px;
+    font-size: 12px;
   }
 }
 .container h1 {
@@ -925,10 +925,33 @@ button.btn:hover {
   height: 250px;
 }
 
+
+
+.services-related-box-card-text{
+  padding: 15px;
+  font-size: 16px;
+  font-weight: 900;
+}
+.home-sidebar-image{
+  width: 50%;
+  object-fit: cover;
+}
+.home-sidebar-text{
+  font-size: 10px;
+  font-weight: 700;
+  margin-top: 5px;
+}
+.menu-open-button{
+ display: none;
+}
+
 @media (max-width: 768px) {
   .services-related-box-card img{
   width: 100%;
   height: 180px;
+}
+.menu-open-button{
+ display: none;
 }
 }
 @media (max-width: 425px) {
@@ -936,11 +959,10 @@ button.btn:hover {
   width: 100%;
   height: 140px;
 }
+.menu-open-button{
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 160px;
 }
-
-
-.services-related-box-card-text{
-  padding: 15px;
-  font-size: 16px;
-  font-weight: 900;
 }

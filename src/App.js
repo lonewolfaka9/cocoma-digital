@@ -36,12 +36,14 @@ function App() {
   const [creativeData, setCreativeData] = useState();
   const [MarketingHouseData, setMarketingHouseData] = useState();
   const [MonthlyPerformanaceData, SetMonthlyPerformanceData] = useState();
+  const [JobData,SetJobData] = useState();
   // FOR LOADING DATA
   const [loadingHome, setLoadingHome] = useState(true);
   const [loadingServices, setLoadingServices] = useState(true);
   const [loadingCreative, setLoadingCreative] = useState(true);
   const [loadingMarkating, setLoadingMarkating] = useState(true);
   const [loadingMonthlyPerformance, setloadingMonthlyPerformance] = useState();
+  const [loadingJobs,setLoadingJobs] = useState();
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -93,6 +95,15 @@ function App() {
         setError(err.message);
       })
       .finally(() => setloadingMonthlyPerformance(false));
+
+
+      AdminService.JobData()
+      .then((response)=>{
+        SetJobData(response.data.job_list);
+      }).catch((err)=>{
+        setError(err.message)
+      }).finally(()=> setLoadingJobs(false));
+
   }, []);
 
   // Show loading screen until all data is fetched
@@ -101,7 +112,8 @@ function App() {
     loadingServices ||
     loadingCreative ||
     loadingMarkating ||
-    loadingMonthlyPerformance;
+    loadingMonthlyPerformance ||
+    loadingJobs;
 
   if (isLoading)
     return (
@@ -190,9 +202,9 @@ function App() {
           <Route path="/client-sucess-stories/:id" element={<ClientPage />} />
           <Route path="/contact_us" element={<ContactUs />} />
           <Route path="/aboutus" element={<AboutUs />} />
-          <Route path="/Career" element={<Career />} />
-          <Route path="/job-details/:id" element={<JobDetails />} />
-          <Route path="/job-Application" element={<JobApplicationForm />} />
+          <Route path="/Career" element={<Career joblist={JobData} />} />
+          <Route path="/job-details/:id" element={<JobDetails joblist={JobData} />} />
+          <Route path="/job-Application/:id" element={<JobApplicationForm />} />
           <Route path="/ThankYou" element={<ThankYouPage />} />
 
           {/* Schedule Meeting */}

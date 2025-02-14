@@ -1,195 +1,120 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import FileUploadBox from "./DragAndDrop";
-import "./Job.css";
-import { RiTwitterXFill } from "react-icons/ri";
-import { RiYoutubeFill } from "react-icons/ri";
-import { RiFacebookBoxFill } from "react-icons/ri";
-import { RiInstagramFill } from "react-icons/ri";
+import { useParams } from "react-router-dom";
 
 const JobApplicationForm = () => {
+  const { id } = useParams(); // Get job_id from the URL
+  const [formData, setFormData] = useState({
+    first_name: "",
+    last_name: "",
+    phone_no: "",
+    email: "",
+    experience: "",
+    linkedin_profile: "",
+    annual_ctc: "",
+    job_preference: "",
+    notice_period_days: "",
+    portfolio_link: "",
+    upload_resume: null, // File upload
+  });
+
+  // Handle input change
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  // Handle file upload
+  const handleFileChange = (e) => {
+    setFormData({ ...formData, upload_resume: e.target.files[0] });
+  };
+
+  // Handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // Create FormData object
+    const submissionData = new FormData();
+    submissionData.append("job_id", id); // Append job_id from URL
+    Object.keys(formData).forEach((key) => {
+      submissionData.append(key, formData[key]);
+    });
+
+    try {
+      const response = await axios.post(
+        "https://admin.cocomadigital.com/public/api/job_applicants",
+        submissionData,
+        { headers: { "Content-Type": "multipart/form-data" } }
+      );
+
+      console.log("Response:", response.data);
+      alert("Application submitted successfully!");
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("Submission failed. Please try again.");
+    }
+  };
+
   return (
     <div className="container my-5">
-      {/* Form Header */}
       <div className="text-center mb-4">
-        <h2 className="fw-bold">Job Application for UI/UX Designer</h2>
-        <p className="text-muted">
-          Tell us more about you so we can get back to you with more info.
-        </p>
+        <h2 className="fw-bold">Job Application</h2>
+        <p className="text-muted">Tell us more about you so we can get back to you.</p>
       </div>
 
-      {/* Form */}
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="row g-3">
-          {/* First Name and Last Name */}
-          <div className="col-md-6 col-sm-6 ">
-            <label htmlFor="firstName" className="form-label">
-              First Name
-            </label>
-            <input
-              type="text"
-              id="firstName"
-              className="form-control job-application-form-input  "
-            />
+          <div className="col-md-6">
+            <label className="form-label">First Name</label>
+            <input type="text" name="first_name" className="form-control" onChange={handleChange} required />
           </div>
-          <div className="col-md-6 col-sm-6">
-            <label htmlFor="lastName" className="form-label">
-              Last Name
-            </label>
-            <div className="input-group">
-              <input
-                type="text"
-                id="lastName"
-                className="form-control job-application-form-input"
-              />
-            </div>
+          <div className="col-md-6">
+            <label className="form-label">Last Name</label>
+            <input type="text" name="last_name" className="form-control" onChange={handleChange} required />
           </div>
-
-          {/* Phone Number and Email */}
-          <div className="col-md-6 col-sm-6">
-            <label htmlFor="phoneNumber" className="form-label">
-              Phone Number
-            </label>
-            <input
-              type="text"
-              id="phoneNumber"
-              className="form-control job-application-form-input"
-            />
+          <div className="col-md-6">
+            <label className="form-label">Phone Number</label>
+            <input type="text" name="phone_no" className="form-control" onChange={handleChange} required />
           </div>
-          <div className="col-md-6 col-sm-6">
-            <label htmlFor="email" className="form-label">
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              className="form-control job-application-form-input"
-            />
+          <div className="col-md-6">
+            <label className="form-label">Email</label>
+            <input type="email" name="email" className="form-control" onChange={handleChange} required />
           </div>
-
-          {/* Experience and LinkedIn Profile */}
-          <div className="col-md-6 col-sm-6">
-            <label htmlFor="experience" className="form-label">
-              Experience
-            </label>
-            <input
-              type="text"
-              id="experience"
-              className="form-control job-application-form-input"
-            />
+          <div className="col-md-6">
+            <label className="form-label">Experience (years)</label>
+            <input type="text" name="experience" className="form-control" onChange={handleChange} required />
           </div>
-          <div className="col-md-6 col-sm-6">
-            <label htmlFor="linkedin" className="form-label">
-              LinkedIn Profile *
-            </label>
-            <input
-              type="text"
-              id="linkedin"
-              className="form-control job-application-form-input"
-            />
+          <div className="col-md-6">
+            <label className="form-label">LinkedIn Profile</label>
+            <input type="text" name="linkedin_profile" className="form-control" onChange={handleChange} required />
           </div>
-
-          {/* Annual CTC and Job Preferences */}
-          <div className="col-md-6 col-sm-6">
-            <label htmlFor="ctc" className="form-label">
-              Annual CTC
-            </label>
-            <input
-              type="text"
-              id="ctc"
-              className="form-control job-application-form-input"
-            />
+          <div className="col-md-6">
+            <label className="form-label">Annual CTC</label>
+            <input type="text" name="annual_ctc" className="form-control" onChange={handleChange} required />
           </div>
-          <div className="col-md-6 col-sm-6">
-            <label htmlFor="jobPreference" className="form-label">
-              Job Preferences *
-            </label>
-            <select
-              id="jobPreference"
-              className="form-select job-application-form-input"
-            >
-              <option defaultValue>Select One Option</option>
-              <option>Full Time</option>
-              <option>Part Time</option>
-              <option>Remote</option>
+          <div className="col-md-6">
+            <label className="form-label">Job Preference</label>
+            <select name="job_preference" className="form-select" onChange={handleChange} required>
+              <option value="">Select</option>
+              <option value="Full time">Full Time</option>
+              <option value="Part time">Part Time</option>
+              <option value="Remote">Remote</option>
             </select>
           </div>
-
-          {/* Notice Period and Portfolio Link */}
-          <div className="col-md-6 col-sm-6">
-            <label htmlFor="noticePeriod" className="form-label">
-              Notice Period (days)
-            </label>
-            <input
-              type="text"
-              id="noticePeriod"
-              className="form-control job-application-form-input"
-            />
+          <div className="col-md-6">
+            <label className="form-label">Notice Period (days)</label>
+            <input type="text" name="notice_period_days" className="form-control" onChange={handleChange} required />
           </div>
-          <div className="col-md-6 col-sm-6">
-            <label htmlFor="portfolio" className="form-label">
-              Portfolio Link *
-            </label>
-            <input
-              type="text"
-              id="portfolio"
-              className="form-control job-application-form-input"
-            />
+          <div className="col-md-6">
+            <label className="form-label">Portfolio Link</label>
+            <input type="text" name="portfolio_link" className="form-control" onChange={handleChange} required />
           </div>
-
-          {/* Social Media Links */}
-          <div className="col-12 d-none d-sm-block d-md-block d-lg-none">
-            <label className="form-label">Social Media Links</label>
-            <div className="d-flex flex-column gap-2">
-              <div className="input-group">
-                <span className="input-group-text job-application-form-input">
-                  <RiInstagramFill size={25} />
-                </span>
-                <input
-                  type="text"
-                  className="form-control job-application-form-input"
-                />
-              </div>
-              <div className="input-group">
-                <span className="input-group-text job-application-form-input">
-                  <RiFacebookBoxFill size={25} />
-                </span>
-                <input
-                  type="text"
-                  className="form-control job-application-form-input"
-                />
-              </div>
-              <div className="input-group">
-                <span className="input-group-text job-application-form-input">
-                  <RiTwitterXFill size={25} />
-                </span>
-                <input
-                  type="text"
-                  className="form-control job-application-form-input"
-                />
-              </div>
-              <div className="input-group">
-                <span className="input-group-text job-application-form-input">
-                  <RiYoutubeFill size={25} />
-                </span>
-                <input
-                  type="text"
-                  className="form-control job-application-form-input"
-                />
-              </div>
-            </div>
+          <div className="col-md-12">
+            <label className="form-label">Upload Resume</label>
+            <input type="file" name="upload_resume" className="form-control" onChange={handleFileChange} required />
           </div>
-
-          {/* Resume Upload */}
-          <div className="col-12">
-            <FileUploadBox />
-          </div>
-
-          {/* Apply Now Button */}
           <div className="col-12 text-center mt-4">
-            <button type="submit" className="btn btn-dark btn-lg px-5">
-              Apply Now
-            </button>
+            <button type="submit" className="btn btn-dark btn-lg px-5">Apply Now</button>
           </div>
         </div>
       </form>

@@ -117,7 +117,7 @@ const Section03 = ({ ServidcesToShow }) => {
       <div className="row services mt-2">
         {activeCategory?.service_items?.length > 0 ? (
           activeCategory.service_items.slice(0, visibleItems).map((service) => (
-            <div className="col-md-6 col-lg-4 col-sm-6 col-6 mt-5" key={service.id}>
+            <div className="col-md-6 col-lg-4 col-sm-6 col-12 mt-5" key={service.id}>
               <div className="service-card pb-4 text-center">
                 <Link to={`service/${service.id}`} style={{ width: "100%" }}>
                   <img
