@@ -14,17 +14,14 @@ const Section09 = ({ CreativeHouseSection = { creative_house: [], all_button_pri
 
   useEffect(() => {
     if (showAllItems) {
-      const priorityItemIds = Object.values(CreativeHouseSection.all_button_priority).map(
+      const priorityItemIds = Object.values(CreativeHouseSection.all_button_priority_creative_house).map(
         (button) => button.creative_house_item_id.toString()
-      );
-
-      console.log("Priority Item IDs:", priorityItemIds);
+      );  
 
       const allItems = CreativeHouseSection?.creative_house
         ?.flatMap((cat) => cat.items || []) // Ensure items is always an array
         .filter((item) => priorityItemIds.includes(item.id.toString()));
 
-      console.log("Filtered Items:",allItems  );
       setFilteredItems(allItems || []);
     } else {
       const selectedCategory = CreativeHouseSection?.creative_house?.find(

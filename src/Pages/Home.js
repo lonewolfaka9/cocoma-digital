@@ -94,7 +94,7 @@ export default function Home({
             <Section05 VideoData={HomePage} />
             <Section06 />
             <Section07 ClientData={HomePage} />
-            <Section08 MarketingHouseData={MarketingHouseData} />
+            <Section08 MarketingHouseSection={MarketingHouseData} />
             <Section09 CreativeHouseSection={CreativeHouseData} />
             <Section11 MonthlyPerformanaceData={MonthlyPerformanaceData} />
             <Section12 bannerData={HomePage} />
