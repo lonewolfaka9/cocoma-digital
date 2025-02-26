@@ -21,7 +21,6 @@ export default function CocomaFooter({ ServiceFooter }) {
       ),
     }));
 
-  console.log(servicePlatformServices);
   return (
     <>
       <div className="container-fluid footer-main pt-5">
@@ -127,21 +126,17 @@ export default function CocomaFooter({ ServiceFooter }) {
                   <h4>Cocoma Digital</h4>
                 </li>
                 <li>
-                  <Link
-                    to="/aboutus"
-                    onClick={() =>
-                      window.scrollTo({ top: 0, behavior: "smooth" })
-                    }
-                  >
-                    {" "}
-                    About us{" "}
-                  </Link>
+                  <Link to="/aboutus"> About us </Link>
                 </li>
                 <li>
                   {" "}
                   <a href={"/contact_us"}>Contact us</a>
                 </li>
-                {/* <li>Blog</li> */}
+                <li>
+                  <a href={"/Career"} >
+                     Career at cocoma
+                  </a>
+                  </li>
               </ul>
             </div>
 

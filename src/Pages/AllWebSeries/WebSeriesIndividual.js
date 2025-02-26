@@ -50,13 +50,13 @@ const WebSeriesIndividual = ({
           <OtherActivities itemData={itemData} />
           <ContentCreateByTeam itemData={itemData} />
           <ProjectSuccess />
-          <RelatedServicesSlider Haddertitle="Related Services" />
+          {/* <RelatedServicesSlider Haddertitle="Related Services" /> */}
           <Section12
             bannerId={
               MarketingHouseData.marketing_house_projects.book_call_template_id
             }
           />
-          <RelatedServicesSlider Haddertitle="Explore More Film & Media Services" />
+          {/* <RelatedServicesSlider Haddertitle="Explore More Film & Media Services" /> */}
           {/* <BusinessCareerSection /> */}
         </>
       ) : (

@@ -36,7 +36,7 @@ const RecentlyWorkedWith = ({ RecentWorkData }) => {
     <div className="container my-5 position-relative">
       <div className="row">
         <div>
-          <h3 className="mb-4">Recently Worked With</h3>
+          <h2 className="fw-bold text-uppercase mb-4">Recently Worked With</h2>
         </div>
         <div>
           <button
@@ -69,7 +69,7 @@ const RecentlyWorkedWith = ({ RecentWorkData }) => {
                 />
               ) : (
                 <div
-                  className="thumbnail-wrapper position-relative"
+                  className=" position-relative"
                   onClick={() => setPlayingVideo(item.id)}
                   style={{ cursor: "pointer" }}
                 >
@@ -77,6 +77,7 @@ const RecentlyWorkedWith = ({ RecentWorkData }) => {
                     src={item.recent_work_video_thumbnail}
                     alt="Video Thumbnail"
                     className="img-fluid rounded"
+                    height={200}
                   />
                   <div className="play-icon ">
                     <FaPlay size={30} color="white" />

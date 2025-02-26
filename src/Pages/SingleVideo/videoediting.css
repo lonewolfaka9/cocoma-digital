@@ -8,19 +8,17 @@
 .play-btn {
   top: 50%;
   left: 50%;
+  width: 50px;
+  height: 50px;
   transform: translate(-50%, -50%);
-  font-size: 3rem;
   color: #fff;
   background-color: rgba(0, 0, 0, 0.7);
   border-radius: 50%;
-  padding: 0rem 1rem;
   border: none;
   outline: none;
   cursor: pointer;
 }
-/* .slick-track{
-  margin-left:0px !important ;
-} */
+
 .play-btn:hover {
   background-color: rgba(0, 0, 0, 0.9);
 }
@@ -40,4 +38,20 @@ video {
 }
 .creative-approach-bg{
   background-color: #F7F7F7;
+}
+.creative-house-approach-text{
+  font-size: 40px;
+  margin-right: 20px;
+  font-weight: 700;
+}
+.creative-approach-arrow-button{
+  border-radius:50px ;
+  margin-right: 10px;
+}
+.final-output-slider-images{
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  position: relative;
+  border-radius: 20px !important;
 }

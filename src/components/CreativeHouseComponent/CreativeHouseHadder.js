@@ -45,15 +45,13 @@ const CreativeProjects = ({ bannerData }) => {
         backgroundImage: `url('${matchedBanner.banner_bg_img}')`,
         backgroundSize: "cover",
         backgroundPosition: "center",
-        height: "300px",
+        height: "400px",
       }}
     >
       <div className="container text-center text-md-start">
         <div className="row align-items-center">
           <div className="col-md-8">
-            <h1 className="display-4 fw-bold" style={{ color: "white" }}>
-              {matchedBanner.banner_title}
-            </h1>
+            <h2 className="display-4 fw-bold">{matchedBanner.banner_title}</h2>
             <p className="lead">{matchedBanner.banner_description} .</p>
           </div>
           <div className="col-md-4 text-md-end">

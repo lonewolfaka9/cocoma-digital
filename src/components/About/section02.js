@@ -31,7 +31,7 @@ const Section09 = () => {
 
   return (
     <div className="container my-5">
-      <h2 className="text-center mb-4">How it work?</h2>
+      <h2 className="mb-4 fw-bold text-uppercase">How it work?</h2>
       <div
         className="d-flex flex-wrap justify-content-center align-items-center p-3"
         style={{

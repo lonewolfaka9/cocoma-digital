@@ -45,7 +45,7 @@ const MarkatingHouseBanner = ({ bannerData }) => {
         backgroundImage: `url('${matchedBanner.banner_bg_img}')`,
         backgroundSize: "cover",
         backgroundPosition: "center",
-        height: "300px",
+        height: "400px",
       }}
     >
       <div className="container text-center text-md-start">

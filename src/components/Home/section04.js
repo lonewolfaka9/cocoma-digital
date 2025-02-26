@@ -26,17 +26,19 @@ const Section04 = ({ ServidcesToShow }) => {
       <div className="row services mt-1">
         {servicePlatform?.service_items?.length > 0 ? (
           servicePlatform.service_items.map((service) => (
-            <div className="col-md-6 col-lg-4 col-sm-12 mt-5" key={service.id}>
+            <div className="col-md-6 col-lg-4 col-sm-6  col-xs-6 col-12 mt-5" key={service.id}>
               <div className="service-card pb-4 text-center">
-                <img
-                  src={service.service_image}
-                  alt={service.service_title}
-                  className="service-image"
-                />
+                <Link to={`service/${service.id}`} style={{ width: "100%" }}>
+                  <img
+                    src={service.service_image}
+                    alt={service.service_title}
+                    className="service-image"
+                  />
+                </Link>
                 <h3>{service.service_title}</h3>
                 <Link to={`service/${service.id}`}>
                   <button className="explore-button">
-                    {service.service_button_text} <GoArrowUpRight size={24} />
+                    {service.service_button_text} <GoArrowUpRight size={20} />
                   </button>
                 </Link>
               </div>

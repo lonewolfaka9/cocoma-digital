@@ -1,24 +1,32 @@
 import React, { useState } from "react";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { RxCountdownTimer } from "react-icons/rx";
+import { IoMdArrowBack, IoMdArrowForward } from "react-icons/io";
 
 const Section11 = ({ MonthlyPerformanaceData }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedCategory, setSelectedCategory] = useState(
-    MonthlyPerformanaceData[0]?.mps_category_name || ""
+    MonthlyPerformanaceData.length > 0
+      ? MonthlyPerformanaceData[0]?.mps_category_name
+      : ""
   );
+  const [isAnimating, setIsAnimating] = useState(false); // Track animation state
 
   // Filter items by the selected category
-  const filteredCategory = MonthlyPerformanaceData.find(
-    (category) => category.mps_category_name === selectedCategory
-  );
+  const filteredCategory = MonthlyPerformanaceData.length
+    ? MonthlyPerformanaceData.find(
+        (category) => category.mps_category_name === selectedCategory
+      )
+    : null;
   const filteredData = filteredCategory?.mps_items || [];
 
   const handleNext = () => {
+    triggerAnimation();
     setCurrentIndex((prevIndex) => (prevIndex + 1) % filteredData.length);
   };
 
   const handlePrev = () => {
+    triggerAnimation();
     setCurrentIndex(
       (prevIndex) => (prevIndex - 1 + filteredData.length) % filteredData.length
     );
@@ -27,6 +35,13 @@ const Section11 = ({ MonthlyPerformanaceData }) => {
   const handleCategoryChange = (category) => {
     setSelectedCategory(category);
     setCurrentIndex(0); // Reset index when category changes
+    triggerAnimation();
+  };
+
+  // Trigger animation
+  const triggerAnimation = () => {
+    setIsAnimating(true);
+    setTimeout(() => setIsAnimating(false), 500); // Match animation duration
   };
 
   return (
@@ -39,8 +54,8 @@ const Section11 = ({ MonthlyPerformanaceData }) => {
           <div className="d-flex text-center justify-content-end">
             <RxCountdownTimer size={30} />
             <select
-              className="form-select "
-              style={{ border: "none " }}
+              className="form-select"
+              style={{ border: "none" }}
               value={selectedCategory}
               onChange={(e) => handleCategoryChange(e.target.value)}
             >
@@ -56,9 +71,9 @@ const Section11 = ({ MonthlyPerformanaceData }) => {
       <div className="border rounded p-4" style={{ background: "#F1F1F1" }}>
         {filteredData.length > 0 ? (
           <div>
-            <div className="row">
-              <div className="col-md-8">
-                <h2 className="fw-bold">
+            <div className={`row`}>
+              <div className="col-md-8 p-5">
+                <h2 className="fw-bold mt-5">
                   {filteredData[currentIndex]?.mps_title}
                 </h2>
                 <p className="pt-3">
@@ -75,18 +90,18 @@ const Section11 = ({ MonthlyPerformanaceData }) => {
             </div>
             <div className="d-flex justify-content-end mt-3">
               <button
-                className="btn btn-light me-2"
+                className="btn monthly-performance-left-btn me-3"
                 onClick={handlePrev}
                 aria-label="Previous"
               >
-                <FaAngleLeft />
+                <IoMdArrowBack />
               </button>
               <button
-                className="btn btn-light"
+                className="btn monthly-performance-right-btn"
                 onClick={handleNext}
                 aria-label="Next"
               >
-                <FaAngleRight />
+                <IoMdArrowForward />
               </button>
             </div>
           </div>

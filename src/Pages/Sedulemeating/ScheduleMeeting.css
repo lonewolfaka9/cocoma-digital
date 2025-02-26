@@ -67,3 +67,31 @@
   width: 100%;
   font-size: 1rem !important;
 }
+
+/* Add this to your ScheduleMeeting.css file */
+.time-slot-button {
+  display: inline-block;
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  background-color: rgb(237, 237, 237);
+  color: black;
+  text-align: center;
+  border: none;
+  border: 1px solid black;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.time-slot-button:hover {
+  background-color: #ffc107;
+}
+
+.time-slot-button:focus {
+  outline: none;
+}
+
+.Select__control {
+  border: 1px solid #ccc;
+}

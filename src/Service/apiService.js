@@ -36,6 +36,12 @@ class AdminService {
   async BookACall() {
     return instance.get("/book_call");
   }
+
+  async JobData(){
+    return instance.get("/job_list")
+  }
+
+
   // POST API FETCH
   async FreeConsultation(data) {
     return instance.post("/free_consultation", data);

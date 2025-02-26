@@ -21,9 +21,9 @@ export default function SingleService({ ServicesPage }) {
     return <p>No service item found.</p>; // Fallback if no matching item is found
   }
 
-  // Loop through each service item to find a matching group_service_item id
+  // Loop through each service item to find a matching api_group_service_items id
   let matchingGroupServiceItem = null;
-  let groupServiceItems = null; // To store the group_service_item
+  let groupServiceItems = null; // To store the api_group_service_items
 
   // Iterate through each service item
   for (const service of matchingServiceItem) {
@@ -31,10 +31,10 @@ export default function SingleService({ ServicesPage }) {
     if (service.group_service_category) {
       // Loop through each category within the service item
       for (const category of service.group_service_category) {
-        // Check for group_service_item within the category
-        if (category.group_service_item) {
-          // Access the entire group_service_item
-          groupServiceItems = category.group_service_item;
+        // Check for api_group_service_items within the category
+        if (category.api_group_service_items) {
+          // Access the entire api_group_service_items
+          groupServiceItems = category.api_group_service_items;
 
           // Look for the item that matches the id
           matchingGroupServiceItem = groupServiceItems.find(

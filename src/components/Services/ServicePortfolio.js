@@ -71,12 +71,13 @@ const Portfolio = ({ PortfolioData }) => {
 
   return (
     <div className="container my-5">
-      <h3 className="text-center mb-4">Portfolio</h3>
-
+      <div>
+        <h2 className="fw-bold text-uppercase mb-4">Portfolio</h2>
+      </div>
       <div className="mb-4">
         <Slider {...sliderSettings}>
           <button
-            className={`category-button ${
+            className={`category-button-cat-buttons ${
               filter === "All" ? "active" : "inactive"
             }`}
             onClick={() => setFilter("All")}
@@ -86,7 +87,7 @@ const Portfolio = ({ PortfolioData }) => {
           {categories.map((category) => (
             <button
               key={category.id}
-              className={`category-button ${
+              className={`category-button-cat-buttons ${
                 filter === category.portfolio_category_name
                   ? "active"
                   : "inactive"
@@ -103,7 +104,7 @@ const Portfolio = ({ PortfolioData }) => {
 
       <div className="row">
         {currentVideos.map((video) => (
-          <div key={video.id} className="col-12 col-md-6 col-lg-6 mb-4">
+          <div key={video.id} className="col-12 col-md-4 col-lg-4 mb-4">
             <div className="position-relative videoplayer-and-thumbnail">
               {playingVideoId === video.id ? (
                 <div className="video-wrapper">
@@ -113,7 +114,7 @@ const Portfolio = ({ PortfolioData }) => {
                     controls={false}
                     muted={false}
                     width="100%"
-                    height="400px"
+                    height="600px"
                     className="VideoPlayer"
                     onEnded={handleEnd}
                   />
@@ -148,7 +149,7 @@ const Portfolio = ({ PortfolioData }) => {
                     }
                     alt="Video Thumbnail"
                     className="img-fluid video-thumbnail"
-                    style={{ width: "100%", height: "400px" }}
+                    style={{ width: "100%", height: "auto" }}
                   />
 
                   <div

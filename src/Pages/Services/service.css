@@ -1,7 +1,7 @@
 .single-service-slider-image{
-Width:100%;
-aspect-ratio: 3/2;
-object-fit: cover;
+width:100%;
+height: 400px;
+object-fit: contain;
 }
 /* Position arrows above the slider */
 .custom-prev-arrow,
@@ -266,4 +266,33 @@ object-fit: cover;
   border-radius: 20px;
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+.single-service-add-recurring-button-text{
+  font-size: 20px !important;
+}
+
+.category-button-cat-buttons{
+  width: 200px !important;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px !important;
+  font-weight: 900 !important;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.category-button-cat-buttons.active {
+  background-color: #000; /* Black for active */
+  color: #fff; /* White text for active */
+}
+
+.category-button-cat-buttons.inactive {
+  background-color: #f4f4f4; /* Light gray for inactive */
+  color: #333; /* Dark text for inactive */
+}
+
+.category-button-cat-buttons:hover {
+  cursor: pointer;
+  filter: brightness(90%);
 }

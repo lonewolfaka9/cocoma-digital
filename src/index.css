@@ -18,6 +18,7 @@ body {
 }
 h1 h2 h3 h4 h5 h6{
   font-weight:900 !important;
+  color: black !important;
 }
 .btn-warning{
   color: black;  
@@ -26,6 +27,13 @@ h1 h2 h3 h4 h5 h6{
 a {
   color: white;
   text-decoration: none;
+}
+.home-main-bg{
+  background-image: url("../public/Images/Group\ 514616493.png");
+  background-repeat: no-repeat;
+  background-position: top;
+  background-position-y: 30px;
+  background-size: center;
 }
 
 .dropdown-menu a {
@@ -50,11 +58,14 @@ code {
   background: black;
   color: white;
 }
-
+.services-page-banner{
+  padding: 0px !important;
+}
 .section-image{
   position: relative;
-  height: 600px;
+  height: 500px;
 }
+
 .section-image-01{
   width: 100%;
   height: 600px;
@@ -67,11 +78,23 @@ code {
   left: 48%;
   
 }
-.section-heading-01{
+.section-heading-01 {
   width: 100%;
-  font-weight: 700;
-  font-size: 28px;
+  font-weight: 900;
+  font-size: 28px; 
   padding-top: 4rem;
+}
+
+@media (min-width: 768px) {
+  .section-heading-01 {
+    font-size: 28px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-heading-01 {
+    font-size: 38px; 
+  }
 }
 .section-title{
   width: 100%;
@@ -132,25 +155,18 @@ code {
   margin-left: 5rem;
   margin-right: 5rem;
 }
-
-
-
-
 .services {
   text-align: center;
 }
-
 .services h2 {
   font-size: 24px;
   margin-bottom: 20px;
 }
-
 .tab-buttons {
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
 }
-
 .tab-buttons button {
   background-color: #f0f0f0;
   border: none;
@@ -160,47 +176,42 @@ code {
   cursor: pointer;
   border-radius: 5px;
 }
-
 .tab-buttons button.active {
   background-color: #ffd700;
   color: #5D5D5D;
   font-weight: bold;
 }
-
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Ensures three cards per row */
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
-
 @media (max-width: 768px) {
   .services-grid {
-    grid-template-columns: repeat(2, 1fr); /* Two cards per row on medium screens */
+    grid-template-columns: repeat(2, 1fr); 
   }
 }
-
 @media (max-width: 480px) {
   .services-grid {
-    grid-template-columns: 1fr; /* One card per row on small screens */
+    grid-template-columns: 1fr;
   }
 }
-
-
 .service-card {
-  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f9f9f9;  height: 100%; 
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s;
 }
-
 .service-card:hover {
   transform: scale(1.05);
 }
-
 .service-card img {
   width: 100%;
-  height: 350px;
-  object-fit: cover;
+  height: 300px;
   border-radius: 8px;
 }
 
@@ -208,7 +219,6 @@ code {
   font-size: 18px;
   margin: 10px 0;
 }
-
 .explore-button {
   background-color: black;
   color: white;
@@ -220,7 +230,49 @@ code {
 }
 
 .explore-button:hover {
-  background-color: #333;
+  background-color: #f5c518;
+}
+
+@media (max-width: 768px) {
+  .service-card img {
+    width: 100%;
+    height: 200px;
+    border-radius: 8px;
+  }
+  .service-card h3 {
+    font-size:14px !important;
+    margin: 10px 0;
+  }
+  .explore-button {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 425px) {
+  .service-card img {
+    width: 100%;
+    height: 200px;
+    border-radius: 8px;
+  }
+  .service-card h3 {
+    font-size:14px !important;
+    margin: 10px 0;
+  }
+  .explore-button {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 12px;
+  }
 }
 .container h1 {
   font-size: 2rem;
@@ -269,52 +321,59 @@ code {
   margin-top: 15px;
 }
 
-
-/* Section06.css */
-/* Section06.css */
-
 .industries-serve {
+  width: 15%;
   background-color: #f8f9fa;
+
   border-radius: 8px;
-  padding: 20px;
+  padding: 20px 10px;
   transition: transform 0.3s ease;
-  margin: 8px; /* Custom margin for smaller gap between items */
+  margin: 8px;
 }
 
 .industries-serve img {
+  width: 100%;
   margin-bottom: 15px;
 }
 
 .industries-serve p {
   font-size: 1rem;
+  width: 100%;
   font-weight: bold;
 }
 
 .industries-serve:hover {
   transform: translateY(-5px);
 }
-
+@media (max-width: 990px) {
+  .industries-serve {
+    width: 30%;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px 10px; 
+    transition: transform 0.3s ease;
+    margin: 8px;
+  }
+}
 .container-fluid h1 {
   font-size: 2rem;
   color: #333;
   margin-bottom: 2rem;
 }
-
 .card {
+  height: 100%;
+  border: 1px solid black;
   overflow: hidden;
   border-radius: 10px;
 }
-
 .card img {
   height: 100%;
   width: 100%;
   object-fit: cover;
 }
-
 button.position-fixed {
   z-index: 1000;
 }
-/* Custom media query for extra small devices (320px) */
 @media (max-width: 320px) {
   .card-title {
     font-size: 14px;
@@ -348,14 +407,11 @@ button.position-fixed {
   display:flex ;
   justify-content: space-between;
 }
-/* Custom CSS for the Sectin13 component */
 
-/* Category Buttons */
 .category-buttons .btn {
   min-width: 100px;
 }
 
-/* Responsive Carousel Controls */
 @media (max-width: 768px) {
   .next-prew-button .btn {
     width: 40px;
@@ -363,14 +419,15 @@ button.position-fixed {
     font-size: 1rem;
   }
 }
-
 .footer-main{
   background: black;
 }
 .social-icon{
   text-align: center;
-  margin-left: 5px;
-  /* background-color: white; */
+  margin-left: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+ 
 }
 .social-icon-main{
   background-color: white;
@@ -522,15 +579,16 @@ button.position-fixed {
   object-fit: cover;
 }
 .sehedule-meeting-btn{
-  background: black;
-  color: white;
-  font-size: 1rem;
-  font-weight: 700;
-  padding: 10px 20px 10px 20px;
-}
-.sehedule-meeting-btn:hover{
   background: #F5C518;
   color: black;
+  font-size: 1.2rem;
+  font-weight: 900;
+  padding: 10px 20px 10px 20px;
+  margin-bottom: 30px;
+}
+.sehedule-meeting-btn:hover{
+  background: black; 
+  color: white;
 }
 .btn-primery-recurring{
   background:#F5C518 ;
@@ -607,11 +665,21 @@ button.position-fixed {
   }
 }
 
-.cat-filter-button  {
+.cat-filter-button {
+  width: 150px !important;
   font-size: 14px;
   padding: 8px 12px;
   border-radius: 4px;
   margin-left: 10px !important;
+  border: none;
+  box-shadow: 0px 0px 2px black;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  /* Add these properties to handle text overflow */
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden; /* Hide overflowing text */
+  text-overflow: ellipsis; /* Show ellipsis for overflowing text */
+  text-align: center; /* Optional: Center the text */
 }
 .slick-track{
 margin: 0px;
@@ -624,10 +692,6 @@ margin: 0px;
   width: 100% !important;
 
 }
-/* .Cat-Info-Track-slider .slick-track{
-  width: 100% !important;
-} */
-
 
 .card-CreativeHouse {
   overflow: hidden;
@@ -639,16 +703,34 @@ margin: 0px;
   /* height: 400px; */
   object-fit: cover;
 }
-.custom-modal .modal-header {
- 
-  color: black;
+
+
+@media (max-width: 768px) {
+  .next-prew-button .btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
 }
 
+
+.custom-modal{
+  background-color: rgba(255, 255, 255, 0.281);
+  z-index: 1000000000000000;
+} 
+.modal-content {
+  background:none;
+}
+.custom-modal .modal-header {
+ background: rgb(255, 255, 255);
+  color: black;
+}
 
 .video-container {
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background-color: white;
 }
 
 .playbutton:hover {
@@ -669,11 +751,12 @@ margin: 0px;
   text-overflow: ellipsis; /* Add "..." for overflowed text */
   display: inline-block; /* Keep it inline for better alignment */
   max-width: 100%; /* Set a reasonable width if necessary */
+  width: 250px;
 }
 
 .category-slider .tab-button.active {
   background: #F6CB30;
-  color: white;
+  color: black;
   border-radius: 5px;
 }
 
@@ -695,9 +778,9 @@ margin: 0px;
 
 .show-more-button,
 .show-less-button {
-  background-color: #F5C518;
+  background-color:white;
   color: black;
-  border: none;
+  border: 1px solid black;
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
@@ -709,8 +792,8 @@ margin: 0px;
 
 .show-more-button:hover,
 .show-less-button:hover {
-  background-color: black;
-  color: white;
+  background-color: #F5C518;
+  color: black;
 }
 .Carousels-images{
   width: 100%;
@@ -723,8 +806,163 @@ margin: 0px;
   font-size: 1.2rem;
 }
 .creative-house-play-button{
+  width: 42px;
+  height: 42px;
+  border: none;
+  text-align: center;
+  background: white;
+  
+}
+.creative-house-play-button:hover{
 
-  height: auto;
+  background-color: #000000af;
+  color: white;
+  border: 1px solid white;
+}
+.view-all-link-text{
+  font-size: 20px;
+  font-weight: 900 !important;
+  text-decoration: underline;
+  
+}
+/* Fade-in Animation */
+/* @keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px); 
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 4s ease-in-out;
+}
+
+
+button.btn {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+button.btn:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+} */
+.custom-prev-btn{
+  z-index: 111;
+  border: none; 
+}
+.custom-next-btn{
+ 
+ z-index: 111;
+ 
+}
+
+.active-home {
+  color: #f5c518 !important;
+  font-weight: bold;
+}
+
+.client-card{
+  width: 100%;
+  height: 100%;
+  background-color:#F1F1F1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+}
+.client-card img{
+  width: 100%;
+  height: 250px;
+}
+.client-card-body{
+  width: 100%;
+  font-size: 20px;
+  padding: 1rem;
+}
+.monthly-performance-right-btn{
+  color: white;
+  background-color: #080808;
+  font-size: 20px;
+  border-radius: 100%;
   width: 50px;
   height: 50px;
+}
+.monthly-performance-left-btn{
+  color: white;
+  background-color: #0808087c;
+  font-size: 20px;
+  border-radius: 100%;
+  width: 50px;
+  height: 50px;
+}
+
+.youtube-graphic{
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+}
+
+.custom-service-categories-arrow-button{
+  border-radius: 30px;
+  background-color: #f5c518;
+  color: white;
+  border: none;
+}
+.services-related-box-card{
+  width: 100%;
+  background: #F1F1F1;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 0px 4px black;
+  height:100%;
+}
+.services-related-box-card img{
+  width: 100%;
+  height: 250px;
+}
+
+
+
+.services-related-box-card-text{
+  padding: 15px;
+  font-size: 16px;
+  font-weight: 900;
+}
+.home-sidebar-image{
+  width: 50%;
+  object-fit: cover;
+}
+.home-sidebar-text{
+  font-size: 10px;
+  font-weight: 700;
+  margin-top: 5px;
+}
+.menu-open-button{
+ display: none;
+}
+
+@media (max-width: 768px) {
+  .services-related-box-card img{
+  width: 100%;
+  height: 180px;
+}
+.menu-open-button{
+ display: none;
+}
+}
+@media (max-width: 425px) {
+  .services-related-box-card img{
+  width: 100%;
+  height: 140px;
+}
+.menu-open-button{
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 160px;
+}
 }

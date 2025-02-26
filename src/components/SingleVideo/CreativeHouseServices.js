@@ -42,10 +42,30 @@ const CreativeHouseServices = () => {
   ];
 
   const categories = [
-    { id: 1, name: "Our Latest Promos", link: "#", icon: "🎥" },
-    { id: 2, name: "Our Latest Trailers", link: "#", icon: "🎬" },
-    { id: 3, name: "Our Latest Reels", link: "#", icon: "📹" },
-    { id: 4, name: "Tiktok Videos", link: "#", icon: "📱" },
+    {
+      id: 1,
+      name: "Our Latest Promos",
+      link: "#",
+      icon: "../../Images/creativehouseVideoicon.svg",
+    },
+    {
+      id: 2,
+      name: "Our Latest Trailers",
+      link: "#",
+      icon: "../../Images/creativehouseVideoicon.svg",
+    },
+    {
+      id: 3,
+      name: "Our Latest Reels",
+      link: "#",
+      icon: "../../Images/creativehouseVideoicon.svg",
+    },
+    {
+      id: 4,
+      name: "Tiktok Videos",
+      link: "#",
+      icon: "../../Images/creativehouseVideoicon.svg",
+    },
   ];
 
   return (
@@ -56,7 +76,7 @@ const CreativeHouseServices = () => {
       </div>
       <div className="row g-4">
         {services.map((service) => (
-          <div key={service.id} className="col-12 col-md-6 col-lg-4">
+          <div key={service.id} className="col-6 col-md-6 col-lg-4">
             <div className="card border-0 shadow-sm h-100">
               <img
                 src={service.image}
@@ -93,16 +113,10 @@ const CreativeHouseServices = () => {
                 href={category.link}
                 className="d-block text-center text-dark text-decoration-none p-3 border rounded shadow-sm"
               >
-                <div
-                  className="mb-2 d-flex align-items-center justify-content-center"
-                  style={{
-                    fontSize: "2rem",
-                    color: "goldenrod",
-                  }}
-                >
-                  {category.icon}
+                <div className="mb-2 d-flex align-items-center justify-content-center">
+                  <img src={category.icon} alt={category.name} />
                 </div>
-                <p className="mb-0 fw-semibold">{category.name}</p>
+                <h5 className=" pt-2 fw-bold ">{category.name}</h5>
               </a>
             </div>
           ))}

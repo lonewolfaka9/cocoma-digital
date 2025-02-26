@@ -7,6 +7,7 @@ import FinalOutput from "../../components/SingleVideo/FinalOutput";
 import HowWeEdit from "../../components/SingleVideo/HowWeEdit";
 import InviteForService from "../../components/SingleVideo/InviteForEdit";
 import "./videoediting.css";
+import AuthorInfo from "../../components/common/authorInfo";
 export default function SingleVideo({ CreativeHouseData }) {
   console.log(CreativeHouseData);
 
@@ -16,9 +17,10 @@ export default function SingleVideo({ CreativeHouseData }) {
     .flatMap((cat) => cat.items)
     .find((item) => item.id === Number(id)); // Ensure id matches as a number
 
+  const matchingItemId = matchingItem.author_template_id;
   return (
     <>
-      <InviteForService />
+      <InviteForService matchingItemId={matchingItemId} />
       <HowWeEdit HowWeEditTitle={matchingItem} />
       <BriefAndRequirement RequireMentTitle={matchingItem} />
       <CreativeSlider CreativeSliderData={matchingItem} />

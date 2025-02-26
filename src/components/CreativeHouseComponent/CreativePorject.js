@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
-
+import "./CreativeHouse.css";
 const CreativeHouseProject = ({ CreativeHouseProjectCategory }) => {
   const [category, setCategory] = useState("All");
   const [filteredItems, setFilteredItems] = useState([]);
@@ -121,7 +121,8 @@ const VideoGrid = ({ videos, setHoveredItem, hoveredItem }) => {
     <div className="row">
       {videos.map((item) => (
         <div key={item.id} className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-          <div className="card-CreativeHouse ">
+          <div className="card-CreativeHouse">
+            {/* Main Thumbnail */}
             <Link to={`/Single-Video/${item.id}`}>
               <img
                 src={
@@ -129,11 +130,18 @@ const VideoGrid = ({ videos, setHoveredItem, hoveredItem }) => {
                     ? item.creative_house_thumbnail
                     : `https://cocomadigitalmediabucket.s3.eu-north-1.amazonaws.com/creative-house-thumbnail/${item.creative_house_thumbnail}`
                 }
-                onClick={() => console.log(item.id)}
                 className="card-img-top"
                 alt="Video Thumbnail"
               />
             </Link>
+
+            {/* Hover Content */}
+            {/* <div className="card-CreativeHouse-show-afterImage-Hover">
+              <div>
+                <h6>{item.creative_house_video_title}</h6>
+                <p>{item.requirement_description}</p>
+              </div>
+            </div> */}
           </div>
         </div>
       ))}
