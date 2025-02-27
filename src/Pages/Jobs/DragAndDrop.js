@@ -29,7 +29,7 @@ const FileUploadBox = () => {
   const handleBoxClick = () => {
     document.getElementById("resumeUpload").click(); // Explicitly trigger the file input click
   };
-
+  
   return (
     <div className="col-12 ">
       <label className="form-label">Upload or Drop Your Resume</label>
