@@ -91,7 +91,7 @@ const Section08 = ({ MarketingHouseSection = { marketing_house: [], all_button_p
         )}
 
 <div className="col-lg-12 col-md-12 col-sm-12 col-9 mt-lg-5 marketinghouse-container-new-home">
-  <div className="row">
+  <div className="row w-100">
     {filteredItems.slice(0, 8).map((item) => (
       <div key={item.id} className="col-lg-3 col-md-4 col-sm-6 col-12 col-xs-12 mb-3">
         <div className="position-relative">

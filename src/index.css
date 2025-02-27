@@ -1096,7 +1096,7 @@ button.btn:hover {
 }
 .marketinghouse-container-new-home img{
   width: 100%;
-  height: 350px;
+  height: auto;
   border-radius: 20px;
   overflow: hidden;
 }
