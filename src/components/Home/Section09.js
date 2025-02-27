@@ -51,8 +51,15 @@ const Section09 = ({ CreativeHouseSection = { creative_house: [], all_button_pri
 
   return (
     <div className="container">
-      <div className="row mt-5 text-center">
-        <h1 className="all-service-heading-home">OUR CREATIVE HOUSE</h1>
+      <div className="row mt-5">
+
+      <h3
+        className="text-uppercase text-muted mb-3"
+        style={{ fontSize: "20px" }}
+      >
+        Latest work  from
+      </h3>
+      <h2 className="fw-bold text-uppercase">our creative house</h2>
       </div>
 
       <div className="row mt-3 position-relative">
@@ -62,10 +69,10 @@ const Section09 = ({ CreativeHouseSection = { creative_house: [], all_button_pri
           </button>
         )}
 
-        <div className="col-lg-8 col-md-10 col-sm-12 col-3 text-center m-lg-auto services-category-scroll" ref={categoryRef}>
+        <div className="col-lg-8 col-md-10 col-sm-12 col-3 text-center services-category-scroll" ref={categoryRef}>
           {/* "Show All" button */}
           <div
-            className={`services-category-item-home ${activeCategory === null ? "active" : ""}`}
+            className={`services-category-item-home mx-lg-3 ${activeCategory === null ? "active" : ""}`}
             onClick={() => setActiveCategory(null)}
           >
             All
@@ -82,13 +89,22 @@ const Section09 = ({ CreativeHouseSection = { creative_house: [], all_button_pri
           ))}
         </div>
 
+
+        <div className="col-lg-4 justify-content-end d-lg-flex d-md-flex d-sm-none d-none mt-3">
+                <Link to="/Creative-House">
+                  <button className="explore-button">
+                      View All  
+                  </button>
+                  </Link>
+                </div>
+
         {canScrollDown && (
           <button className="scroll-btn down d-lg-none d-md-none d-sm-none d-block" onClick={() => scrollCategories("down")}>
             <FaChevronDown />
           </button>
         )}
 
-        <div className="col-lg-12 col-md-12 col-sm-12 col-9 mt-lg-5 marketinghouse-container-new-home">
+        <div className="col-lg-12 col-md-12 col-sm-12 col-9 mt-lg-5 creative-container-new-home">
           <div className="row">
             {filteredItems.slice(0, 8).map((item) => (
               <div key={item.id} className="col-lg-3 col-md-4 col-sm-6 col-12 mb-3">
@@ -125,6 +141,16 @@ const Section09 = ({ CreativeHouseSection = { creative_house: [], all_button_pri
           </div>
         </div>
       </div>
+       <div className="row">
+              <div className="col-12 d-lg-none d-md-none d-sm-none  text-center">
+                <Link to="/Creative-House">
+                <button className="explore-button">
+                    View All  
+                </button>
+                </Link>
+              </div>
+            </div>
+      
 
       {videoToPlay && (
         <Modal show={showModal} onHide={() => setShowModal(false)} centered backdrop="static" size="lg" className="custom-modal">

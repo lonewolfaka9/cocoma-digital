@@ -263,7 +263,7 @@ code {
 @media (max-width: 768px) {
   .service-card img {
     width: 100%;
-    height: 200px;
+    height: 150px;
     border-radius: 8px;
   }
   .service-card h3 {
@@ -284,7 +284,7 @@ code {
 @media (max-width: 425px) {
   .service-card img {
     width: 100%;
-    height: 200px;
+    height: 150px;
     border-radius: 8px;
   }
   .service-card h3 {
@@ -300,6 +300,7 @@ code {
     border-radius: 5px;
     font-size: 12px;
   }
+
 }
 .container h1 {
   font-size: 2rem;
@@ -348,14 +349,33 @@ code {
   margin-top: 15px;
 }
 
+
 .industries-serve {
   width: 15%;
   background-color: #f8f9fa;
-
   border-radius: 8px;
   padding: 20px 10px;
   transition: transform 0.3s ease;
   margin: 8px;
+}
+.industries-serve-slider{
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+@media screen and (width: 668px) {
+  .industries-serve {
+    width: 100%;
+  }
+  
+  .industries-serve-slider{
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+
+}
 }
 
 .industries-serve img {
@@ -541,7 +561,8 @@ button.position-fixed {
 
 .card-img-top {
   width: 100%;
-  height: auto;
+  height: 100px;
+  /* height: auto; */
   object-fit: cover;
 }
 
@@ -996,43 +1017,46 @@ button.btn:hover {
 
 
 /* Category Scroll Wrapper */
-.services-category-scroll {
-  display: flex;
-  gap: 10px;
-  background: #000;
-  overflow-x: auto;
-  overflow-y: hidden; /* Hide vertical scrollbar */
-  white-space: nowrap;
-  scroll-behavior: smooth;
-  height: 70px;
-  padding: 10px 0;
-  cursor: grab;
-  user-select: none;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: thin;
-  scrollbar-color: yellow transparent; /* Set scrollbar color */
-  position: relative;
-  font-size: 14px;
-  margin-bottom: 50px;
-  border-radius: 10px;
-}
+  .services-category-scroll {
+    display: flex;
+    gap: 10px;
+    background: #000;
+    overflow-x: auto;
+    overflow-y: hidden; /* Hide vertical scrollbar */
+    white-space: nowrap;
+    scroll-behavior: smooth;
+    height: 70px;
+    padding: 10px 0;
+    cursor: grab;
+    user-select: none;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    scrollbar-color: yellow transparent; /* Set scrollbar color */
+    position: relative;
+    font-size: 14px;
+    margin-bottom: 50px;
+    border-radius: 10px;
+  }
 
-/* Custom Scrollbar */
-.services-category-scroll::-webkit-scrollbar {
-  height: 2px; /* Scrollbar thickness */
-  background: transparent;
-  position: absolute;
-  top: 0; /* Move scrollbar to the top */
+  .services-category-scroll::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome, Safari */
 }
+  /* Custom Scrollbar */
+  .services-category-scroll::-webkit-scrollbar {
+    height: 2px; /* Scrollbar thickness */
+    background: transparent;
+    position: absolute;
+    top: 0; /* Move scrollbar to the top */
+  }
 
-.services-category-scroll::-webkit-scrollbar-thumb {
-  background: black; /* Scrollbar color */
-  border-radius: 5px;
-}
+  .services-category-scroll::-webkit-scrollbar-thumb {
+    background: black; /* Scrollbar color */
+    border-radius: 5px;
+  }
 
-.services-category-scroll::-webkit-scrollbar-track {
-  background: transparent;
-}
+  .services-category-scroll::-webkit-scrollbar-track {
+    background: transparent;
+  }
 
 /* Category Items */
 .services-category-item-home {
@@ -1100,74 +1124,17 @@ button.btn:hover {
   border-radius: 20px;
   overflow: hidden;
 }
-/* Mobile: Vertical Scroll for Categories */
-@media (max-width: 600px) {
-  .services-category-scroll {
-    display: flex;
-    flex-direction: column;
-    height: 400px;
-    overflow-y: auto;
-    border-radius: 10px;
-    font-size: 10px;
-    overflow-x: hidden;
-    scrollbar-width: thin;
-  }
-  .marketinghouse-container-new-home{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-    height: 400px;
-    overflow: hidden;
-    overflow-y: auto;
-  }
-  .marketinghouse-container-new-home img{
-    width: 100%;
-    height: 300px;
-    border-radius: 10px;
-    overflow: hidden;
-  }
-  .services-category-scroll::-webkit-scrollbar {
-    width: 6px;
-    height: 0; /* Hide horizontal scrollbar */
-  }
-
-  .services-category-scroll::-webkit-scrollbar-thumb {
-    background: black;
-    border-radius: 5px;
-  }
-
-  .services-category-item-home {
-    width: 100%;  /* Adjust width as needed */
-    text-align: center;
-    white-space: pre-wrap; /* Allow line break */
-    word-wrap: break-word; /* Ensure text wraps */
-    font-size: 12px; /* Adjust font size if needed */
-  }
-  
-
-  .service-card-new-home {
-    flex: 1 1 100%;
-  }
-  .services-container-new-home {
-    overflow: hidden;
-    overflow-y: auto;
-    height: 400px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;  
-    justify-content: center;
-  }
-  .service-card-new-home img{
-    width: 100%;
-    height: 200px;
-  }
-  .service-card-new-home h3{
-    /* font-size: 14px; */
-   text-align: center;
-  }
+.creative-container-new-home{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
-
-
+.creative-container-new-home img{
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  overflow: hidden;
+}
 /* Scroll Buttons */
 .scroll-btn {
   position: absolute;
@@ -1204,19 +1171,100 @@ button.btn:hover {
   bottom: 25px;
 }
 
-/* Category Item */
-.services-category-item-home {
-  padding: 12px;
-  text-align: center;
-  background: black;
-  color: white;
-  cursor: pointer;
-  font-size: 14px;
-  transition: 0.3s;
+/* Mobile: Vertical Scroll for Categories */
+@media (max-width: 600px) {
+  .services-category-scroll {
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    overflow-y: auto;
+    border-radius: 10px;
+    font-size: 12px;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+  }
+  .marketinghouse-container-new-home{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    height: 400px;
+    overflow: hidden;
+    overflow-y: auto;
+  }
+  .creative-container-new-home{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    height: 400px;
+    overflow: hidden;
+    overflow-y: auto;
+  }
+  .services-category-item-home.active {
+    border-left: 5px solid white;
+    border-bottom:0px ;
+    font-weight: bold;
+  }
+  .marketinghouse-container-new-home img{
+    width: 100%;
+    height: 350px;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .creative-container-new-home img{
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .services-category-scroll::-webkit-scrollbar {
+    width: 6px;
+    height: 0; /* Hide horizontal scrollbar */
+  }
+
+  .services-category-scroll::-webkit-scrollbar-thumb {
+    background: black;
+    border-radius: 5px;
+  }
+
+  .services-category-item-home {
+    width: 100%;  /* Adjust width as needed */
+    text-align: center;
+    white-space: pre-wrap; /* Allow line break */
+    word-wrap: break-word; /* Ensure text wraps */
+    font-size: 10px; /* Adjust font size if needed */
+  }
+  
+
+  .service-card-new-home {
+    flex: 1 1 100%;
+  }
+  .services-container-new-home {
+    overflow: hidden;
+    overflow-y: auto;
+    height: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;  
+    justify-content: center;
+  }
+  .service-card-new-home img{
+    width: 100%;
+    height: 200px;
+  }
+  .service-card-new-home h3{
+    /* font-size: 14px; */
+   text-align: center;
+  }
+}
+@media screen and (max-width: 600px) {
+
+  .all-service-heading-home{
+    font-size: 12px;
+  }
 }
 
-/* Active Category */
-.services-category-item-home.active {
-  border-bottom: 5px solid white;
-  font-weight: bold;
+.card-CreativeHouse img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }

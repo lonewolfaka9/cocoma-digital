@@ -1,73 +1,47 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Slider from "react-slick";
 
 const Section07 = ({ ClientData }) => {
   const clients = ClientData.client || [];
+  const [visibleCount, setVisibleCount] = useState(4);
 
-  const settings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    autoplay: true,
-    autoplaySpeed: 2000,
-    arrows: false,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 3,
-        },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
+  const handleShowMore = () => {
+    if (visibleCount >= clients.length) {
+      setVisibleCount(4); // Reset to initial 4 if all are shown
+    } else {
+      setVisibleCount(visibleCount + 4);
+    }
   };
 
   return (
-    <div className="container my-5 mt-5" style={{ overflow: "hidden" }}>
-      <h3
-        className="text-uppercase text-muted mb-3"
-        style={{ fontSize: "20px" }}
-      >
+    <div className="container my-5 mt-5">
+      <h3 className="text-uppercase text-muted mb-3" style={{ fontSize: "20px" }}>
         Our Clients
       </h3>
       <h2 className="fw-bold text-uppercase">Latest Success Stories</h2>
-      <Slider {...settings}>
-        {clients.map((client) => (
-          <div className="p-3 d-flex" key={client.id}>
-            <div className="client-card">
-              <Link to={`/client-sucess-stories/${client.id}`} >
-              <img
-                src={client.client_img}
-                className="card-img-top"
-                alt={client.client_description}
-              /></Link>
+
+      <div className="row">
+        {clients.slice(0, visibleCount).map((client) => (
+          <div className="col-md-3 col-12 mb-4 d-flex" key={client.id}>
+            <div className="client-card w-100">
+              <Link to={`/client-sucess-stories/${client.id}`}>
+                <img src={client.client_img} className="card-img-top" alt={client.client_description} />
+              </Link>
               <div className="client-card-body">
-                <p className="card-text fw-bold text-left">
-                  {client.client_title}
-                </p>
+                <p className="card-text fw-bold">{client.client_title}</p>
               </div>
             </div>
           </div>
         ))}
-      </Slider>
+      </div>
+
+      {clients.length > 4 && (
+        <div className="text-center mt-3">
+          <button className="btn btn-primary" onClick={handleShowMore}>
+            {visibleCount >= clients.length ? "Show Less" : "Show More"}
+          </button>
+        </div>
+      )}
     </div>
   );
 };

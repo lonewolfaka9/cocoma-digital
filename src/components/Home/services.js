@@ -1,41 +1,62 @@
 import { useState, useEffect, useRef } from "react";
-import { FaChevronUp, FaChevronDown } from "react-icons/fa"; // Import icons
+import { FaChevronUp, FaChevronDown, FaChevronLeft, FaChevronRight } from "react-icons/fa"; 
+import { Link } from "react-router-dom";
+import { GoArrowUpRight } from "react-icons/go";
 
 export default function ExploreOurServices({ ServidcesToShow }) {
-  // Ensure data exists and default to an empty array if not
   const services = ServidcesToShow?.services || [];
-
-  // Ensure at least one category is set as active
   const [activeCategory, setActiveCategory] = useState(services[0] || null);
-  const [canScrollUp, setCanScrollUp] = useState(false);
-  const [canScrollDown, setCanScrollDown] = useState(true);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
   const categoryRef = useRef(null);
+  const isDragging = useRef(false);
+  const startX = useRef(0);
+  const scrollLeft = useRef(0);
 
   useEffect(() => {
     if (services.length > 0) {
-      setActiveCategory(services[0]); // Set first category as active
+      setActiveCategory(services[0]);
     }
   }, [services]);
 
-  // Scroll function
   const scrollCategories = (direction) => {
     if (categoryRef.current) {
-      const scrollAmount = 100;
+      const scrollAmount = 150; // Adjust as needed
       categoryRef.current.scrollBy({
+        left: direction === "left" ? -scrollAmount : scrollAmount,
         top: direction === "up" ? -scrollAmount : scrollAmount,
         behavior: "smooth",
       });
     }
   };
 
-  // Check scroll position to show/hide buttons
+  // Drag scroll functionality
+  const handleMouseDown = (e) => {
+    isDragging.current = true;
+    startX.current = e.pageX - categoryRef.current.offsetLeft;
+    scrollLeft.current = categoryRef.current.scrollLeft;
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDragging.current) return;
+    e.preventDefault();
+    const x = e.pageX - categoryRef.current.offsetLeft;
+    const walk = (x - startX.current) * 2; // Adjust speed
+    categoryRef.current.scrollLeft = scrollLeft.current - walk;
+  };
+
+  const handleMouseUp = () => {
+    isDragging.current = false;
+  };
+
+  // Check scroll position
   useEffect(() => {
     const checkScroll = () => {
       if (categoryRef.current) {
-        setCanScrollUp(categoryRef.current.scrollTop > 0);
-        setCanScrollDown(
-          categoryRef.current.scrollTop + categoryRef.current.clientHeight <
-            categoryRef.current.scrollHeight
+        setCanScrollLeft(categoryRef.current.scrollLeft > 0);
+        setCanScrollRight(
+          categoryRef.current.scrollLeft + categoryRef.current.clientWidth <
+            categoryRef.current.scrollWidth
         );
       }
     };
@@ -46,49 +67,50 @@ export default function ExploreOurServices({ ServidcesToShow }) {
 
   return (
     <div className="container">
-      <div className="row mt-5 text-center">
+      <div className="row mt-5">
         <h1 className="all-service-heading-home">EXPLORE OUR SERVICES</h1>
       </div>
 
       <div className="row mt-3 position-relative">
-        {/* Up Arrow */}
-        {canScrollUp && (
-          <button className="scroll-btn up " onClick={() => scrollCategories("up")}>
-            <FaChevronUp />
-          </button>
-        )}
+        
 
-        {/* Categories */}
+        {/* Categories Scrollable Area */}
         <div
-          className="col-lg-8 col-md-10 col-sm-12 col-3 text-center m-lg-auto services-category-scroll"
+          className="col-lg-8 col-md-10 col-sm-12 col-3 m-lg-auto services-category-scroll"
           ref={categoryRef}
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseUp}
+          onMouseUp={handleMouseUp}
         >
           {services.map((category) => (
             <div
               key={category.id}
-              className={`services-category-item-home ${
-                activeCategory?.id === category.id ? "active" : ""
-              }`}
+              className={`services-category-item-home mx-lg-5 ${activeCategory?.id === category.id ? "active" : ""}`}
               onClick={() => setActiveCategory(category)}
             >
               {category.service_category_name}
             </div>
           ))}
         </div>
-
-        {/* Down Arrow */}
-        {canScrollDown && (
-          <button className="scroll-btn down d-lg-none d-md-none d-sm-none d-block  " onClick={() => scrollCategories("down")}>
-            <FaChevronDown />
-          </button>
-        )}
+        {/* Down Arrow (For Mobile) */}
+        {/* <button className="scroll-btn down  d-md-none d-block" onClick={() => scrollCategories("up")}>
+          <FaChevronUp />
+        </button> */}
 
         {/* Services List */}
-        <div className="col-lg-12 col-md-12 col-sm-12 col-9 mt-lg-5 services-container-new-home">
+        <div className="col-lg-12  col-md-12 col-sm-12 col-9 mt-lg-5 services-container-new-home">
           {activeCategory?.service_items?.map((service, index) => (
-            <div key={index} className="service-card-new-home">
-                <img src={service.service_image} alt={service.service_title}  className="img-flud w-100"/>
-              <h3>{service.service_title}</h3>
+            <div key={index} className="service-card-new-home text-center">
+              <Link to={`service/${service.id}`} style={{ width: "100%" }}>
+                <img src={service.service_image} alt={service.service_title} className="img-fluid w-100" />
+                <h3 className="mt-2" style={{ color: "black" }}>{service.service_title}</h3>
+                <button className="explore-button">
+                  <Link to={`service/${service.id}`}>
+                    {service.service_button_text} <GoArrowUpRight size={24} />
+                  </Link>
+                </button>
+              </Link>
             </div>
           ))}
         </div>
