@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import Slider from "react-slick";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,6 +7,7 @@ import {
   removeItemFromCart,
 } from "../../Service/redux/cartSlice"; // Import removeItemFromCart action
 import { Link } from "react-router-dom";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const Section03 = ({ categoryDataTitle, items }) => {
   const dispatch = useDispatch(); // Hook to dispatch actions to Redux
@@ -33,6 +34,39 @@ const Section03 = ({ categoryDataTitle, items }) => {
     }
   };
 
+  const containerRef = useRef(null);
+
+  const [scrollStart, setScrollStart] = useState(true);
+  const [scrollEnd, setScrollEnd] = useState(false);
+
+  // Check scroll position and update button states
+  const checkScrollPosition = () => {
+    if (containerRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = containerRef.current;
+      setScrollStart(scrollLeft <= 0);
+      setScrollEnd(scrollLeft + clientWidth >= scrollWidth);
+    }
+  };
+
+  useEffect(() => {
+    checkScrollPosition();
+    containerRef.current?.addEventListener("scroll", checkScrollPosition);
+    return () => containerRef.current?.removeEventListener("scroll", checkScrollPosition);
+  }, []);
+
+  const scrollLeft = () => {
+    if (containerRef.current) {
+      containerRef.current.scrollBy({ left: -300, behavior: "smooth" });
+    }
+  };
+
+  const scrollRight = () => {
+    if (containerRef.current) {
+      containerRef.current.scrollBy({ left: 300, behavior: "smooth" });
+    }
+  };
+
+
   const sliderRef = useRef(null); // Reference to control the slider
   const settings = {
     dots: false,
@@ -52,14 +86,14 @@ const Section03 = ({ categoryDataTitle, items }) => {
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 1,
           slidesToScroll: 1,
         },
       },
       {
-        breakpoint: 425,
+        breakpoint: 600,
         settings: {
-          slidesToShow:2,
+          slidesToShow:1,
           slidesToScroll: 1,
         },
       },
@@ -73,48 +107,58 @@ const Section03 = ({ categoryDataTitle, items }) => {
       {/* Check if only one item exists */}
       {items.length > 1 ? (
         <>
-          <button
-            className="btn btn-light position-absolute top-50 start-0 translate-middle-y custom-service-categories-arrow-button  "
-            style={{ zIndex: 5 }}
-            onClick={() => sliderRef.current.slickPrev()}
-          >
-            <IoIosArrowBack size={30} />
-          </button>
-          <button
-            className="btn btn-light position-absolute top-50 end-0 translate-middle-y custom-service-categories-arrow-button "
-            style={{ zIndex: 5 }}
-            onClick={() => sliderRef.current.slickNext()}
-          >
-            <IoIosArrowForward size={30} />
-          </button>
+         
 
           {/* Slider */}
-          <Slider ref={sliderRef} {...settings}>
-            {items.map((item, index) => (
-              <div className="p-2 w-100 d-flex" key={index}>
-                <div className="services-related-box-card">
-                  <Link to={`/Single_Services/${item.id}`}>
-                    <img
-                      src={item.group_service_item_thumbnail}
-                      className="card-img-top"
-                      alt={item.group_service_item_title}
-                    />
-                  </Link>
-                  <div className="services-related-box-card-text mt-2">
-                    {item.group_service_item_title}
-                    <button
-                      className={`explore-button w-100 mt-4 fw-bold  ${
+
+          <button className={`arrow left`} onClick={scrollLeft} disabled={scrollStart}>
+        <FaChevronLeft />
+      </button>
+
+          <div className="row service-slider" ref={containerRef}>
+          {items.map((item, index) => (
+            <>
+             {/* <Link to={`/Single_Services/${item.id}`}>  */}
+               <div className="col-lg-4 d-flex new-single-service-card-box" key={index}>
+               <div className="new-single-service-card-box-image">
+                <Link to={`/Single_Services/${item.id}`}>
+                 <img  src={item.group_service_item_thumbnail} alt={item.group_service_item_title} />
+                 </Link>
+               </div>
+               <div  className="new-singel-service-card-text" > 
+                <Link to={`/Single_Services/${item.id}`}>
+                 <p>
+                 {item.group_service_item_title}
+                 </p>
+                </Link>
+                 <button
+                      className={` new-single-service-card-button  ${
                         isItemInCart(item.id) ? "btn-success" : "btn-dark"
                       }`}
                       onClick={() => handleToggleCart(item)}
                     >
-                      {isItemInCart(item.id) ? "Added" : "ADD"}
+                       {isItemInCart(item.id) ? "-" : "+"}
                     </button>
-                  </div>
-                </div>
-              </div>
+                 
+               </div> 
+           </div>  
+              
+           {/* </Link> */}
+           </>
             ))}
-          </Slider>
+           
+          </div>
+
+          <button className={`arrow right `} onClick={scrollRight} disabled={scrollEnd}>
+        <FaChevronRight />
+      </button>
+
+         
+
+
+ <Slider ref={sliderRef} {...settings}>
+            
+          </Slider> 
         </>
       ) : (
         // If there's only one item, render it outside the slider
@@ -141,6 +185,18 @@ const Section03 = ({ categoryDataTitle, items }) => {
                 {isItemInCart(items[0].id) ? "Added" : "ADD"}
               </button>
             </div>
+           
+                  <div className="services-related-box-card-text d-lg-none d-md-none d-sm-none d-flex mt-2">
+                    {items[0].group_service_item_title}
+                    <button
+                      className={`explore-button w-50 border-rounded mt-4 fw-bold  ${
+                        isItemInCart(items[0].id) ? "btn-dark" : "btn-dark"
+                      }`}
+                      onClick={() => handleToggleCart(items[0])}
+                    >
+                      {isItemInCart(items[0].id) ? "-" : "+"}
+                    </button>
+                  </div>
           </div>
         </div>
       )}

@@ -33,37 +33,52 @@ const Section01 = ({ bannerData }) => {
           {bannerData.map((banner) => (
             <div key={banner.id} className="slider-slide">
               <div className="row align-items-center g-0">
-                <div className="col-md-6 col-lg-6 text-md-start p-4 p-lg-5 p-md-5">
+                {/* Image First on Mobile (order-1), Second on Desktop (order-md-2) */}
+                <div className="col-md-6 col-lg-6 d-flex justify-content-center order-1 order-md-2">
+                  <img
+                    src={banner.group_banner_img}
+                    alt={banner.group_banner_heading}
+                    className="img-fluid banner-img"
+                  />
+                </div>
+
+                {/* Text Second on Mobile (order-2), First on Desktop (order-md-1) */}
+                <div className="col-md-6 col-lg-6 text-center text-md-start p-4 p-lg-5 p-md-5 order-2 order-md-1">
                   <h1 className="section-heading-01">{banner.group_banner_heading}</h1>
                   <div className="section-title mt-4 mb-3">{banner.group_banner_subheading}</div>
-                  <Link to="/ScheduleMeeting" className="btn btn-warning clam-free-consultation-button mt-4">
+                  <Link
+                    to="/ScheduleMeeting"
+                    className="btn btn-warning clam-free-consultation-button mt-4"
+                  >
                     {banner.group_banner_button_text}
                     <MdOutlineArrowOutward className="clam-free-consultation-button-icon" />
                   </Link>
-                </div>
-                {/* Image Section */}
-                <div className="col-md-6 col-lg-6 d-flex justify-content-center">
-                  <img src={banner.group_banner_img} alt={banner.group_banner_heading} className="img-fluid banner-img" />
                 </div>
               </div>
             </div>
           ))}
         </Slider>
       ) : (
-        // Single banner case
+        // Single Banner Case
         bannerData.map((banner) => (
           <div key={banner.id} className="row align-items-center g-0">
-            <div className="col-md-6 col-lg-6 text-center text-md-start p-5">
+            {/* Image First on Mobile (order-1), Second on Desktop (order-md-2) */}
+            <div className="col-md-6 col-lg-6 d-flex justify-content-center order-1 order-md-2">
+              <img
+                src={banner.group_banner_img}
+                alt={banner.group_banner_heading}
+                className="img-fluid banner-img"
+              />
+            </div>
+
+            {/* Text Second on Mobile (order-2), First on Desktop (order-md-1) */}
+            <div className="col-md-6 col-lg-6 text-center text-md-start p-5 order-2 order-md-1">
               <h1 className="fw-bold mt-3">{banner.group_banner_heading} {banner.id}</h1>
               <p className="text-muted">{banner.group_banner_subheading}</p>
               <Link to="/ScheduleMeeting" className="btn btn-warning clam-free-consultation-button">
                 {banner.group_banner_button_text}
                 <MdOutlineArrowOutward className="clam-free-consultation-button-icon" />
               </Link>
-            </div>
-            {/* Image Section */}
-            <div className="col-md-6 col-lg-6 d-flex justify-content-center">
-              <img src={banner.group_banner_img} alt={banner.group_banner_heading} className="img-fluid banner-img" />
             </div>
           </div>
         ))
@@ -73,4 +88,3 @@ const Section01 = ({ bannerData }) => {
 };
 
 export default Section01;
-  
