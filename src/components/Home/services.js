@@ -89,7 +89,11 @@ export default function ExploreOurServices({ ServidcesToShow }) {
               className={`services-category-item-home mx-lg-5 ${activeCategory?.id === category.id ? "active" : ""}`}
               onClick={() => setActiveCategory(category)}
             >
-              {category.service_category_name}
+             
+              <img src= {category.service_icon} className="new-services-cat-images"/>
+              <p>
+                {category.service_category_name}
+              </p>
             </div>
           ))}
         </div>

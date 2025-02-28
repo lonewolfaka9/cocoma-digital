@@ -54,6 +54,8 @@ const RecentlyWorkedWith = ({ RecentWorkData }) => {
         </div>
       </div>
 
+      
+
       <Slider ref={sliderRef} {...settings}>
         {videoData.map((item) => (
           <div key={item.id} className="px-2">

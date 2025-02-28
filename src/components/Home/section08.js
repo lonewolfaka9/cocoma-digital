@@ -53,13 +53,26 @@ const Section08 = ({ MarketingHouseSection = { marketing_house: [], all_button_p
   return (
     <div className="container">
       <div className="row mt-5 ">
-        <h3 className="text-uppercase text-muted mb-3" style={{ fontSize: "20px" }}>
-          Latest work  from
-        </h3>
-        <h2 className="fw-bold text-uppercase"> Our marketing house </h2>
+        <div className="col-lg-8">
+          <h3 className="text-uppercase text-muted mb-3" style={{ fontSize: "20px" }}>
+            Latest work  from
+          </h3>
+          <h2 className="fw-bold text-uppercase"> Our marketing house </h2>
+        </div>
+        <div className="col-lg-4 d-flex justify-content-end align-items-end">
+            <Link to="/View-all-Series">
+              <button className="btn" >
+                  View All  
+              </button>
+            </Link>
+        </div>
+        
       </div>
 
       <div className="row mt-3 position-relative">
+        <div  className="row">
+
+        </div>
         {canScrollUp && (
           <button className="scroll-btn up" onClick={() => scrollCategories("up")}>
             <FaChevronUp />
@@ -86,11 +99,7 @@ const Section08 = ({ MarketingHouseSection = { marketing_house: [], all_button_p
           ))}
         </div>
         <div className="col-lg-4 justify-content-end d-lg-flex d-md-flex d-sm-none d-none mt-3">
-        <Link to="/View-all-Series">
-          <button className="explore-button">
-              View All  
-          </button>
-          </Link>
+        
         </div>
 
         {canScrollDown && (
