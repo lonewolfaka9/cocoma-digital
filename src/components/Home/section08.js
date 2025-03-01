@@ -94,7 +94,11 @@ const Section08 = ({ MarketingHouseSection = { marketing_house: [], all_button_p
               className={`services-category-item-home ${activeCategory?.id === category.id ? "active" : ""}`}
               onClick={() => setActiveCategory(category)}
             >
+              <img src= {category.marketing_house_icon} className="new-services-cat-images"/>
+              <p>
               {category.category_name}
+              </p>
+              
             </div>
           ))}
         </div>
