@@ -51,16 +51,26 @@ const Section09 = ({ CreativeHouseSection = { creative_house: [], all_button_pri
 
   return (
     <div className="container">
-      <div className="row mt-5">
-
-      <h3
+       <div className="row mt-5 ">
+              <div className="col-lg-8">
+              <h3
         className="text-uppercase text-muted mb-3"
         style={{ fontSize: "20px" }}
       >
         Latest work  from
       </h3>
       <h2 className="fw-bold text-uppercase">our creative house</h2>
-      </div>
+              </div>
+              <div className="col-lg-4 d-flex justify-content-end align-items-end">
+                  <Link to="/Creative-House">
+                    <button className="btn" >
+                        View All  
+                    </button>
+                  </Link>
+              </div>
+              
+            </div>
+    
 
       <div className="row mt-3 position-relative">
         {canScrollUp && (
@@ -94,14 +104,6 @@ const Section09 = ({ CreativeHouseSection = { creative_house: [], all_button_pri
           ))}
         </div>
 
-
-        <div className="col-lg-4 justify-content-end d-lg-flex d-md-flex d-sm-none d-none mt-3">
-                <Link to="/Creative-House">
-                  <button className="explore-button">
-                      View All  
-                  </button>
-                  </Link>
-                </div>
 
         {canScrollDown && (
           <button className="scroll-btn down d-lg-none d-md-none d-sm-none d-block" onClick={() => scrollCategories("down")}>
