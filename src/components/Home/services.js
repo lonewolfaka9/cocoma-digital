@@ -109,7 +109,7 @@ export default function ExploreOurServices({ ServidcesToShow }) {
               <Link to={`service/${service.id}`} style={{ width: "100%" }}>
                 <img src={service.service_image} alt={service.service_title} className="img-fluid w-100" />
                 <h3 className="mt-2" style={{ color: "black" }}>{service.service_title}</h3>
-                <button className="explore-button d-lg-block d-md-block d-sm-none d-none " >
+                <button className="explore-button d-lg-block d-md-block  " >
                   <Link to={`service/${service.id}`}>
                     {service.service_button_text} <GoArrowUpRight size={24} />
                   </Link>
