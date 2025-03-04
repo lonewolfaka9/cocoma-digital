@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import AdminService from "../../Service/apiService";
+import { MdOutlineArrowOutward } from "react-icons/md";
 
 const BusinessCareerSection = () => {
   const [hireUsData, setHireUsData] = useState([]);
@@ -35,6 +36,7 @@ const BusinessCareerSection = () => {
         {hireUsData.map((item) => (
           <div className="col-md-6" key={item.id}>
             <div className="business-career-box p-4 rounded">
+              <img src={item.user_choice_image} className="w-100 mb-5 d-lg-none d-md-none d-sm-none d-" />
               <h3 className="business-career-title">
                 {item.user_choice_title}
               </h3>
@@ -48,7 +50,10 @@ const BusinessCareerSection = () => {
                 rel="noopener noreferrer"
               >
                 {item.user_choice_button_text}{" "}
-                <span className="business-career-arrow">→</span>
+                <span className="business-career-arrow">
+                <MdOutlineArrowOutward size={20} />
+
+                </span>
               </a>
             </div>
           </div>

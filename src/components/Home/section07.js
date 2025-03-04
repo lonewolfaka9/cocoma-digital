@@ -22,7 +22,7 @@ const Section07 = ({ ClientData }) => {
 
       <div className="row">
         {clients.slice(0, visibleCount).map((client) => (
-          <div className="col-md-3 col-12 mb-4 d-flex" key={client.id}>
+          <div className="col-md-4 col-6 mb-4 d-flex" key={client.id}>
             <div className="client-card w-100">
               <Link to={`/client-sucess-stories/${client.id}`}>
                 <img src={client.client_img} className="card-img-top" alt={client.client_description} />

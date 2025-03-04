@@ -9,7 +9,7 @@ const Section05 = ({ VideoData }) => {
           <div className="col-12 col-md-10 col-lg-12">
             <div className="video-wrapper">
               <ReactPlayer
-                url="https://www.w3schools.com/html/mov_bbb.mp4"
+                url={VideoData.video.video_url}
                 playing={true}
                 controls={false}
                 loop={true}

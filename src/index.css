@@ -393,7 +393,7 @@ code {
 }
 @media (max-width: 990px) {
   .industries-serve {
-    width: 30%;
+    width: 37%;
     background-color: #f8f9fa;
     border-radius: 8px;
     padding: 20px 10px; 
@@ -923,12 +923,12 @@ button.btn:hover {
 }
 .client-card img{
   width: 100%;
-  height: 250px;
+  height: 100%;
 }
 .client-card-body{
   width: 100%;
   font-size: 20px;
-  padding: 1rem;
+  padding: 10px; 
 }
 .monthly-performance-right-btn{
   color: white;
@@ -977,6 +977,11 @@ button.btn:hover {
 }
 
 @media screen and (max-width: 600px) {
+
+  .client-card-body .card-text{
+
+    font-size: 10px;
+  }
 
   .services-related-box-card{
     width: 100%;
@@ -1202,7 +1207,7 @@ button.btn:hover {
   .services-category-scroll {
     display: flex;
     flex-direction: column;
-    height: 550px;
+    height: 500px;
     overflow-y: auto;
     border-radius: 10px;
     font-size: 12px;
@@ -1284,7 +1289,7 @@ button.btn:hover {
   .services-container-new-home {
     overflow: hidden;
     overflow-y: auto;
-    height: 750px;
+    height: 500px;
     display: flex;
     flex-wrap: wrap;
     gap: 20px;  
@@ -1316,6 +1321,10 @@ button.btn:hover {
 
 
 @media screen and (max-width: 600px) {
+  .img-fluid-mobile{
+    width: 100%;
+    height: 200px !important;
+  }
 
   .services-related-box-card{
     width: 100%;

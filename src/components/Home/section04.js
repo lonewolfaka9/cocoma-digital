@@ -37,7 +37,7 @@ const Section04 = ({ ServidcesToShow }) => {
                 </Link>
                 <h3>{service.service_title}</h3>
                 <Link to={`service/${service.id}`}>
-                  <button className="explore-button d-lg-block d-md-block d-sm-none d-none">
+                  <button className="explore-button d-lg-block d-md-block ">
                     {service.service_button_text} <GoArrowUpRight size={20} />
                   </button>
                 </Link>

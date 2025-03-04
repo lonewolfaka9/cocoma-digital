@@ -83,19 +83,19 @@ export default function ExploreOurServices({ ServidcesToShow }) {
           onMouseLeave={handleMouseUp}
           onMouseUp={handleMouseUp}
         >
-          {services.map((category) => (
-            <div
-              key={category.id}
-              className={`services-category-item-home mx-lg-5 ${activeCategory?.id === category.id ? "active" : ""}`}
-              onClick={() => setActiveCategory(category)}
-            >
-             
-              <img src= {category.service_icon} className="new-services-cat-images"/>
-              <p>
-                {category.service_category_name}
-              </p>
-            </div>
-          ))}
+         {services
+  .filter(category => category.service_category_name !== "Service Platform")
+  .map((category) => (
+    <div
+      key={category.id}
+      className={`services-category-item-home mx-lg-5 ${activeCategory?.id === category.id ? "active" : ""}`}
+      onClick={() => setActiveCategory(category)}
+    >
+      <img src={category.service_icon} className="new-services-cat-images" />
+      <p>{category.service_category_name}</p>
+    </div>
+  ))}
+
         </div>
         {/* Down Arrow (For Mobile) */}
         {/* <button className="scroll-btn down  d-md-none d-block" onClick={() => scrollCategories("up")}>

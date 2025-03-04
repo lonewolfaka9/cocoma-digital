@@ -115,7 +115,7 @@ const Section08 = ({ MarketingHouseSection = { marketing_house: [], all_button_p
         <div className="col-lg-12 col-md-12 col-sm-12 col-9 mt-lg-5 marketinghouse-container-new-home">
           <div className="row w-100">
             {filteredItems.slice(0, 8).map((item) => (
-              <div key={item.id} className="col-lg-3 col-md-4 col-sm-6 col-12 col-xs-12 mb-3">
+              <div key={item.id} className="col-lg-3 col-md-4 col-sm-6 col-6 col-xs-12 mb-3">
                 <div className="position-relative">
                   <img
                     src={
@@ -124,7 +124,7 @@ const Section08 = ({ MarketingHouseSection = { marketing_house: [], all_button_p
                         : `https://cocomadigitalmediabucket.s3.eu-north-1.amazonaws.com/creative-house-thumbnail/${item.poster_image}`
                     }
                     alt={item.marketing_house_video_title}
-                    className="img-fluid"
+                    className="img-fluid-mobile"
                   />
                 </div>
               </div>
@@ -134,7 +134,7 @@ const Section08 = ({ MarketingHouseSection = { marketing_house: [], all_button_p
         </div>
       </div>
       <div className="row">
-        <div className="col-12 d-lg-none d-md-none d-sm-none  text-center">
+        <div className="col-12 d-lg-none d-md-none d-sm-none mt-4 text-center">
           <Link to="/View-all-Series">
           <button className="explore-button">
               View All  

@@ -12,6 +12,7 @@ import Section11 from "../components/Home/section11";
 import Section12 from "../components/Home/section12";
 import { RiFunctionAddLine } from "react-icons/ri";
 import ExploreOurServices from "../components/Home/services";
+import BusinessCareerSection from "../components/Home/section14";
 
 export default function Home({
   HomePage,
@@ -41,6 +42,7 @@ export default function Home({
             <Section09 CreativeHouseSection={CreativeHouseData} />
             <Section11 MonthlyPerformanaceData={MonthlyPerformanaceData} />
             <Section12 bannerData={HomePage} />
+            <BusinessCareerSection/>
          
     </>
   );

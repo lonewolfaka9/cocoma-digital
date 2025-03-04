@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { RxCountdownTimer } from "react-icons/rx";
 import { IoMdArrowBack, IoMdArrowForward } from "react-icons/io";
 
-const Section11 = ({ MonthlyPerformanaceData }) => {
+const   Section11 = ({ MonthlyPerformanaceData }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedCategory, setSelectedCategory] = useState(
     MonthlyPerformanaceData.length > 0
@@ -72,8 +71,8 @@ const Section11 = ({ MonthlyPerformanaceData }) => {
         {filteredData.length > 0 ? (
           <div>
             <div className={`row`}>
-              <div className="col-md-8 p-5">
-                <h2 className="fw-bold mt-5">
+              <div className="col-md-8 ">
+                <h2 className="fw-bold ">
                   {filteredData[currentIndex]?.mps_title}
                 </h2>
                 <p className="pt-3">
