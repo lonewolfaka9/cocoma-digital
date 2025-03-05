@@ -36,7 +36,7 @@ const BusinessCareerSection = () => {
         {hireUsData.map((item) => (
           <div className="col-md-6" key={item.id}>
             <div className="business-career-box p-4 rounded">
-              <img src={item.user_choice_image} className="w-100 mb-5 d-lg-none d-md-none d-sm-none d-" />
+              <img src={item.user_choice_image} className="w-100 mb-5 business-card-find-images " />
               <h3 className="business-career-title">
                 {item.user_choice_title}
               </h3>

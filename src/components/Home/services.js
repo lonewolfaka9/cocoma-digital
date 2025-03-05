@@ -103,13 +103,13 @@ export default function ExploreOurServices({ ServidcesToShow }) {
         </button> */}
 
         {/* Services List */}
-        <div className="col-lg-12  col-md-12 col-sm-12 col-9 mt-lg-5 services-container-new-home">
+        <div className="col-lg-12  col-md-12 col-sm-12 col-9 mt-lg-5  services-container-new-home">
           {activeCategory?.service_items?.map((service, index) => (
-            <div key={index} className="service-card-new-home text-center">
+            <div key={index} className="service-card-new-home text-center ">
               <Link to={`service/${service.id}`} style={{ width: "100%" }}>
                 <img src={service.service_image} alt={service.service_title} className="img-fluid w-100" />
                 <h3 className="mt-2" style={{ color: "black" }}>{service.service_title}</h3>
-                <button className="explore-button d-lg-block d-md-block  " >
+                <button className="explore-button   " >
                   <Link to={`service/${service.id}`}>
                     {service.service_button_text} <GoArrowUpRight size={24} />
                   </Link>
