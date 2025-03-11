@@ -131,14 +131,14 @@ const Section03 = ({ categoryDataTitle, items }) => {
                  {item.group_service_item_title}
                  </p>
                 </Link>
-                 <button
-                      className={` new-single-service-card-button  ${
-                        isItemInCart(item.id) ? "btn-success" : "btn-dark"
-                      }`}
-                      onClick={() => handleToggleCart(item)}
-                    >
-                       {isItemInCart(item.id) ? "-" : "+"}
-                    </button>
+                  <button
+                        className={` new-single-service-card-button  ${
+                          isItemInCart(item.id) ? "btn-success" : "btn-dark"
+                        }`}
+                        onClick={() => handleToggleCart(item)}
+                      >
+                        {isItemInCart(item.id) ? "-" : "+"}
+                      </button>
                  
                </div> 
            </div>  

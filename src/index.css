@@ -1474,3 +1474,10 @@ button.btn:hover {
   }
 }
 
+.view-all-button-new{
+  border: none ;
+  background: none;
+}
+.view-all-button-new:hover{
+  text-decoration: underline;
+}

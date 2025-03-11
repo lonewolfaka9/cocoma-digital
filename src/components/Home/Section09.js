@@ -3,7 +3,7 @@ import { FaChevronUp, FaChevronDown, FaPlay } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
 import ReactPlayer from "react-player";
-
+import { GoArrowUpRight } from "react-icons/go";
 const Section09 = ({ CreativeHouseSection = { creative_house: [], all_button_priority_creative_house: {} } }) => {
   const categories = CreativeHouseSection?.creative_house || [];
   const [activeCategory, setActiveCategory] = useState(null); // null means "Show All"
@@ -63,8 +63,8 @@ const Section09 = ({ CreativeHouseSection = { creative_house: [], all_button_pri
               </div>
               <div className="col-lg-4 d-flex justify-content-end align-items-end">
                   <Link to="/Creative-House">
-                    <button className="btn" >
-                        View All  
+                    <button className="view-all-button-new" >
+                        View All   <GoArrowUpRight size={20} />
                     </button>
                   </Link>
               </div>

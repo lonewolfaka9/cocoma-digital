@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
-import { FaChevronUp, FaChevronDown, FaPlay } from "react-icons/fa";
+import { FaChevronUp, FaChevronDown } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import Modal from "react-bootstrap/Modal";
-import ReactPlayer from "react-player";
+import { GoArrowUpRight } from "react-icons/go";
 
 const Section08 = ({ MarketingHouseSection = { marketing_house: [], all_button_priority_marketing_house: {} } }) => {
   const categories = MarketingHouseSection?.marketing_house || [];
@@ -10,8 +9,6 @@ const Section08 = ({ MarketingHouseSection = { marketing_house: [], all_button_p
   const [canScrollUp, setCanScrollUp] = useState(false);
   const [canScrollDown, setCanScrollDown] = useState(true);
   const categoryRef = useRef(null);
-  const [videoToPlay, setVideoToPlay] = useState(null);
-  const [showModal, setShowModal] = useState(false);
 
   console.log("MarketingHouseSection", MarketingHouseSection);
   useEffect(() => {
@@ -53,16 +50,16 @@ const Section08 = ({ MarketingHouseSection = { marketing_house: [], all_button_p
   return (
     <div className="container">
       <div className="row mt-5 ">
-        <div className="col-lg-8">
+        <div className="col-lg-8 col-md-8 col-sm-8">
           <h3 className="text-uppercase text-muted mb-3" style={{ fontSize: "20px" }}>
             Latest work  from
           </h3>
           <h2 className="fw-bold text-uppercase"> Our marketing house </h2>
         </div>
-        <div className="col-lg-4 d-flex justify-content-end align-items-end">
+        <div className="col-lg-4 col-sm-4 col-md-4 d-md-flex d-lg-flex d-none d-lg-block d-sm-block d-md-block justify-content-end align-items-end">
             <Link to="/View-all-Series">
-              <button className="btn" >
-                  View All  
+              <button className="view-all-button-new" >
+                  View All  <GoArrowUpRight size={20} />
               </button>
             </Link>
         </div>
@@ -94,7 +91,7 @@ const Section08 = ({ MarketingHouseSection = { marketing_house: [], all_button_p
               className={`services-category-item-home ${activeCategory?.id === category.id ? "active" : ""}`}
               onClick={() => setActiveCategory(category)}
             >
-              <img src= {category.marketing_house_icon} className="new-services-cat-images"/>
+              <img src= {category.marketing_house_icon} className="new-services-cat-images" alt="items-logo" />
               <p>
               {category.category_name}
               </p>
